@@ -1,0 +1,78 @@
+export type Note = {
+  slug: string;
+  title: string;
+  readingTime: string;
+  date: string;
+  paragraphs: string[];
+};
+
+export const notesHeading = "Things I keep explaining to clients.";
+
+export const notes: Note[] = [
+  {
+    slug: "its-all-design",
+    title: "It's all design",
+    readingTime: "3 min read",
+    date: "[Date]",
+    paragraphs: [
+      "Every client I've worked with has said some version of the same thing. Can we make the font bigger. Can we move this up. It just doesn't pop yet. Then a few changes later they say, now it looks good.",
+      "What they almost never say is why it looks good now, because they don't know, and honestly they shouldn't have to. The font wasn't too small. The hierarchy was wrong, so nothing told your eye where to go first. Moving the section up didn't fix it either. The page was answering questions in the wrong order. When it finally “pops”, it's usually because the contrast, spacing and rhythm started working together.",
+      "That's what design actually is. It isn't decoration on top of a business. It's every decision about what someone sees first, what they trust, and what they do next. Even an ugly page that converts has a design. Sometimes ugly is a deliberate choice, because it feels raw and honest in the right place. The difference is whether someone made that choice on purpose or it just happened.",
+      "Most funnels in this space just happened. That's the opportunity.",
+    ],
+  },
+  {
+    slug: "a-5000-offer-in-a-50-page",
+    title: "A $5,000 offer in a $50 page",
+    readingTime: "2 min read",
+    date: "[Date]",
+    paragraphs: [
+      "You can sell a $5,000 program with an ugly funnel. Lots of people do. But think about what your lead is actually doing before they book. They're deciding whether you're the real deal, and they're doing it in seconds, based on things they can't put into words.",
+      "A considered funnel doesn't feel like being sold to. It feels like being taken seriously. The application feels like an invitation, the pre-call page answers the doubt before the setter has to, and the whole thing stays in their memory long after the call. That feeling is worth a lot more than the cost of designing it, and it keeps working every single day without anyone touching it.",
+    ],
+  },
+  {
+    slug: "the-easiest-advantage-in-coaching",
+    title: "The easiest advantage in coaching",
+    readingTime: "2 min read",
+    date: "[Date]",
+    paragraphs: [
+      "Coaching programs compete on offers, on results, on testimonials and on ad spend. Those are all hard, expensive and slow to improve. Almost nobody competes on design, which means the bar is on the floor.",
+      "That's good news. You don't need a new offer to look like the leader in your space. You need every touchpoint to look like it belongs to the leader. Change the design and the system around it, and you instantly look like the program everyone else is copying.",
+    ],
+  },
+];
+
+export const getNote = (slug: string) => notes.find((n) => n.slug === slug);
+
+export const translatorLeadIn = "What clients say, and what actually changed. Tap a card to flip it.";
+
+export const translator = [
+  {
+    says: "“Make the font bigger.”",
+    changed: "The type scale. The headline needed more contrast against the body, not just more size.",
+  },
+  {
+    says: "“It doesn't pop.”",
+    changed: "Contrast and focus. Three things were competing for attention, so I took two away.",
+  },
+  {
+    says: "“Can we move this section up?”",
+    changed: "The order of the story. The page answered “how much” before it answered “why should I care”.",
+  },
+  {
+    says: "“It feels a bit cheap.”",
+    changed: "Spacing and alignment. Everything was almost aligned, and almost is what reads as cheap.",
+  },
+  {
+    says: "“Can we add more to this page?”",
+    changed: "Usually the opposite. Removing two sections made the remaining ones land harder.",
+  },
+  {
+    says: "“Now it looks good.”",
+    changed: "Twenty small decisions that you'll never see individually, which is exactly the point.",
+  },
+];
+
+export const translatorClosing =
+  "You don't need to know any of this. That's my job. You just need to notice the difference, and your leads will notice it before you do.";

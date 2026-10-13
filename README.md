@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sarib Khan, studio page
 
-## Getting Started
-
-First, run the development server:
+One quiet app-shell page for coaching founders. Spec and final copy live in
+`Sarib Khan — Studio Page Brief & Copy.md`.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/content/` holds all copy, typed (`home.ts`, `projects.ts`, `touchpoints.ts`,
+  `pricing.ts`, `notes.ts`, `about.ts`, `site.ts`). Edit copy here, not in components.
+  Anything in `[square brackets]` renders as a visible placeholder until replaced.
+- `src/app/(shell)/layout.tsx` is the shell: rails, grid rules, panel host, command menu.
+- `src/app/(shell)/@panel/(.)work/[slug]` intercepts case files into the side panel;
+  `/work/[slug]` is the same case file as a direct-link page.
+- `src/components/demos/` holds the calculator, application step and booking card.
+- `src/app/globals.css` holds the design tokens (monochrome, light) and Kumo token mapping.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Adding real assets
 
-## Learn More
+- Funnel Map screenshots: add `image: "/work/ima/landing.webp"` to a node in `projects.ts`.
+- Before and after: add `before: { before, after, caption }` to a project; the slider appears.
+- Desk collage photos: add `image` to an object in `about.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+## Forms
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Copy `.env.example` to `.env.local` and fill in the Resend values. Without them the
+panels hand the inquiry to WhatsApp, prefilled, so nothing is lost.

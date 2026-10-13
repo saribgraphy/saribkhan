@@ -1,26 +1,676 @@
 @import "tailwindcss";
+/* Cloudflare Kumo tokens + utilities, so Kumo components can be dropped in
+   later. Its semantic colours are remapped to the studio palette below. */
+@import "@cloudflare/kumo/styles";
 
+/*
+ * Studio design tokens.
+ * Monochrome, light first. Posture borrowed from wireframe.co: warm off-white
+ * paper, charcoal ink, hairlines and dashed grid rules instead of colour.
+ * Change values here, never in components.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #fdfdfc;
+  --paper-2: #f9f9f9;
+  --paper-3: #f6f6f4;
+  --ink: #212223;
+  --ink-2: #363636;
+  --body: #595959;
+  --muted: #737373;
+  --faint: #9d9e9e;
+  --line: #eaeae9;
+  --line-2: #73737333;
+  --grid: #4949491a;
+  --tint: #0000000d;
+  --tint-2: #00000014;
+
+  --shadow-card: 0 0.5px 0.5px #2122231a, 0 4px 8px -3px #2122230f, 0 0 0 0.5px #21222314;
+  --shadow-pop: 0 6px 16px -4px #3f40441f, 0 1px 2px #3f404414, 0 0 0 0.5px #3f404429;
+  --shadow-panel: 0 24px 48px -12px #2122232e, 0 0 0 0.5px #2122231f;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-panel: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --container: 1080px;
+  --column: 560px;
+  color-scheme: light;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-tint: var(--tint);
+  --color-tint-2: var(--tint-2);
+
+  /* Kumo semantic tokens, pointed at the studio palette. */
+  --color-kumo-base: var(--paper);
+  --color-kumo-canvas: var(--paper);
+  --color-kumo-elevated: var(--paper-2);
+  --color-kumo-recessed: var(--paper-3);
+  --color-kumo-line: var(--line);
+  --color-kumo-hairline: var(--line);
+  --color-kumo-tint: var(--tint);
+  --color-kumo-brand: var(--ink);
+  --color-kumo-brand-hover: var(--ink-2);
+  --color-kumo-focus: var(--ink);
+  --text-color-kumo-default: var(--ink-2);
+  --text-color-kumo-strong: var(--ink);
+  --text-color-kumo-subtle: var(--muted);
+  --text-color-kumo-brand: var(--ink);
+  --text-color-kumo-link: var(--ink);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-pop: var(--shadow-pop);
+  --shadow-panel: var(--shadow-panel);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--paper);
+    scrollbar-gutter: stable;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv11", "ss03";
+  }
+  ::selection {
+    background: #21222322;
+  }
+  :focus-visible {
+    outline: 1.5px solid var(--ink);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  button {
+    cursor: pointer;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------- Type ---------- */
+
+@utility t-display {
+  color: var(--ink);
+  font-size: 44px;
+  line-height: 46px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  @media (max-width: 768px) {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+@utility t-lead {
+  color: var(--body);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 425;
+  letter-spacing: -0.015em;
+}
+@utility t-body {
+  color: var(--body);
+  font-size: 15px;
+  line-height: 23px;
+  font-weight: 425;
+  letter-spacing: -0.015em;
+}
+@utility t-ui {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 450;
+  letter-spacing: -0.005em;
+}
+@utility t-label {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 425;
+  letter-spacing: -0.005em;
+}
+@utility t-mono {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 18px;
+  font-weight: 450;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Placeholders from the brief stay visible until filled. Layered so
+   utilities on a parent ([&_.ph]:...) can recolour them on dark surfaces. */
+@layer components {
+  .ph {
+    color: var(--muted);
+    background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 5px) 0 100% / 100% 1px
+      no-repeat;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}
+
+/* ---------- Grid rules (the quiet scaffolding) ---------- */
+
+.grid-rule {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-right: 1px dashed var(--grid);
+  pointer-events: none;
+  z-index: 0;
+}
+.edge-strip {
+  position: fixed;
+  top: -50px;
+  bottom: -50px;
+  width: 40px;
+  background: #49494912;
+  border-right: 1px dashed #49494966;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (max-width: 768px) {
+  .edge-strip {
+    width: 8px;
+  }
+}
+
+.bottom-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 96px;
+  pointer-events: none;
+  z-index: 10;
+  background: linear-gradient(#fdfdfc00, var(--paper));
+}
+
+/* ---------- Links ---------- */
+
+.u-link {
+  background-image: linear-gradient(currentColor, currentColor), linear-gradient(var(--tint), var(--tint));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px, 100% 1px;
+  transition: background-size 0.25s var(--ease-out);
+}
+.u-link:hover {
+  background-size: 100% 1px, 100% 1px;
+}
+.u-link-plain {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.25s var(--ease-out);
+}
+.u-link-plain:hover {
+  background-size: 100% 1px;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  user-select: none;
+  overflow: hidden;
+  transition: transform 0.1s ease;
+}
+.btn:active {
+  transform: translateY(0.5px) scale(0.99);
+}
+.btn-sm {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 7px;
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(#232326, #424347);
+  box-shadow: 0 1px 2px #4041451a, inset 0 -1px 0 #3f404414, inset 0 1px 0 #ffffff1f;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #ffffff1a;
+  opacity: 0;
+  pointer-events: none;
+}
+.btn-primary:hover::after {
+  opacity: 1;
+}
+.btn-primary > .btn-label {
+  position: relative;
+  z-index: 1;
+}
+.btn-primary:hover > .btn-label {
+  background: linear-gradient(90deg, #fff 0% 35%, #ffffff80 50%, #fff 65% 100%) 0 0 / 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: btn-shimmer 0.6s;
+}
+.btn-ghost {
+  color: var(--ink);
+  background: transparent;
+}
+.btn-ghost:hover {
+  background: var(--tint);
+}
+.btn-ghost:hover > .btn-label {
+  background: linear-gradient(90deg, var(--ink) 0% 35%, #21222366 50%, var(--ink) 65% 100%) 0 0 / 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: btn-shimmer 0.6s;
+}
+.btn-light {
+  color: var(--ink);
+  background: linear-gradient(#c3c6c9, #fff);
+}
+.btn-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #fff6;
+  opacity: 0;
+  pointer-events: none;
+}
+.btn-light:hover::after {
+  opacity: 1;
+}
+.btn-light > .btn-label {
+  position: relative;
+  z-index: 1;
+}
+.btn-outline {
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+.btn-outline:hover {
+  background: var(--paper-2);
+}
+@keyframes btn-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+/* ---------- Surfaces ---------- */
+
+.card {
+  background: var(--paper-2);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+}
+.card-inset {
+  background: #7777770f;
+  border: 0.5px solid #77777729;
+  border-radius: 4px;
+}
+.frame {
+  background: var(--paper-3);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  padding: 12px;
+}
+.logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+}
+
+/* Diagonal hatching used inside screenshot placeholders. */
+.hatch {
+  background-color: var(--paper-3);
+  background-image: repeating-linear-gradient(-45deg, #0000000a 0 1px, transparent 1px 8px);
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes fold-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+.fold-in {
+  animation: fold-in 0.5s var(--ease-out) both;
+}
+.blur-in {
+  animation: blur-in 0.5s ease-out both;
+}
+.view-enter {
+  animation: fold-in 0.45s var(--ease-out) both;
+}
+.view-enter > * {
+  animation: fold-in 0.5s var(--ease-out) both;
+}
+.view-enter > *:nth-child(2) {
+  animation-delay: 40ms;
+}
+.view-enter > *:nth-child(3) {
+  animation-delay: 80ms;
+}
+.view-enter > *:nth-child(4) {
+  animation-delay: 120ms;
+}
+.view-enter > *:nth-child(n + 5) {
+  animation-delay: 160ms;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+.status-dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ink);
+  animation: breathe 3.2s ease-in-out infinite;
+}
+
+/* Muted "your program" link: a slow sheen like wireframe's "Your project". */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #ffffffb3, transparent);
+  animation: sheen 4s ease-in-out infinite;
+}
+@keyframes sheen {
+  0% {
+    left: -60%;
+  }
+  20%,
+  100% {
+    left: 110%;
+  }
+}
+@keyframes caret-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+.caret-nudge {
+  animation: caret-nudge 1.2s ease-in-out infinite;
+}
+
+/* Testimonial reveal, a blurred diagonal wipe. */
+@keyframes wipe {
+  from {
+    filter: blur(8px);
+    mask-position: 100% 0;
+  }
+  to {
+    filter: none;
+    mask-position: 0 0;
+  }
+}
+.wipe {
+  mask-image: linear-gradient(104deg, #000 45%, transparent 55%);
+  mask-size: 250% 100%;
+  animation: wipe 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* ---------- Panels (Base UI Dialog) ---------- */
+
+.panel-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: #fdfdfc99;
+  backdrop-filter: blur(3px);
+  transition: opacity 0.35s ease;
+}
+.panel-backdrop[data-starting-style],
+.panel-backdrop[data-ending-style] {
+  opacity: 0;
+}
+.panel {
+  position: fixed;
+  z-index: 90;
+  top: 8px;
+  right: 8px;
+  bottom: 8px;
+  width: min(520px, calc(100vw - 16px));
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border-radius: 14px;
+  box-shadow: var(--shadow-panel);
+  outline: none;
+  transition: transform 0.5s var(--ease-panel), opacity 0.3s ease;
+}
+.panel[data-starting-style],
+.panel[data-ending-style] {
+  transform: translateX(calc(100% + 16px));
+}
+@media (max-width: 640px) {
+  .panel {
+    inset: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  .panel[data-starting-style],
+  .panel[data-ending-style] {
+    transform: translateY(100%);
+  }
+}
+
+.sheet {
+  position: fixed;
+  z-index: 90;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  max-height: calc(100dvh - 72px);
+  overflow: auto;
+  background: var(--paper);
+  border-radius: 16px;
+  box-shadow: var(--shadow-panel);
+  outline: none;
+  transition: transform 0.45s var(--ease-panel);
+}
+.sheet[data-starting-style],
+.sheet[data-ending-style] {
+  transform: translateY(calc(100% + 16px));
+}
+
+.cmdk {
+  position: fixed;
+  z-index: 95;
+  top: 18vh;
+  left: 50%;
+  width: min(560px, calc(100vw - 32px));
+  translate: -50% 0;
+  background: linear-gradient(#fbfbfb, #f6f6f6);
+  border-radius: 12px;
+  box-shadow: var(--shadow-panel);
+  outline: none;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease-out), opacity 0.2s ease, filter 0.2s ease;
+}
+.cmdk[data-starting-style],
+.cmdk[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.97) translateY(6px);
+  filter: blur(4px);
+}
+.cmdk [cmdk-item][data-selected="true"] {
+  background: var(--tint);
+  color: var(--ink);
+}
+
+/* Translator flip cards. */
+.flip {
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s var(--ease-out);
+}
+.flip[data-flipped="true"] .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Accordion panels (Base UI). Content keeps its size while collapsing. */
+.acc-panel {
+  height: var(--accordion-panel-height);
+  overflow: hidden;
+  transition: height 0.3s var(--ease-out);
+}
+.acc-panel[data-starting-style],
+.acc-panel[data-ending-style] {
+  height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .flip-inner {
+    transition: none;
+  }
+}
+
+/* ---------- Shell ---------- */
+
+.nav-link {
+  color: var(--body);
+}
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--ink);
+}
+.nav-link.is-active {
+  font-weight: 500;
+}
+.sidebar:has(.nav-link:hover) .nav-link:not(:hover) {
+  color: #929292;
+}
+.navfade {
+  animation: blur-in 0.5s ease-out 50ms both;
+}
+
+@keyframes copied-in {
+  from {
+    opacity: 0;
+    transform: translate(-4px, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+@keyframes copied-out {
+  to {
+    opacity: 0;
+    transform: translate(-4px, -50%);
+  }
+}
+.copied {
+  transform: translate(0, -50%);
+  animation:
+    copied-in 0.3s var(--ease-out) both,
+    copied-out 0.25s ease-in 1.4s forwards;
 }

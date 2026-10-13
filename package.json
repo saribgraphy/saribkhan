@@ -1,5 +1,5 @@
 {
-  "name": "studio",
+  "name": "sarib-studio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@base-ui/react": "^1.9.0",
+    "@cloudflare/kumo": "^2.14.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "cmdk": "^1.1.1",
+    "motion": "^14.1.0",
     "next": "16.4.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
