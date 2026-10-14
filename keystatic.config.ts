@@ -30,8 +30,15 @@ const stringList = (label: string, itemLabel: string) =>
 const dataPath = (name: string) => `src/content/data/${name}`;
 const format = { data: "json" } as const;
 
+/**
+ * Local mode on your machine (edits write straight to the files), GitHub mode
+ * on the live site (edits commit to the repo and Vercel redeploys).
+ * Set NEXT_PUBLIC_KEYSTATIC_MODE=github locally only to create the GitHub App.
+ */
+const useGithub = process.env.NODE_ENV === "production" || process.env.NEXT_PUBLIC_KEYSTATIC_MODE === "github";
+
 export default config({
-  storage: { kind: "local" },
+  storage: useGithub ? { kind: "github", repo: "saribgraphy/saribkhan" } : { kind: "local" },
   ui: {
     brand: { name: "Sarib Khan studio" },
     navigation: {
