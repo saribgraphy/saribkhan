@@ -1,29 +1,26 @@
+import data from "./data/site.json";
+import type { SiteData } from "./types";
+
+// Edited in the CMS (/keystatic → Site settings).
+const d = data as unknown as SiteData;
+
 export const site = {
-  name: "Sarib Khan",
-  tagline: "Designer for coaching brands",
+  name: d.name,
+  tagline: d.tagline,
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  description:
-    "Sarib Khan designs and builds the funnels, communities and internal tools of serious coaching brands.",
-  email: "contact.saribkhan@gmail.com",
-  whatsapp: {
-    display: "+92 314 750 3578",
-    number: "923147503578",
-  },
-  // Kept deliberately open-ended: no dates, no slot counts.
-  status: "Reviewing new applications",
+  description: d.description,
+  email: d.email,
+  whatsapp: { display: d.whatsappDisplay, number: (d.whatsappNumber ?? "").replace(/\D/g, "") },
+  status: d.status,
   timezone: "Asia/Karachi",
-  city: "Karachi",
+  city: d.city,
+  footerLine: d.footerLine,
 };
 
 export const whatsappLink = (text?: string) =>
   `https://wa.me/${site.whatsapp.number}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
 
-export const socials = [
-  { label: "Instagram", handle: "@sarib.ux", href: "https://www.instagram.com/sarib.ux" },
-  { label: "LinkedIn", handle: "saribkhanux", href: "https://www.linkedin.com/in/saribkhanux" },
-  { label: "Dribbble", handle: "saribgraphy", href: "https://dribbble.com/saribgraphy" },
-  { label: "Framer", handle: "@saribkhan", href: "https://www.framer.com/@saribkhan" },
-] as const;
+export const socials = d.socials.filter((s) => s.href) as { label: string; handle: string; href: string }[];
 
 export type NavItem = {
   href: string;
@@ -31,6 +28,7 @@ export type NavItem = {
   keywords?: string[];
 };
 
+// Structure, not copy, so it stays in code.
 export const nav: NavItem[] = [
   { href: "/", label: "Home", keywords: ["start", "intro"] },
   { href: "/work", label: "Work", keywords: ["funnel", "projects", "case", "ima", "portfolio"] },

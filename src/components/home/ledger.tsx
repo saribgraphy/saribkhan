@@ -1,12 +1,12 @@
-import { FramerLogo } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 import { currently } from "@/content/home";
 import { Copy } from "@/components/ui/copy";
 
-function Logo({ mark }: { mark: string }) {
-  if (mark === "framer") return <FramerLogo size={22} weight="fill" className="text-ink" />;
+function Logo({ row }: { row: (typeof currently)[number] }) {
+  if (row.logo) return <Image src={row.logo} alt="" width={24} height={24} className="size-6 object-contain" />;
   return (
     <span className="text-[12px] leading-none font-semibold tracking-[-0.01em] text-ink">
-      {mark}
+      {row.logoText || row.name.slice(0, 1)}
     </span>
   );
 }
@@ -19,11 +19,13 @@ export function Ledger() {
         <li key={row.name} className="flex items-end justify-between gap-4">
           <div className="flex min-w-0 items-center gap-5">
             <span className="logo-box" aria-hidden>
-              <Logo mark={row.logo} />
+              <Logo row={row} />
             </span>
             <div className="flex min-w-0 flex-col">
               <span className="text-[15px] leading-6 font-medium tracking-[-0.015em] text-ink">{row.name}</span>
-              <span className="t-ui font-normal text-muted">{row.role}</span>
+              <span className="t-ui font-normal text-muted">
+                <Copy>{row.role}</Copy>
+              </span>
             </div>
           </div>
           <span className="t-ui shrink-0 font-normal whitespace-nowrap text-muted tabular-nums">

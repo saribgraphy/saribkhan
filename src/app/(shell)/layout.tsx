@@ -1,3 +1,4 @@
+import "../globals.css";
 import { Suspense } from "react";
 import { CommandMenu } from "@/components/shell/command-menu";
 import { MobileNav } from "@/components/shell/mobile-nav";

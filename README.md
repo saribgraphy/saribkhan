@@ -8,22 +8,28 @@ npm install
 npm run dev
 ```
 
+## Editing content (CMS)
+
+Run `npm run dev`, then open:
+
+- **http://localhost:3000/keystatic** to edit every page: copy, lists (add, remove,
+  drag to reorder) and images. Saving writes to `src/content/data/*.json` and
+  uploads to `public/images/`, and the page updates within a few seconds.
+- **http://localhost:3000/placeholders** for a checklist of everything still in
+  `[brackets]` or missing an image, grouped by page, with links into the CMS.
+
+Both only exist in development. When you're happy, commit and push; Vercel deploys.
+
 ## Where things live
 
-- `src/content/` holds all copy, typed (`home.ts`, `projects.ts`, `touchpoints.ts`,
-  `pricing.ts`, `notes.ts`, `about.ts`, `site.ts`). Edit copy here, not in components.
-  Anything in `[square brackets]` renders as a visible placeholder until replaced.
+- `keystatic.config.ts` is the CMS schema (fields, labels, hints).
+- `src/content/data/*.json` holds the content the CMS edits.
+- `src/content/*.ts` reads that JSON with types and fills defaults for empty fields.
 - `src/app/(shell)/layout.tsx` is the shell: rails, grid rules, panel host, command menu.
 - `src/app/(shell)/@panel/(.)work/[slug]` intercepts case files into the side panel;
   `/work/[slug]` is the same case file as a direct-link page.
 - `src/components/demos/` holds the calculator, application step and booking card.
 - `src/app/globals.css` holds the design tokens (monochrome, light) and Kumo token mapping.
-
-## Adding real assets
-
-- Funnel Map screenshots: add `image: "/work/ima/landing.webp"` to a node in `projects.ts`.
-- Before and after: add `before: { before, after, caption }` to a project; the slider appears.
-- Desk collage photos: add `image` to an object in `about.ts`.
 
 ## Forms
 

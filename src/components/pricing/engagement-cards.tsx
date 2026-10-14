@@ -12,10 +12,10 @@ export function EngagementCards() {
   return (
     <div className="-mx-2 grid gap-4 max-md:mx-0">
       {engagements.map((e) => {
-        const dark = e.id === "partner";
+        const dark = e.style === "dark";
         return (
           <article
-            key={e.id}
+            key={e.name}
             className={cn(
               "grid gap-6 rounded-[10px] p-1.5 pb-6",
               dark ? "bg-[#1b1c1d] text-white shadow-[0_0.5px_3.25px_#21222333,0_6px_8px_#21222333]" : "card",

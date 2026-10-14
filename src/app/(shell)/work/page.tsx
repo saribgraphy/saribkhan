@@ -1,7 +1,8 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { projects, workFooterNote, workIntro } from "@/content/projects";
+import { projects, workFooterNote, workHeading, workIntro } from "@/content/projects";
 import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Divider, Title } from "@/components/ui/view";
 
@@ -11,7 +12,7 @@ export default function WorkPage() {
   return (
     <>
       <Breadcrumb trail={[{ label: "Work" }]} />
-      <Title>Funnels, opened up.</Title>
+      <Title>{workHeading}</Title>
       <p className="t-lead">{workIntro}</p>
 
       <Divider />
@@ -25,8 +26,14 @@ export default function WorkPage() {
               className="group flex items-center gap-4 rounded-[10px] px-3 py-3 hover:bg-tint"
             >
               <span className="hatch relative h-12 w-16 shrink-0 overflow-hidden rounded-md ring-[0.5px] ring-black/10" aria-hidden>
-                <span className="absolute inset-x-2 top-2 h-1 rounded-full bg-black/10" />
-                <span className="absolute inset-x-2 top-4 h-1 w-6 rounded-full bg-black/10" />
+                {p.cover ? (
+                  <Image src={p.cover} alt="" fill sizes="64px" className="object-cover object-top" />
+                ) : (
+                  <>
+                    <span className="absolute inset-x-2 top-2 h-1 rounded-full bg-black/10" />
+                    <span className="absolute inset-x-2 top-4 h-1 w-6 rounded-full bg-black/10" />
+                  </>
+                )}
               </span>
               <span className="grid min-w-0 flex-1 gap-0.5">
                 <span className="text-[15px] leading-6 font-medium tracking-[-0.015em] text-ink">{p.name}</span>

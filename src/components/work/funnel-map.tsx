@@ -7,7 +7,7 @@ import { Copy } from "@/components/ui/copy";
 import { cn } from "@/lib/utils";
 
 /** A horizontal chain of the funnel's screens. Click a node to swap the screenshot and note. */
-export function FunnelMap({ nodes, project }: { nodes: FunnelNode[]; project: string }) {
+export function FunnelMap({ nodes, project }: { nodes: readonly FunnelNode[]; project: string }) {
   const [active, setActive] = useState(0);
   const node = nodes[active];
 

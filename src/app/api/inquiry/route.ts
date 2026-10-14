@@ -1,3 +1,4 @@
+import { Resend } from "resend";
 import { z } from "zod";
 import { site } from "@/content/site";
 
@@ -7,22 +8,22 @@ const schema = z.discriminatedUnion("kind", [
     program: z.string().trim().min(2).max(500),
     focus: z.array(z.string().max(60)).max(8),
     contact: z.string().trim().min(3).max(200),
-    company: z.string().max(0).optional(), // honeypot
   }),
   z.object({
     kind: z.literal("teardown"),
     link: z.string().trim().min(4).max(500),
     contact: z.string().trim().min(3).max(200),
-    company: z.string().max(0).optional(),
   }),
 ]);
 
 const escape = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
+const isEmail = (s: string) => z.email().safeParse(s).success;
+
 /**
- * Receives the two forms. Sends through Resend when RESEND_API_KEY and
- * INQUIRY_FROM are set; until then it answers 503 and the panel falls back
+ * Receives the two forms and emails them through Resend. Without
+ * RESEND_API_KEY and INQUIRY_FROM it answers 503, and the panel falls back
  * to a prefilled WhatsApp message, so no inquiry is ever lost.
  */
 export async function POST(request: Request) {
@@ -45,20 +46,25 @@ export async function POST(request: Request) {
           ["Funnel link", data.link],
           ["Reply to", data.contact],
         ];
-  const subject = data.kind === "start" ? "New project application" : "Funnel teardown request";
+  const subject =
+    data.kind === "start"
+      ? `New project application: ${data.program.slice(0, 60)}`
+      : `Funnel teardown request: ${data.link.slice(0, 60)}`;
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from,
-      to: process.env.INQUIRY_TO ?? site.email,
-      subject,
-      text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
-      html: rows.map(([k, v]) => `<p><strong>${k}</strong><br>${escape(v)}</p>`).join(""),
-    }),
+  const { error } = await new Resend(key).emails.send({
+    from,
+    to: process.env.INQUIRY_TO ?? site.email,
+    replyTo: isEmail(data.contact) ? data.contact : undefined,
+    subject,
+    text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
+    html: `<div style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;color:#212223">${rows
+      .map(([k, v]) => `<p style="margin:0 0 12px"><span style="color:#737373">${k}</span><br>${escape(v)}</p>`)
+      .join("")}</div>`,
   });
 
-  if (!res.ok) return Response.json({ ok: false, fallback: true }, { status: 502 });
+  if (error) {
+    console.error("Resend error", error);
+    return Response.json({ ok: false, fallback: true }, { status: 502 });
+  }
   return Response.json({ ok: true });
 }

@@ -1,0 +1,78 @@
+{
+  "heading": "Built for programs that are already working.",
+  "intro": "I don't work with people who are still figuring out their offer. I work with programs that already sell and want to look like the leader in their space. Scope, timeline and price are agreed before anything starts, so there are no surprises halfway through.",
+  "engagements": [
+    {
+      "name": "The Funnel Rebuild",
+      "label": "Fixed project",
+      "line": "Your whole lead journey, redesigned and rebuilt.",
+      "includes": [
+        "Landing page and training or VSL page",
+        "Branded application form",
+        "Booking, confirmation and pre-call pages",
+        "Copy for every page, written with you",
+        "Built in Framer or Webflow, handed over so your team can edit it"
+      ],
+      "delivery": "[3 to 4] weeks, with a fixed delivery date",
+      "priceLabel": "Starting at",
+      "price": "[$X,XXX]",
+      "priceUnit": "",
+      "cta": "Start a project",
+      "style": "light"
+    },
+    {
+      "name": "Design Partner",
+      "label": "Ongoing",
+      "line": "A designer inside your team, without hiring one.",
+      "includes": [
+        "Unlimited design requests, one at a time",
+        "Funnel, website, community and product design",
+        "Custom tools like dashboards, calculators and coach pages",
+        "Motion and interaction throughout",
+        "Usually [2 to 3] day turnaround per request",
+        "I join your Slack or WhatsApp group and work like part of the team"
+      ],
+      "delivery": "",
+      "priceLabel": "",
+      "price": "[$X,XXX]",
+      "priceUnit": "per month, pause or cancel anytime",
+      "cta": "Book a call",
+      "style": "dark"
+    }
+  ],
+  "smallLine": "Brand identity and logos start at [$X,XXX]. Custom coded tools are scoped separately.",
+  "theMath": "If your program costs $5,000, one extra enrolment a month pays for most of this. Better design doesn't need to double your sales to be worth it. It needs to close one more person who was on the fence.",
+  "teardownTitle": "Not ready to commit? Get a free funnel teardown.",
+  "teardownBody": "Send me the link to your funnel and I'll record a short video walking through it as if I were one of your leads. I'll show you exactly where it looks cheaper than your offer and what I'd change first. It takes you thirty seconds to ask, it costs nothing, and you keep the video either way.",
+  "teardownCta": "Get my teardown",
+  "faq": [
+    {
+      "q": "How does a project actually run?",
+      "a": "Once we agree on scope and price, it's 50% upfront and 50% when it's done. I set up a shared Slack or WhatsApp channel so we can talk directly. You'll see real progress within the first few days, and from there we review, refine and keep going until it feels right."
+    },
+    {
+      "q": "Do you write the copy as well?",
+      "a": "Yes. I've spent a lot of time around funnels, setters and sales calls, so I write copy that sounds like you and actually moves people forward. If you already have copy you love, I'll design around it."
+    },
+    {
+      "q": "Framer, Webflow or custom code?",
+      "a": "Framer for most funnels and websites, because it's fast and your team can edit it without me. Webflow if you're already on it. Custom code with Next.js when you need a real tool, like a dashboard, a booking system or a calculator."
+    },
+    {
+      "q": "Can my team edit things after you're done?",
+      "a": "That's the plan. Everything is set up with clean components and a simple CMS where it makes sense, so changing a headline doesn't need a designer."
+    },
+    {
+      "q": "Do you only work with coaching programs?",
+      "a": "Mostly. Coaching and education businesses are where I've done my best work, because I understand how applications, setters and calls fit together. If your business sells through a similar journey, we'll probably get along."
+    },
+    {
+      "q": "You're in Karachi. How does that work with time zones?",
+      "a": "I overlap with UK, Europe and Gulf working hours every day, and I'm reachable on WhatsApp most of the time. A lot of my clients like waking up to progress."
+    },
+    {
+      "q": "What if I already have a designer?",
+      "a": "Then I can work alongside them on the parts that need more attention, like the funnel, the forms or a custom tool. Good designers usually like having another good designer around."
+    }
+  ]
+}

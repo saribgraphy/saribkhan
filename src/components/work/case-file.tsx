@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 import type { Project } from "@/content/projects";
 import { Copy } from "@/components/ui/copy";
 import { BeforeAfter } from "./before-after";
@@ -16,8 +17,8 @@ function Block({ label, children }: { label: string; children: React.ReactNode }
 /** Every project uses this structure, in the panel and on the direct-link page. */
 export function CaseFile({ project, headingLevel = "h2" }: { project: Project; headingLevel?: "h1" | "h2" }) {
   const H = headingLevel;
-  const m = project.meta;
-  const meta = [m.clientType, m.year, m.builtWith];
+  const meta = [project.clientType, project.year, project.builtWith].filter(Boolean);
+  const built = project.built.filter(Boolean);
 
   return (
     <article className="grid gap-10">
@@ -35,12 +36,12 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
               <Copy>{item}</Copy>
             </span>
           ))}
-          {m.live ? (
+          {project.liveHref ? (
             <span className="inline-flex items-center gap-2">
               <span className="text-faint">·</span>
-              <a href={m.live.href} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-0.5 text-ink">
+              <a href={project.liveHref} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-0.5 text-ink">
                 <span className="u-link">
-                  <Copy>{m.live.label}</Copy>
+                  <Copy>{project.liveLabel || new URL(project.liveHref).host}</Copy>
                 </span>
                 <ArrowUpRight size={11} className="text-faint group-hover:text-ink" />
               </a>
@@ -57,51 +58,57 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
         </Block>
       ) : null}
 
-      {project.built || project.builtText ? (
+      {built.length || project.builtText ? (
         <Block label="What I built">
-          {project.built ? (
+          {built.length ? (
             <ul className="grid gap-2">
-              {project.built.map((b) => (
+              {built.map((b) => (
                 <li key={b} className="t-body flex gap-3">
                   <span className="mt-[10px] size-1 shrink-0 rounded-full bg-faint" aria-hidden />
-                  <span>{b}</span>
+                  <span>
+                    <Copy>{b}</Copy>
+                  </span>
                 </li>
               ))}
             </ul>
           ) : (
             <p className="t-body first-letter:uppercase">
-              <Copy>{project.builtText!}</Copy>
+              <Copy>{project.builtText}</Copy>
             </p>
           )}
         </Block>
       ) : null}
 
-      {project.funnel?.length ? (
-        <Block label="Funnel map">
+      <Block label="Funnel map">
+        {project.funnel.length ? (
           <FunnelMap nodes={project.funnel} project={project.name} />
-        </Block>
-      ) : (
-        <Block label="Funnel map">
+        ) : (
           <p className="t-ui font-normal text-muted">
             <Copy>[Funnel steps and screenshots to be added.]</Copy>
           </p>
-        </Block>
-      )}
+        )}
+      </Block>
 
-      {project.before ? (
+      {project.beforeImage && project.afterImage ? (
         <Block label="Before and after">
-          <BeforeAfter {...project.before} />
+          <BeforeAfter before={project.beforeImage} after={project.afterImage} caption={project.beforeCaption} />
         </Block>
       ) : null}
 
-      {project.detail ? (
+      {project.detail || project.detailImage ? (
         <Block label="One detail worth noticing">
           <div className="frame">
-            <div className="hatch aspect-[16/9] rounded-[6px] ring-[0.5px] ring-black/10" />
+            <div className="hatch relative aspect-[16/9] overflow-hidden rounded-[6px] ring-[0.5px] ring-black/10">
+              {project.detailImage ? (
+                <Image src={project.detailImage} alt={project.detail.replace(/\[|\]/g, "")} fill sizes="(max-width: 640px) 100vw, 520px" className="object-cover" />
+              ) : null}
+            </div>
           </div>
-          <p className="t-ui font-normal text-body">
-            <Copy>{project.detail}</Copy>
-          </p>
+          {project.detail ? (
+            <p className="t-ui font-normal text-body">
+              <Copy>{project.detail}</Copy>
+            </p>
+          ) : null}
         </Block>
       ) : null}
 

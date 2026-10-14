@@ -1,0 +1,33 @@
+{
+  "name": "Sarib Khan",
+  "tagline": "Designer for coaching brands",
+  "description": "Sarib Khan designs and builds the funnels, communities and internal tools of serious coaching brands.",
+  "status": "Reviewing new applications",
+  "email": "contact.saribkhan@gmail.com",
+  "whatsappDisplay": "+92 314 750 3578",
+  "whatsappNumber": "923147503578",
+  "city": "Karachi",
+  "socials": [
+    {
+      "label": "Instagram",
+      "handle": "@sarib.ux",
+      "href": "https://www.instagram.com/sarib.ux"
+    },
+    {
+      "label": "LinkedIn",
+      "handle": "saribkhanux",
+      "href": "https://www.linkedin.com/in/saribkhanux"
+    },
+    {
+      "label": "Dribbble",
+      "handle": "saribgraphy",
+      "href": "https://dribbble.com/saribgraphy"
+    },
+    {
+      "label": "Framer",
+      "handle": "@saribkhan",
+      "href": "https://www.framer.com/@saribkhan"
+    }
+  ],
+  "footerLine": "Designed and built by me in Karachi. No templates were harmed in the making of this page."
+}

@@ -1,0 +1,115 @@
+{
+  "heading": "An independent designer, based in Karachi.",
+  "body": [
+    "I'm Sarib. I design things for the internet and I run a small studio called Xtarc, while building my own tools on the side.",
+    "I started out [the real origin, e.g. editing thumbnails, making posters for friends, redesigning apps I didn't like, in roughly what year]. Somewhere along the way I realised I cared less about making things pretty and more about why some things just work. Why one page makes you trust a business and another makes you close the tab, even when they say the same thing.",
+    "That curiosity pulled me into funnels, copy and sales, which is a strange place for a designer to end up. But it's also why I'm useful. I understand what your setter is trying to do on a call, why your application asks what it asks, and what a lead is feeling when they land on your page at midnight. I just happen to also care a lot about the spacing.",
+    "Most of my days are spent in Figma, Framer and lately a lot of code. When I'm not doing client work, I'm usually building small apps for myself, running a meme page that has no business being as popular as it is, or practising talking to a camera."
+  ],
+  "collage": [
+    {
+      "label": "[Desk setup photo]",
+      "caption": "Where the work happens.",
+      "shape": "photo",
+      "x": 34,
+      "y": 4,
+      "w": 210,
+      "h": 170,
+      "rotate": -2,
+      "image": null
+    },
+    {
+      "label": "[Figma file, hundreds of frames]",
+      "caption": "This is what one funnel looks like before you see it.",
+      "shape": "square",
+      "x": 2,
+      "y": 46,
+      "w": 190,
+      "h": 140,
+      "rotate": 4,
+      "image": null
+    },
+    {
+      "label": "[Cup of chai]",
+      "caption": "Fuel.",
+      "shape": "round",
+      "x": 76,
+      "y": 2,
+      "w": 104,
+      "h": 104,
+      "rotate": 0,
+      "image": null
+    },
+    {
+      "label": "Karachi",
+      "caption": "Home.",
+      "shape": "sticker",
+      "x": 64,
+      "y": 46,
+      "w": 108,
+      "h": 46,
+      "rotate": -8,
+      "image": null
+    },
+    {
+      "label": "[Calclater meme]",
+      "caption": "Side quest.",
+      "shape": "square",
+      "x": 64,
+      "y": 62,
+      "w": 150,
+      "h": 150,
+      "rotate": 6,
+      "image": null
+    },
+    {
+      "label": "[An early design]",
+      "caption": "[Year]. We all start somewhere.",
+      "shape": "photo",
+      "x": 30,
+      "y": 60,
+      "w": 170,
+      "h": 130,
+      "rotate": -5,
+      "image": null
+    },
+    {
+      "label": "@saribkhan on Framer",
+      "caption": "@saribkhan on Framer.",
+      "shape": "badge",
+      "x": 6,
+      "y": 8,
+      "w": 130,
+      "h": 52,
+      "rotate": -6,
+      "image": null
+    }
+  ],
+  "elsewhere": [
+    {
+      "label": "Instagram",
+      "handle": "@sarib.ux",
+      "href": "https://www.instagram.com/sarib.ux"
+    },
+    {
+      "label": "LinkedIn",
+      "handle": "saribkhanux",
+      "href": "https://www.linkedin.com/in/saribkhanux"
+    },
+    {
+      "label": "Dribbble",
+      "handle": "saribgraphy",
+      "href": "https://dribbble.com/saribgraphy"
+    },
+    {
+      "label": "Framer",
+      "handle": "@saribkhan",
+      "href": "https://www.framer.com/@saribkhan"
+    },
+    {
+      "label": "YouTube",
+      "handle": "[handle]",
+      "href": null
+    }
+  ]
+}

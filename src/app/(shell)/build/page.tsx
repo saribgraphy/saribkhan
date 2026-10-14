@@ -5,7 +5,7 @@ import { Calculator } from "@/components/demos/calculator";
 import { Capabilities } from "@/components/build/capabilities";
 import { XRay } from "@/components/build/xray";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
-import { xrayLeadIn, xrayOutro } from "@/content/touchpoints";
+import { bookingCaption, buildHeading, buildIntro, tryLeadIn, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
 
 export const metadata: Metadata = { title: "What I build" };
 
@@ -13,12 +13,8 @@ export default function BuildPage() {
   return (
     <>
       <Breadcrumb trail={[{ label: "What I build" }]} />
-      <Title>Everything your lead touches, designed on purpose.</Title>
-      <p className="t-lead">
-        Your offer might be worth five figures, but your lead never sees the offer first. They see an ad, a page, a
-        form, a booking screen and a message from a setter, and they decide what you&apos;re worth long before the
-        call. I design all of it, so every single step tells them the same thing.
-      </p>
+      <Title>{buildHeading}</Title>
+      <p className="t-lead">{buildIntro}</p>
 
       <Divider />
 
@@ -40,10 +36,7 @@ export default function BuildPage() {
 
       <Section id="try">
         <SectionLabel>Try it</SectionLabel>
-        <p className="t-body mb-8">
-          Screenshots only go so far, so here are a few small things you can actually use. These are the kinds of tools
-          I build inside companies.
-        </p>
+        <p className="t-body mb-8">{tryLeadIn}</p>
         <div className="grid gap-10">
           <Demo n="01" title={"The “one deal” calculator"}>
             <Calculator />
@@ -52,7 +45,7 @@ export default function BuildPage() {
             <Demo n="02" title="An application step">
               <ApplicationStep />
             </Demo>
-            <Demo n="03" title="A coach booking card" caption="From the coaches platform I built for IMA Accelerator.">
+            <Demo n="03" title="A coach booking card" caption={bookingCaption}>
               <BookingCard />
             </Demo>
           </div>

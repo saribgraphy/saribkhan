@@ -1,0 +1,54 @@
+{
+  "heading": "Built after hours.",
+  "intro": "Small things I make when it's not client work. Some are useful, some are just for fun, all of them taught me something I now use on real projects.",
+  "projects": [
+    {
+      "name": "Tasbeeh",
+      "icon": "hand",
+      "iconImage": null,
+      "href": null,
+      "shot": null,
+      "body": "A simple prayer counter that works offline, supports Arabic, remembers your count and gives you a little haptic tap with every click."
+    },
+    {
+      "name": "HeroForge",
+      "icon": "layout",
+      "iconImage": null,
+      "href": null,
+      "shot": null,
+      "body": "A browser tool for building hero sections by dragging things around, editing text in place and tweaking everything from a properties panel."
+    },
+    {
+      "name": "Rep counter",
+      "icon": "timer",
+      "iconImage": null,
+      "href": null,
+      "shot": null,
+      "body": "Upload a workout video and it counts your push-ups right in the browser, then exports a clip with the count on screen. Nothing gets uploaded anywhere."
+    },
+    {
+      "name": "Eid card maker",
+      "icon": "cards",
+      "iconImage": null,
+      "href": null,
+      "shot": null,
+      "body": "Type a name and get a personalised Eid Mubarak video, generated right in your browser. It took five versions to get the browser to cooperate."
+    },
+    {
+      "name": "Calclater",
+      "icon": "asterisk",
+      "iconImage": null,
+      "href": null,
+      "shot": null,
+      "body": "A meme page about design, marketing and the internet. It started as a joke and kept going."
+    },
+    {
+      "name": "[Add or remove]",
+      "icon": "plus",
+      "iconImage": null,
+      "href": null,
+      "shot": null,
+      "body": "[Only list things that are live or can be shown.]"
+    }
+  ]
+}

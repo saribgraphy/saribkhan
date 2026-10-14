@@ -6,7 +6,7 @@ import { Faq } from "@/components/pricing/faq";
 import { Copy } from "@/components/ui/copy";
 import { PanelButton } from "@/components/ui/panel-button";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
-import { pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
+import { pricingHeading, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 
 export const metadata: Metadata = { title: "Working together" };
 
@@ -14,7 +14,7 @@ export default function WorkingTogetherPage() {
   return (
     <>
       <Breadcrumb trail={[{ label: "Working together" }]} />
-      <Title>Built for programs that are already working.</Title>
+      <Title>{pricingHeading}</Title>
       <p className="t-lead">{pricingIntro}</p>
 
       <div className="mt-10">
