@@ -13,11 +13,11 @@
         "Coded"
       ],
       "clientType": "Coaching program",
-      "year": "[2025 to now]",
+      "year": "2024 - Now",
       "builtWith": "Framer, Figma, Next.js, Supabase",
       "liveLabel": "imaccelerator.com",
       "liveHref": "https://www.imaccelerator.com/",
-      "situation": "IMA Accelerator teaches people to build influencer marketing agencies, and it is run under Tijarah by Eyoub El Habib. The results and the community were already real. The job was to make every place a lead or a student touches feel like the same serious brand, and to keep building whatever the team needed next.",
+      "situation": "IMA Accelerator teaches people to build influencer marketing agencies, and it is run by Eyoub El Habib. The results and the community were already real. The job was to make every place a lead or a student touches feel like the same serious brand, and to keep building whatever the team needed next.",
       "built": [
         "The ads landing page and booking funnel",
         "The selection results page leads see after applying",
@@ -30,19 +30,23 @@
       "funnel": [
         {
           "label": "Ad landing page",
-          "note": "One idea per screen and a single action. The page is built to be read on a phone in a car park, because that's where most people see it."
+          "note": "One idea per screen and a single action. The page is built to be read on a phone in a car park, because that's where most people see it.",
+          "image": "/images/work/projects/0/funnel/0/image.png"
         },
         {
           "label": "Application",
-          "note": "Fewer questions, better questions. The form qualifies without feeling like an interrogation."
+          "note": "Fewer questions, better questions. The form qualifies without feeling like an interrogation.",
+          "image": "/images/work/projects/0/funnel/1/image.png"
         },
         {
           "label": "Selection result",
-          "note": "Being “selected” should feel like something. This page turns a form submission into a small moment."
+          "note": "Being “selected” should feel like something. This page turns a form submission into a small moment.",
+          "image": "/images/work/projects/0/funnel/2/image.png"
         },
         {
           "label": "Confirm your call",
-          "note": "Shown right after booking with one job only, which is getting the lead to confirm."
+          "note": "Shown right after booking with one job only, which is getting the lead to confirm.",
+          "image": "/images/work/projects/0/funnel/3/image.png"
         },
         {
           "label": "Pre-call prep page",
@@ -54,7 +58,8 @@
         },
         {
           "label": "Coaches platform",
-          "note": "Inside the community, every coach gets their own page with booking built in, which quietly turns members into coaching upsells."
+          "note": "Inside the community, every coach gets their own page with booking built in, which quietly turns members into coaching upsells.",
+          "image": "/images/work/projects/0/funnel/6/image.png"
         },
         {
           "label": "Playbooks",
