@@ -2,12 +2,12 @@ import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects } from "@/content/projects";
+import { getProject, openProjects } from "@/content/projects";
 import { CaseFile } from "@/components/work/case-file";
 import { Breadcrumb } from "@/components/ui/view";
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return openProjects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/work/[slug]">): Promise<Metadata> {

@@ -1,4 +1,5 @@
 import { config, fields, singleton } from "@keystatic/core";
+import { labelDefaults, type LabelGroup } from "./src/content/labels";
 
 /*
  * The CMS. Every section is a singleton stored as JSON in src/content/data,
@@ -26,6 +27,18 @@ const stringList = (label: string, itemLabel: string) =>
     label,
     itemLabel: (p) => p.value || itemLabel,
   });
+
+/** "Section labels" group: one text field per label, prefilled with the default. */
+const labels = (group: LabelGroup, names: Record<string, string>) =>
+  fields.object(
+    Object.fromEntries(
+      Object.entries(labelDefaults[group]).map(([key, def]) => [
+        key,
+        fields.text({ label: names[key] ?? key, defaultValue: def, description: `Default: ${def}` }),
+      ]),
+    ),
+    { label: "Section labels", description: "The small headings on this page. Leave blank to use the default." },
+  );
 
 const dataPath = (name: string) => `src/content/data/${name}`;
 const format = { data: "json" } as const;
@@ -113,6 +126,7 @@ export default config({
           fields.object({ title: text("Title"), body: text("Line"), href: text("Links to", { description: "e.g. /work or /build#xray" }) }),
           { label: "Start here cards", itemLabel: (p) => p.fields.title.value || "Card" },
         ),
+        labels: labels("home", { currently: "Above the ledger", systems: "Above the client list", startHere: "Above the link cards" }),
       },
     }),
 
@@ -128,6 +142,10 @@ export default config({
           fields.object({
             slug: text("URL slug", { description: "Lowercase with dashes, e.g. ima-accelerator. Used in /work/<slug>." }),
             name: text("Name"),
+            nda: fields.checkbox({
+              label: "Under NDA",
+              description: "Stays in the list with a locked, blurred cover and an NDA label, but the case file can't be opened, even by direct link.",
+            }),
             oneLine: text("One line", { multiline: true }),
             tags: fields.array(text("Tag"), { label: "Tags", itemLabel: (p) => p.value || "Tag" }),
             cover: img("Cover thumbnail", "work", "Shown small in the Work list."),
@@ -150,15 +168,42 @@ export default config({
               }),
               { label: "Funnel map", itemLabel: (p) => p.fields.label.value || "Step" },
             ),
-            detail: text("One detail worth noticing (caption)", { multiline: true }),
+            detailLabel: text("Detail heading (optional)", {
+              description: "Overrides “One detail worth noticing” for this project only.",
+            }),
+            detail: text("Detail caption", { multiline: true }),
             detailImage: img("Detail close-up", "work"),
             clientWords: text("Client words", { multiline: true, description: "Only if real." }),
             beforeImage: img("Before (optional)", "work", "Add both before and after to show the slider."),
             afterImage: img("After (optional)", "work"),
             beforeCaption: text("Before and after caption"),
           }),
-          { label: "Case files", itemLabel: (p) => p.fields.name.value || "Project" },
+          {
+            label: "Case files",
+            itemLabel: (p) => `${p.fields.name.value || "Project"}${p.fields.nda.value ? " (NDA)" : ""}`,
+          },
         ),
+        gallery: fields.array(
+          fields.object({
+            image: img("Image", "work", "Any height works; it's shown at the column's width."),
+            label: text("Label", { description: "A short caption under the image." }),
+          }),
+          {
+            label: "Gallery under the note",
+            description: "Images people scroll through below the note. Add as many as you like, drag to reorder.",
+            itemLabel: (p) => p.fields.label.value || "Image",
+          },
+        ),
+        labels: labels("work", {
+          situation: "Case file: the situation",
+          built: "Case file: what I built",
+          funnel: "Case file: funnel map",
+          beforeAfter: "Case file: before and after",
+          detail: "Case file: detail heading",
+          clientWords: "Case file: client words",
+          nda: "NDA badge in the list",
+          gallery: "Above the gallery",
+        }),
       },
     }),
 
@@ -202,6 +247,14 @@ export default config({
         ),
         tryLeadIn: text("Try it, lead-in", { multiline: true }),
         bookingCaption: text("Booking card caption"),
+        labels: labels("build", {
+          xray: "Above the X-ray",
+          make: "Above the capability tiles",
+          tryIt: "Above the demos",
+          calculator: "Demo 1 title",
+          application: "Demo 2 title",
+          booking: "Demo 3 title",
+        }),
       },
     }),
 
@@ -243,6 +296,7 @@ export default config({
           fields.object({ q: text("Question"), a: text("Answer", { multiline: true }) }),
           { label: "FAQ", itemLabel: (p) => p.fields.q.value || "Question" },
         ),
+        labels: labels("pricing", { math: "Above the calculator", faq: "Above the FAQ" }),
       },
     }),
 
@@ -285,6 +339,7 @@ export default config({
           fields.object({ label: text("Network"), handle: text("Handle"), href: fields.url({ label: "Link (optional)" }) }),
           { label: "Elsewhere", itemLabel: (p) => p.fields.label.value || "Link" },
         ),
+        labels: labels("about", { elsewhere: "Above the social links" }),
       },
     }),
 
@@ -342,6 +397,7 @@ export default config({
           { label: "Translator cards", itemLabel: (p) => p.fields.says.value || "Card" },
         ),
         translatorClosing: text("Closing line", { multiline: true }),
+        labels: labels("notes", { translator: "Above the Translator" }),
       },
     }),
   },

@@ -1,4 +1,4 @@
-import { footerLine } from "@/content/home";
+import { footerLine, homeLabels } from "@/content/home";
 import { Hero } from "@/components/home/hero";
 import { Ledger } from "@/components/home/ledger";
 import { StartHere } from "@/components/home/start-here";
@@ -15,14 +15,14 @@ export default function HomePage() {
       <Divider className="mt-10 mb-10" />
 
       <Section>
-        <SectionLabel>Currently</SectionLabel>
+        <SectionLabel>{homeLabels.currently}</SectionLabel>
         <Ledger />
       </Section>
 
       <Divider />
 
       <Section>
-        <SectionLabel>Systems I&apos;ve designed for</SectionLabel>
+        <SectionLabel>{homeLabels.systems}</SectionLabel>
         <Systems />
       </Section>
 
@@ -31,7 +31,7 @@ export default function HomePage() {
       </div>
 
       <Section className="mt-16">
-        <SectionLabel>Start here</SectionLabel>
+        <SectionLabel>{homeLabels.startHere}</SectionLabel>
         <StartHere />
       </Section>
 

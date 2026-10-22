@@ -1,5 +1,6 @@
 import data from "./data/home.json";
 import { site } from "./site";
+import { withLabels } from "./labels";
 import type { HomeData } from "./types";
 
 // Edited in the CMS (/keystatic → Home).
@@ -18,3 +19,5 @@ export const testimonials = d.testimonials;
 export const startHere = d.startHere;
 
 export const footerLine = site.footerLine;
+
+export const homeLabels = withLabels("home", d.labels);

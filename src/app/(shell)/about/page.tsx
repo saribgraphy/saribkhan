@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Collage } from "@/components/about/collage";
 import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
-import { aboutBody, aboutHeading, elsewhere } from "@/content/about";
+import { aboutBody, aboutHeading, aboutLabels, elsewhere } from "@/content/about";
 
 export const metadata: Metadata = { title: "About" };
 
@@ -26,7 +26,7 @@ export default function AboutPage() {
       <Divider className="my-16" />
 
       <Section>
-        <SectionLabel>Elsewhere</SectionLabel>
+        <SectionLabel>{aboutLabels.elsewhere}</SectionLabel>
         <ul className="grid gap-3 sm:grid-cols-2">
           {elsewhere.map((s) => (
             <li key={s.label} className="flex items-center justify-between gap-4 border-b border-line pb-3">

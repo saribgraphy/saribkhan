@@ -6,7 +6,7 @@ import { Faq } from "@/components/pricing/faq";
 import { Copy } from "@/components/ui/copy";
 import { PanelButton } from "@/components/ui/panel-button";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
-import { pricingHeading, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
+import { pricingHeading, pricingLabels, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 
 export const metadata: Metadata = { title: "Working together" };
 
@@ -27,7 +27,7 @@ export default function WorkingTogetherPage() {
       <Divider className="my-16" />
 
       <Section id="math">
-        <SectionLabel>The math</SectionLabel>
+        <SectionLabel>{pricingLabels.math}</SectionLabel>
         <p className="t-body mb-6">{theMath}</p>
         <Calculator compact />
       </Section>
@@ -50,7 +50,7 @@ export default function WorkingTogetherPage() {
       <Divider className="my-16" />
 
       <Section id="faq">
-        <SectionLabel>FAQ</SectionLabel>
+        <SectionLabel>{pricingLabels.faq}</SectionLabel>
         <Faq />
       </Section>
     </>

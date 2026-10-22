@@ -5,7 +5,7 @@ import { Calculator } from "@/components/demos/calculator";
 import { Capabilities } from "@/components/build/capabilities";
 import { XRay } from "@/components/build/xray";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
-import { bookingCaption, buildHeading, buildIntro, tryLeadIn, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
+import { bookingCaption, buildHeading, buildLabels, buildIntro, tryLeadIn, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
 
 export const metadata: Metadata = { title: "What I build" };
 
@@ -19,7 +19,7 @@ export default function BuildPage() {
       <Divider />
 
       <Section id="xray">
-        <SectionLabel>The Funnel X-ray</SectionLabel>
+        <SectionLabel>{buildLabels.xray}</SectionLabel>
         <p className="t-body mb-6">{xrayLeadIn}</p>
         <XRay />
         <p className="t-body mt-6">{xrayOutro}</p>
@@ -28,24 +28,24 @@ export default function BuildPage() {
       <Divider className="my-16" />
 
       <Section>
-        <SectionLabel>Things I make</SectionLabel>
+        <SectionLabel>{buildLabels.make}</SectionLabel>
         <Capabilities />
       </Section>
 
       <Divider className="my-16" />
 
       <Section id="try">
-        <SectionLabel>Try it</SectionLabel>
+        <SectionLabel>{buildLabels.tryIt}</SectionLabel>
         <p className="t-body mb-8">{tryLeadIn}</p>
         <div className="grid gap-10">
-          <Demo n="01" title={"The “one deal” calculator"}>
+          <Demo n="01" title={buildLabels.calculator}>
             <Calculator />
           </Demo>
           <div className="grid gap-10 sm:grid-cols-2 sm:gap-4">
-            <Demo n="02" title="An application step">
+            <Demo n="02" title={buildLabels.application}>
               <ApplicationStep />
             </Demo>
-            <Demo n="03" title="A coach booking card" caption={bookingCaption}>
+            <Demo n="03" title={buildLabels.booking} caption={bookingCaption}>
               <BookingCard />
             </Demo>
           </div>

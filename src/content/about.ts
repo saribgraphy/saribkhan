@@ -1,5 +1,6 @@
 import aboutData from "./data/about.json";
 import afterHoursData from "./data/after-hours.json";
+import { withLabels } from "./labels";
 import type { AboutData, AfterHoursData } from "./types";
 
 // Edited in the CMS (/keystatic → About, Built after hours).
@@ -18,6 +19,7 @@ export const collage = a.collage.map((c, i) => ({
   rotate: c.rotate ?? 0,
 }));
 export const elsewhere = a.elsewhere;
+export const aboutLabels = withLabels("about", a.labels);
 
 export const afterHoursHeading = h.heading;
 export const afterHoursIntro = h.intro;

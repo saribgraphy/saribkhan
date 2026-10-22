@@ -74,6 +74,7 @@
     {
       "slug": "muslimpreneur",
       "name": "Muslimpreneur funnel",
+      "nda": true,
       "oneLine": "A faith-forward sales funnel with a landing page, a Typeform application and a confirmation page, in dark and light themes.",
       "tags": [
         "Framer",

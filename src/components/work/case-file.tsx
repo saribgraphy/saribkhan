@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import type { Project } from "@/content/projects";
+import { workLabels, type Project } from "@/content/projects";
 import { Copy } from "@/components/ui/copy";
 import { BeforeAfter } from "./before-after";
 import { FunnelMap } from "./funnel-map";
@@ -51,7 +51,7 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
       </header>
 
       {project.situation ? (
-        <Block label="The situation">
+        <Block label={workLabels.situation}>
           <p className="t-body">
             <Copy>{project.situation}</Copy>
           </p>
@@ -59,7 +59,7 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
       ) : null}
 
       {built.length || project.builtText ? (
-        <Block label="What I built">
+        <Block label={workLabels.built}>
           {built.length ? (
             <ul className="grid gap-2">
               {built.map((b) => (
@@ -79,7 +79,7 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
         </Block>
       ) : null}
 
-      <Block label="Funnel map">
+      <Block label={workLabels.funnel}>
         {project.funnel.length ? (
           <FunnelMap nodes={project.funnel} project={project.name} />
         ) : (
@@ -90,13 +90,13 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
       </Block>
 
       {project.beforeImage && project.afterImage ? (
-        <Block label="Before and after">
+        <Block label={workLabels.beforeAfter}>
           <BeforeAfter before={project.beforeImage} after={project.afterImage} caption={project.beforeCaption} />
         </Block>
       ) : null}
 
       {project.detail || project.detailImage ? (
-        <Block label="One detail worth noticing">
+        <Block label={project.detailLabel || workLabels.detail}>
           <div className="frame">
             <div className="hatch relative aspect-[16/9] overflow-hidden rounded-[6px] ring-[0.5px] ring-black/10">
               {project.detailImage ? (
@@ -113,7 +113,7 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
       ) : null}
 
       {project.clientWords ? (
-        <Block label="Client words">
+        <Block label={workLabels.clientWords}>
           <blockquote className="font-serif text-[22px] leading-[28px] text-ink">
             <Copy>{project.clientWords}</Copy>
           </blockquote>

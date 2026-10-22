@@ -15,7 +15,7 @@ import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { notes } from "@/content/notes";
-import { projects } from "@/content/projects";
+import { openProjects } from "@/content/projects";
 import { nav, site, whatsappLink } from "@/content/site";
 import { usePanels } from "./panel-context";
 
@@ -120,7 +120,7 @@ export function CommandMenu() {
     },
     {
       heading: "Work",
-      items: projects.map((p) => ({
+      items: openProjects.map((p) => ({
         id: `p-${p.slug}`,
         label: p.name,
         hint: "Case file",

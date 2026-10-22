@@ -1,4 +1,5 @@
 import data from "./data/notes.json";
+import { withLabels } from "./labels";
 import type { NotesData } from "./types";
 
 // Edited in the CMS (/keystatic → Notes).
@@ -24,3 +25,4 @@ export const getNote = (slug: string) => notes.find((n) => n.slug === slug);
 export const translatorLeadIn = d.translatorLeadIn;
 export const translator = d.translator;
 export const translatorClosing = d.translatorClosing;
+export const notesLabels = withLabels("notes", d.labels);

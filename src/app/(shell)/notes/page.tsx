@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Translator } from "@/components/notes/translator";
 import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
-import { notes, notesHeading, translatorClosing, translatorLeadIn } from "@/content/notes";
+import { notes, notesHeading, notesLabels, translatorClosing, translatorLeadIn } from "@/content/notes";
 
 export const metadata: Metadata = { title: "Notes" };
 
@@ -32,7 +32,7 @@ export default function NotesPage() {
       <Divider className="my-16" />
 
       <Section id="translator">
-        <SectionLabel>The Translator</SectionLabel>
+        <SectionLabel>{notesLabels.translator}</SectionLabel>
         <p className="t-body">{translatorLeadIn}</p>
         <div className="mt-2">
           <Translator />
