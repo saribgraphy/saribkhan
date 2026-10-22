@@ -54,7 +54,8 @@
         },
         {
           "label": "Homepage",
-          "note": "For people who Google the brand before they pay. It answers “is this legit” without them having to ask."
+          "note": "For people who Google the brand before they pay. It answers “is this legit” without them having to ask.",
+          "image": "/images/work/projects/0/funnel/5/image.png"
         },
         {
           "label": "Coaches platform",
@@ -66,7 +67,8 @@
           "note": "Paid products that look like books you'd want on a shelf, not exported slides."
         }
       ],
-      "detail": "[Pick one close-up, e.g. the confirmation state on the selection page or the coach booking card. Caption it in one sentence.]",
+      "detail": "Creating funnels does not simply mean hiding a collection of randomly built pages behind a cool looking 'landing page.' It encompasses the entire ecosystem under a single, consistent brand.",
+      "detailImage": "/images/work/projects/0/detailImage.png",
       "clientWords": "[Real quote from Eyoub, Aman (COO) or Saleh Babuker.]"
     },
     {
