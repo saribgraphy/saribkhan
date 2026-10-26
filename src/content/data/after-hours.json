@@ -3,51 +3,34 @@
   "intro": "Small things I make when it's not client work. Some are useful, some are just for fun, all of them taught me something I now use on real projects.",
   "projects": [
     {
-      "name": "Tasbeeh",
+      "name": "Funnel Hack",
       "icon": "hand",
-      "iconImage": null,
-      "href": null,
-      "shot": null,
-      "body": "A simple prayer counter that works offline, supports Arabic, remembers your count and gives you a little haptic tap with every click."
+      "iconImage": "/images/after-hours/projects/0/iconImage.svg",
+      "href": "https://funnel-hack.vercel.app/",
+      "shot": "/images/after-hours/projects/0/shot.png",
+      "body": "The funnel-page swipe library. Browse real funnel pages by kind. Pick a funnel type above to narrow the field, then drill into a specific page."
     },
     {
-      "name": "HeroForge",
+      "name": "Karvaan Glamps",
       "icon": "layout",
-      "iconImage": null,
-      "href": null,
-      "shot": null,
-      "body": "A browser tool for building hero sections by dragging things around, editing text in place and tweaking everything from a properties panel."
+      "iconImage": "/images/after-hours/projects/1/iconImage.png",
+      "href": "https://karvaanresorts.com/",
+      "shot": "/images/after-hours/projects/1/shot.jpg",
+      "body": "I once visited one of the most stunning areas in Kumrat. The hotel we had booked had no online presence whatsoever, after that, this is what the it turned out to be."
     },
     {
       "name": "Rep counter",
       "icon": "timer",
-      "iconImage": null,
-      "href": null,
-      "shot": null,
       "body": "Upload a workout video and it counts your push-ups right in the browser, then exports a clip with the count on screen. Nothing gets uploaded anywhere."
     },
     {
       "name": "Eid card maker",
       "icon": "cards",
-      "iconImage": null,
-      "href": null,
-      "shot": null,
       "body": "Type a name and get a personalised Eid Mubarak video, generated right in your browser. It took five versions to get the browser to cooperate."
-    },
-    {
-      "name": "Calclater",
-      "icon": "asterisk",
-      "iconImage": null,
-      "href": null,
-      "shot": null,
-      "body": "A meme page about design, marketing and the internet. It started as a joke and kept going."
     },
     {
       "name": "[Add or remove]",
       "icon": "plus",
-      "iconImage": null,
-      "href": null,
-      "shot": null,
       "body": "[Only list things that are live or can be shown.]"
     }
   ]
