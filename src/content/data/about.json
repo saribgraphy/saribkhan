@@ -15,8 +15,7 @@
       "y": 4,
       "w": 210,
       "h": 170,
-      "rotate": -2,
-      "image": null
+      "rotate": -2
     },
     {
       "label": "[Figma file, hundreds of frames]",
@@ -26,8 +25,7 @@
       "y": 46,
       "w": 190,
       "h": 140,
-      "rotate": 4,
-      "image": null
+      "rotate": 4
     },
     {
       "label": "[Cup of chai]",
@@ -37,8 +35,7 @@
       "y": 2,
       "w": 104,
       "h": 104,
-      "rotate": 0,
-      "image": null
+      "rotate": 0
     },
     {
       "label": "Karachi",
@@ -48,19 +45,7 @@
       "y": 46,
       "w": 108,
       "h": 46,
-      "rotate": -8,
-      "image": null
-    },
-    {
-      "label": "[Calclater meme]",
-      "caption": "Side quest.",
-      "shape": "square",
-      "x": 64,
-      "y": 62,
-      "w": 150,
-      "h": 150,
-      "rotate": 6,
-      "image": null
+      "rotate": -8
     },
     {
       "label": "[An early design]",
@@ -70,8 +55,7 @@
       "y": 60,
       "w": 170,
       "h": 130,
-      "rotate": -5,
-      "image": null
+      "rotate": -5
     },
     {
       "label": "@saribkhan on Framer",
@@ -81,8 +65,7 @@
       "y": 8,
       "w": 130,
       "h": 52,
-      "rotate": -6,
-      "image": null
+      "rotate": -6
     }
   ],
   "elsewhere": [
@@ -108,8 +91,8 @@
     },
     {
       "label": "YouTube",
-      "handle": "[handle]",
-      "href": null
+      "handle": "[handle]"
     }
-  ]
+  ],
+  "labels": {}
 }
