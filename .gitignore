@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 !.env.example
+
+# Source images for the Work gallery (converted copies live in public/images/work/gallery)
+/gallery images/

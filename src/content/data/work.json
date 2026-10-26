@@ -165,6 +165,67 @@
       "funnel": []
     }
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "image": "/images/work/gallery/01.webp"
+    },
+    {
+      "image": "/images/work/gallery/02.webp"
+    },
+    {
+      "image": "/images/work/gallery/03.webp"
+    },
+    {
+      "image": "/images/work/gallery/04.webp"
+    },
+    {
+      "image": "/images/work/gallery/05.webp"
+    },
+    {
+      "image": "/images/work/gallery/06.webp"
+    },
+    {
+      "image": "/images/work/gallery/07.webp"
+    },
+    {
+      "image": "/images/work/gallery/08.webp"
+    },
+    {
+      "image": "/images/work/gallery/09.webp"
+    },
+    {
+      "image": "/images/work/gallery/10.webp"
+    },
+    {
+      "image": "/images/work/gallery/11.webp"
+    },
+    {
+      "image": "/images/work/gallery/12.webp"
+    },
+    {
+      "image": "/images/work/gallery/13.webp"
+    },
+    {
+      "image": "/images/work/gallery/14.webp"
+    },
+    {
+      "image": "/images/work/gallery/15.webp"
+    },
+    {
+      "image": "/images/work/gallery/16.webp"
+    },
+    {
+      "image": "/images/work/gallery/17.webp"
+    },
+    {
+      "image": "/images/work/gallery/18.webp"
+    },
+    {
+      "image": "/images/work/gallery/19.webp"
+    },
+    {
+      "image": "/images/work/gallery/20.webp"
+    }
+  ],
   "labels": {}
 }
