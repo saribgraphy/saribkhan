@@ -8,8 +8,9 @@
   ],
   "collage": [
     {
-      "label": "[Desk setup photo]",
-      "caption": "Where the work happens.",
+      "label": "Cat",
+      "caption": "Not mine :( ",
+      "image": "/images/about/collage/0/image.png",
       "shape": "photo",
       "x": 34,
       "y": 4,
@@ -18,8 +19,9 @@
       "rotate": -2
     },
     {
-      "label": "[Figma file, hundreds of frames]",
+      "label": "Random Figma file, lol",
       "caption": "This is what one funnel looks like before you see it.",
+      "image": "/images/about/collage/1/image.png",
       "shape": "square",
       "x": 2,
       "y": 46,
@@ -48,8 +50,9 @@
       "rotate": -8
     },
     {
-      "label": "[An early design]",
-      "caption": "[Year]. We all start somewhere.",
+      "label": "Lil Widget App",
+      "caption": "Building side apps is fun 😌",
+      "image": "/images/about/collage/4/image.png",
       "shape": "photo",
       "x": 30,
       "y": 60,
