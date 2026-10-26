@@ -7,7 +7,7 @@
       "name": "IMA Accelerator",
       "role": "Designer, funnels, website and internal tools",
       "years": "2024 to now",
-      "logo": "/images/logos/currently/0/logo.png",
+      "logo": "/images/logos/currently/0/logo.svg",
       "logoText": "IMA"
     },
     {
@@ -20,8 +20,9 @@
     {
       "name": "Framer",
       "role": "Community creator, @saribkhan",
-      "years": "[year] to now",
-      "logo": "/images/logos/currently/2/logo.svg"
+      "years": "2025 to now",
+      "logo": "/images/logos/currently/2/logo.svg",
+      "logoText": "F"
     }
   ],
   "systems": [
