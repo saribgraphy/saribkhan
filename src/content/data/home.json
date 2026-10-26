@@ -50,15 +50,15 @@
       "name": "Muslimpreneur"
     }
   ],
-  "systemsExtra": "[add 4 to 6 more real names]",
   "systemsRest": "and 30 more founders across [number] countries.",
   "systemsLast": "Your program.",
   "testimonials": [
     {
-      "quote": "[Collect a real quote. Best source is Eyoub El Habib, founder of IMA Accelerator. Ask him one question: what changed after the new funnel and pages went live?]",
-      "name": "[Name]",
-      "role": "[Role]",
-      "company": "[Company]"
+      "quote": "Just one word: impeccable Sarib knows his work and has great level of creativity skills. Let him know your requirements, he will produce great results.",
+      "name": "Shariq Ansar",
+      "role": "Founder",
+      "company": "myTpen",
+      "logo": "/images/testimonials/testimonials/0/logo.svg"
     }
   ],
   "startHere": [
