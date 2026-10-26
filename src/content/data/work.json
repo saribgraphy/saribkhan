@@ -6,6 +6,7 @@
     {
       "slug": "ima-accelerator",
       "name": "IMA Accelerator",
+      "nda": false,
       "oneLine": "The full system behind a fast-growing halal business coaching program, from the first ad click to inside the community.",
       "tags": [
         "Framer",
@@ -73,17 +74,14 @@
     },
     {
       "slug": "muslimpreneur",
-      "name": "Muslimpreneur funnel",
-      "nda": true,
+      "name": "Muslimpreneur",
+      "nda": false,
       "oneLine": "A faith-forward sales funnel with a landing page, a Typeform application and a confirmation page, in dark and light themes.",
       "tags": [
-        "Framer",
-        "Typeform"
+        "NDA"
       ],
-      "clientType": "[Client type]",
-      "year": "[Year]",
-      "builtWith": "[Built with]",
-      "situation": "The audience cared about how the business was built as much as what it promised. The copy and design had to carry faith without turning it into a gimmick.",
+      "clientType": "NDA",
+      "year": "2026",
       "built": [],
       "builtText": "the landing page, a custom designed Typeform that matches the brand instead of looking like Typeform, and the confirmation page, all with dark and light versions.",
       "funnel": [
@@ -101,14 +99,16 @@
     {
       "slug": "the-cave-network",
       "name": "The Cave Network",
-      "oneLine": "[One line on the business.]",
+      "nda": false,
+      "oneLine": "Elite Muslim Entrepreneurs Network",
       "tags": [
-        "Framer"
+        "Draft"
       ],
-      "clientType": "[Client type]",
-      "year": "[Year]",
+      "cover": "/images/work/projects/2/cover.png",
+      "clientType": "Demo",
+      "year": "2026",
       "builtWith": "Framer",
-      "liveLabel": "[Live: the-cave.framer.website]",
+      "liveLabel": "Test Link",
       "liveHref": "https://the-cave.framer.website",
       "built": [],
       "builtText": "Framer site and funnel.",
@@ -117,6 +117,7 @@
     {
       "slug": "enclave-fitness",
       "name": "Enclave Fitness",
+      "nda": false,
       "oneLine": "[One line.]",
       "tags": [
         "Framer"
@@ -133,6 +134,7 @@
     {
       "slug": "clowdray",
       "name": "Clowdray",
+      "nda": false,
       "oneLine": "[One line.]",
       "tags": [
         "Framer"
@@ -149,6 +151,7 @@
     {
       "slug": "cips-cpo-roundtable",
       "name": "CIPS CPO Roundtable, Qatar",
+      "nda": false,
       "oneLine": "An event landing page for a procurement leaders roundtable.",
       "tags": [
         "Framer"
@@ -161,5 +164,7 @@
       "built": [],
       "funnel": []
     }
-  ]
+  ],
+  "gallery": [],
+  "labels": {}
 }
