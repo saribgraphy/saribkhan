@@ -1,5 +1,5 @@
 {
-  "heading": "An independent designer, based in Karachi.",
+  "heading": "An independent designer, based in Pakistan.",
   "body": [
     "I'm Sarib. I design things for the internet and I run a small studio called Xtarc, while building my own tools on the side.",
     "I started out [the real origin, e.g. editing thumbnails, making posters for friends, redesigning apps I didn't like, in roughly what year]. Somewhere along the way I realised I cared less about making things pretty and more about why some things just work. Why one page makes you trust a business and another makes you close the tab, even when they say the same thing.",
@@ -30,16 +30,6 @@
       "rotate": 4
     },
     {
-      "label": "[Cup of chai]",
-      "caption": "Fuel.",
-      "shape": "round",
-      "x": 76,
-      "y": 2,
-      "w": 104,
-      "h": 104,
-      "rotate": 0
-    },
-    {
       "label": "Karachi",
       "caption": "Home.",
       "shape": "sticker",
@@ -52,7 +42,7 @@
     {
       "label": "Lil Widget App",
       "caption": "Building side apps is fun 😌",
-      "image": "/images/about/collage/4/image.png",
+      "image": "/images/about/collage/3/image.png",
       "shape": "photo",
       "x": 30,
       "y": 60,
@@ -62,7 +52,8 @@
     },
     {
       "label": "@saribkhan on Framer",
-      "caption": "@saribkhan on Framer.",
+      "caption": "@saribkhan on Framer",
+      "image": "/images/about/collage/4/image.png",
       "shape": "badge",
       "x": 6,
       "y": 8,
