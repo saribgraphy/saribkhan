@@ -27,11 +27,6 @@
       "name": "Eid card maker",
       "icon": "cards",
       "body": "Type a name and get a personalised Eid Mubarak video, generated right in your browser. It took five versions to get the browser to cooperate."
-    },
-    {
-      "name": "[Add or remove]",
-      "icon": "plus",
-      "body": "[Only list things that are live or can be shown.]"
     }
   ]
 }
