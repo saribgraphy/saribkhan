@@ -97,6 +97,63 @@
       ]
     },
     {
+      "slug": "expertise-ai",
+      "name": "Expertise AI",
+      "oneLine": "Landing page and design system for Expertise, an AI sales agent that works with the tools and platforms a team already uses.",
+      "tags": [
+        "Webflow",
+        "Design system"
+      ],
+      "cover": "/images/work/expertise-ai/cover.webp",
+      "clientType": "AI SaaS",
+      "year": "[Year]",
+      "builtWith": "Webflow, Figma",
+      "liveLabel": "expertise.ai",
+      "liveHref": "https://www.expertise.ai/",
+      "situation": "[Two or three sentences on where Expertise was before the project and what the new site needed to do.]",
+      "built": [
+        "The landing page, designed and built in Webflow",
+        "A design system for the product and marketing site"
+      ],
+      "funnel": [
+        {
+          "label": "Landing page",
+          "note": "",
+          "image": "/images/work/expertise-ai/cover.webp"
+        }
+      ]
+    },
+    {
+      "slug": "mytpen",
+      "name": "myTpen",
+      "oneLine": "Product design, branding and the landing page for an AI grading assistant that lets teachers grade student work with a finger or a digital pen.",
+      "tags": [
+        "Product design",
+        "Branding"
+      ],
+      "cover": "/images/work/mytpen/cover.webp",
+      "clientType": "AI SaaS",
+      "year": "[Year]",
+      "builtWith": "Figma",
+      "liveLabel": "mytpen.app",
+      "liveHref": "https://mytpen.app/",
+      "situation": "[Two or three sentences on the problem myTpen solves for teachers and where the product was when you started.]",
+      "built": [
+        "The product design for the grading app",
+        "Brand identity",
+        "The landing page"
+      ],
+      "funnel": [
+        {
+          "label": "Landing page",
+          "note": "",
+          "image": "/images/work/mytpen/cover.webp"
+        }
+      ],
+      "clientWords": "Just one word: impeccable. Sarib knows his work and has great level of creativity skills. Let him know your requirements, he will produce great results.",
+      "clientWordsBy": "Shariq Ansar, Founder of myTpen"
+    },
+    {
       "slug": "the-cave-network",
       "name": "The Cave Network",
       "nda": false,

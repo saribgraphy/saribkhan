@@ -21,6 +21,7 @@ export const labelDefaults = {
   },
   build: {
     xray: "The Funnel X-ray",
+    expertise: "Areas of expertise",
     make: "Things I make",
     tryIt: "Try it",
     calculator: "The “one deal” calculator",

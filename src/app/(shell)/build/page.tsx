@@ -3,6 +3,7 @@ import { ApplicationStep } from "@/components/demos/application-step";
 import { BookingCard } from "@/components/demos/booking-card";
 import { Calculator } from "@/components/demos/calculator";
 import { Capabilities } from "@/components/build/capabilities";
+import { Expertise } from "@/components/build/expertise";
 import { XRay } from "@/components/build/xray";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { bookingCaption, buildHeading, buildLabels, buildIntro, tryLeadIn, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
@@ -23,6 +24,13 @@ export default function BuildPage() {
         <p className="t-body mb-6">{xrayLeadIn}</p>
         <XRay />
         <p className="t-body mt-6">{xrayOutro}</p>
+      </Section>
+
+      <Divider className="my-16" />
+
+      <Section id="expertise">
+        <SectionLabel>{buildLabels.expertise}</SectionLabel>
+        <Expertise />
       </Section>
 
       <Divider className="my-16" />

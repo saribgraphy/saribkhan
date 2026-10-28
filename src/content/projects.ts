@@ -36,6 +36,7 @@ export const projects: Project[] = d.projects
     detail: p.detail ?? "",
     detailImage: p.detailImage ?? null,
     clientWords: p.clientWords ?? "",
+    clientWordsBy: p.clientWordsBy ?? "",
     beforeImage: p.beforeImage ?? null,
     afterImage: p.afterImage ?? null,
     beforeCaption: p.beforeCaption ?? "",

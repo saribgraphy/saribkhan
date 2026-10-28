@@ -117,6 +117,11 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
           <blockquote className="font-serif text-[22px] leading-[28px] text-ink">
             <Copy>{project.clientWords}</Copy>
           </blockquote>
+          {project.clientWordsBy ? (
+            <p className="t-ui font-normal text-muted">
+              <Copy>{project.clientWordsBy}</Copy>
+            </p>
+          ) : null}
         </Block>
       ) : null}
     </article>

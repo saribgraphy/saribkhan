@@ -174,6 +174,7 @@ export default config({
             detail: text("Detail caption", { multiline: true }),
             detailImage: img("Detail close-up", "work"),
             clientWords: text("Client words", { multiline: true, description: "Only if real." }),
+            clientWordsBy: text("Client words, said by", { description: "e.g. Shariq Ansar, Founder of myTpen" }),
             beforeImage: img("Before (optional)", "work", "Add both before and after to show the slider."),
             afterImage: img("After (optional)", "work"),
             beforeCaption: text("Before and after caption"),
@@ -245,10 +246,31 @@ export default config({
           }),
           { label: "Things I make", itemLabel: (p) => p.fields.title.value || "Tile" },
         ),
+        expertise: fields.array(
+          fields.object({
+            animation: fields.select({
+              label: "Animation",
+              defaultValue: "product-design",
+              options: [
+                { label: "Product design", value: "product-design" },
+                { label: "Motion and video", value: "motion-and-video" },
+                { label: "Design systems and branding", value: "design-systems" },
+              ],
+            }),
+            title: text("Title"),
+            body: text("Line", { multiline: true }),
+          }),
+          {
+            label: "Areas of expertise",
+            description: "The dark section with the animated illustrations. Drag to reorder.",
+            itemLabel: (p) => p.fields.title.value || "Area",
+          },
+        ),
         tryLeadIn: text("Try it, lead-in", { multiline: true }),
         bookingCaption: text("Booking card caption"),
         labels: labels("build", {
           xray: "Above the X-ray",
+          expertise: "Above the animated illustrations",
           make: "Above the capability tiles",
           tryIt: "Above the demos",
           calculator: "Demo 1 title",

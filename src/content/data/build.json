@@ -108,5 +108,22 @@
     }
   ],
   "tryLeadIn": "Screenshots only go so far, so here are a few small things you can actually use. These are the kinds of tools I build inside companies.",
-  "bookingCaption": "From the coaches platform I built for IMA Accelerator."
+  "bookingCaption": "From the coaches platform I built for IMA Accelerator.",
+  "expertise": [
+    {
+      "animation": "product-design",
+      "title": "Product design",
+      "body": "Interfaces for SaaS and AI products, from the first flow to the last edge case."
+    },
+    {
+      "animation": "motion-and-video",
+      "title": "Motion and video",
+      "body": "Animation and video editing that make a product feel alive, like the three on this page."
+    },
+    {
+      "animation": "design-systems",
+      "title": "Design systems and branding",
+      "body": "Colour, type and components that keep every screen and every page speaking the same language."
+    }
+  ]
 }
