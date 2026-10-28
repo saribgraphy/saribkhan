@@ -5,33 +5,33 @@
     {
       "name": "Funnel Hack",
       "icon": "hand",
-      "iconImage": "/images/after-hours/projects/0/iconImage.png",
+      "iconImage": "/images/after-hours/projects/0/iconImage.webp",
       "href": "https://funnel-hack.vercel.app/",
-      "shot": "/images/after-hours/projects/0/shot.png",
+      "shot": "/images/after-hours/projects/0/shot.webp",
       "body": "The funnel-page swipe library. Browse real funnel pages by kind. Pick a funnel type above to narrow the field, then drill into a specific page."
     },
     {
       "name": "Karvaan Glamps",
       "icon": "layout",
-      "iconImage": "/images/after-hours/projects/1/iconImage.png",
+      "iconImage": "/images/after-hours/projects/1/iconImage.webp",
       "href": "https://karvaanresorts.com/",
-      "shot": "/images/after-hours/projects/1/shot.jpg",
+      "shot": "/images/after-hours/projects/1/shot.webp",
       "body": "I once visited one of the most stunning areas in Kumrat. The hotel we had booked had no online presence whatsoever, after that, this is what the it turned out to be."
     },
     {
       "name": "AI Chat Initiator",
       "icon": "cards",
-      "iconImage": "/images/after-hours/projects/2/iconImage.png",
+      "iconImage": "/images/after-hours/projects/2/iconImage.webp",
       "href": "https://www.aichatinitiator.com/",
-      "shot": "/images/after-hours/projects/2/shot.png",
+      "shot": "/images/after-hours/projects/2/shot.webp",
       "body": "Create a small widget that opens ChatGPT, Claude, Gemini, Perplexity, and more with your question already written. Fresh answers, no chatbot to train."
     },
     {
       "name": "Maska Bun",
       "icon": "timer",
-      "iconImage": "/images/after-hours/projects/3/iconImage.png",
+      "iconImage": "/images/after-hours/projects/3/iconImage.webp",
       "href": "https://maskabun.vercel.app/",
-      "shot": "/images/after-hours/projects/3/shot.png",
+      "shot": "/images/after-hours/projects/3/shot.webp",
       "body": "A family-run desi café in Gulshan-e-Iqbal. Buns, cookies and biscuits baked fresh in-house, every day."
     }
   ]

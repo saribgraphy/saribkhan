@@ -31,22 +31,22 @@
         {
           "label": "Ad landing page",
           "note": "One idea per screen and a single action. The page is built to be read on a phone in a car park, because that's where most people see it.",
-          "image": "/images/work/projects/0/funnel/0/image.png"
+          "image": "/images/work/projects/0/funnel/0/image.webp"
         },
         {
           "label": "Application",
           "note": "Fewer questions, better questions. The form qualifies without feeling like an interrogation.",
-          "image": "/images/work/projects/0/funnel/1/image.png"
+          "image": "/images/work/projects/0/funnel/1/image.webp"
         },
         {
           "label": "Selection result",
           "note": "Being “selected” should feel like something. This page turns a form submission into a small moment.",
-          "image": "/images/work/projects/0/funnel/2/image.png"
+          "image": "/images/work/projects/0/funnel/2/image.webp"
         },
         {
           "label": "Confirm your call",
           "note": "Shown right after booking with one job only, which is getting the lead to confirm.",
-          "image": "/images/work/projects/0/funnel/3/image.png"
+          "image": "/images/work/projects/0/funnel/3/image.webp"
         },
         {
           "label": "Pre-call prep page",
@@ -55,12 +55,12 @@
         {
           "label": "Homepage",
           "note": "For people who Google the brand before they pay. It answers “is this legit” without them having to ask.",
-          "image": "/images/work/projects/0/funnel/5/image.png"
+          "image": "/images/work/projects/0/funnel/5/image.webp"
         },
         {
           "label": "Coaches platform",
           "note": "Inside the community, every coach gets their own page with booking built in, which quietly turns members into coaching upsells.",
-          "image": "/images/work/projects/0/funnel/6/image.png"
+          "image": "/images/work/projects/0/funnel/6/image.webp"
         },
         {
           "label": "Playbooks",
@@ -68,7 +68,7 @@
         }
       ],
       "detail": "Creating funnels does not simply mean hiding a collection of randomly built pages behind a cool looking 'landing page.' It encompasses the entire ecosystem under a single, consistent brand.",
-      "detailImage": "/images/work/projects/0/detailImage.png"
+      "detailImage": "/images/work/projects/0/detailImage.webp"
     },
     {
       "slug": "muslimpreneur",
@@ -78,7 +78,7 @@
       "tags": [
         "NDA"
       ],
-      "cover": "/images/work/projects/1/cover.png",
+      "cover": "/images/work/projects/1/cover.webp",
       "clientType": "NDA",
       "year": "2026",
       "built": [],
@@ -159,7 +159,7 @@
       "tags": [
         "Draft"
       ],
-      "cover": "/images/work/projects/4/cover.png",
+      "cover": "/images/work/projects/4/cover.webp",
       "clientType": "Demo",
       "year": "2026",
       "builtWith": "Framer",

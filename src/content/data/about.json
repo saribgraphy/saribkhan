@@ -10,7 +10,7 @@
     {
       "label": "Cat",
       "caption": "Not mine :( ",
-      "image": "/images/about/collage/0/image.png",
+      "image": "/images/about/collage/0/image.webp",
       "shape": "photo",
       "x": 34,
       "y": 4,
@@ -21,7 +21,7 @@
     {
       "label": "Random Figma file, lol",
       "caption": "This is what one funnel looks like before you see it.",
-      "image": "/images/about/collage/1/image.png",
+      "image": "/images/about/collage/1/image.webp",
       "shape": "square",
       "x": 2,
       "y": 46,
@@ -42,7 +42,7 @@
     {
       "label": "Lil Widget App",
       "caption": "Building side apps is fun 😌",
-      "image": "/images/about/collage/3/image.png",
+      "image": "/images/about/collage/3/image.webp",
       "shape": "photo",
       "x": 30,
       "y": 60,
@@ -53,7 +53,7 @@
     {
       "label": "@saribkhan on Framer",
       "caption": "@saribkhan on Framer",
-      "image": "/images/about/collage/4/image.png",
+      "image": "/images/about/collage/4/image.webp",
       "shape": "badge",
       "x": 6,
       "y": 8,
