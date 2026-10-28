@@ -4,6 +4,7 @@ import { Ledger } from "@/components/home/ledger";
 import { StartHere } from "@/components/home/start-here";
 import { Systems } from "@/components/home/systems";
 import { TestimonialCard } from "@/components/home/testimonial-card";
+import { Expertise } from "@/components/build/expertise";
 import { Breadcrumb, Divider, Section, SectionLabel } from "@/components/ui/view";
 
 export default function HomePage() {
@@ -29,6 +30,11 @@ export default function HomePage() {
       <div className="mt-10">
         <TestimonialCard />
       </div>
+
+      <Section id="expertise" className="mt-16">
+        <SectionLabel>{homeLabels.expertise}</SectionLabel>
+        <Expertise />
+      </Section>
 
       <Section className="mt-16">
         <SectionLabel>{homeLabels.startHere}</SectionLabel>

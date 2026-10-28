@@ -122,11 +122,36 @@ export default config({
             itemLabel: (p) => p.fields.name.value || "Quote",
           },
         ),
+        expertise: fields.array(
+          fields.object({
+            animation: fields.select({
+              label: "Animation",
+              defaultValue: "product-design",
+              options: [
+                { label: "Website design (browser and cursor)", value: "product-design" },
+                { label: "Motion and video (timeline)", value: "motion-and-video" },
+                { label: "Brand identity and apps (components)", value: "design-systems" },
+              ],
+            }),
+            title: text("Title"),
+            body: text("Line", { multiline: true }),
+          }),
+          {
+            label: "Areas of expertise",
+            description: "The animated illustrations below the testimonial. Drag to reorder.",
+            itemLabel: (p) => p.fields.title.value || "Area",
+          },
+        ),
         startHere: fields.array(
           fields.object({ title: text("Title"), body: text("Line"), href: text("Links to", { description: "e.g. /work or /build#xray" }) }),
           { label: "Start here cards", itemLabel: (p) => p.fields.title.value || "Card" },
         ),
-        labels: labels("home", { currently: "Above the ledger", systems: "Above the client list", startHere: "Above the link cards" }),
+        labels: labels("home", {
+          currently: "Above the ledger",
+          systems: "Above the client list",
+          expertise: "Above the animated illustrations",
+          startHere: "Above the link cards",
+        }),
       },
     }),
 
@@ -246,31 +271,10 @@ export default config({
           }),
           { label: "Things I make", itemLabel: (p) => p.fields.title.value || "Tile" },
         ),
-        expertise: fields.array(
-          fields.object({
-            animation: fields.select({
-              label: "Animation",
-              defaultValue: "product-design",
-              options: [
-                { label: "Website design (browser and cursor)", value: "product-design" },
-                { label: "Motion and video (timeline)", value: "motion-and-video" },
-                { label: "Brand identity and apps (components)", value: "design-systems" },
-              ],
-            }),
-            title: text("Title"),
-            body: text("Line", { multiline: true }),
-          }),
-          {
-            label: "Areas of expertise",
-            description: "The dark section with the animated illustrations. Drag to reorder.",
-            itemLabel: (p) => p.fields.title.value || "Area",
-          },
-        ),
         tryLeadIn: text("Try it, lead-in", { multiline: true }),
         bookingCaption: text("Booking card caption"),
         labels: labels("build", {
           xray: "Above the X-ray",
-          expertise: "Above the animated illustrations",
           make: "Above the capability tiles",
           tryIt: "Above the demos",
           calculator: "Demo 1 title",

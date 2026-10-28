@@ -108,22 +108,5 @@
     }
   ],
   "tryLeadIn": "Screenshots only go so far, so here are a few small things you can actually use. These are the kinds of tools I build inside companies.",
-  "bookingCaption": "From the coaches platform I built for IMA Accelerator.",
-  "expertise": [
-    {
-      "animation": "product-design",
-      "title": "Website design",
-      "body": "Landing pages and websites that read clearly on a phone and look like the price of the offer."
-    },
-    {
-      "animation": "motion-and-video",
-      "title": "Motion and video",
-      "body": "Animation and video editing that make a page feel finished, like the three illustrations here."
-    },
-    {
-      "animation": "design-systems",
-      "title": "Brand identity and custom apps",
-      "body": "A logo, type and colour system, and the coded tools your team uses behind the scenes, built from the same parts."
-    }
-  ]
+  "bookingCaption": "From the coaches platform I built for IMA Accelerator."
 }

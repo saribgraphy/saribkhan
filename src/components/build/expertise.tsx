@@ -1,5 +1,5 @@
 import { Copy } from "@/components/ui/copy";
-import { expertise } from "@/content/touchpoints";
+import { expertise } from "@/content/home";
 import { Lottie } from "./lottie";
 
 /**

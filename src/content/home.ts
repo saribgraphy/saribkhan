@@ -18,6 +18,8 @@ export const testimonials = d.testimonials;
 
 export const startHere = d.startHere;
 
+export const expertise = (d.expertise ?? []).filter((e) => e.title);
+
 export const footerLine = site.footerLine;
 
 export const homeLabels = withLabels("home", d.labels);

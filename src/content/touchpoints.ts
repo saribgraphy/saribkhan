@@ -19,5 +19,3 @@ export const touchpoints = d.touchpoints.map((t, i) => ({ ...t, n: String(i + 1)
 export type Touchpoint = (typeof touchpoints)[number];
 
 export const capabilities = d.capabilities;
-
-export const expertise = (d.expertise ?? []).filter((e) => e.title);

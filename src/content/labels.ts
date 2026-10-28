@@ -7,6 +7,7 @@ export const labelDefaults = {
   home: {
     currently: "Currently",
     systems: "Systems I've designed for",
+    expertise: "Areas of expertise",
     startHere: "Start here",
   },
   work: {
@@ -21,7 +22,6 @@ export const labelDefaults = {
   },
   build: {
     xray: "The Funnel X-ray",
-    expertise: "Areas of expertise",
     make: "Things I make",
     tryIt: "Try it",
     calculator: "The “one deal” calculator",
