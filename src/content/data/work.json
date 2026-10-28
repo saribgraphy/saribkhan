@@ -12,6 +12,7 @@
         "Framer",
         "Code"
       ],
+      "cover": "/images/work/projects/0/cover.png",
       "clientType": "Coaching program",
       "year": "2024 - Now",
       "builtWith": "Framer, Figma, Next.js, Supabase",
