@@ -68,24 +68,6 @@
       "background": "/images/testimonials/testimonials/1/background.webp"
     }
   ],
-  "startHere": [
-    {
-      "title": "See the work.",
-      "body": "Six funnels, opened up step by step.",
-      "href": "/work"
-    },
-    {
-      "title": "X-ray your funnel.",
-      "body": "The twelve touchpoints most programs leave ugly.",
-      "href": "/build#xray"
-    },
-    {
-      "title": "What it costs.",
-      "body": "Two ways to work together, prices included.",
-      "href": "/working-together"
-    }
-  ],
-  "labels": {},
   "expertise": [
     {
       "animation": "product-design",
@@ -102,5 +84,23 @@
       "title": "Brand identity and custom apps",
       "body": "A logo, type and colour system, and the coded tools your team uses behind the scenes, built from the same parts."
     }
-  ]
+  ],
+  "startHere": [
+    {
+      "title": "See the work.",
+      "body": "Six funnels, opened up step by step.",
+      "href": "/work"
+    },
+    {
+      "title": "X-ray your funnel.",
+      "body": "The twelve touchpoints most programs leave ugly.",
+      "href": "/build#xray"
+    },
+    {
+      "title": "Work together",
+      "body": "Two ways to work together, prices included.",
+      "href": "/working-together"
+    }
+  ],
+  "labels": {}
 }
