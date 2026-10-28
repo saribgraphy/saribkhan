@@ -5,7 +5,7 @@
     {
       "name": "Funnel Hack",
       "icon": "hand",
-      "iconImage": "/images/after-hours/projects/0/iconImage.svg",
+      "iconImage": "/images/after-hours/projects/0/iconImage.png",
       "href": "https://funnel-hack.vercel.app/",
       "shot": "/images/after-hours/projects/0/shot.png",
       "body": "The funnel-page swipe library. Browse real funnel pages by kind. Pick a funnel type above to narrow the field, then drill into a specific page."
@@ -19,14 +19,20 @@
       "body": "I once visited one of the most stunning areas in Kumrat. The hotel we had booked had no online presence whatsoever, after that, this is what the it turned out to be."
     },
     {
-      "name": "Rep counter",
+      "name": "Maska Bun",
       "icon": "timer",
-      "body": "Upload a workout video and it counts your push-ups right in the browser, then exports a clip with the count on screen. Nothing gets uploaded anywhere."
+      "iconImage": "/images/after-hours/projects/2/iconImage.png",
+      "href": "https://maskabun.vercel.app/",
+      "shot": "/images/after-hours/projects/2/shot.png",
+      "body": "A family-run desi café in Gulshan-e-Iqbal. Buns, cookies and biscuits baked fresh in-house, every day."
     },
     {
-      "name": "Eid card maker",
+      "name": "AI Chat Initiator",
       "icon": "cards",
-      "body": "Type a name and get a personalised Eid Mubarak video, generated right in your browser. It took five versions to get the browser to cooperate."
+      "iconImage": "/images/after-hours/projects/3/iconImage.png",
+      "href": "https://www.aichatinitiator.com/",
+      "shot": "/images/after-hours/projects/3/shot.png",
+      "body": "Create a small widget that opens ChatGPT, Claude, Gemini, Perplexity, and more with your question already written. Fresh answers, no chatbot to train."
     }
   ]
 }
