@@ -10,8 +10,7 @@
       "oneLine": "The full system behind a fast-growing halal business coaching program, from the first ad click to inside the community.",
       "tags": [
         "Framer",
-        "Figma",
-        "Coded"
+        "Code"
       ],
       "clientType": "Coaching program",
       "year": "2024 - Now",
@@ -69,8 +68,7 @@
         }
       ],
       "detail": "Creating funnels does not simply mean hiding a collection of randomly built pages behind a cool looking 'landing page.' It encompasses the entire ecosystem under a single, consistent brand.",
-      "detailImage": "/images/work/projects/0/detailImage.png",
-      "clientWords": "[Real quote from Eyoub, Aman (COO) or Saleh Babuker.]"
+      "detailImage": "/images/work/projects/0/detailImage.png"
     },
     {
       "slug": "muslimpreneur",
@@ -80,6 +78,7 @@
       "tags": [
         "NDA"
       ],
+      "cover": "/images/work/projects/1/cover.png",
       "clientType": "NDA",
       "year": "2026",
       "built": [],
@@ -99,18 +98,18 @@
     {
       "slug": "expertise-ai",
       "name": "Expertise AI",
+      "nda": false,
       "oneLine": "Landing page and design system for Expertise, an AI sales agent that works with the tools and platforms a team already uses.",
       "tags": [
         "Webflow",
         "Design system"
       ],
-      "cover": "/images/work/expertise-ai/cover.webp",
+      "cover": "/images/work/projects/2/cover.webp",
       "clientType": "AI SaaS",
-      "year": "[Year]",
+      "year": "2025",
       "builtWith": "Webflow, Figma",
       "liveLabel": "expertise.ai",
       "liveHref": "https://www.expertise.ai/",
-      "situation": "[Two or three sentences on where Expertise was before the project and what the new site needed to do.]",
       "built": [
         "The landing page, designed and built in Webflow",
         "A design system for the product and marketing site"
@@ -118,20 +117,20 @@
       "funnel": [
         {
           "label": "Landing page",
-          "note": "",
-          "image": "/images/work/expertise-ai/cover.webp"
+          "image": "/images/work/projects/2/funnel/0/image.webp"
         }
       ]
     },
     {
       "slug": "mytpen",
       "name": "myTpen",
+      "nda": false,
       "oneLine": "Product design, branding and the landing page for an AI grading assistant that lets teachers grade student work with a finger or a digital pen.",
       "tags": [
         "Product design",
         "Branding"
       ],
-      "cover": "/images/work/mytpen/cover.webp",
+      "cover": "/images/work/projects/3/cover.webp",
       "clientType": "AI SaaS",
       "year": "[Year]",
       "builtWith": "Figma",
@@ -146,8 +145,7 @@
       "funnel": [
         {
           "label": "Landing page",
-          "note": "",
-          "image": "/images/work/mytpen/cover.webp"
+          "image": "/images/work/projects/3/funnel/0/image.webp"
         }
       ],
       "clientWords": "Just one word: impeccable. Sarib knows his work and has great level of creativity skills. Let him know your requirements, he will produce great results.",
@@ -161,7 +159,7 @@
       "tags": [
         "Draft"
       ],
-      "cover": "/images/work/projects/2/cover.png",
+      "cover": "/images/work/projects/4/cover.png",
       "clientType": "Demo",
       "year": "2026",
       "builtWith": "Framer",
