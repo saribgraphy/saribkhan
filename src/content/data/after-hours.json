@@ -19,20 +19,20 @@
       "body": "I once visited one of the most stunning areas in Kumrat. The hotel we had booked had no online presence whatsoever, after that, this is what the it turned out to be."
     },
     {
-      "name": "Maska Bun",
-      "icon": "timer",
-      "iconImage": "/images/after-hours/projects/2/iconImage.png",
-      "href": "https://maskabun.vercel.app/",
-      "shot": "/images/after-hours/projects/2/shot.png",
-      "body": "A family-run desi café in Gulshan-e-Iqbal. Buns, cookies and biscuits baked fresh in-house, every day."
-    },
-    {
       "name": "AI Chat Initiator",
       "icon": "cards",
-      "iconImage": "/images/after-hours/projects/3/iconImage.png",
+      "iconImage": "/images/after-hours/projects/2/iconImage.png",
       "href": "https://www.aichatinitiator.com/",
-      "shot": "/images/after-hours/projects/3/shot.png",
+      "shot": "/images/after-hours/projects/2/shot.png",
       "body": "Create a small widget that opens ChatGPT, Claude, Gemini, Perplexity, and more with your question already written. Fresh answers, no chatbot to train."
+    },
+    {
+      "name": "Maska Bun",
+      "icon": "timer",
+      "iconImage": "/images/after-hours/projects/3/iconImage.png",
+      "href": "https://maskabun.vercel.app/",
+      "shot": "/images/after-hours/projects/3/shot.png",
+      "body": "A family-run desi café in Gulshan-e-Iqbal. Buns, cookies and biscuits baked fresh in-house, every day."
     }
   ]
 }
