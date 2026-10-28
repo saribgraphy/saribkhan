@@ -252,9 +252,9 @@ export default config({
               label: "Animation",
               defaultValue: "product-design",
               options: [
-                { label: "Product design", value: "product-design" },
-                { label: "Motion and video", value: "motion-and-video" },
-                { label: "Design systems and branding", value: "design-systems" },
+                { label: "Website design (browser and cursor)", value: "product-design" },
+                { label: "Motion and video (timeline)", value: "motion-and-video" },
+                { label: "Brand identity and apps (components)", value: "design-systems" },
               ],
             }),
             title: text("Title"),
