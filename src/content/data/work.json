@@ -196,23 +196,6 @@
       "detailImage": "/images/work/projects/5/detailImage.png"
     },
     {
-      "slug": "clowdray",
-      "name": "Clowdray",
-      "nda": false,
-      "oneLine": "[One line.]",
-      "tags": [
-        "Framer"
-      ],
-      "clientType": "[Client type]",
-      "year": "[Year]",
-      "builtWith": "Framer",
-      "liveLabel": "[Live: clowdrayv2.framer.website]",
-      "liveHref": "https://clowdrayv2.framer.website",
-      "built": [],
-      "builtText": "Framer site.",
-      "funnel": []
-    },
-    {
       "slug": "cips-cpo-roundtable",
       "name": "CIPS CPO Roundtable, Qatar",
       "nda": false,
