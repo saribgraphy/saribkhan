@@ -23,6 +23,9 @@
   --grid: #4949491a;
   --tint: #0000000d;
   --tint-2: #00000014;
+  /* The purple from the expertise illustrations, used sparingly in demos. */
+  --iris: #6870fe;
+  --iris-soft: #6870fe1a;
 
   --shadow-card: 0 0.5px 0.5px #2122231a, 0 4px 8px -3px #2122230f, 0 0 0 0.5px #21222314;
   --shadow-pop: 0 6px 16px -4px #3f40441f, 0 1px 2px #3f404414, 0 0 0 0.5px #3f404429;
@@ -50,6 +53,8 @@
   --color-line-2: var(--line-2);
   --color-tint: var(--tint);
   --color-tint-2: var(--tint-2);
+  --color-iris: var(--iris);
+  --color-iris-soft: var(--iris-soft);
 
   /* Kumo semantic tokens, pointed at the studio palette. */
   --color-kumo-base: var(--paper);
@@ -674,4 +679,36 @@
   animation:
     copied-in 0.3s var(--ease-out) both,
     copied-out 0.25s ease-in 1.4s forwards;
+}
+
+/* ---------- Case file entrance ---------- */
+
+/* Title words rise and sharpen one after another (--i is the word index). */
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4em);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+.reveal-word {
+  display: inline-block;
+  animation: word-in 0.7s var(--ease-out) both;
+  animation-delay: calc(80ms + var(--i, 0) * 55ms);
+}
+/* Everything after the title follows in order (--d is the delay). */
+.reveal-after {
+  animation: fold-in 0.6s var(--ease-out) both;
+  animation-delay: var(--d, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-word,
+  .reveal-after {
+    animation: none;
+  }
 }

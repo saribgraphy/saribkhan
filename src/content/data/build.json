@@ -1,67 +1,55 @@
 {
   "heading": "Everything your lead touches, designed on purpose.",
   "intro": "Your offer might be worth five figures, but your lead never sees the offer first. They see an ad, a page, a form, a booking screen and a message from a setter, and they decide what you're worth long before the call. I design all of it, so every single step tells them the same thing.",
-  "xrayLeadIn": "Here's what a coaching funnel actually looks like from the lead's side. Tap any step to see what most programs ship and what I'd ship instead.",
+  "xrayLeadIn": "Here's every step of a coaching funnel from the lead's side. Tap a step to see what it's for and how I approach it.",
   "touchpoints": [
     {
       "name": "Landing page",
-      "most": "A template with five fonts, stock icons and a button every 300 pixels",
-      "mine": "One clear story, real proof up top and a page that looks like the price of the offer"
+      "body": "The first impression of the offer. I build it around one clear story, put real proof near the top and make sure it reads well on a phone, since that's where most people first see it."
     },
     {
       "name": "Training or VSL page",
-      "most": "A video dropped into a white page",
-      "mine": "A page that frames the video, holds attention and sets up the application"
+      "body": "Where a lead decides whether to keep watching. I frame the video with just enough context around it and lead naturally into the application."
     },
     {
       "name": "Application form",
-      "most": "A default Typeform with the logo in the corner",
-      "mine": "A branded form with fewer, sharper questions that qualifies without feeling like an interview"
+      "body": "The first real conversation with a lead. I keep the questions few and well ordered, so the form qualifies people and still feels like an invitation."
     },
     {
       "name": "Booking page",
-      "most": "A raw Calendly embed",
-      "mine": "A booking step that matches the brand and reminds them why they applied"
+      "body": "The moment a lead commits their time. I keep it on brand and add a short reminder of what the call is for."
     },
     {
       "name": "Confirm your call",
-      "most": "A grey “you're booked” message",
-      "mine": "A short page with one job, getting them to confirm and show up"
+      "body": "A short page with one job: getting the lead to confirm and show up. Clear next steps and nothing else competing for attention."
     },
     {
       "name": "Pre-call prep page",
-      "most": "Nothing, or a Google Doc",
-      "mine": "A page the setter sends that warms them up, answers objections and builds trust before the call"
+      "body": "What the setter sends before the call. It answers common questions, shows proof and sets expectations, so the call starts warm."
     },
     {
       "name": "Reminders",
-      "most": "Plain text emails and WhatsApp messages",
-      "mine": "Written and designed reminders that feel personal and cut no-shows"
+      "body": "The emails and messages between booking and the call. I write and design them to sound like a person and keep the call top of mind."
     },
     {
       "name": "Offer and call deck",
-      "most": "Slides made the night before",
-      "mine": "A clean offer page or deck the closer can screen-share with confidence"
+      "body": "What the closer shares on the call. A clean, simple deck or offer page that walks through the program in the order people tend to ask about it."
     },
     {
       "name": "Onboarding",
-      "most": "A welcome email with five links",
-      "mine": "A guided onboarding flow, so day one feels like they joined something serious"
+      "body": "The first days after someone joins. A guided flow that gets them set up, oriented and feeling good about the decision."
     },
     {
       "name": "Skool community",
-      "most": "A default banner and blank classroom covers",
-      "mine": "A banner, course covers and an about page that feel like a real brand"
+      "body": "Where students spend most of their time. Banners, course covers and an about page that make the space feel like part of the same brand."
     },
     {
       "name": "Wins and reviews page",
-      "most": "Screenshots pasted into a grid",
-      "mine": "A proper wall of results people actually want to scroll"
+      "body": "Proof that keeps working after the sale. A page that organises results so people can find stories like their own."
     },
     {
       "name": "Internal tools",
-      "most": "Spreadsheets and five different apps",
-      "mine": "Custom dashboards, calculators, quizzes and coach pages built around how your team works"
+      "body": "The things your team uses behind the scenes. Dashboards, calculators and coach pages built around how you actually work."
     }
   ],
   "xrayOutro": "Count how many of these you've actually designed. Most programs I look at have properly designed two or three of them. Fixing the other nine doesn't need a new offer, new ads or more content. It just needs someone who cares about the details.",

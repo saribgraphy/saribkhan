@@ -257,8 +257,10 @@ export default config({
         touchpoints: fields.array(
           fields.object({
             name: text("Touchpoint"),
-            most: text("What most programs ship", { multiline: true }),
-            mine: text("What I ship", { multiline: true }),
+            body: text("What it is and how I approach it", {
+              multiline: true,
+              description: "One or two short sentences, shown when the step is opened.",
+            }),
           }),
           { label: "Funnel X-ray touchpoints", itemLabel: (p) => p.fields.name.value || "Touchpoint" },
         ),

@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import { Fragment } from "react";
 import { workLabels, type Project } from "@/content/projects";
 import { Copy } from "@/components/ui/copy";
 import { BeforeAfter } from "./before-after";
@@ -8,29 +9,40 @@ import { ImageStack, type StackImage } from "./image-stack";
 
 function Block({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <section className="grid gap-3">
+    <section className="reveal-after grid gap-3" style={{ "--d": "520ms" } as React.CSSProperties}>
       <h3 className="t-label">{label}</h3>
       {children}
     </section>
   );
 }
 
-/** Every project uses this structure, in the panel and on the direct-link page. */
+/** Every project uses this structure. */
 export function CaseFile({ project, headingLevel = "h2" }: { project: Project; headingLevel?: "h1" | "h2" }) {
   const H = headingLevel;
   const meta = [project.clientType, project.year, project.builtWith].filter(Boolean);
   const built = project.built.filter(Boolean);
+  const words = project.name.split(" ");
+  const after = (i: number) => ({ "--d": `${180 + words.length * 55 + i * 90}ms` }) as React.CSSProperties;
 
   return (
     <article className="grid gap-10">
       <header className="grid gap-4">
-        <div className="grid gap-2">
-          <H className="text-[28px] leading-[32px] font-semibold tracking-[-0.015em] text-ink">{project.name}</H>
-          <p className="t-lead">
+        <div className="grid gap-4">
+          <H className="t-display" aria-label={project.name}>
+            {words.map((w, i) => (
+              <Fragment key={i}>
+                <span aria-hidden className="reveal-word" style={{ "--i": i } as React.CSSProperties}>
+                  {w}
+                </span>
+                {i < words.length - 1 ? " " : null}
+              </Fragment>
+            ))}
+          </H>
+          <p className="t-lead reveal-after" style={after(0)}>
             <Copy>{project.oneLine}</Copy>
           </p>
         </div>
-        <p className="t-ui flex flex-wrap items-center gap-x-2 gap-y-1 font-normal text-muted">
+        <p className="t-ui reveal-after flex flex-wrap items-center gap-x-2 gap-y-1 font-normal text-muted" style={after(1)}>
           {meta.map((item, i) => (
             <span key={i} className="inline-flex items-center gap-2">
               {i > 0 ? <span className="text-faint">·</span> : null}

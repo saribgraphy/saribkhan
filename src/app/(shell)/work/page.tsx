@@ -30,7 +30,7 @@ export default function WorkPage() {
                 <Row project={p} />
               </div>
             ) : (
-              <Link href={`/work/${p.slug}`} scroll={false} className={rowClass}>
+              <Link href={`/work/${p.slug}`} className={rowClass}>
                 <Row project={p} />
               </Link>
             )}

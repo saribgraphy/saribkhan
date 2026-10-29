@@ -10,9 +10,8 @@ import { Sidebar } from "@/components/shell/sidebar";
 /**
  * The app shell: fixed rails, dashed grid rules, a narrow reading column,
  * and hosts for the right-side panels and the command menu.
- * `panel` is the parallel slot that intercepts /work/[slug] into a panel.
  */
-export default function ShellLayout({ children, panel }: LayoutProps<"/">) {
+export default function ShellLayout({ children }: LayoutProps<"/">) {
   return (
     <PanelProvider>
       <div className="relative min-h-dvh overflow-x-clip bg-paper">
@@ -33,7 +32,6 @@ export default function ShellLayout({ children, panel }: LayoutProps<"/">) {
       <Suspense fallback={null}>
         <PanelHost />
       </Suspense>
-      {panel}
       <CommandMenu />
     </PanelProvider>
   );
