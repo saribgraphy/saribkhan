@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
+import { Geist_Mono, Instrument_Sans, Instrument_Serif, Inter } from "next/font/google";
 import { site } from "@/content/site";
 
 const inter = Inter({
@@ -14,6 +14,12 @@ const instrument = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
+  display: "swap",
+});
+
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -49,7 +55,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrument.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${instrument.variable} ${instrumentSans.variable} ${geistMono.variable}`}>
       <body>{children}</body>
     </html>
   );

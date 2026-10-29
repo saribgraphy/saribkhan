@@ -80,16 +80,9 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
         </Block>
       ) : null}
 
-      {/* The placeholder only shows when the case has no images at all. */}
-      {project.funnel.length || !project.showcase.length ? (
+      {project.funnel.length ? (
         <Block label={workLabels.funnel}>
-          {project.funnel.length ? (
-            <FunnelMap nodes={project.funnel} project={project.name} />
-          ) : (
-            <p className="t-ui font-normal text-muted">
-              <Copy>[Funnel steps and screenshots to be added.]</Copy>
-            </p>
-          )}
+          <FunnelMap nodes={project.funnel} project={project.name} />
         </Block>
       ) : null}
 
@@ -124,7 +117,7 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
 
       {project.clientWords ? (
         <Block label={workLabels.clientWords}>
-          <blockquote className="font-serif text-[22px] leading-[28px] text-ink">
+          <blockquote className="font-quote text-[19px] leading-[27px] font-medium tracking-[-0.01em] text-ink">
             <Copy>{project.clientWords}</Copy>
           </blockquote>
           {project.clientWordsBy ? (

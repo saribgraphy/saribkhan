@@ -32,7 +32,7 @@ export function TestimonialCard() {
     >
       <CardBackdrop image={t.background} />
       <div key={i} className="wipe relative flex min-h-[307px] flex-col justify-end gap-6 p-10 max-md:p-6">
-        <blockquote className="font-serif text-[26px] leading-[32px] tracking-[-0.005em] text-white max-md:text-[22px] max-md:leading-[28px]">
+        <blockquote className="font-quote text-[22px] leading-[30px] font-medium tracking-[-0.01em] text-white max-md:text-[19px] max-md:leading-[26px]">
           &ldquo;<Copy>{(t.quote ?? "").replace(/^"|"$/g, "")}</Copy>&rdquo;
         </blockquote>
         <div className="h-px bg-white/20" />
