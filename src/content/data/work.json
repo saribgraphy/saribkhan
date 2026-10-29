@@ -191,7 +191,9 @@
         "Custome Framer Dev"
       ],
       "builtText": "Landing page, version two.",
-      "funnel": []
+      "funnel": [],
+      "detailLabel": "Screenshot",
+      "detailImage": "/images/work/projects/5/detailImage.png"
     },
     {
       "slug": "clowdray",
@@ -224,7 +226,9 @@
       "liveLabel": "[Live: cporoundtable.org/qatar]",
       "liveHref": "https://cporoundtable.org/qatar",
       "built": [],
-      "funnel": []
+      "funnel": [],
+      "clientWords": "Xtarc Agency is skilled and easy to work with. They brought great ideas and made the whole process smooth. We’ve chosen to work with them again for these reasons.",
+      "clientWordsBy": "Jitse Munten, Organizer CIPS CPO Roundtable"
     }
   ],
   "gallery": [
