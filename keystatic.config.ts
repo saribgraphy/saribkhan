@@ -193,6 +193,18 @@ export default config({
               }),
               { label: "Funnel map", itemLabel: (p) => p.fields.label.value || "Step" },
             ),
+            showcase: fields.array(
+              fields.object({
+                image: img("Image", "work", "Screenshots, mockups, anything. Any height works; WebP keeps saves small."),
+                label: text("Caption (optional)"),
+              }),
+              {
+                label: "Showcase",
+                description:
+                  "Free-form images shown after the funnel map, one after another at full width. No structure needed: add as many as you like and drag to reorder.",
+                itemLabel: (p) => p.fields.label.value || "Image",
+              },
+            ),
             detailLabel: text("Detail heading (optional)", {
               description: "Overrides “One detail worth noticing” for this project only.",
             }),
@@ -224,6 +236,7 @@ export default config({
           situation: "Case file: the situation",
           built: "Case file: what I built",
           funnel: "Case file: funnel map",
+          showcase: "Case file: showcase",
           beforeAfter: "Case file: before and after",
           detail: "Case file: detail heading",
           clientWords: "Case file: client words",

@@ -14,6 +14,7 @@ export const labelDefaults = {
     situation: "The situation",
     built: "What I built",
     funnel: "Funnel map",
+    showcase: "Showcase",
     beforeAfter: "Before and after",
     detail: "One detail worth noticing",
     clientWords: "Client words",

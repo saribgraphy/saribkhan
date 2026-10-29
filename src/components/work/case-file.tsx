@@ -4,6 +4,7 @@ import { workLabels, type Project } from "@/content/projects";
 import { Copy } from "@/components/ui/copy";
 import { BeforeAfter } from "./before-after";
 import { FunnelMap } from "./funnel-map";
+import { ImageStack, type StackImage } from "./image-stack";
 
 function Block({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -79,15 +80,24 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
         </Block>
       ) : null}
 
-      <Block label={workLabels.funnel}>
-        {project.funnel.length ? (
-          <FunnelMap nodes={project.funnel} project={project.name} />
-        ) : (
-          <p className="t-ui font-normal text-muted">
-            <Copy>[Funnel steps and screenshots to be added.]</Copy>
-          </p>
-        )}
-      </Block>
+      {/* The placeholder only shows when the case has no images at all. */}
+      {project.funnel.length || !project.showcase.length ? (
+        <Block label={workLabels.funnel}>
+          {project.funnel.length ? (
+            <FunnelMap nodes={project.funnel} project={project.name} />
+          ) : (
+            <p className="t-ui font-normal text-muted">
+              <Copy>[Funnel steps and screenshots to be added.]</Copy>
+            </p>
+          )}
+        </Block>
+      ) : null}
+
+      {project.showcase.length ? (
+        <Block label={workLabels.showcase}>
+          <ImageStack items={project.showcase as readonly StackImage[]} bleed={false} sizes="(max-width: 640px) 100vw, 520px" />
+        </Block>
+      ) : null}
 
       {project.beforeImage && project.afterImage ? (
         <Block label={workLabels.beforeAfter}>

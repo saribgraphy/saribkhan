@@ -17,6 +17,18 @@ export function CaseFilePanel({ slug, children }: { slug: string; children: Reac
   const left = useRef(false);
   const here = pathname === `/work/${slug}`;
 
+  // Next keeps this panel mounted after it closes, so a later visit to the
+  // same URL (clicking the case again, or the browser's forward button)
+  // would otherwise find it still "closed". Every new arrival reopens it.
+  const [wasHere, setWasHere] = useState(here);
+  if (here !== wasHere) {
+    setWasHere(here);
+    if (here) setOpen(true);
+  }
+  useEffect(() => {
+    if (here) left.current = false;
+  }, [here]);
+
   const leave = () => {
     if (left.current || !here) return;
     left.current = true;
