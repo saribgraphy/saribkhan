@@ -174,16 +174,22 @@
       "slug": "enclave-fitness",
       "name": "Enclave Fitness",
       "nda": false,
-      "oneLine": "[One line.]",
+      "oneLine": "Iman Gadhzi styled landing page for a fitness program.",
       "tags": [
         "Framer"
       ],
-      "clientType": "[Client type]",
-      "year": "[Year]",
+      "cover": "/images/work/projects/5/cover.webp",
+      "clientType": "Fitness Coaching",
+      "year": "2025",
       "builtWith": "Framer",
-      "liveLabel": "[Live: the-enclave.framer.website/landing-v2]",
+      "liveLabel": "enclave.fitness",
       "liveHref": "https://the-enclave.framer.website/landing-v2",
-      "built": [],
+      "built": [
+        "Graphic assets production",
+        "Copywriting",
+        "Figma file",
+        "Custome Framer Dev"
+      ],
       "builtText": "Landing page, version two.",
       "funnel": []
     },
