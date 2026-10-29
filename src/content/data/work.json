@@ -199,7 +199,7 @@
       "funnel": [],
       "showcase": [],
       "detailLabel": "Screenshot",
-      "detailImage": "/images/work/projects/5/detailImage.webp"
+      "detailImage": "/images/work/projects/5/detailImage.png"
     },
     {
       "slug": "cips-cpo-roundtable",
@@ -215,9 +215,24 @@
       "builtWith": "Framer",
       "liveLabel": "cporoundtable.org/qatar",
       "liveHref": "https://cporoundtable.org/qatar",
-      "built": [],
+      "built": [
+        "Design System & Branding",
+        "Custom assets and guidelines",
+        "Website Development",
+        "Lead form and follow-ups"
+      ],
       "funnel": [],
-      "showcase": [],
+      "showcase": [
+        {
+          "image": "/images/work/projects/6/showcase/0/image.png"
+        },
+        {
+          "image": "/images/work/projects/6/showcase/1/image.avif"
+        },
+        {
+          "image": "/images/work/projects/6/showcase/2/image.png"
+        }
+      ],
       "clientWords": "Xtarc Agency is skilled and easy to work with. They brought great ideas and made the whole process smooth. We’ve chosen to work with them again for these reasons.",
       "clientWordsBy": "Jitse Munten, Organizer CIPS CPO Roundtable"
     }
