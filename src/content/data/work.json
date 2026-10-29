@@ -199,7 +199,7 @@
       "funnel": [],
       "showcase": [],
       "detailLabel": "Screenshot",
-      "detailImage": "/images/work/projects/5/detailImage.png"
+      "detailImage": "/images/work/projects/5/detailImage.webp"
     },
     {
       "slug": "cips-cpo-roundtable",
@@ -224,13 +224,13 @@
       "funnel": [],
       "showcase": [
         {
-          "image": "/images/work/projects/6/showcase/0/image.png"
+          "image": "/images/work/projects/6/showcase/0/image.webp"
         },
         {
           "image": "/images/work/projects/6/showcase/1/image.avif"
         },
         {
-          "image": "/images/work/projects/6/showcase/2/image.png"
+          "image": "/images/work/projects/6/showcase/2/image.webp"
         }
       ],
       "clientWords": "Xtarc Agency is skilled and easy to work with. They brought great ideas and made the whole process smooth. We’ve chosen to work with them again for these reasons.",
