@@ -68,6 +68,7 @@
           "note": "Paid products that look like books you'd want on a shelf, not exported slides."
         }
       ],
+      "showcase": [],
       "detail": "Creating funnels does not simply mean hiding a collection of randomly built pages behind a cool looking 'landing page.' It encompasses the entire ecosystem under a single, consistent brand.",
       "detailImage": "/images/work/projects/0/detailImage.webp"
     },
@@ -94,7 +95,8 @@
         {
           "label": "Confirmation page"
         }
-      ]
+      ],
+      "showcase": []
     },
     {
       "slug": "expertise-ai",
@@ -120,7 +122,8 @@
           "label": "Landing page",
           "image": "/images/work/projects/2/funnel/0/image.webp"
         }
-      ]
+      ],
+      "showcase": []
     },
     {
       "slug": "mytpen",
@@ -149,6 +152,7 @@
           "image": "/images/work/projects/3/funnel/0/image.webp"
         }
       ],
+      "showcase": [],
       "clientWords": "Just one word: impeccable. Sarib knows his work and has great level of creativity skills. Let him know your requirements, he will produce great results.",
       "clientWordsBy": "Shariq Ansar, Founder of myTpen"
     },
@@ -168,7 +172,8 @@
       "liveHref": "https://the-cave.framer.website",
       "built": [],
       "builtText": "Framer site and funnel.",
-      "funnel": []
+      "funnel": [],
+      "showcase": []
     },
     {
       "slug": "enclave-fitness",
@@ -192,8 +197,9 @@
       ],
       "builtText": "Landing page, version two.",
       "funnel": [],
+      "showcase": [],
       "detailLabel": "Screenshot",
-      "detailImage": "/images/work/projects/5/detailImage.webp"
+      "detailImage": "/images/work/projects/5/detailImage.png"
     },
     {
       "slug": "cips-cpo-roundtable",
@@ -201,15 +207,17 @@
       "nda": false,
       "oneLine": "An event landing page for a procurement leaders roundtable.",
       "tags": [
-        "Framer"
+        "Conference"
       ],
-      "clientType": "Event",
-      "year": "[Year]",
-      "builtWith": "[Built with]",
-      "liveLabel": "[Live: cporoundtable.org/qatar]",
+      "cover": "/images/work/projects/6/cover.webp",
+      "clientType": "Procurement Event",
+      "year": "2025",
+      "builtWith": "Framer",
+      "liveLabel": "cporoundtable.org/qatar",
       "liveHref": "https://cporoundtable.org/qatar",
       "built": [],
       "funnel": [],
+      "showcase": [],
       "clientWords": "Xtarc Agency is skilled and easy to work with. They brought great ideas and made the whole process smooth. We’ve chosen to work with them again for these reasons.",
       "clientWordsBy": "Jitse Munten, Organizer CIPS CPO Roundtable"
     }
