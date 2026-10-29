@@ -173,7 +173,15 @@
       "built": [],
       "builtText": "Framer site and funnel.",
       "funnel": [],
-      "showcase": []
+      "showcase": [
+        {
+          "image": "/images/work/projects/4/showcase/0/image.png",
+          "label": "Custom branded graphics"
+        },
+        {
+          "image": "/images/work/projects/4/showcase/1/image.png"
+        }
+      ]
     },
     {
       "slug": "enclave-fitness",
