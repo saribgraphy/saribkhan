@@ -183,7 +183,7 @@ export default config({
             built: stringList("What I built (list)", "Item"),
             builtText: text("What I built (sentence)", {
               multiline: true,
-              description: "Used instead of the list when the list is empty.",
+              description: "A short intro shown above the list. Works on its own too.",
             }),
             funnel: fields.array(
               fields.object({

@@ -73,6 +73,11 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
 
       {built.length || project.builtText ? (
         <Block label={workLabels.built}>
+          {project.builtText ? (
+            <p className="t-body first-letter:uppercase">
+              <Copy>{project.builtText}</Copy>
+            </p>
+          ) : null}
           {built.length ? (
             <ul className="grid gap-2">
               {built.map((b) => (
@@ -84,11 +89,7 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
                 </li>
               ))}
             </ul>
-          ) : (
-            <p className="t-body first-letter:uppercase">
-              <Copy>{project.builtText}</Copy>
-            </p>
-          )}
+          ) : null}
         </Block>
       ) : null}
 

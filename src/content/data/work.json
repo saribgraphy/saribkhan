@@ -129,10 +129,11 @@
       "slug": "mytpen",
       "name": "myTpen",
       "nda": false,
-      "oneLine": "Product design, branding and the landing page for an AI grading assistant that lets teachers grade student work with a finger or a digital pen.",
+      "oneLine": "Branding, product design, the website and launch videos for myTpen, an edtech suite that grew from a one-feature grading app into six AI products for teachers and schools.",
       "tags": [
         "Product design",
-        "Branding"
+        "Branding",
+        "Website"
       ],
       "cover": "/images/work/projects/3/cover.webp",
       "clientType": "AI SaaS",
@@ -140,21 +141,21 @@
       "builtWith": "Figma",
       "liveLabel": "mytpen.app",
       "liveHref": "https://mytpen.app/",
-      "situation": "[Two or three sentences on the problem myTpen solves for teachers and where the product was when you started.]",
+      "situation": "When I started, myTpen was an early MVP with a single feature: grading student work by hand on screen. The idea was good, but it looked like a prototype and had no brand to grow into. Over time I designed the brand, the product and the website around it, and helped shape it into a suite. Today myTpen runs six products under one name, the way Google or Microsoft run separate apps that clearly belong together, built for the edtech niche.",
       "built": [
-        "The product design for the grading app",
-        "Brand identity",
-        "The landing page"
+        "Brand identity: the logo, colour, type and the system every product shares",
+        "Product design for the original grading app, from a rough MVP to a polished tool",
+        "Product design for each new app as the suite grew to six products",
+        "A shared look across the suite, so every app feels like part of one family",
+        "The website at mytpen.app, including the product pages and the suite overview",
+        "SaaS promo and product videos for launches and marketing",
+        "Ongoing design for everything else the team needed along the way"
       ],
-      "funnel": [
-        {
-          "label": "Landing page",
-          "image": "/images/work/projects/3/funnel/0/image.webp"
-        }
-      ],
+      "funnel": [],
       "showcase": [],
       "clientWords": "Just one word: impeccable. Sarib knows his work and has great level of creativity skills. Let him know your requirements, he will produce great results.",
-      "clientWordsBy": "Shariq Ansar, Founder of myTpen"
+      "clientWordsBy": "Shariq Ansar, Founder of myTpen",
+      "builtText": "Everything someone sees of myTpen, from the logo and the first screen of the grading app to the website, the launch videos and the other five products that followed."
     },
     {
       "slug": "the-cave-network",
