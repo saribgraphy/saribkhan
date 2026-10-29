@@ -197,7 +197,12 @@
       ],
       "builtText": "Landing page, version two.",
       "funnel": [],
-      "showcase": [],
+      "showcase": [
+        {
+          "image": "/images/work/projects/5/showcase/0/image.webp",
+          "label": "High impact and converting hero section"
+        }
+      ],
       "detailLabel": "Screenshot",
       "detailImage": "/images/work/projects/5/detailImage.webp"
     },
