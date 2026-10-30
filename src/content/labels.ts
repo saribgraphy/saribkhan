@@ -11,6 +11,7 @@ export const labelDefaults = {
     startHere: "Start here",
   },
   work: {
+    projects: "Projects",
     situation: "The situation",
     built: "What I built",
     funnel: "Funnel map",

@@ -233,6 +233,7 @@ export default config({
           },
         ),
         labels: labels("work", {
+          projects: "Above the project list",
           situation: "Case file: the situation",
           built: "Case file: what I built",
           funnel: "Case file: funnel map",
