@@ -100,7 +100,7 @@
     },
     {
       "slug": "expertise-ai",
-      "name": "Expertise AI",
+      "name": "Expertise AI, formerly Chatsimple",
       "nda": false,
       "oneLine": "Landing page and design system for Expertise, an AI sales agent that works with the tools and platforms a team already uses.",
       "tags": [
@@ -137,7 +137,7 @@
       ],
       "cover": "/images/work/projects/3/cover.webp",
       "clientType": "AI SaaS",
-      "year": "[Year]",
+      "year": "2023",
       "builtWith": "Figma",
       "liveLabel": "mytpen.app",
       "liveHref": "https://mytpen.app/",
@@ -151,11 +151,11 @@
         "SaaS promo and product videos for launches and marketing",
         "Ongoing design for everything else the team needed along the way"
       ],
+      "builtText": "Everything someone sees of myTpen, from the logo and the first screen of the grading app to the website, the launch videos and the other five products that followed.",
       "funnel": [],
       "showcase": [],
       "clientWords": "Just one word: impeccable. Sarib knows his work and has great level of creativity skills. Let him know your requirements, he will produce great results.",
-      "clientWordsBy": "Shariq Ansar, Founder of myTpen",
-      "builtText": "Everything someone sees of myTpen, from the logo and the first screen of the grading app to the website, the launch videos and the other five products that followed."
+      "clientWordsBy": "Shariq Ansar, Founder of myTpen"
     },
     {
       "slug": "the-cave-network",
