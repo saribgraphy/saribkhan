@@ -1,11 +1,12 @@
 import { ArrowUpRight, Asterisk, Cards, Hand, Layout, Plus, Timer } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Title } from "@/components/ui/view";
 import { afterHours, afterHoursHeading, afterHoursIntro } from "@/content/about";
 
-export const metadata: Metadata = { title: "Built after hours" };
+export const metadata: Metadata = pageMetadata("Built after hours", afterHoursIntro);
 
 const icons = { hand: Hand, layout: Layout, timer: Timer, cards: Cards, asterisk: Asterisk, plus: Plus };
 

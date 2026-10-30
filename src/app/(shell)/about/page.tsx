@@ -1,11 +1,12 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { Collage } from "@/components/about/collage";
 import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { aboutBody, aboutHeading, aboutLabels, elsewhere } from "@/content/about";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata: Metadata = pageMetadata("About", aboutBody[0]);
 
 export default function AboutPage() {
   return (

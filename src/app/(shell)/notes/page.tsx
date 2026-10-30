@@ -1,12 +1,13 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Translator } from "@/components/notes/translator";
 import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { notes, notesHeading, notesLabels, translatorClosing, translatorLeadIn } from "@/content/notes";
 
-export const metadata: Metadata = { title: "Notes" };
+export const metadata: Metadata = pageMetadata("Notes", translatorLeadIn);
 
 export default function NotesPage() {
   return (

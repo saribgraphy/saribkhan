@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { ApplicationStep } from "@/components/demos/application-step";
 import { BookingCard } from "@/components/demos/booking-card";
 import { Calculator } from "@/components/demos/calculator";
@@ -7,7 +8,7 @@ import { XRay } from "@/components/build/xray";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { bookingCaption, buildHeading, buildLabels, buildIntro, tryLeadIn, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
 
-export const metadata: Metadata = { title: "What I build" };
+export const metadata: Metadata = pageMetadata("What I build", buildIntro);
 
 export default function BuildPage() {
   return (

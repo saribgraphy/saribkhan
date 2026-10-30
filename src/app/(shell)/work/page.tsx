@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { projects, workFooterNote, workHeading, workIntro, workLabels } from "@/content/projects";
 import { Breadcrumb, Divider, Title } from "@/components/ui/view";
 import { WorkGallery } from "@/components/work/gallery";
 import { ProjectList } from "@/components/work/project-list";
 
-export const metadata: Metadata = { title: "Work" };
+export const metadata: Metadata = pageMetadata("Work", workIntro);
 
 export default function WorkPage() {
   return (

@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Copy } from "@/components/ui/copy";
@@ -13,7 +14,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/notes/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const note = getNote(slug);
-  return note ? { title: note.title, description: note.paragraphs[0] } : {};
+  return note ? pageMetadata(note.title, note.paragraphs[0]) : {};
 }
 
 /** An essay opens in the reading column with a date, a reading time and nothing else. */

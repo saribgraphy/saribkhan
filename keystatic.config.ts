@@ -197,6 +197,7 @@ export default config({
               fields.object({
                 image: img("Image", "work", "Screenshots, mockups, anything. Any height works; WebP keeps saves small."),
                 label: text("Caption (optional)"),
+                alt: text("Alt text (optional)", { description: "What the image shows, for screen readers and search. Falls back to the caption." }),
               }),
               {
                 label: "Showcase",
@@ -225,11 +226,12 @@ export default config({
           fields.object({
             image: img("Image", "work", "Any height works; it's shown at the column's width."),
             label: text("Label", { description: "A short caption under the image." }),
+            alt: text("Alt text", { description: "What the image shows, for screen readers and search." }),
           }),
           {
             label: "Gallery under the note",
-            description: "Images people scroll through below the note. Add as many as you like, drag to reorder.",
-            itemLabel: (p) => p.fields.label.value || "Image",
+            description: "Shown as a two-column grid below the note. Keep it to your strongest 8 or so, and drag to reorder.",
+            itemLabel: (p) => p.fields.label.value || p.fields.alt.value || "Image",
           },
         ),
         labels: labels("work", {

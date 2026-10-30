@@ -8,7 +8,7 @@
       "iconImage": "/images/after-hours/projects/0/iconImage.webp",
       "href": "https://funnel-hack.vercel.app/",
       "shot": "/images/after-hours/projects/0/shot.webp",
-      "body": "The funnel-page swipe library. Browse real funnel pages by kind. Pick a funnel type above to narrow the field, then drill into a specific page."
+      "body": "A swipe library of real funnel pages, sorted by type."
     },
     {
       "name": "Karvaan Glamps",
@@ -16,7 +16,7 @@
       "iconImage": "/images/after-hours/projects/1/iconImage.webp",
       "href": "https://karvaanresorts.com/",
       "shot": "/images/after-hours/projects/1/shot.webp",
-      "body": "I once visited one of the most stunning areas in Kumrat. The hotel we had booked had no online presence whatsoever, after that, this is what the it turned out to be."
+      "body": "The hotel we stayed at had no online presence at all, so I built them one."
     },
     {
       "name": "AI Chat Initiator",
@@ -32,7 +32,7 @@
       "iconImage": "/images/after-hours/projects/3/iconImage.webp",
       "href": "https://maskabun.vercel.app/",
       "shot": "/images/after-hours/projects/3/shot.webp",
-      "body": "A family-run desi café in Gulshan-e-Iqbal. Buns, cookies and biscuits baked fresh in-house, every day."
+      "body": "A website for a family-run desi café in Gulshan-e-Iqbal."
     }
   ]
 }

@@ -32,7 +32,7 @@ export const projects: Project[] = d.projects
     built: p.built ?? [],
     builtText: p.builtText ?? "",
     funnel: (p.funnel ?? []).map((n) => ({ label: n.label ?? "", note: n.note ?? "", image: n.image ?? null })),
-    showcase: (p.showcase ?? []).filter((s) => s.image).map((s) => ({ image: s.image as string, label: s.label ?? "" })),
+    showcase: (p.showcase ?? []).filter((s) => s.image).map((s) => ({ image: s.image as string, label: s.label ?? "", alt: s.alt ?? "" })),
     detailLabel: p.detailLabel ?? "",
     detail: p.detail ?? "",
     detailImage: p.detailImage ?? null,
@@ -48,4 +48,4 @@ export const openProjects = projects.filter((p) => !p.nda);
 
 export const getProject = (slug: string) => openProjects.find((p) => p.slug === slug);
 
-export const gallery = (d.gallery ?? []).filter((g) => g.image) as { image: string; label: string }[];
+export const gallery = (d.gallery ?? []).filter((g) => g.image) as { image: string; label?: string; alt?: string }[];

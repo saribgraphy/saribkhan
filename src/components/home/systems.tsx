@@ -20,8 +20,12 @@ export function Systems() {
           {", "}
         </Fragment>
       ))}
-      <Copy>{systemsTail.extra}</Copy>
-      {", "}
+      {systemsTail.extra?.trim() ? (
+        <>
+          <Copy>{systemsTail.extra}</Copy>
+          {", "}
+        </>
+      ) : null}
       <Copy>{systemsTail.rest}</Copy>{" "}
       <PanelButton
         panel="start"

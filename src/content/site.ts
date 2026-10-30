@@ -4,10 +4,16 @@ import type { SiteData } from "./types";
 // Edited in the CMS (/keystatic → Site settings).
 const d = data as unknown as SiteData;
 
+/** The canonical domain in production, so link previews always show it; the env var or localhost elsewhere. */
+function siteUrl() {
+  if (process.env.VERCEL_ENV === "production") return "https://sarib.xtarc.agency";
+  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+}
+
 export const site = {
   name: d.name,
   tagline: d.tagline,
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: siteUrl(),
   description: d.description,
   email: d.email,
   whatsapp: { display: d.whatsappDisplay, number: (d.whatsappNumber ?? "").replace(/\D/g, "") },

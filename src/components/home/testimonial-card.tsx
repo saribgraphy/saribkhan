@@ -22,46 +22,54 @@ export function TestimonialCard() {
     return () => clearInterval(id);
   }, [many, paused]);
 
-  const t = testimonials[i];
-
   return (
     <figure
-      className="relative -mx-4 overflow-hidden rounded-[10px] bg-[#161718] text-white shadow-[0_0.5px_3px_#21222333,0_6px_8px_#21222333] max-md:mx-0"
+      className="relative -mx-4 grid overflow-hidden rounded-[10px] bg-[#161718] text-white shadow-[0_0.5px_3px_#21222333,0_6px_8px_#21222333] max-md:mx-0"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <CardBackdrop image={t.background} />
-      <div key={i} className="wipe relative flex min-h-[307px] flex-col justify-end gap-6 p-10 max-md:p-6">
-        <blockquote className="font-quote text-[22px] leading-[30px] font-medium tracking-[-0.01em] text-white max-md:text-[19px] max-md:leading-[26px]">
-          &ldquo;<Copy>{(t.quote ?? "").replace(/^"|"$/g, "")}</Copy>&rdquo;
-        </blockquote>
-        <div className="h-px bg-white/20" />
-        <figcaption className="flex items-center justify-between gap-4">
-          <span className="t-ui font-medium text-white/80 [&_.ph]:text-white/60">
-            <Copy>{t.name}</Copy>, <Copy>{t.role}</Copy>, <Copy>{t.company}</Copy>
-          </span>
-          <span className="flex shrink-0 items-center gap-3">
-            {t.audio ? (
-              <a
-                href={t.audio}
-                target="_blank"
-                rel="noreferrer"
-                className="flex size-8 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 hover:bg-white/20"
-                aria-label="Play voice note"
-              >
-                <Play size={12} weight="fill" />
-              </a>
-            ) : null}
-            {t.logo ? (
-              <Image src={t.logo} alt={t.company} width={100} height={26} className="h-[22px] w-auto object-contain" />
-            ) : (
-              <span className="t-mono rounded-md bg-white/[0.06] px-2 text-[10.5px] leading-6 text-white/50 ring-1 ring-white/15">
-                [Client logo]
+      {/* Every quote sits in the same cell and they crossfade, so the card is never blank between them. */}
+      {testimonials.map((t, n) => (
+        <div
+          key={n}
+          aria-hidden={n !== i}
+          className={cn(
+            "relative col-start-1 row-start-1 transition-opacity duration-700 ease-out",
+            n === i ? "opacity-100" : "pointer-events-none opacity-0",
+          )}
+        >
+          <CardBackdrop image={t.background} />
+          <div key={n === i ? `on-${i}` : "off"} className={cn("relative flex min-h-[307px] flex-col justify-end gap-6 p-10 max-md:p-6", n === i && "wipe")}>
+            <blockquote className="font-quote text-[22px] leading-[30px] font-medium tracking-[-0.01em] text-white max-md:text-[19px] max-md:leading-[26px]">
+              &ldquo;<Copy>{(t.quote ?? "").replace(/^"|"$/g, "")}</Copy>&rdquo;
+            </blockquote>
+            <div className="h-px bg-white/20" />
+            <figcaption className="flex items-center justify-between gap-4">
+              <span className="t-ui font-medium text-white/80 [&_.ph]:text-white/60">
+                <Copy>{t.name}</Copy>, <Copy>{t.role}</Copy>, <Copy>{t.company}</Copy>
               </span>
-            )}
-          </span>
-        </figcaption>
-      </div>
+              <span className="flex shrink-0 items-center gap-3">
+                {t.audio ? (
+                  <a
+                    href={t.audio}
+                    target="_blank"
+                    rel="noreferrer"
+                    tabIndex={n === i ? undefined : -1}
+                    className="flex size-8 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 hover:bg-white/20"
+                    aria-label="Play voice note"
+                  >
+                    <Play size={12} weight="fill" />
+                  </a>
+                ) : null}
+                {/* No logo yet: the slot is simply left out. */}
+                {t.logo ? (
+                  <Image src={t.logo} alt={t.company} width={100} height={26} className="h-[22px] w-auto object-contain" />
+                ) : null}
+              </span>
+            </figcaption>
+          </div>
+        </div>
+      ))}
       {many ? (
         <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
           {testimonials.map((_, n) => (

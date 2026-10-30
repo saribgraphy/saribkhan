@@ -101,7 +101,12 @@ export function CaseFile({ project, headingLevel = "h2" }: { project: Project; h
 
       {project.showcase.length ? (
         <Block label={workLabels.showcase}>
-          <ImageStack items={project.showcase as readonly StackImage[]} bleed={false} sizes="(max-width: 640px) 100vw, 520px" />
+          <ImageStack
+            items={project.showcase as readonly StackImage[]}
+            bleed={false}
+            sizes="(max-width: 640px) 100vw, 520px"
+            altFallback={`${project.name} design work`}
+          />
         </Block>
       ) : null}
 

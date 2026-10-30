@@ -10,7 +10,9 @@ export const intro = { lead: d.lead, body: d.body, close: d.close };
 
 export const currently = d.currently;
 
-export const systems = d.systems.map((s) => ({ name: s.name, href: s.href ?? undefined }));
+export const systems = d.systems
+  .filter((s) => s.name?.trim())
+  .map((s) => ({ name: s.name, href: s.href ?? undefined }));
 
 export const systemsTail = { extra: d.systemsExtra, rest: d.systemsRest, last: d.systemsLast };
 

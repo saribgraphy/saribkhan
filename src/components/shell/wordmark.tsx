@@ -33,10 +33,22 @@ export function Specimen({ size = "sm", className }: { size?: "sm" | "lg"; class
         className,
       )}
       title={face.name}
-      aria-label={`Type specimen: ${face.name}`}
+      aria-hidden
     >
-      <span key={i} className={cn("blur-in inline-block", face.className)}>
-        Aa
+      {/* Every face sits in the same cell and they crossfade, so the pill is never empty. */}
+      <span className="grid">
+        {faces.map((f, n) => (
+          <span
+            key={n}
+            className={cn(
+              "col-start-1 row-start-1 inline-block text-center transition-[opacity,filter] duration-500 ease-out",
+              f.className,
+              n === i ? "opacity-100 blur-0" : "opacity-0 blur-[4px]",
+            )}
+          >
+            Aa
+          </span>
+        ))}
       </span>
       <span
         className={cn(

@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProject, openProjects, type Project } from "@/content/projects";
@@ -14,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/work/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-  return project ? { title: project.name, description: project.oneLine.replace(/\[|\]/g, "") } : {};
+  return project ? pageMetadata(project.name, project.situation || project.oneLine) : {};
 }
 
 export default async function CaseFilePage({ params }: PageProps<"/work/[slug]">) {

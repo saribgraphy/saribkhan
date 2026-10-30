@@ -1,5 +1,6 @@
 import { VideoCamera } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { Calculator } from "@/components/demos/calculator";
 import { EngagementCards } from "@/components/pricing/engagement-cards";
 import { Faq } from "@/components/pricing/faq";
@@ -8,7 +9,7 @@ import { PanelButton } from "@/components/ui/panel-button";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { pricingHeading, pricingLabels, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 
-export const metadata: Metadata = { title: "Working together" };
+export const metadata: Metadata = pageMetadata("Working together", pricingIntro);
 
 export default function WorkingTogetherPage() {
   return (

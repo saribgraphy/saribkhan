@@ -14,7 +14,7 @@
       ],
       "cover": "/images/work/projects/0/cover.webp",
       "clientType": "Coaching program",
-      "year": "2024 - Now",
+      "year": "2024 to now",
       "builtWith": "Framer, Figma, Next.js, Supabase",
       "liveLabel": "imaccelerator.com",
       "liveHref": "https://www.imaccelerator.com/",
@@ -23,6 +23,7 @@
         "The ads landing page and booking funnel",
         "The selection results page leads see after applying",
         "The pre-call page, split into a short “confirm your call” page at booking and a longer prep page the setter sends",
+        "Webinar and replay pages",
         "A brand-led homepage that explains the mission, the founder, the community and the program",
         "A coaches platform, a coded app where each coach gets a profile, testimonials, a qualification form and native call booking",
         "Paid playbooks designed as editorial, book-like PDFs",
@@ -230,9 +231,9 @@
       "slug": "the-cave-network",
       "name": "The Cave Network",
       "nda": false,
-      "oneLine": "Elite Muslim Entrepreneurs Network",
+      "oneLine": "The website for The Cave, a private network for Muslim entrepreneurs.",
       "tags": [
-        "Draft"
+        "Framer"
       ],
       "cover": "/images/work/projects/4/cover.webp",
       "clientType": "Demo",
@@ -261,7 +262,7 @@
       "slug": "enclave-fitness",
       "name": "Enclave Fitness",
       "nda": false,
-      "oneLine": "Iman Gadhzi styled landing page for a fitness program.",
+      "oneLine": "A long-form sales page for a fitness coaching program.",
       "tags": [
         "Framer"
       ],
@@ -326,76 +327,36 @@
   ],
   "gallery": [
     {
-      "image": "/images/work/gallery/0/image.webp"
+      "image": "/images/work/gallery/19/image.webp",
+      "alt": "IMA Accelerator welcome video cover"
     },
     {
-      "image": "/images/work/gallery/1/image.webp"
+      "image": "/images/work/gallery/10/image.webp",
+      "alt": "YouTube thumbnail: Is IMA halal?"
     },
     {
-      "image": "/images/work/gallery/2/image.webp"
+      "image": "/images/work/gallery/4/image.webp",
+      "alt": "YouTube thumbnail: The only halal business"
     },
     {
-      "image": "/images/work/gallery/3/image.webp"
+      "image": "/images/work/gallery/15/image.webp",
+      "alt": "Campaign case study layout: from zero to viral"
     },
     {
-      "image": "/images/work/gallery/4/image.webp"
+      "image": "/images/work/gallery/16/image.webp",
+      "alt": "Four illustrations about security, compliance and investigations"
     },
     {
-      "image": "/images/work/gallery/5/image.webp"
+      "image": "/images/work/gallery/17/image.webp",
+      "alt": "The Halal Network cover, a network for Muslim entrepreneurs"
     },
     {
-      "image": "/images/work/gallery/6/image.webp"
+      "image": "/images/work/gallery/20/image.avif",
+      "alt": "Dashboard sidebar and quick settings for a quantum computing product"
     },
     {
-      "image": "/images/work/gallery/7/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/8/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/9/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/10/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/11/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/12/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/13/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/14/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/15/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/16/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/17/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/18/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/19/image.webp"
-    },
-    {
-      "image": "/images/work/gallery/20/image.avif"
-    },
-    {
-      "image": "/images/work/gallery/21/image.avif"
-    },
-    {
-      "image": "/images/work/gallery/22/image.avif"
-    },
-    {
-      "image": "/images/work/gallery/23/image.webp"
+      "image": "/images/work/gallery/22/image.avif",
+      "alt": "System notifications panel for a dashboard UI"
     }
   ],
   "labels": {}
