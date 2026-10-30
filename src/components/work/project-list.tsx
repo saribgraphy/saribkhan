@@ -13,7 +13,7 @@ type View = "list" | "grid";
 const KEY = "work-view";
 const EVENT = "work-view-change";
 
-/** The visitor's last choice, remembered in this browser. List until read. */
+/** The visitor's last choice, remembered in this browser. Grid until they pick the list. */
 function useView() {
   const view = useSyncExternalStore(
     (cb) => {
@@ -26,12 +26,12 @@ function useView() {
     },
     () => {
       try {
-        return localStorage.getItem(KEY) === "grid" ? "grid" : "list";
+        return localStorage.getItem(KEY) === "list" ? "list" : "grid";
       } catch {
-        return "list";
+        return "grid";
       }
     },
-    () => "list",
+    () => "grid",
   ) as View;
 
   const setView = (next: View) => {
