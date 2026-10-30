@@ -82,7 +82,7 @@
         "Branding",
         "Website"
       ],
-      "cover": "/images/work/projects/1/cover.png",
+      "cover": "/images/work/projects/1/cover.webp",
       "clientType": "AI and Web3 security",
       "year": "2025",
       "builtWith": "Figma, Webflow",
@@ -114,17 +114,17 @@
           "label": "Working through the training pages: curriculum options, schedules, illustrations and testimonial layouts, next to the near-final page."
         },
         {
-          "image": "/images/work/projects/1/showcase/3/image.png",
+          "image": "/images/work/projects/1/showcase/3/image.webp",
           "label": "Products dropdown menu"
         },
         {
-          "image": "/images/work/projects/1/showcase/4/image.png"
+          "image": "/images/work/projects/1/showcase/4/image.webp"
         },
         {
-          "image": "/images/work/projects/1/showcase/5/image.png"
+          "image": "/images/work/projects/1/showcase/5/image.webp"
         },
         {
-          "image": "/images/work/projects/1/showcase/6/image.png"
+          "image": "/images/work/projects/1/showcase/6/image.webp"
         }
       ]
     },
