@@ -83,14 +83,13 @@
         "Branding",
         "Website"
       ],
-      "cover": "/images/work/anchain-ai/cover.webp",
+      "cover": "/images/work/projects/1/cover.webp",
       "clientType": "AI and Web3 security",
       "year": "2025",
       "builtWith": "Figma, Webflow",
       "liveLabel": "anchain.ai",
       "liveHref": "https://www.anchain.ai/",
       "situation": "AnChain.AI builds AI agents that investigate crypto fraud and help regulators, law firms and payment companies stay compliant. The work is serious and highly technical, and it spans several products, a training academy and a research arm, each speaking to a different audience. The job was to give all of it one clear voice: a site that explains complex technology simply, gives every product its own recognisable identity, and still feels like one company.",
-      "builtText": "The whole website, from the first sketches to the live Webflow build, plus the brand and graphics that hold it together.",
       "built": [
         "Website design for every page: home, products, solutions, training, company, contact and more",
         "A distinct identity and a dedicated page for each product, including Insights, Data API & MCP, SCREEN and Web3SOC",
@@ -100,19 +99,33 @@
         "The build in Webflow, with responsive layouts and interactions",
         "CMS setup and management for the blog, case studies and research"
       ],
+      "builtText": "The whole website, from the first sketches to the live Webflow build, plus the brand and graphics that hold it together.",
       "funnel": [],
       "showcase": [
         {
-          "image": "/images/work/anchain-ai/process-navigation.webp",
+          "image": "/images/work/projects/1/showcase/0/image.webp",
           "label": "Mapping the navigation first: product mega-menus, the mobile menu and the components they're built from."
         },
         {
-          "image": "/images/work/anchain-ai/process-pages.webp",
+          "image": "/images/work/projects/1/showcase/1/image.webp",
           "label": "Pages taking shape side by side: the homepage, a product page for Web3SOC, contact and the company pages."
         },
         {
-          "image": "/images/work/anchain-ai/process-training.webp",
+          "image": "/images/work/projects/1/showcase/2/image.webp",
           "label": "Working through the training pages: curriculum options, schedules, illustrations and testimonial layouts, next to the near-final page."
+        },
+        {
+          "image": "/images/work/projects/1/showcase/3/image.webp",
+          "label": "Products dropdown menu"
+        },
+        {
+          "image": "/images/work/projects/1/showcase/4/image.webp"
+        },
+        {
+          "image": "/images/work/projects/1/showcase/5/image.webp"
+        },
+        {
+          "image": "/images/work/projects/1/showcase/6/image.webp"
         }
       ]
     },
@@ -124,7 +137,7 @@
       "tags": [
         "NDA"
       ],
-      "cover": "/images/work/projects/1/cover.webp",
+      "cover": "/images/work/projects/2/cover.webp",
       "clientType": "NDA",
       "year": "2026",
       "built": [],
@@ -151,7 +164,7 @@
         "Webflow",
         "Design system"
       ],
-      "cover": "/images/work/projects/2/cover.webp",
+      "cover": "/images/work/projects/3/cover.webp",
       "clientType": "AI SaaS",
       "year": "2025",
       "builtWith": "Webflow, Figma",
@@ -164,7 +177,7 @@
       "funnel": [
         {
           "label": "Landing page",
-          "image": "/images/work/projects/2/funnel/0/image.webp"
+          "image": "/images/work/projects/3/funnel/0/image.webp"
         }
       ],
       "showcase": []
@@ -179,7 +192,7 @@
         "Branding",
         "Website"
       ],
-      "cover": "/images/work/projects/3/cover.webp",
+      "cover": "/images/work/projects/4/cover.webp",
       "clientType": "AI SaaS",
       "year": "2023",
       "builtWith": "Figma",
@@ -199,29 +212,29 @@
       "funnel": [],
       "showcase": [
         {
-          "image": "/images/work/projects/3/showcase/0/image.webp",
+          "image": "/images/work/projects/4/showcase/0/image.webp",
           "label": "Dialogue modal states"
         },
         {
-          "image": "/images/work/projects/3/showcase/1/image.webp"
+          "image": "/images/work/projects/4/showcase/1/image.webp"
         },
         {
-          "image": "/images/work/projects/3/showcase/2/image.webp"
+          "image": "/images/work/projects/4/showcase/2/image.webp"
         },
         {
-          "image": "/images/work/projects/3/showcase/3/image.webp"
+          "image": "/images/work/projects/4/showcase/3/image.webp"
         },
         {
-          "image": "/images/work/projects/3/showcase/4/image.webp"
+          "image": "/images/work/projects/4/showcase/4/image.webp"
         },
         {
-          "image": "/images/work/projects/3/showcase/5/image.webp"
+          "image": "/images/work/projects/4/showcase/5/image.webp"
         },
         {
-          "image": "/images/work/projects/3/showcase/6/image.webp"
+          "image": "/images/work/projects/4/showcase/6/image.webp"
         },
         {
-          "image": "/images/work/projects/3/showcase/7/image.webp"
+          "image": "/images/work/projects/4/showcase/7/image.webp"
         }
       ],
       "clientWords": "Just one word: impeccable. Sarib knows his work and has great level of creativity skills. Let him know your requirements, he will produce great results.",
@@ -235,7 +248,7 @@
       "tags": [
         "Framer"
       ],
-      "cover": "/images/work/projects/4/cover.webp",
+      "cover": "/images/work/projects/5/cover.webp",
       "clientType": "Demo",
       "year": "2026",
       "builtWith": "Framer",
@@ -246,15 +259,15 @@
       "funnel": [],
       "showcase": [
         {
-          "image": "/images/work/projects/4/showcase/0/image.webp",
+          "image": "/images/work/projects/5/showcase/0/image.webp",
           "label": "Custom branded graphics"
         },
         {
-          "image": "/images/work/projects/4/showcase/1/image.webp",
+          "image": "/images/work/projects/5/showcase/1/image.webp",
           "label": "Fully editable component based content system"
         },
         {
-          "image": "/images/work/projects/4/showcase/2/image.webp"
+          "image": "/images/work/projects/5/showcase/2/image.webp"
         }
       ]
     },
@@ -266,7 +279,7 @@
       "tags": [
         "Framer"
       ],
-      "cover": "/images/work/projects/5/cover.webp",
+      "cover": "/images/work/projects/6/cover.webp",
       "clientType": "Fitness Coaching",
       "year": "2025",
       "builtWith": "Framer",
@@ -282,12 +295,12 @@
       "funnel": [],
       "showcase": [
         {
-          "image": "/images/work/projects/5/showcase/0/image.webp",
+          "image": "/images/work/projects/6/showcase/0/image.webp",
           "label": "High impact and converting hero section"
         }
       ],
       "detailLabel": "Screenshot",
-      "detailImage": "/images/work/projects/5/detailImage.webp"
+      "detailImage": "/images/work/projects/6/detailImage.webp"
     },
     {
       "slug": "cips-cpo-roundtable",
@@ -297,7 +310,7 @@
       "tags": [
         "Conference"
       ],
-      "cover": "/images/work/projects/6/cover.webp",
+      "cover": "/images/work/projects/7/cover.webp",
       "clientType": "Procurement Event",
       "year": "2025",
       "builtWith": "Framer",
@@ -312,13 +325,13 @@
       "funnel": [],
       "showcase": [
         {
-          "image": "/images/work/projects/6/showcase/0/image.webp"
+          "image": "/images/work/projects/7/showcase/0/image.webp"
         },
         {
-          "image": "/images/work/projects/6/showcase/1/image.avif"
+          "image": "/images/work/projects/7/showcase/1/image.avif"
         },
         {
-          "image": "/images/work/projects/6/showcase/2/image.webp"
+          "image": "/images/work/projects/7/showcase/2/image.webp"
         }
       ],
       "clientWords": "Xtarc Agency is skilled and easy to work with. They brought great ideas and made the whole process smooth. We’ve chosen to work with them again for these reasons.",
