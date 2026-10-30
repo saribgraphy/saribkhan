@@ -73,6 +73,49 @@
       "detailImage": "/images/work/projects/0/detailImage.webp"
     },
     {
+      "slug": "anchain-ai",
+      "name": "AnChain.AI",
+      "nda": false,
+      "oneLine": "Brand, website design and the Webflow build for AnChain.AI, an AI company that investigates crypto crime, with its own identity and page for every product.",
+      "tags": [
+        "Webflow",
+        "Branding",
+        "Website"
+      ],
+      "cover": "/images/work/anchain-ai/cover.webp",
+      "clientType": "AI and Web3 security",
+      "year": "2025",
+      "builtWith": "Figma, Webflow",
+      "liveLabel": "anchain.ai",
+      "liveHref": "https://www.anchain.ai/",
+      "situation": "AnChain.AI builds AI agents that investigate crypto fraud and help regulators, law firms and payment companies stay compliant. The work is serious and highly technical, and it spans several products, a training academy and a research arm, each speaking to a different audience. The job was to give all of it one clear voice: a site that explains complex technology simply, gives every product its own recognisable identity, and still feels like one company.",
+      "builtText": "The whole website, from the first sketches to the live Webflow build, plus the brand and graphics that hold it together.",
+      "built": [
+        "Website design for every page: home, products, solutions, training, company, contact and more",
+        "A distinct identity and a dedicated page for each product, including Insights, Data API & MCP, SCREEN and Web3SOC",
+        "Brand direction and graphics: illustrations, icons and the visual system across the site",
+        "Navigation and mega-menus that make a large product range easy to explore, on desktop and mobile",
+        "A component library in Figma, so new pages stay consistent",
+        "The build in Webflow, with responsive layouts and interactions",
+        "CMS setup and management for the blog, case studies and research"
+      ],
+      "funnel": [],
+      "showcase": [
+        {
+          "image": "/images/work/anchain-ai/process-navigation.webp",
+          "label": "Mapping the navigation first: product mega-menus, the mobile menu and the components they're built from."
+        },
+        {
+          "image": "/images/work/anchain-ai/process-pages.webp",
+          "label": "Pages taking shape side by side: the homepage, a product page for Web3SOC, contact and the company pages."
+        },
+        {
+          "image": "/images/work/anchain-ai/process-training.webp",
+          "label": "Working through the training pages: curriculum options, schedules, illustrations and testimonial layouts, next to the near-final page."
+        }
+      ]
+    },
+    {
       "slug": "muslimpreneur",
       "name": "Muslimpreneur",
       "nda": true,
