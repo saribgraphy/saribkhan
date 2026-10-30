@@ -1,6 +1,7 @@
 import "../globals.css";
 import { Suspense } from "react";
 import { CommandMenu } from "@/components/shell/command-menu";
+import { Interaction } from "@/components/shell/interaction";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { PanelProvider } from "@/components/shell/panel-context";
 import { PanelHost } from "@/components/shell/panel-host";
@@ -21,7 +22,7 @@ export default function ShellLayout({ children }: LayoutProps<"/">) {
 
         <main className="relative mx-auto flex min-h-dvh max-w-[var(--container)] justify-center">
           <RightRail />
-          <div className="relative z-[1] w-full max-w-[var(--column)] px-5 pt-[104px] pb-24 md:px-0 min-[1200px]:pt-[120px]">
+          <div className="view-host relative z-[1] w-full max-w-[var(--column)] px-5 pt-[104px] pb-24 md:px-0 min-[1200px]:pt-[120px]">
             {children}
           </div>
         </main>
@@ -33,6 +34,7 @@ export default function ShellLayout({ children }: LayoutProps<"/">) {
         <PanelHost />
       </Suspense>
       <CommandMenu />
+      <Interaction />
     </PanelProvider>
   );
 }

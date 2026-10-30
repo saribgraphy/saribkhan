@@ -712,3 +712,95 @@
     animation: none;
   }
 }
+
+/* ---------- Touch feedback and navigation ---------- */
+
+/* Set by <Interaction />: every press lands visibly, even a quick tap. */
+@layer base {
+  a,
+  button,
+  summary,
+  [role="button"],
+  [role="radio"],
+  [role="tab"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  :where(a[href], button, summary, [role="button"], [role="radio"], [role="tab"]) {
+    transition-property: color, background-color, box-shadow, opacity, scale, translate;
+    transition-duration: 0.2s;
+    transition-timing-function: var(--ease-out);
+  }
+}
+[data-pressed="sm"] {
+  scale: 0.96;
+  transition-duration: 0.08s;
+}
+[data-pressed="lg"] {
+  scale: 0.985;
+  transition-duration: 0.08s;
+}
+[data-pressed="inline"] {
+  opacity: 0.55;
+  transition-duration: 0.08s;
+}
+.nav-link[data-pressed] {
+  color: var(--ink);
+}
+
+/* While the next view loads, the current one softens instead of freezing. */
+.view-host {
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+html[data-navigating] .view-host {
+  opacity: 0.45;
+  filter: blur(1.5px);
+  transition-delay: 40ms;
+}
+
+/* A thin bar along the top, only if the next view takes more than a moment. */
+.nav-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0s linear 0.3s;
+}
+.nav-progress[data-active] {
+  opacity: 1;
+  transform: scaleX(0.85);
+  transition:
+    opacity 0.2s ease 0.18s,
+    transform 8s cubic-bezier(0.08, 0.7, 0.2, 1) 0.18s;
+}
+
+/* Work grid: cards wait behind a skeleton, then rise in order. */
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+.skeleton {
+  background: var(--tint);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+.card-reveal {
+  animation: fold-in 0.55s var(--ease-out) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-pressed] {
+    scale: none;
+  }
+  html[data-navigating] .view-host {
+    filter: none;
+  }
+}
