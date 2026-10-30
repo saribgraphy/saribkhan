@@ -781,7 +781,7 @@ html[data-navigating] .view-host {
     transform 8s cubic-bezier(0.08, 0.7, 0.2, 1) 0.18s;
 }
 
-/* Work grid: cards wait behind a skeleton, then rise in order. */
+/* Skeletons for pages on their way. */
 @keyframes skeleton-pulse {
   50% {
     opacity: 0.55;
@@ -791,9 +791,11 @@ html[data-navigating] .view-host {
   background: var(--tint);
   animation: skeleton-pulse 1.4s ease-in-out infinite;
 }
-.card-reveal {
-  animation: fold-in 0.55s var(--ease-out) both;
-  animation-delay: var(--d, 0ms);
+/* ascii-reveal on the Work grid, in the site's mono and greys. */
+.ascii-theme {
+  --ascii-font: var(--font-mono);
+  --ascii-accent: var(--ink);
+  --ascii-skeleton: var(--faint);
 }
 
 @media (prefers-reduced-motion: reduce) {

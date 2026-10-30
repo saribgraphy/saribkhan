@@ -3,6 +3,7 @@
 import { ArrowRight, LockSimple, Rows, SquaresFour } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
+import { AsciiReveal, AsciiSkeleton } from "ascii-reveal";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import type { Project } from "@/content/projects";
 import { Copy } from "@/components/ui/copy";
@@ -112,7 +113,18 @@ const rowClass = "group flex items-center gap-4 rounded-[10px] px-3 py-3 hover:b
 const COVER_SIZES = "(max-width: 640px) 50vw, 290px";
 
 /** Cover with the NDA blur and lock when needed; sized by its parent. */
-function Cover({ project: p, onLoad, className }: { project: Project; onLoad?: () => void; className?: string }) {
+function Cover({
+  project: p,
+  onLoad,
+  eager,
+  className,
+}: {
+  project: Project;
+  onLoad?: () => void;
+  /** Load straight away, for covers hidden behind a skeleton. */
+  eager?: boolean;
+  className?: string;
+}) {
   return (
     <>
       {p.cover ? (
@@ -121,6 +133,7 @@ function Cover({ project: p, onLoad, className }: { project: Project; onLoad?: (
           alt=""
           fill
           sizes={COVER_SIZES}
+          loading={eager ? "eager" : undefined}
           onLoad={onLoad}
           onError={onLoad}
           className={cn("object-cover object-top", p.nda && "scale-110 blur-[6px]", className)}
@@ -178,83 +191,52 @@ function Row({ project: p, ndaLabel }: { project: Project; ndaLabel: string }) {
   );
 }
 
-/** Gap between cards rising in, top to bottom. */
-const STAGGER = 70;
-/** Show whatever is left after this long, even if a cover is still loading. */
+/** Reveal whatever is there after this long, even if a cover is still loading. */
 const GIVE_UP = 2500;
 
-type Reveal = { loaded: boolean[]; shown: number; delays: number[] };
-
-/** Reveals every loaded card up to the first one still waiting, staggered from where it left off. */
-function settle({ loaded, shown, delays }: Reveal): Reveal {
-  let next = shown;
-  while (next < loaded.length && loaded[next]) next++;
-  if (next === shown) return { loaded, shown, delays };
-  const d = [...delays];
-  for (let i = shown; i < next; i++) d[i] = (i - shown) * STAGGER;
-  return { loaded, shown: next, delays: d };
-}
-
 /**
- * The grid holds each card behind a skeleton until its cover has loaded, and
- * reveals cards strictly in order, so they rise in from the first one instead
- * of popping in wherever an image happens to finish.
+ * The grid shows ASCII skeletons until every cover has loaded, then the cards
+ * decode in together as one wave (ascii-reveal, default "decode" preset).
+ * Cards are in the page the whole time, just hidden, so covers load behind
+ * the skeletons and nothing shifts when they swap.
  */
 function Grid({ projects, ndaLabel }: { projects: Project[]; ndaLabel: string }) {
-  const [state, setState] = useState<Reveal>(() => ({ loaded: projects.map((p) => !p.cover), shown: 0, delays: [] }));
-
-  const markLoaded = (i: number) =>
-    setState((s) => {
-      if (s.loaded[i]) return s;
-      const loaded = [...s.loaded];
-      loaded[i] = true;
-      return settle({ ...s, loaded });
-    });
+  const [loaded, setLoaded] = useState(() => projects.map((p) => !p.cover));
+  const [gaveUp, setGaveUp] = useState(false);
+  const ready = gaveUp || loaded.every(Boolean);
 
   useEffect(() => {
-    // Cards without a cover (or already cached) go on the first frame.
-    const first = window.requestAnimationFrame(() => setState(settle));
-    const late = window.setTimeout(() => setState((s) => settle({ ...s, loaded: s.loaded.map(() => true) })), GIVE_UP);
-    return () => {
-      window.cancelAnimationFrame(first);
-      window.clearTimeout(late);
-    };
+    const t = window.setTimeout(() => setGaveUp(true), GIVE_UP);
+    return () => window.clearTimeout(t);
   }, []);
 
+  const markLoaded = (i: number) => setLoaded((l) => (l[i] ? l : l.map((v, j) => v || j === i)));
+
   return (
-    <ul className="grid grid-cols-2 gap-x-4 gap-y-7 max-sm:gap-x-3 max-sm:gap-y-5">
+    <AsciiReveal
+      as="ul"
+      loading={!ready}
+      revealOnMount={false}
+      className="ascii-theme grid grid-cols-2 gap-x-4 gap-y-7 max-sm:gap-x-3 max-sm:gap-y-5"
+    >
       {projects.map((p, i) => (
         <li key={p.slug} className="relative">
-          <Card
-            project={p}
-            ndaLabel={ndaLabel}
-            onLoad={() => markLoaded(i)}
-            shown={i < state.shown}
-            delay={state.delays[i] ?? 0}
-          />
+          {!ready ? <CardSkeleton seed={i} /> : null}
+          <div className={ready ? undefined : "invisible"}>
+            <Card project={p} ndaLabel={ndaLabel} onLoad={() => markLoaded(i)} />
+          </div>
         </li>
       ))}
-    </ul>
+    </AsciiReveal>
   );
 }
 
 /** Grid card: cover, title and a two-line summary. No arrow. */
-function Card({
-  project: p,
-  ndaLabel,
-  onLoad,
-  shown,
-  delay,
-}: {
-  project: Project;
-  ndaLabel: string;
-  onLoad: () => void;
-  shown: boolean;
-  delay: number;
-}) {
+function Card({ project: p, ndaLabel, onLoad }: { project: Project; ndaLabel: string; onLoad: () => void }) {
   const body = (
     <>
       <span
+        data-ascii="surface"
         className={cn(
           "frame relative block !p-1 transition-[translate,box-shadow] duration-300 ease-out",
           !p.nda && "group-hover:-translate-y-0.5 group-hover:shadow-pop",
@@ -265,6 +247,7 @@ function Card({
           <Cover
             project={p}
             onLoad={onLoad}
+            eager
             className={cn("transition-transform duration-500 ease-out", !p.nda && "group-hover:scale-[1.03]")}
           />
         </span>
@@ -279,35 +262,25 @@ function Card({
     </>
   );
 
-  return (
-    <>
-      {/* Same footprint as the card, so nothing shifts when it swaps in. */}
-      {!shown ? <CardSkeleton /> : null}
-      <div
-        className={shown ? "card-reveal" : "opacity-0"}
-        style={shown ? ({ "--d": `${delay}ms` } as React.CSSProperties) : undefined}
-      >
-        {p.nda ? (
-          <div className="group block cursor-default" aria-label={`${p.name}, under NDA`}>
-            {body}
-          </div>
-        ) : (
-          <Link href={`/work/${p.slug}`} className="group block rounded-[10px]">
-            {body}
-          </Link>
-        )}
-      </div>
-    </>
+  return p.nda ? (
+    <div className="group block cursor-default" aria-label={`${p.name}, under NDA`}>
+      {body}
+    </div>
+  ) : (
+    <Link href={`/work/${p.slug}`} className="group block rounded-[10px]">
+      {body}
+    </Link>
   );
 }
 
-function CardSkeleton() {
+/** Same footprint as a card: a cover block, a title line and two summary lines. */
+function CardSkeleton({ seed }: { seed: number }) {
   return (
-    <span className="absolute inset-0 block" aria-hidden>
-      <span className="skeleton block aspect-[16/10] rounded-[10px]" />
-      <span className="skeleton mt-4 block h-3.5 w-1/2 rounded-full" />
-      <span className="skeleton mt-2.5 block h-3 w-[85%] rounded-full" />
-      <span className="skeleton mt-2 block h-3 w-[60%] rounded-full" />
-    </span>
+    <div className="absolute inset-0" aria-hidden>
+      <div className="aspect-[16/10] overflow-hidden rounded-[10px]">
+        <AsciiSkeleton width="100%" height="100%" seed={seed} />
+      </div>
+      <AsciiSkeleton className="mt-3" lines={3} widths={["50%", "90%", "65%"]} seed={seed + 50} />
+    </div>
   );
 }
