@@ -13,9 +13,13 @@ const nextConfig: NextConfig = {
   async headers() {
     const noindex = [{ key: "X-Robots-Tag", value: "noindex, nofollow, noimageindex" }];
     return [
-      { source: "/muslim-ceo-growth-audit", headers: noindex },
+      { source: "/muslim-ceo", headers: noindex },
       { source: "/audits/:path*", headers: noindex },
     ];
+  },
+  // The audit moved; anyone with the old link still lands on it.
+  async redirects() {
+    return [{ source: "/muslim-ceo-growth-audit", destination: "/muslim-ceo", permanent: false }];
   },
   turbopack: {
     rules: {
