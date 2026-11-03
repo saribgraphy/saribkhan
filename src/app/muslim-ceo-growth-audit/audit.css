@@ -267,6 +267,7 @@ body:has(.audit) {
   .cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:8px;
     color:#fff;font-size:13px;line-height:20px;font-weight:500;letter-spacing:-.005em;white-space:nowrap;text-decoration:none;user-select:none;
     background:linear-gradient(#232326,#424347);box-shadow:0 1px 2px #4041451a,inset 0 -1px 0 #3f404414,inset 0 1px 0 #ffffff1f;transition:transform .1s ease}
+  .me .cta{color:#fff}
   .cta::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#ffffff1a;opacity:0;pointer-events:none}
   .cta:hover::after{opacity:1}
   .cta:active{transform:translateY(.5px) scale(.99)}
