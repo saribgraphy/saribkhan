@@ -87,3 +87,42 @@ export function ScreenshotZoom() {
     </dialog>
   );
 }
+
+/** The larger blocks that rise in as they reach the viewport. */
+const REVEAL =
+  ".stamp, .card, .num, .score, .prio > li, .mapwrap, .figs > figure, section > figure, .findings, .tablewrap, .journey, .dist, .gantt, .phase, .me, .contact, .pull";
+
+/**
+ * Blocks already on screen stay put; everything below fades and rises in once
+ * it scrolls into view. Siblings in the same row follow each other by 70ms.
+ * Without JavaScript (or with reduced motion) everything is simply visible.
+ */
+export function RevealOnScroll() {
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>(".audit");
+    if (!root || !("IntersectionObserver" in window)) return;
+    const els = [...root.querySelectorAll<HTMLElement>(REVEAL)];
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px" },
+    );
+    els.forEach((el) => {
+      el.setAttribute("data-reveal", "");
+      const siblings = el.parentElement ? [...el.parentElement.children].filter((c) => c.matches(REVEAL)) : [];
+      el.style.transitionDelay = `${(siblings.indexOf(el) % 4) * 70}ms`;
+      // Already in view on load: no animation, so nothing blinks out.
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("in");
+      else io.observe(el);
+    });
+    root.classList.add("reveal-ready");
+    return () => io.disconnect();
+  }, []);
+
+  return null;
+}

@@ -13,7 +13,7 @@ import { ReputationSection } from "@/components/audits/muslim-ceo/s10-reputation
 import { FixSection } from "@/components/audits/muslim-ceo/s11-fix";
 import { RoadmapSection } from "@/components/audits/muslim-ceo/s12-roadmap";
 import { MeSection } from "@/components/audits/muslim-ceo/s13-me";
-import { ReportIndex, ScreenshotZoom } from "@/components/audits/muslim-ceo/report-index";
+import { ReportIndex, RevealOnScroll, ScreenshotZoom } from "@/components/audits/muslim-ceo/report-index";
 import "./audit.css";
 
 /**
@@ -46,7 +46,7 @@ export default function MuslimCeoGrowthAudit() {
   return (
     <div className="audit">
       <div className="shell">
-        <ReportIndex brand="Audit 001 · Muslim CEO" />
+        <ReportIndex brand="Prepared for Muslim CEO" />
         <main>
           <CoverSection />
           <YouSection />
@@ -65,6 +65,7 @@ export default function MuslimCeoGrowthAudit() {
         </main>
       </div>
       <ScreenshotZoom />
+      <RevealOnScroll />
     </div>
   );
 }

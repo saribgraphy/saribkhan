@@ -3,7 +3,7 @@ export function CoverSection() {
   return (
     <>
     <section className="cover" id="top">
-      <div className="meta"><span>Audit 001</span><span>Prepared for Muslim CEO</span><span>3 November 2026</span></div>
+      <div className="meta"><span>Prepared for Muslim CEO</span><span>3 November 2026</span></div>
       <h1>You&apos;ve built something rare, and <em>it&apos;s leaking everywhere.</em></h1>
       <p className="lead">I went through every website, page, link, channel and review connected to Muslim CEO, the same way a new lead would. This report shows what I found, what it&apos;s costing you and how I&apos;d fix it in twelve weeks.</p>
       <div className="stamp" role="list">

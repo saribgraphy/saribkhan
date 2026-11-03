@@ -8,8 +8,8 @@ export function MapSection() {
       <p className="lead">I followed every link from your channels and websites to wherever it actually lands. Three work but have problems, and seven are broken.</p>
       <div className="mapwrap">
         <svg viewBox="0 0 1000 660" role="img" aria-label="Map of where traffic from each channel lands">
-          <text className="colh" x="20" y="20">WHERE PEOPLE FIND YOU</text>
-          <text className="colh" x="740" y="20">WHERE THEY ACTUALLY LAND</text>
+          <text className="colh" x="20" y="20">Where people find you</text>
+          <text className="colh" x="740" y="20">Where they actually land</text>
           &#123;/* edges */&#125;
           <path className="e crit" d="M260 102 C500 102 500 62 740 62"/>
           <path className="e crit" d="M260 102 C500 102 500 122 740 122"/>
