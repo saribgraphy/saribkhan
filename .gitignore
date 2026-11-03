@@ -44,3 +44,6 @@ next-env.d.ts
 
 # Source images for the Work gallery (converted copies live in public/images/work/gallery)
 /gallery images/
+
+# Source files for private audits (the built pages live in src/app and public/audits)
+/Muslim CEO Growth Audit/

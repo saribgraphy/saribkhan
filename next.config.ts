@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1600],
   },
   partialPrefetching: true,
+  // Private audits are shared by link only: keep the pages and their screenshots out of search.
+  async headers() {
+    const noindex = [{ key: "X-Robots-Tag", value: "noindex, nofollow, noimageindex" }];
+    return [
+      { source: "/muslim-ceo-growth-audit", headers: noindex },
+      { source: "/audits/:path*", headers: noindex },
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {
