@@ -256,15 +256,27 @@ body:has(.audit) {
   dialog img{display:block;max-width:100%;max-height:90vh;border-radius:10px}
   dialog button{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));background:#fff;color:#111;border:0;border-radius:999px;padding:8px 14px;font:500 13px var(--body);cursor:pointer}
   /* about me: portrait and the way back to the site (the card is inverted, so --paper is its ink) */
-  .me .avatar{width:64px;height:64px;border-radius:14px;object-fit:cover;display:block}
-  .back{justify-self:start;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:10px;
+  .me .avatar{width:88px;height:88px;border-radius:16px;object-fit:cover;display:block}
+  .actions{display:flex;flex-wrap:wrap;gap:10px;padding-top:6px}
+  .back{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:10px;
     border:1px solid color-mix(in srgb,var(--paper) 20%,transparent);color:var(--paper);font-size:14px;font-weight:500;text-decoration:none;
     transition:background-color .2s,transform .15s}
   .back:hover{background:color-mix(in srgb,var(--paper) 8%,transparent)}
   .back:active{transform:scale(.97)}
+  /* the site's primary button (.btn.btn-primary on the homepage) */
+  .cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:8px;
+    color:#fff;font-size:13px;line-height:20px;font-weight:500;letter-spacing:-.005em;white-space:nowrap;text-decoration:none;user-select:none;
+    background:linear-gradient(#232326,#424347);box-shadow:0 1px 2px #4041451a,inset 0 -1px 0 #3f404414,inset 0 1px 0 #ffffff1f;transition:transform .1s ease}
+  .cta::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#ffffff1a;opacity:0;pointer-events:none}
+  .cta:hover::after{opacity:1}
+  .cta:active{transform:translateY(.5px) scale(.99)}
+  .cta span{position:relative;z-index:1}
+  .cta:hover span{background:linear-gradient(90deg,#fff 0% 35%,#ffffff80 50%,#fff 65% 100%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:cta-shimmer .6s}
+  .back{height:40px;border-radius:8px;font-size:13px}
 
   /* larger blocks rise in as they reach the viewport (set up by RevealOnScroll) */
   &.reveal-ready [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
   &.reveal-ready [data-reveal].in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){&.reveal-ready [data-reveal]{opacity:1;transform:none;transition:none}}
 }
+@keyframes cta-shimmer{from{background-position:100% 0}to{background-position:0 0}}

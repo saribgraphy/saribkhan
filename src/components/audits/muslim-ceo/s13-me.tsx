@@ -15,16 +15,21 @@ export function MeSection() {
       <div className="me">
         <div className="grid" style={{ gap: "22px", alignContent: "start" }}>
           <div className="eyebrow"><b>13</b>About me</div>
-          <img className="avatar" src="/audits/sarib.webp" alt="Sarib Khan" width={64} height={64} />
+          <img className="avatar" src="/audits/sarib.webp" alt="Sarib Khan" width={88} height={88} />
           <h2>I&apos;m Sarib, and this is the work I do every day.</h2>
           <div className="prose">
             <p>I&apos;ve been designing for the internet since 2020, and for the last stretch I&apos;ve focused on Muslim coaching and education brands. I design and build the whole journey a lead walks through, from the first landing page to the application, the pre-call page, the community and the tools a team uses behind the scenes.</p>
             <p>I understand what your setter is trying to do on a call and what a lead feels when they land on your page at midnight. I also care a lot about the details, which is why this report exists.</p>
           </div>
-          <Link href="/" className="back">
-            <ArrowLeft size={15} weight="bold" />
-            Back to home
-          </Link>
+          <div className="actions">
+            <Link href="/" className="back">
+              <ArrowLeft size={15} weight="bold" />
+              Back to home
+            </Link>
+            <a href="#next" className="cta">
+              <span>Get in touch</span>
+            </a>
+          </div>
         </div>
         <div className="clients">
           <div><b>IMA Accelerator</b><span>Designer across funnels, website and internal tools. Ad funnel, selection and pre-call pages, homepage, webinar pages, a coaches platform and paid playbooks.</span></div>

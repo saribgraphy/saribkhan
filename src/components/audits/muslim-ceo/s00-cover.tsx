@@ -12,7 +12,7 @@ export function CoverSection() {
         <div role="listitem"><b className="c">9</b><span>Broken links out of 18 tested</span></div>
         <div role="listitem"><b>9</b><span>Brand and program names</span></div>
       </div>
-      <div className="byline"><span>Prepared by</span><span className="who">Sarib Khan</span><span>Designer and funnel builder for Muslim coaching brands</span><a href="https://sarib.xtarc.agency/">sarib.xtarc.agency</a></div>
+      <div className="byline"><span>Prepared by</span><span className="who">Sarib Khan</span><span>Designer and funnel builder for Muslim coaching brands</span></div>
     </section>
     </>
   );
