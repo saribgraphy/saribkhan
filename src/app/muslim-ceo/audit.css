@@ -4,17 +4,23 @@
  * nested under .audit so none of it reaches the rest of the site, or the
  * other way round.
  */
-html:has(.audit) {
+/*
+ * Page-level rules apply only while the audit is on screen. Next keeps visited
+ * pages in the DOM, hidden with display: none, so a plain :has(.audit) would
+ * carry smooth scrolling and the dark scheme onto the rest of the site, and
+ * smooth scrolling interrupts the scroll reset between pages.
+ */
+html:has(.audit:not([style*="display: none"])) {
   scroll-behavior: smooth;
   background: #0f1114;
   color-scheme: dark;
 }
 @media (prefers-reduced-motion: reduce) {
-  html:has(.audit) {
+  html:has(.audit:not([style*="display: none"])) {
     scroll-behavior: auto;
   }
 }
-body:has(.audit) {
+body:has(.audit:not([style*="display: none"])) {
   margin: 0;
 }
 

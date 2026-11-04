@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Instrument_Sans, Instrument_Serif, Inter } from "next/font/google";
+import { Suspense } from "react";
+import { ScrollReset } from "@/components/shell/scroll-reset";
 import { site } from "@/content/site";
 
 const inter = Inter({
@@ -56,7 +58,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${instrument.variable} ${instrumentSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Suspense fallback={null}>
+          <ScrollReset />
+        </Suspense>
+      </body>
     </html>
   );
 }

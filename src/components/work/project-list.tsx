@@ -3,8 +3,8 @@
 import { ArrowRight, LockSimple, Rows, SquaresFour } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
-import { AsciiReveal, AsciiSkeleton } from "ascii-reveal";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { AsciiReveal, AsciiSkeleton, type AsciiRevealHandle } from "ascii-reveal";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Project } from "@/content/projects";
 import { Copy } from "@/components/ui/copy";
 import { cn } from "@/lib/utils";
@@ -191,42 +191,69 @@ function Row({ project: p, ndaLabel }: { project: Project; ndaLabel: string }) {
   );
 }
 
-/** Reveal whatever is there after this long, even if a cover is still loading. */
-const GIVE_UP = 2500;
+/** How long the whole grid waits for its covers before showing the ones that are ready. */
+const MAX_WAIT = 8000;
+const SKELETON_FADE = 400;
 
 /**
- * The grid shows ASCII skeletons until every cover has loaded, then the cards
- * decode in together as one wave (ascii-reveal, default "decode" preset).
- * Cards are in the page the whole time, just hidden, so covers load behind
- * the skeletons and nothing shifts when they swap.
+ * Every card stays behind an ASCII skeleton until all the covers have loaded
+ * and decoded, then the grid decodes in as one wave, images included. Cards are
+ * in the page the whole time, just hidden, so covers load behind the skeletons
+ * and nothing shifts when they swap.
+ *
+ * On a very slow connection the grid opens after MAX_WAIT with the covers it
+ * has. Any card still waiting keeps its skeleton and decodes in once its own
+ * cover arrives, so a card never appears without its image.
  */
 function Grid({ projects, ndaLabel }: { projects: Project[]; ndaLabel: string }) {
+  const reveal = useRef<AsciiRevealHandle>(null);
   const [loaded, setLoaded] = useState(() => projects.map((p) => !p.cover));
-  const [gaveUp, setGaveUp] = useState(false);
-  const ready = gaveUp || loaded.every(Boolean);
+  const [waited, setWaited] = useState(false);
+  const allLoaded = loaded.every(Boolean);
+  const open = waited || allLoaded;
+  // The skeletons fade under the wave, then leave the page.
+  const [faded, setFaded] = useState(false);
 
   useEffect(() => {
-    const t = window.setTimeout(() => setGaveUp(true), GIVE_UP);
+    const t = window.setTimeout(() => setWaited(true), MAX_WAIT);
     return () => window.clearTimeout(t);
   }, []);
 
-  const markLoaded = (i: number) => setLoaded((l) => (l[i] ? l : l.map((v, j) => v || j === i)));
+  useEffect(() => {
+    if (!open) return;
+    const t = window.setTimeout(() => setFaded(true), SKELETON_FADE);
+    return () => window.clearTimeout(t);
+  }, [open]);
+
+  const markLoaded = (i: number) => {
+    setLoaded((l) => (l[i] ? l : l.map((v, j) => v || j === i)));
+    if (!open) return;
+    // A late cover: the wave has already passed, so this card gets its own.
+    requestAnimationFrame(() => {
+      const card = reveal.current?.element?.querySelector<HTMLElement>(`[data-card="${i}"]`);
+      if (card) reveal.current?.reveal({ within: card });
+    });
+  };
 
   return (
     <AsciiReveal
+      ref={reveal}
       as="ul"
-      loading={!ready}
+      loading={!open}
       revealOnMount={false}
       className="ascii-theme grid grid-cols-2 gap-x-4 gap-y-7 max-sm:gap-x-3 max-sm:gap-y-5"
     >
-      {projects.map((p, i) => (
-        <li key={p.slug} className="relative">
-          {!ready ? <CardSkeleton seed={i} /> : null}
-          <div className={ready ? undefined : "invisible"}>
-            <Card project={p} ndaLabel={ndaLabel} onLoad={() => markLoaded(i)} />
-          </div>
-        </li>
-      ))}
+      {projects.map((p, i) => {
+        const shown = open && loaded[i];
+        return (
+          <li key={p.slug} data-card={i} data-ascii={open && !shown ? "skip" : undefined} className="relative">
+            {!shown || !faded ? <CardSkeleton seed={i} leaving={shown} /> : null}
+            <div className={shown ? undefined : "invisible"}>
+              <Card project={p} ndaLabel={ndaLabel} onLoad={() => markLoaded(i)} />
+            </div>
+          </li>
+        );
+      })}
     </AsciiReveal>
   );
 }
@@ -243,7 +270,11 @@ function Card({ project: p, ndaLabel, onLoad }: { project: Project; ndaLabel: st
         )}
         aria-hidden
       >
-        <span className="hatch relative block aspect-[16/10] overflow-hidden rounded-[6px] ring-[0.5px] ring-black/10">
+        {/* The cover is part of the surface, not revealed on its own, so the card and its image always arrive as one. */}
+        <span
+          data-ascii="skip"
+          className={cn("relative block aspect-[16/10] overflow-hidden rounded-[6px] ring-[0.5px] ring-black/10", !p.cover && "hatch")}
+        >
           <Cover
             project={p}
             onLoad={onLoad}
@@ -274,11 +305,11 @@ function Card({ project: p, ndaLabel, onLoad }: { project: Project; ndaLabel: st
 }
 
 /** Same footprint as a card: a cover block, a title line and two summary lines. */
-function CardSkeleton({ seed }: { seed: number }) {
+function CardSkeleton({ seed, leaving }: { seed: number; leaving: boolean }) {
   return (
-    <div className="absolute inset-0" aria-hidden>
+    <div className={cn("absolute inset-0 transition-opacity duration-300 ease-out", leaving && "opacity-0")} aria-hidden>
       <div className="aspect-[16/10] overflow-hidden rounded-[10px]">
-        <AsciiSkeleton width="100%" height="100%" seed={seed} />
+        <AsciiSkeleton rows={16} width="100%" height="100%" seed={seed} />
       </div>
       <AsciiSkeleton className="mt-3" lines={3} widths={["50%", "90%", "65%"]} seed={seed + 50} />
     </div>
