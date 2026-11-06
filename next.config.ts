@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
     const noindex = [{ key: "X-Robots-Tag", value: "noindex, nofollow, noimageindex" }];
     return [
       { source: "/muslim-ceo", headers: noindex },
+      { source: "/remote-rizq", headers: noindex },
       { source: "/audits/:path*", headers: noindex },
     ];
   },

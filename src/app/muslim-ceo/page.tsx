@@ -13,8 +13,24 @@ import { ReputationSection } from "@/components/audits/muslim-ceo/s10-reputation
 import { FixSection } from "@/components/audits/muslim-ceo/s11-fix";
 import { RoadmapSection } from "@/components/audits/muslim-ceo/s12-roadmap";
 import { MeSection } from "@/components/audits/muslim-ceo/s13-me";
-import { ReportIndex, RevealOnScroll, ScreenshotZoom } from "@/components/audits/muslim-ceo/report-index";
-import "./audit.css";
+import { ReportIndex, RevealOnScroll, ScreenshotZoom } from "@/components/audits/report-index";
+import "@/components/audits/audit.css";
+
+const SECTIONS = [
+  ["you", "Who you are"],
+  ["summary", "The short version"],
+  ["map", "Where traffic goes"],
+  ["websites", "Websites"],
+  ["links", "Link test log"],
+  ["seo", "SEO and tracking"],
+  ["funnel", "Funnel and offer"],
+  ["brand", "Brand and copy"],
+  ["channels", "Channels"],
+  ["reputation", "Reputation"],
+  ["fix", "What I'd fix"],
+  ["roadmap", "12-week roadmap"],
+  ["me", "About me"],
+] as const;
 
 /**
  * A private growth audit prepared for Muslim CEO. It lives outside the site
@@ -46,7 +62,7 @@ export default function MuslimCeoGrowthAudit() {
   return (
     <div className="audit">
       <div className="shell">
-        <ReportIndex brand="Prepared for Muslim CEO" />
+        <ReportIndex brand="Prepared for Muslim CEO" sections={SECTIONS} />
         <main>
           <CoverSection />
           <YouSection />

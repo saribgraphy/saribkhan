@@ -1,4 +1,13 @@
-import { RoadmapChart } from "./roadmap-chart";
+import { RoadmapChart } from "../roadmap-chart";
+
+const PHASES = [
+  { label: "Stop the leaks", weeks: "W1–2", start: 1, span: 2, tone: "p1" },
+  { label: "Brand foundation", weeks: "W2–4", start: 2, span: 3, tone: "p2" },
+  { label: "Website and funnel", weeks: "W4–8", start: 4, span: 5, tone: "p3" },
+  { label: "Skool and channels", weeks: "W7–9", start: 7, span: 3, tone: "p4" },
+  { label: "Content, SEO and launch", weeks: "W9–12", start: 9, span: 4, tone: "p5" },
+  { label: "Support and weekly reporting", weeks: "W1–12", start: 1, span: 12, tone: "p6" },
+];
 
 export function RoadmapSection() {
   return (
@@ -6,7 +15,7 @@ export function RoadmapSection() {
     <section id="roadmap">
       <div className="eyebrow"><b>12</b>12-week roadmap</div>
       <h2>The leaks are fixed in two weeks, and the new site goes live in week nine.</h2>
-      <RoadmapChart />
+      <RoadmapChart phases={PHASES} />
       <div>
         <div className="phase"><div className="when"><i className="p1"></i>Weeks 1 to 2</div><div><h3>Stop the leaks</h3><ul><li>Fix both YouTube bio links and every link in the test log</li><li>Point www.muslimceo.com to the main site and remove ClickFunnels</li><li>Install analytics and the Meta pixel so we have a baseline from day one</li><li>Remove placeholders, correct typos and link the footer icons</li></ul><p className="out">By the end of week 2, every link your audience clicks goes somewhere real.</p></div></div>
         <div className="phase"><div className="when"><i className="p2"></i>Weeks 2 to 4</div><div><h3>Brand foundation</h3><ul><li>Agree the brand structure and retire names you no longer need</li><li>Refine the logo and build the colour, type and component system</li><li>Write the core message once, with honest promises that match the program</li><li>Map every domain, page and handle you&apos;ll keep</li></ul><p className="out">By week 4, you have one brand that every page and post can follow.</p></div></div>

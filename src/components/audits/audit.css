@@ -1,5 +1,5 @@
 /*
- * Muslim CEO Growth Audit: the report's own stylesheet, dark theme only, set in
+ * The shared stylesheet for private audits, dark theme only, set in
  * the site's typefaces (Inter, Instrument Serif, Geist Mono). Everything is
  * nested under .audit so none of it reaches the rest of the site, or the
  * other way round.

@@ -47,3 +47,4 @@ next-env.d.ts
 
 # Source files for private audits (the built pages live in src/app and public/audits)
 /Muslim CEO Growth Audit/
+/RemoteRizq/

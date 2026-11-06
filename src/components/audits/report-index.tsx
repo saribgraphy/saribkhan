@@ -2,24 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const SECTIONS = [
-  ["you", "Who you are"],
-  ["summary", "The short version"],
-  ["map", "Where traffic goes"],
-  ["websites", "Websites"],
-  ["links", "Link test log"],
-  ["seo", "SEO and tracking"],
-  ["funnel", "Funnel and offer"],
-  ["brand", "Brand and copy"],
-  ["channels", "Channels"],
-  ["reputation", "Reputation"],
-  ["fix", "What I'd fix"],
-  ["roadmap", "12-week roadmap"],
-  ["me", "About me"],
-] as const;
-
 /** The sticky index on the left. The section in view is highlighted. */
-export function ReportIndex({ brand }: { brand: string }) {
+export function ReportIndex({ brand, sections }: { brand: string; sections: readonly (readonly [id: string, label: string])[] }) {
   const [on, setOn] = useState<string | null>(null);
 
   useEffect(() => {
@@ -28,18 +12,18 @@ export function ReportIndex({ brand }: { brand: string }) {
       (entries) => entries.forEach((e) => e.isIntersecting && setOn(e.target.id)),
       { rootMargin: "-30% 0px -60% 0px" },
     );
-    SECTIONS.forEach(([id]) => {
+    sections.forEach(([id]) => {
       const s = document.getElementById(id);
       if (s) io.observe(s);
     });
     return () => io.disconnect();
-  }, []);
+  }, [sections]);
 
   return (
     <nav className="toc" aria-label="Sections">
       <span className="brand">{brand}</span>
       <ol>
-        {SECTIONS.map(([id, label], i) => (
+        {sections.map(([id, label], i) => (
           <li key={id}>
             <a href={`#${id}`} className={on === id ? "on" : undefined}>
               <span>{String(i + 1).padStart(2, "0")}</span>
@@ -99,7 +83,8 @@ const REVEAL =
  */
 export function RevealOnScroll() {
   useEffect(() => {
-    const root = document.querySelector<HTMLElement>(".audit");
+    // Next keeps visited pages hidden in the DOM, so find the audit on screen.
+    const root = document.querySelector<HTMLElement>('.audit:not([style*="display: none"])');
     if (!root || !("IntersectionObserver" in window)) return;
     const els = [...root.querySelectorAll<HTMLElement>(REVEAL)];
     const io = new IntersectionObserver(

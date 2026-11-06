@@ -4,22 +4,15 @@ import { useEffect, useRef, useState } from "react";
 
 const WEEKS = Array.from({ length: 12 }, (_, i) => `W${i + 1}`);
 
-/** Each phase on the twelve-week grid: first week and length, with a short label on the bar. */
-const PHASES = [
-  { label: "Stop the leaks", weeks: "W1–2", start: 1, span: 2, tone: "p1" },
-  { label: "Brand foundation", weeks: "W2–4", start: 2, span: 3, tone: "p2" },
-  { label: "Website and funnel", weeks: "W4–8", start: 4, span: 5, tone: "p3" },
-  { label: "Skool and channels", weeks: "W7–9", start: 7, span: 3, tone: "p4" },
-  { label: "Content, SEO and launch", weeks: "W9–12", start: 9, span: 4, tone: "p5" },
-  { label: "Support and weekly reporting", weeks: "W1–12", start: 1, span: 12, tone: "p6" },
-];
+/** A phase on the twelve-week grid: first week and length, with a short label on the bar. */
+export type RoadmapPhase = { label: string; weeks: string; start: number; span: number; tone: string };
 
 /**
  * The roadmap as a fixed-width chart (96px a week) that scrolls sideways inside
  * its card, so labels sit on the bars at full size instead of being squeezed.
  * The right edge fades while there's more to see.
  */
-export function RoadmapChart() {
+export function RoadmapChart({ phases }: { phases: readonly RoadmapPhase[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [more, setMore] = useState(true);
 
@@ -45,7 +38,7 @@ export function RoadmapChart() {
               {w}
             </span>
           ))}
-          {PHASES.map((p, i) => (
+          {phases.map((p, i) => (
             <span
               key={p.label}
               className={`bar2 ${p.tone}`}
