@@ -15,11 +15,11 @@ export function SeoSection() {
             <tr><td>Real 404 page</td><td><span className="tag t-crit">Fail</span></td><td>Made-up addresses like /404test-xyz return &quot;200 OK&quot; with the homepage.</td></tr>
             <tr><td>Social preview image</td><td><span className="tag t-med">Partial</span></td><td>Shared links show a screenshot taken by Lovable&apos;s editor, not a designed image.</td></tr>
             <tr><td>Favicon</td><td><span className="tag t-med">Partial</span></td><td>Loaded from a Lovable storage bucket rather than your own domain.</td></tr>
-            <tr><td>Image alt text</td><td><span className="tag t-crit">Fail</span></td><td>16 of 18 images have none.</td></tr>
+            <tr><td>Image alt text</td><td><span className="tag t-ok">Pass</span></td><td>The two images on the page, both logos, have alt text.</td></tr>
             <tr><td>Title, description and canonical</td><td><span className="tag t-ok">Pass</span></td><td>All set, and well written.</td></tr>
             <tr><td>robots.txt and sitemap.xml</td><td><span className="tag t-ok">Pass</span></td><td>Both exist and are valid.</td></tr>
-            <tr><td>Load time</td><td><span className="tag t-crit">Fail</span></td><td>About 1.0 s to first byte and 9.0 s to fully load in my test.</td></tr>
-            <tr><td>Brand search</td><td><span className="tag t-crit">Fail</span></td><td>A search for Aqib and Remote Rizq returned none of your pages.</td></tr>
+            <tr><td>Page weight</td><td><span className="tag t-crit">Fail</span></td><td>251 requests to open the homepage, 233 of them from the video player.</td></tr>
+            <tr><td>Brand search</td><td><span className="tag t-ok">Pass</span></td><td>remoterizq.co is the first result for &quot;Remote Rizq&quot; on Bing and DuckDuckGo. A similarly named program, Rizq Rise, ranks just below it.</td></tr>
           </tbody>
         </table>
       </div>

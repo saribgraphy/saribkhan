@@ -10,7 +10,7 @@ export function SummarySection() {
       </div>
       <ol className="prio">
         <li><div><h3>Your two front doors don&apos;t know about each other.</h3><p>remoterizq.com opens a free Skool community with 2K members, a blue logo and a 30-day promise. remoterizq.co opens the paid application with a gold logo and a 45-day promise. Your Instagram skips the community entirely, and the website never mentions it. Your biggest pool of warm leads has no designed path to Elite.</p></div></li>
-        <li><div><h3>The application looks like it belongs to someone else.</h3><p>The most important step on the page is a third-party form in a flat gold block, with a different typeface and logo treatment, under a sticky menu that covers its own heading. On phones, the &quot;Edit with Lovable&quot; badge sits on top of the Apply button.</p></div></li>
+        <li><div><h3>The application looks like it belongs to someone else.</h3><p>The most important step on the page is a third-party form in a flat gold block, with a different typeface and logo treatment, under a sticky menu that covers its own heading. On phones, the &quot;Edit with Lovable&quot; badge sits in the corner and covers the Apply buttons as they scroll past.</p></div></li>
         <li><div><h3>You can&apos;t see what&apos;s working.</h3><p>There&apos;s no Meta pixel, no Google Analytics and no tag manager on the site. You can&apos;t retarget the brothers who watch the video and leave, ads can&apos;t learn who applies, and nobody can say where applications drop off.</p></div></li>
       </ol>
       <div className="score" aria-label="Audit scores out of 10">
@@ -22,8 +22,8 @@ export function SummarySection() {
         <div className="srow"><span>Website design</span><div className="bar"><i style={{ width: "40%", background: "var(--high)" }}></i></div><b>4</b></div>
         <div className="srow"><span>Application funnel</span><div className="bar"><i style={{ width: "40%", background: "var(--high)" }}></i></div><b>4</b></div>
         <div className="srow"><span>Brand consistency</span><div className="bar"><i style={{ width: "30%", background: "var(--crit)" }}></i></div><b>3</b></div>
-        <div className="srow"><span>Speed</span><div className="bar"><i style={{ width: "30%", background: "var(--crit)" }}></i></div><b>3</b></div>
-        <div className="srow"><span>Tracking and SEO</span><div className="bar"><i style={{ width: "20%", background: "var(--crit)" }}></i></div><b>2</b></div>
+        <div className="srow"><span>Page weight</span><div className="bar"><i style={{ width: "30%", background: "var(--crit)" }}></i></div><b>3</b></div>
+        <div className="srow"><span>Tracking and SEO</span><div className="bar"><i style={{ width: "30%", background: "var(--crit)" }}></i></div><b>3</b></div>
         <p className="note">These scores are my own assessment, based on everything in this report. The top four are what you&apos;ve earned. The rest is what&apos;s limiting them.</p>
       </div>
     </section>

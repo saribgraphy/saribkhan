@@ -11,9 +11,9 @@ export function YouSection() {
       <div className="grid g4">
         <div className="num"><b>100+</b><span>Brothers placed in remote roles</span></div>
         <div className="num"><b>97.6%</b><span>Of brothers who follow the roadmap land a paid role</span></div>
-        <div className="num"><b>96%</b><span>Of Trustpilot reviews are five stars</span></div>
+        <div className="num"><b>97%</b><span>Of Trustpilot reviews are five stars</span></div>
         <div className="num"><b>2K</b><span>Members in the free Skool community</span></div>
-        <div className="num"><b>18</b><span>Named video wins on the homepage</span></div>
+        <div className="num"><b>17</b><span>Student win videos on the homepage</span></div>
         <div className="num"><b>100%</b><span>Of negative reviews answered</span></div>
         <div className="num"><b>80%</b><span>Of students start while still in a job</span></div>
         <div className="num"><b>1-to-1</b><span>Support with no deadline for anyone who does the work</span></div>

@@ -30,7 +30,7 @@ export function MeSection() {
       <h2>Thirty minutes is enough to walk you through this.</h2>
       <div className="prose"><p>I&apos;ll take you through the findings and the first two weeks of work. You&apos;ll leave knowing exactly where your applications are slipping away.</p></div>
       <ContactLinks />
-      <p className="method">How this audit was done: every page and link here was tested live in a browser on 7 November 2026, on desktop and phone sizes. Audience numbers come from each platform&apos;s public profile that day. Page weight, load time and requests were measured in the browser. I didn&apos;t submit an application. Scores are my own assessment. Screenshots are untouched.</p>
+      <p className="method">How this audit was done: every page and link here was tested live in a browser and checked again on 8 November 2026, on desktop and phone sizes. Audience numbers and reviews come from each platform&apos;s public page that day. Requests were counted in the browser. I didn&apos;t submit an application. Scores are my own assessment. Screenshots are cropped and resized, and otherwise untouched.</p>
     </section>
     </>
   );
