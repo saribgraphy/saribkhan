@@ -51,13 +51,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0F1114",
-  colorScheme: "dark",
+  themeColor: "#F6F6F3",
+  colorScheme: "light",
 };
 
 export default function RemoteRizqAudit() {
   return (
-    <div className="audit">
+    <div className="audit light no-serif">
       <div className="shell">
         <ReportIndex brand="Prepared for Remote Rizq" sections={SECTIONS} />
         <main>

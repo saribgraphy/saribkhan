@@ -23,6 +23,10 @@ html:has(.audit:not([style*="display: none"])) {
 body:has(.audit:not([style*="display: none"])) {
   margin: 0;
 }
+html:has(.audit.light:not([style*="display: none"])) {
+  background: #f6f6f3;
+  color-scheme: light;
+}
 
 .audit {
   --paper: #0f1114; --sheet: #16191e; --ink: #ecedef; --ink-2: #b4b7be; --ink-3: #848892;
@@ -285,5 +289,34 @@ body:has(.audit:not([style*="display: none"])) {
   &.reveal-ready [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
   &.reveal-ready [data-reveal].in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){&.reveal-ready [data-reveal]{opacity:1;transform:none;transition:none}}
+
+  /* Light theme (class="audit light"): the report's original light palette. The
+     About card turns light too, so its buttons match the homepage exactly. */
+  &.light {
+    --paper: #f6f6f3; --sheet: #ffffff; --ink: #14161b; --ink-2: #4a4e58; --ink-3: #7c808a;
+    --line: #e3e3de; --line-2: #d2d2cb; --accent: #2b3fe0; --accent-soft: #e8eafd;
+    --crit: #c9332b; --crit-soft: #fbe9e7; --high: #c46a00; --high-soft: #fcf0df;
+    --med: #8a7a00; --med-soft: #f6f2d6; --ok: #1e7d4f; --ok-soft: #e3f3ea;
+    ::selection { background: #2b3fe022; }
+    .dead { border-color: var(--line-2); }
+    .me { background: var(--sheet); color: var(--ink); border: 1px solid var(--line); }
+    .me h2, .me .prose strong, .me a { color: var(--ink); }
+    .me .prose { color: var(--ink-2); }
+    .me .eyebrow { color: var(--ink-3); }
+    .me .eyebrow b { color: var(--accent); }
+    .clients div, .clients div:first-child { border-color: var(--line); }
+    .clients span { color: var(--ink-3); }
+    .back { border-color: var(--line-2); color: var(--ink); }
+    .back:hover { background: var(--line); }
+    .me .cta { color: #fff; }
+    .ct:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .ct:hover svg { color: var(--paper); }
+  }
+
+  /* No serif (class="audit no-serif"): the accents keep their emphasis in Inter. */
+  &.no-serif {
+    .cover h1 em { font-family: var(--display); font-style: normal; font-weight: 600; letter-spacing: -.035em; color: var(--ink-3); }
+    .pull { font-family: var(--display); font-style: normal; font-weight: 500; letter-spacing: -.02em; }
+  }
 }
 @keyframes cta-shimmer{from{background-position:100% 0}to{background-position:0 0}}
