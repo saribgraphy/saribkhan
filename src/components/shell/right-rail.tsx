@@ -66,7 +66,7 @@ export function LogoMark() {
       aria-label={`${site.name}, home`}
       className="navfade fixed right-[max(24px,calc(50%-var(--container)/2))] bottom-10 z-[60] hidden min-[1200px]:block"
     >
-      <Lottie src="/lottie/originals/sk-logo-icon.json" label="Sarib Khan logo" ratio="aspect-square" still={0.52} className="w-10" />
+      <Lottie src="/lottie/originals/sk-logo-icon.json" label="Sarib Khan logo" ratio="aspect-square" still={0.52} className="w-6" />
     </Link>
   );
 }
