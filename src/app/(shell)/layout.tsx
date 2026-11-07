@@ -5,7 +5,7 @@ import { Interaction } from "@/components/shell/interaction";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { PanelProvider } from "@/components/shell/panel-context";
 import { PanelHost } from "@/components/shell/panel-host";
-import { RightRail } from "@/components/shell/right-rail";
+import { LogoMark, RightRail } from "@/components/shell/right-rail";
 import { Sidebar } from "@/components/shell/sidebar";
 
 /**
@@ -19,6 +19,7 @@ export default function ShellLayout({ children }: LayoutProps<"/">) {
         <GridRules />
         <Sidebar />
         <MobileNav />
+        <LogoMark />
 
         <main className="relative mx-auto flex min-h-dvh max-w-[var(--container)] justify-center">
           <RightRail />

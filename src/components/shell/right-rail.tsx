@@ -1,6 +1,8 @@
 "use client";
 
 import { ArrowUpRight } from "@phosphor-icons/react";
+import Link from "next/link";
+import { Lottie } from "@/components/build/lottie";
 import { site, socials } from "@/content/site";
 import { useKarachiTime } from "./hooks";
 
@@ -49,5 +51,22 @@ export function RightRail() {
         ))}
       </ul>
     </div>
+  );
+}
+
+/**
+ * The animated SK mark from the old Framer site, fixed in the bottom-right on
+ * wide screens to mirror the contact block in the bottom-left. Links home.
+ * With reduced motion it holds frame ~295 of 569, where the mark is fully drawn.
+ */
+export function LogoMark() {
+  return (
+    <Link
+      href="/"
+      aria-label={`${site.name}, home`}
+      className="navfade fixed right-[max(24px,calc(50%-var(--container)/2))] bottom-10 z-[60] hidden min-[1200px]:block"
+    >
+      <Lottie src="/lottie/originals/sk-logo-icon.json" label="Sarib Khan logo" ratio="aspect-square" still={0.52} className="w-10" />
+    </Link>
   );
 }

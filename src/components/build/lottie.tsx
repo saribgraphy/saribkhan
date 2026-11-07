@@ -17,7 +17,21 @@ type Player = {
  * Loads only when scrolled near, plays only while on screen, and holds a
  * still frame for visitors who prefer reduced motion.
  */
-export function Lottie({ src, label, className }: { src: string; label: string; className?: string }) {
+export function Lottie({
+  src,
+  label,
+  className,
+  ratio = "aspect-[400/298]",
+  still = 0.4,
+}: {
+  src: string;
+  label: string;
+  className?: string;
+  /** Aspect-ratio class for the box, so it holds its space before the file loads. */
+  ratio?: string;
+  /** Where to hold, as a share of the timeline, for visitors who prefer reduced motion. */
+  still?: number;
+}) {
   const box = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,7 +57,7 @@ export function Lottie({ src, label, className }: { src: string; label: string; 
         rendererSettings: { preserveAspectRatio: "xMidYMid meet", progressiveLoad: true },
       }) as unknown as Player;
       anim.addEventListener("DOMLoaded", () => {
-        if (reduced) anim?.goToAndStop(Math.round((anim?.totalFrames ?? 0) * 0.4), true);
+        if (reduced) anim?.goToAndStop(Math.round(((anim?.totalFrames ?? 1) - 1) * still), true);
         else if (visible) anim?.play();
       });
     };
@@ -69,7 +83,7 @@ export function Lottie({ src, label, className }: { src: string; label: string; 
       io.disconnect();
       anim?.destroy();
     };
-  }, [src]);
+  }, [src, still]);
 
-  return <div ref={box} role="img" aria-label={label} className={cn("aspect-[400/298]", className ?? "w-full")} />;
+  return <div ref={box} role="img" aria-label={label} className={cn(ratio, className ?? "w-full")} />;
 }
