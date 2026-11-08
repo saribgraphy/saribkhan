@@ -1,6 +1,7 @@
 import "../globals.css";
 import { Suspense } from "react";
 import { CommandMenu } from "@/components/shell/command-menu";
+import { CustomCursor } from "@/components/shell/custom-cursor";
 import { Interaction } from "@/components/shell/interaction";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { PanelProvider } from "@/components/shell/panel-context";
@@ -36,6 +37,7 @@ export default function ShellLayout({ children }: LayoutProps<"/">) {
       </Suspense>
       <CommandMenu />
       <Interaction />
+      <CustomCursor />
     </PanelProvider>
   );
 }
