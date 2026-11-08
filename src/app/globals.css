@@ -809,55 +809,28 @@ html[data-navigating] .view-host {
 
 /* ---------- Custom cursor (from the old Framer site) ---------- */
 
-/* <CustomCursor /> adds .custom-cursor only on devices with a mouse. Fields keep
-   the text cursor, where the custom one steps aside. */
-html.custom-cursor,
-html.custom-cursor * {
-  cursor: none !important;
+/* The arrow and pointing hand are real system cursors, so they move exactly
+   like the mouse, with no delay and the system's own speed and acceleration.
+   Only on the site's own pages (not the audits), and only while the shell is
+   on screen: Next keeps visited pages hidden in the DOM. */
+/* One selector per rule: the CSS pipeline mangles :has() inside a selector list. */
+html:has(.site-shell:not([style*="display: none"])) {
+  cursor: url("/cursors/arrow.png") 1 1, auto;
+  cursor: image-set(url("/cursors/arrow.png") 1x, url("/cursors/arrow@2x.png") 2x) 1 1, auto;
 }
-html.custom-cursor :is(input:not([type="checkbox"], [type="radio"], [type="button"], [type="submit"]), textarea, [contenteditable="true"]) {
-  cursor: text !important;
+html:has(.site-shell:not([style*="display: none"])) * {
+  cursor: url("/cursors/arrow.png") 1 1, auto;
+  cursor: image-set(url("/cursors/arrow.png") 1x, url("/cursors/arrow@2x.png") 2x) 1 1, auto;
 }
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  will-change: transform;
+html:has(.site-shell:not([style*="display: none"])) :is(a[href], button:not(:disabled), [role="button"], [role="radio"], [role="tab"], [role="option"], [cmdk-item], summary, label[for], select) {
+  cursor: url("/cursors/hand.png") 8 1, pointer;
+  cursor: image-set(url("/cursors/hand.png") 1x, url("/cursors/hand@2x.png") 2x) 8 1, pointer;
 }
-.cursor[data-shown] {
-  opacity: 1;
+html:has(.site-shell:not([style*="display: none"])) :is(a[href], button:not(:disabled), [role="button"], [role="radio"], [role="tab"], [role="option"], [cmdk-item], summary, label[for], select) * {
+  cursor: url("/cursors/hand.png") 8 1, pointer;
+  cursor: image-set(url("/cursors/hand.png") 1x, url("/cursors/hand@2x.png") 2x) 8 1, pointer;
 }
-.cursor[data-shape="none"] {
-  opacity: 0;
-}
-.cursor svg {
-  position: absolute;
-  transition:
-    opacity 0.18s ease,
-    scale 0.25s var(--ease-out);
-}
-/* Offsets put each tip on the pointer, matching the Framer component. */
-.cursor-arrow {
-  left: -1px;
-  top: -2px;
-  transform-origin: 1px 2px;
-}
-.cursor-hand {
-  left: -11px;
-  top: -1px;
-  transform-origin: 11px 1px;
-  opacity: 0;
-  scale: 1.18;
-}
-.cursor[data-shape="hand"] .cursor-hand {
-  opacity: 1;
-  scale: 1;
-}
-.cursor[data-shape="hand"] .cursor-arrow {
-  opacity: 0;
-  scale: 0.85;
+/* Fields keep the text cursor, so the caret position stays obvious. */
+html:has(.site-shell:not([style*="display: none"])) :is(input:not([type="checkbox"], [type="radio"], [type="button"], [type="submit"]), textarea, [contenteditable="true"]) {
+  cursor: text;
 }

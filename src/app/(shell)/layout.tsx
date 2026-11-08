@@ -1,7 +1,6 @@
 import "../globals.css";
 import { Suspense } from "react";
 import { CommandMenu } from "@/components/shell/command-menu";
-import { CustomCursor } from "@/components/shell/custom-cursor";
 import { Interaction } from "@/components/shell/interaction";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { PanelProvider } from "@/components/shell/panel-context";
@@ -16,7 +15,7 @@ import { Sidebar } from "@/components/shell/sidebar";
 export default function ShellLayout({ children }: LayoutProps<"/">) {
   return (
     <PanelProvider>
-      <div className="relative min-h-dvh overflow-x-clip bg-paper">
+      <div className="site-shell relative min-h-dvh overflow-x-clip bg-paper">
         <GridRules />
         <Sidebar />
         <MobileNav />
@@ -37,7 +36,6 @@ export default function ShellLayout({ children }: LayoutProps<"/">) {
       </Suspense>
       <CommandMenu />
       <Interaction />
-      <CustomCursor />
     </PanelProvider>
   );
 }
