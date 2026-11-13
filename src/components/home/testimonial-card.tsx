@@ -87,7 +87,7 @@ export function TestimonialCard() {
 }
 
 /** Stand-in for the soft project image: a dim light and a hairline curve. */
-function CardBackdrop({ image }: { image: string | null }) {
+export function CardBackdrop({ image }: { image: string | null }) {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0">
       {image ? (
