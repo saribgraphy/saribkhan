@@ -444,5 +444,22 @@ export default config({
         labels: labels("notes", { translator: "Above the Translator" }),
       },
     }),
+
+    guideClaudeCode: singleton({
+      label: "Claude Code guide",
+      path: dataPath("guide-claude-code"),
+      format,
+      schema: {
+        cover: img(
+          "Cover image",
+          "guides/claude-code",
+          "Shown large above the title, and used as the preview when the link is shared. 1200 × 630 works best. Leave empty to use the designed card.",
+        ),
+        coverAlt: text("Cover description", { description: "What the cover shows, for screen readers." }),
+        videoId: text("Git setup video (YouTube id)", {
+          description: "The part after watch?v= in the YouTube link, e.g. IbaHQ3DZZG8.",
+        }),
+      },
+    }),
   },
 });

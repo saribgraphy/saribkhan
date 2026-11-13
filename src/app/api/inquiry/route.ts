@@ -64,7 +64,7 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("Resend error", error);
-    return Response.json({ ok: false, fallback: true }, { status: 502 });
+    return Response.json({ ok: false, fallback: true, reason: error.name }, { status: 502 });
   }
   return Response.json({ ok: true });
 }

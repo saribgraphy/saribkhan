@@ -1,4 +1,4 @@
-import { CheckCircle, Info, PlayCircle } from "@phosphor-icons/react/dist/ssr";
+import { CheckCircle, Info } from "@phosphor-icons/react/dist/ssr";
 import { cn } from "@/lib/utils";
 import { CopyButton } from "./copy-button";
 
@@ -117,33 +117,5 @@ export function Note({ children }: { children: React.ReactNode }) {
       <Info size={16} className="mt-0.5 shrink-0 text-muted" />
       <span>{children}</span>
     </p>
-  );
-}
-
-/**
- * A YouTube video in a 16:9 frame (privacy-enhanced mode, loads lazily). Until
- * there is a video id it shows a clearly marked placeholder.
- */
-export function Video({ id, title }: { id?: string; title: string }) {
-  return (
-    <figure className="frame !p-1.5">
-      <div className="relative aspect-video overflow-hidden rounded-[6px] bg-tint">
-        {id ? (
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
-            title={title}
-            loading="lazy"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="absolute inset-0 size-full"
-          />
-        ) : (
-          <div className="hatch absolute inset-0 flex flex-col items-center justify-center gap-2 text-muted">
-            <PlayCircle size={36} weight="light" />
-            <span className="t-ui ph">[{title}]</span>
-          </div>
-        )}
-      </div>
-    </figure>
   );
 }
