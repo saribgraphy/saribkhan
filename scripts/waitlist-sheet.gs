@@ -3,10 +3,11 @@
  *
  * Setup (once):
  * 1. Create a Google Sheet. Extensions → Apps Script. Replace the code with this file.
- * 2. Project Settings → Script properties → add SECRET with a long random value.
+ * 2. Optional, for extra safety: Project Settings → Script properties → add SECRET
+ *    with a long random value, and set the same value as WAITLIST_SHEET_SECRET in Vercel.
  * 3. Deploy → New deployment → type "Web app". Execute as: Me. Who has access: Anyone.
- * 4. Copy the web app URL. In Vercel, add WAITLIST_SHEET_URL (that URL) and
- *    WAITLIST_SHEET_SECRET (the same SECRET), then redeploy.
+ * 4. Copy the web app URL. In Vercel, add WAITLIST_SHEET_URL (that URL), then
+ *    redeploy. Keep the URL private: only the server uses it.
  *
  * The site posts { secret, email, name?, source? }. A new email adds a row; the
  * same email again updates that row (used when the member adds their name).
@@ -18,7 +19,8 @@ function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
     const secret = PropertiesService.getScriptProperties().getProperty("SECRET");
-    if (!secret || data.secret !== secret) return out({ ok: false, error: "unauthorized" });
+    // The URL itself is private (server-side only); SECRET adds a second check when set.
+    if (secret && data.secret !== secret) return out({ ok: false, error: "unauthorized" });
     const email = String(data.email || "").trim().toLowerCase();
     if (!email) return out({ ok: false, error: "no email" });
 
