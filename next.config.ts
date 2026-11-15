@@ -20,7 +20,17 @@ const nextConfig: NextConfig = {
   },
   // The audit moved; anyone with the old link still lands on it.
   async redirects() {
-    return [{ source: "/muslim-ceo-growth-audit", destination: "/muslim-ceo", permanent: false }];
+    return [
+      { source: "/muslim-ceo-growth-audit", destination: "/muslim-ceo", permanent: false },
+      // The vercel.app address is a duplicate of the site: send it to the domain so search engines see one copy.
+      // The CMS stays there, because Keystatic's GitHub sign-in returns to that address.
+      {
+        source: "/:path((?!keystatic|api/keystatic|_next/).*)",
+        has: [{ type: "host", value: "saribkhan.vercel.app" }],
+        destination: "https://sarib.xtarc.agency/:path",
+        permanent: true,
+      },
+    ];
   },
   turbopack: {
     rules: {
