@@ -247,7 +247,14 @@ function Grid({ projects, ndaLabel }: { projects: Project[]; ndaLabel: string })
       {projects.map((p, i) => {
         const shown = open && loaded[i];
         return (
-          <li key={p.slug} data-card={i} data-ascii={open && !shown ? "skip" : undefined} className="relative">
+          <li
+            key={p.slug}
+            data-card={i}
+            data-ascii={open && !shown ? "skip" : undefined}
+            // Cards arrive one after another, like the list rows.
+            className="row-in relative"
+            style={{ "--i": i } as React.CSSProperties}
+          >
             {!shown || !faded ? <CardSkeleton seed={i} leaving={shown} /> : null}
             <div className={shown ? undefined : "invisible"}>
               <Card project={p} ndaLabel={ndaLabel} onLoad={() => markLoaded(i)} />
