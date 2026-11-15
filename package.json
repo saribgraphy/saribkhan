@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "images:webp": "node scripts/webp.mjs"
+    "images:webp": "node scripts/webp.mjs",
+    "test:agents": "node scripts/test-agents.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

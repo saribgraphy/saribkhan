@@ -15,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/work/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-  return project ? pageMetadata(project.name, project.situation || project.oneLine) : {};
+  return project ? pageMetadata(project.name, project.situation || project.oneLine, `/work/${project.slug}`) : {};
 }
 
 export default async function CaseFilePage({ params }: PageProps<"/work/[slug]">) {

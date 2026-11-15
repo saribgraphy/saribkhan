@@ -13,15 +13,17 @@ const clean = (text?: string | null) => {
 /**
  * A page's title and description, repeated for link previews. Open Graph
  * doesn't inherit from `title`, so without this every shared link would show
- * the homepage's title and description.
+ * the homepage's title and description. `path` is the page's canonical URL path.
  */
-export function pageMetadata(title: string, description?: string | null): Metadata {
+export function pageMetadata(title: string, description: string | null | undefined, path: string): Metadata {
   const desc = clean(description) || site.description;
   const full = `${title} · ${site.name}`;
   return {
     title,
     description: desc,
-    openGraph: { title: full, description: desc, siteName: site.name, type: "website", locale: "en_GB", images: [image] },
+    // One canonical address per page (resolved against metadataBase), so the vercel.app copy never competes with the domain.
+    alternates: { canonical: path },
+    openGraph: { title: full, description: desc, url: path, siteName: site.name, type: "website", locale: "en_GB", images: [image] },
     twitter: { card: "summary_large_image", title: full, description: desc, images: [image] },
   };
 }

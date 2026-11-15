@@ -6,10 +6,20 @@ import { Systems } from "@/components/home/systems";
 import { TestimonialCard } from "@/components/home/testimonial-card";
 import { Expertise } from "@/components/build/expertise";
 import { Breadcrumb, Divider, Section, SectionLabel } from "@/components/ui/view";
+import type { Metadata } from "next";
+import { site } from "@/content/site";
+import { expertiseTerms, homeStructuredData, jsonLd } from "@/lib/structured-data";
+
+export const metadata: Metadata = {
+  title: { absolute: `${site.name}, ${site.tagline.toLowerCase()} · Xtarc` },
+  keywords: [site.name, "Xtarc", ...expertiseTerms],
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(homeStructuredData())} />
       <Breadcrumb trail={[{ label: "Home" }]} />
       <Hero />
 

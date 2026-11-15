@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/notes/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const note = getNote(slug);
-  return note ? pageMetadata(note.title, note.paragraphs[0]) : {};
+  return note ? pageMetadata(note.title, note.paragraphs[0], `/notes/${note.slug}`) : {};
 }
 
 /** An essay opens in the reading column with a date, a reading time and nothing else. */

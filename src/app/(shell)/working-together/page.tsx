@@ -9,7 +9,7 @@ import { PanelButton } from "@/components/ui/panel-button";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { pricingHeading, pricingLabels, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 
-export const metadata: Metadata = pageMetadata("Working together", pricingIntro);
+export const metadata: Metadata = pageMetadata("Working together", pricingIntro, "/working-together");
 
 export default function WorkingTogetherPage() {
   return (

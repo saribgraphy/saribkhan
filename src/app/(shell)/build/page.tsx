@@ -8,7 +8,7 @@ import { XRay } from "@/components/build/xray";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { bookingCaption, buildHeading, buildLabels, buildIntro, tryLeadIn, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
 
-export const metadata: Metadata = pageMetadata("What I build", buildIntro);
+export const metadata: Metadata = pageMetadata("What I build", buildIntro, "/build");
 
 export default function BuildPage() {
   return (

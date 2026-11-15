@@ -27,7 +27,7 @@ const DESCRIPTION =
 
 // The cover doubles as the share image (cover/route.tsx: the uploaded cover, or the designed card).
 const COVER = { url: "/claude-code-guide/cover", width: 1200, height: 630, alt: "How to build and launch a website with Claude Code" };
-const base = pageMetadata(TITLE, DESCRIPTION);
+const base = pageMetadata(TITLE, DESCRIPTION, "/claude-code-guide");
 export const metadata: Metadata = {
   ...base,
   title: { absolute: TITLE },

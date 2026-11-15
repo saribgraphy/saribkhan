@@ -1,0 +1,86 @@
+import type { Metadata } from "next";
+import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
+import { site } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
+
+const INTRO =
+  "This site collects only what you choose to send through its forms. There are no analytics, no advertising trackers and no tracking cookies, and your details are never sold or shared for marketing.";
+
+export const metadata: Metadata = pageMetadata("Privacy", INTRO, "/privacy");
+
+const SECTIONS: { label: string; body: React.ReactNode }[] = [
+  {
+    label: "What the forms collect",
+    body: (
+      <>
+        The project and funnel teardown forms send what you type (your programme, the areas you want help with, a link and a
+        way to reply) to me by email, through Resend, an email delivery service. The free guide&apos;s waitlist stores your
+        email address, and your name if you add it, in a private Google Sheet that only I can open, and emails me a copy. I
+        use these details only to reply to you and, for the waitlist, to invite you to the Xtarc community.
+      </>
+    ),
+  },
+  {
+    label: "What the site stores on your device",
+    body: (
+      <>
+        One setting: whether you prefer the Work page as a grid or a list, kept in your browser&apos;s local storage. It never
+        leaves your device. The site sets no cookies of its own.
+      </>
+    ),
+  },
+  {
+    label: "Third parties",
+    body: (
+      <>
+        The site is hosted on Vercel, which handles every request and keeps standard server logs (such as IP address and
+        browser) for security and reliability. Emails are delivered by Resend; waitlist entries live in Google Sheets. The
+        guide&apos;s video only loads from YouTube&apos;s privacy-enhanced domain (youtube-nocookie.com) after you press play.
+        Links to Instagram, LinkedIn, WhatsApp and other sites follow those sites&apos; own policies.
+      </>
+    ),
+  },
+  {
+    label: "How long it's kept",
+    body: (
+      <>
+        Messages stay in my inbox for as long as we&apos;re in touch. Waitlist entries stay until the community launches or
+        you ask me to remove them.
+      </>
+    ),
+  },
+  {
+    label: "Your choices",
+    body: (
+      <>
+        You can ask to see, correct or delete anything you&apos;ve sent me at any time: email{" "}
+        <a className="u-link" href={`mailto:${site.email}`}>
+          {site.email}
+        </a>{" "}
+        and I&apos;ll do it within a few days. Questions about this page go to the same address.
+      </>
+    ),
+  },
+];
+
+export default function PrivacyPage() {
+  return (
+    <>
+      <Breadcrumb trail={[{ label: "Privacy" }]} />
+      <Title>Privacy</Title>
+      <p className="t-lead">{INTRO}</p>
+      {SECTIONS.map((s) => (
+        <div key={s.label}>
+          <Divider />
+          <Section>
+            <SectionLabel>{s.label}</SectionLabel>
+            <p className="t-ui font-normal text-body">{s.body}</p>
+          </Section>
+        </div>
+      ))}
+      <p className="t-label mt-16 text-muted">
+        {site.name}, {site.city}, Pakistan. Last updated November 2026.
+      </p>
+    </>
+  );
+}

@@ -5,7 +5,7 @@ import { Breadcrumb, Divider, Title } from "@/components/ui/view";
 import { WorkGallery } from "@/components/work/gallery";
 import { ProjectList } from "@/components/work/project-list";
 
-export const metadata: Metadata = pageMetadata("Work", workIntro);
+export const metadata: Metadata = pageMetadata("Work", workIntro, "/work");
 
 export default function WorkPage() {
   return (

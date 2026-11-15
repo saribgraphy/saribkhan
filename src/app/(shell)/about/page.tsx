@@ -6,7 +6,7 @@ import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { aboutBody, aboutHeading, aboutLabels, elsewhere } from "@/content/about";
 
-export const metadata: Metadata = pageMetadata("About", aboutBody[0]);
+export const metadata: Metadata = pageMetadata("About", aboutBody[0], "/about");
 
 export default function AboutPage() {
   return (

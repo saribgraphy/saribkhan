@@ -7,7 +7,7 @@ import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { notes, notesHeading, notesLabels, translatorClosing, translatorLeadIn } from "@/content/notes";
 
-export const metadata: Metadata = pageMetadata("Notes", translatorLeadIn);
+export const metadata: Metadata = pageMetadata("Notes", translatorLeadIn, "/notes");
 
 export default function NotesPage() {
   return (

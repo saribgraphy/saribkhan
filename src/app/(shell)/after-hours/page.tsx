@@ -6,7 +6,7 @@ import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Title } from "@/components/ui/view";
 import { afterHours, afterHoursHeading, afterHoursIntro } from "@/content/about";
 
-export const metadata: Metadata = pageMetadata("Built after hours", afterHoursIntro);
+export const metadata: Metadata = pageMetadata("Built after hours", afterHoursIntro, "/after-hours");
 
 const icons = { hand: Hand, layout: Layout, timer: Timer, cards: Cards, asterisk: Asterisk, plus: Plus };
 
