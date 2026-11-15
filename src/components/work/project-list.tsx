@@ -83,9 +83,10 @@ export function ProjectList({ projects, label, ndaLabel }: { projects: Project[]
       {view === "grid" ? (
         <Grid key="grid" projects={projects} ndaLabel={ndaLabel} />
       ) : (
-        <ul key="list" className="fold-in -mx-3 grid">
-          {projects.map((p) => (
-            <li key={p.slug}>
+        <ul key="list" className="-mx-3 grid">
+          {projects.map((p, i) => (
+            // Rows arrive one after another, top to bottom.
+            <li key={p.slug} className="row-in" style={{ "--i": i } as React.CSSProperties}>
               {p.nda ? (
                 // Listed, but not openable: same row, same hover, no link.
                 <div className={cn(rowClass, "cursor-default")} aria-label={`${p.name}, under NDA`}>
