@@ -196,13 +196,13 @@ const contact = () =>
   lines(
     "# Contact",
     "",
-    `${site.name} is a designer for coaching brands, based in ${site.city}, Pakistan, working with clients worldwide.`,
+    `${site.name} helps businesses look sharp, run smoothly and get seen online. He works from ${site.city}, Pakistan, with clients worldwide.`,
     "",
     `- Email: ${site.email}`,
     `- WhatsApp: ${site.whatsapp.display} (https://wa.me/${site.whatsapp.number})`,
     ...socials.map((s) => `- ${s.label}: ${s.href}`),
     "",
-    `To start a project, include a link to your current funnel or website, what you sell and what you'd like to change. Prices and how projects run: ${abs("/working-together")}`,
+    `To start a project, include a link to your website or Instagram, what you sell and what you'd like to change. How projects run: ${abs("/working-together")}`,
     footer,
   );
 

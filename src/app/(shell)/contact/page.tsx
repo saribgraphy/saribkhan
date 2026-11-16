@@ -5,7 +5,7 @@ import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/
 import { site, socials, whatsappLink } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
-const INTRO = `I'm ${site.name}, a designer for coaching brands, working from ${site.city}, Pakistan, with clients worldwide. Email or WhatsApp reach me directly, and I reply myself, usually within one working day.`;
+const INTRO = `I'm ${site.name}. I help businesses with design, websites, software, AI and content, working from ${site.city} with clients worldwide. Email or WhatsApp reach me directly, and I reply myself, usually within one working day.`;
 
 export const metadata: Metadata = pageMetadata("Contact", INTRO, "/contact");
 
@@ -60,7 +60,7 @@ export default function ContactPage() {
         <SectionLabel>Starting a project</SectionLabel>
         <p className="t-ui font-normal text-body">
           The quickest way in is the short application: what you sell, what you&apos;d like to change, and where to reply. If
-          you&apos;d rather write, send a link to your current funnel or website and a few lines about your programme. Prices
+          you&apos;d rather write, send a link to your website or Instagram and a few lines about your business. Prices
           and how projects run are on the{" "}
           <Link className="u-link" href="/working-together">
             Working together

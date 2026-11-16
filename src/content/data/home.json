@@ -23,6 +23,13 @@
       "years": "2025 to now",
       "logo": "/images/logos/currently/2/logo.svg",
       "logoText": "F"
+    },
+    {
+      "name": "Instagram",
+      "role": "Videos about AI, building and design",
+      "years": "Now",
+      "logo": null,
+      "logoText": "IG"
     }
   ],
   "systems": [

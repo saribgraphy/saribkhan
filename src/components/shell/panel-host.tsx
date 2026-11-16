@@ -10,11 +10,11 @@ import { cn } from "@/lib/utils";
 import { usePanels, type PanelName } from "./panel-context";
 
 const focusOptions = [
-  "Funnel",
   "Website",
-  "Application and booking",
-  "Skool community",
-  "Internal tools",
+  "Brand",
+  "Custom tool or AI",
+  "Ads and content",
+  "Video",
   "Not sure yet",
 ];
 
@@ -83,10 +83,10 @@ function StartForm() {
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
-  const message = `Salam Sarib, I'd like to start a project.\n\nProgram: ${program}\nFocus: ${focus.join(", ") || "Not sure yet"}\nReply to: ${contact}`;
+  const message = `Salam Sarib, I'd like to start a project.\n\nBusiness: ${program}\nFocus: ${focus.join(", ") || "Not sure yet"}\nReply to: ${contact}`;
 
   if (status === "sent" || status === "fallback")
-    return <Done status={status} message={message} sentLine="Received. I'll look at your program properly before I reply, so give me a day or two." />;
+    return <Done status={status} message={message} sentLine="Received. I'll look at your business properly before I reply, so give me a day or two." />;
 
   return (
     <form
@@ -97,18 +97,18 @@ function StartForm() {
         setStatus(await send({ kind: "start", program, focus, contact }));
       }}
     >
-      <Field label="1. What's your program, and where can I see it?">
+      <Field label="1. What's your business, and where can I see it?">
         <input
           className={inputClass}
           required
           minLength={2}
           value={program}
           onChange={(e) => setProgram(e.target.value)}
-          placeholder="Program name and a link"
+          placeholder="Business name and a link"
         />
       </Field>
       <fieldset className="grid gap-2">
-        <legend className="t-ui mb-2 font-medium text-ink">2. Which part of the journey needs the most attention?</legend>
+        <legend className="t-ui mb-2 font-medium text-ink">2. What do you need help with?</legend>
         <div className="flex flex-wrap gap-2">
           {focusOptions.map((opt) => {
             const on = focus.includes(opt);
