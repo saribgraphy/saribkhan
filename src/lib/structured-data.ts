@@ -28,6 +28,8 @@ export function homeStructuredData() {
         "@type": "Person",
         "@id": person,
         name: site.name,
+        // Other names people search with: the Instagram handle and the studio pairing.
+        alternateName: ["Sarib UX", "sarib.ux", "Sarib Khan Xtarc", "Sarib Xtarc Agency", "saribgraphy"],
         jobTitle: site.tagline,
         description: site.description,
         url,
@@ -64,7 +66,8 @@ export function homeStructuredData() {
       {
         "@type": "WebSite",
         "@id": `${url}#website`,
-        name: `${site.name} · Xtarc`,
+        name: site.name,
+        alternateName: ["Sarib Khan · Xtarc Agency", "sarib.xtarc.agency"],
         url,
         inLanguage: "en",
         publisher: { "@id": org },

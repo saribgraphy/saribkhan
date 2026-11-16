@@ -11,8 +11,8 @@ import { site } from "@/content/site";
 import { expertiseTerms, homeStructuredData, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  title: { absolute: `${site.name}, ${site.tagline.toLowerCase()} · Xtarc` },
-  keywords: [site.name, "Xtarc", ...expertiseTerms],
+  title: { absolute: `${site.name}, ${site.tagline.toLowerCase()} · Xtarc Agency` },
+  keywords: [site.name, "Xtarc", "Xtarc Agency", "Sarib UX", ...expertiseTerms],
   alternates: { canonical: "/" },
 };
 
