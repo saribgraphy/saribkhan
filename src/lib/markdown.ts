@@ -4,7 +4,7 @@ import { notes, notesHeading } from "@/content/notes";
 import { engagements, faq, pricingHeading, pricingIntro, pricingSmallLine, theMath } from "@/content/pricing";
 import { getProject, openProjects, workHeading, workIntro } from "@/content/projects";
 import { site, socials } from "@/content/site";
-import { buildHeading, buildIntro, capabilities, touchpoints } from "@/content/touchpoints";
+import { buildHeading, buildIntro, buildLabels, capabilities, touchpoints, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
 
 /**
  * Markdown versions of the site's pages, for AI agents that ask for
@@ -95,9 +95,13 @@ const build = () =>
     "",
     ...capabilities.map((c) => `- **${plain(c.title)}** ${plain(c.body)}`),
     "",
-    "## The funnel X-ray",
+    `## ${plain(buildLabels.xray)}`,
+    "",
+    plain(xrayLeadIn),
     "",
     ...touchpoints.map((t) => `${t.n}. **${plain(t.name)}**: ${plain(t.body)}`),
+    "",
+    plain(xrayOutro),
     footer,
   );
 

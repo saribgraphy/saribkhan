@@ -7,6 +7,7 @@ import {
   PenNib,
   Sparkle,
   UsersThree,
+  VideoCamera,
 } from "@phosphor-icons/react/dist/ssr";
 import { capabilities } from "@/content/touchpoints";
 
@@ -19,6 +20,7 @@ const icons = {
   book: BookOpen,
   pen: PenNib,
   sparkle: Sparkle,
+  video: VideoCamera,
 };
 
 export function Capabilities() {

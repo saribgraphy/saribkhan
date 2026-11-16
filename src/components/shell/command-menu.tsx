@@ -78,7 +78,7 @@ export function CommandMenu() {
       items: [
         {
           id: "xray",
-          label: "The Funnel X-ray",
+          label: "The X-ray",
           hint: "What I build",
           keywords: ["funnel", "touchpoints", "skool", "application", "booking", "pre-call", "onboarding"],
           icon: <MagnifyingGlass size={14} />,

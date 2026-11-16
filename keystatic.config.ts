@@ -283,6 +283,7 @@ export default config({
                 { label: "Book", value: "book" },
                 { label: "Pen", value: "pen" },
                 { label: "Sparkle", value: "sparkle" },
+                { label: "Video", value: "video" },
               ],
             }),
             title: text("Title"),

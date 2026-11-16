@@ -23,10 +23,10 @@ export const labelDefaults = {
     gallery: "More from the archive",
   },
   build: {
-    xray: "The Funnel X-ray",
+    xray: "The X-ray",
     make: "Things I make",
     tryIt: "Try it",
-    calculator: "The “one deal” calculator",
+    calculator: "A revenue calculator, built for a coaching program",
     application: "An application step",
     booking: "A coach booking card",
   },
