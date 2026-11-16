@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Instrument_Sans, Instrument_Serif, Inter } from "next/font/google";
 import { Suspense } from "react";
@@ -55,6 +56,13 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+/**
+ * Google Analytics 4 (property "sarib.xtarc.agency"). Runs on the live site only, so previews
+ * and local work never count as visits. The ID is public: it ships in every page anyway.
+ */
+const GA_ID = "G-0VWYWVVG9H";
+const gaId = process.env.VERCEL_ENV === "production" ? (process.env.NEXT_PUBLIC_GA_ID ?? GA_ID) : undefined;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${instrument.variable} ${instrumentSans.variable} ${geistMono.variable}`}>
@@ -64,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ScrollReset />
         </Suspense>
       </body>
+      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
     </html>
   );
 }

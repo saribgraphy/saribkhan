@@ -4,7 +4,7 @@ import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 const INTRO =
-  "This site collects only what you choose to send through its forms. There are no analytics, no advertising trackers and no tracking cookies, and your details are never sold or shared for marketing.";
+  "This site collects what you choose to send through its forms, plus visit statistics from Google Analytics. There are no advertising trackers, and your details are never sold or shared for marketing.";
 
 export const metadata: Metadata = pageMetadata("Privacy", INTRO, "/privacy");
 
@@ -24,8 +24,8 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
     label: "What the site stores on your device",
     body: (
       <>
-        One setting: whether you prefer the Work page as a grid or a list, kept in your browser&apos;s local storage. It never
-        leaves your device. The site sets no cookies of its own.
+        Whether you prefer the Work page as a grid or a list, kept in your browser&apos;s local storage; it never leaves your
+        device. Google Analytics also sets its own cookies (named _ga) to count visits, as described below.
       </>
     ),
   },
@@ -34,7 +34,9 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
     body: (
       <>
         The site is hosted on Vercel, which handles every request and keeps standard server logs (such as IP address and
-        browser) for security and reliability. Emails are delivered by Resend; waitlist entries live in Google Sheets. The
+        browser) for security and reliability. Google Analytics counts visits: which pages are viewed, how people arrive,
+        and their rough location and device. It doesn&apos;t receive what you type into the forms, and Google Analytics
+        doesn&apos;t store IP addresses. You can block it with any content blocker or Google&apos;s opt-out add-on. Emails are delivered by Resend; waitlist entries live in Google Sheets. The
         guide&apos;s video only loads from YouTube&apos;s privacy-enhanced domain (youtube-nocookie.com) after you press play.
         Links to Instagram, LinkedIn, WhatsApp and other sites follow those sites&apos; own policies.
       </>
@@ -79,7 +81,7 @@ export default function PrivacyPage() {
         </div>
       ))}
       <p className="t-label mt-16 text-muted">
-        {site.name}, {site.city}, Pakistan. Last updated November 2026.
+        {site.name}, {site.city}, Pakistan. Last updated 16 November 2026.
       </p>
     </>
   );
