@@ -27,7 +27,7 @@ export const labelDefaults = {
     make: "Things I make",
     tryIt: "Try it",
     calculator: "A revenue calculator, built for a coaching program",
-    application: "An application step",
+    application: "An application step, from a coaching funnel",
     booking: "A coach booking card",
   },
   pricing: {

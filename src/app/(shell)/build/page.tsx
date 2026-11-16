@@ -4,6 +4,7 @@ import { ApplicationStep } from "@/components/demos/application-step";
 import { BookingCard } from "@/components/demos/booking-card";
 import { Calculator } from "@/components/demos/calculator";
 import { Capabilities } from "@/components/build/capabilities";
+import { NeedPicker } from "@/components/build/need-picker";
 import { XRay } from "@/components/build/xray";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { bookingCaption, buildHeading, buildLabels, buildIntro, tryLeadIn, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
@@ -55,6 +56,17 @@ export default function BuildPage() {
             <BookingCard />
           </Demo>
         </div>
+      </Section>
+
+      <Divider className="my-16" />
+
+      <Section id="need">
+        <SectionLabel>Not sure what you need?</SectionLabel>
+        <p className="t-body mb-6">
+          Tick whatever sounds like your business right now. You&apos;ll see which way of working fits, and you can send the
+          list straight to me.
+        </p>
+        <NeedPicker />
       </Section>
     </>
   );

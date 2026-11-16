@@ -41,7 +41,7 @@ Staging (Vercel login needed): https://saribkhan-git-positioning-generalist-xtar
 Start a project form (question, options, confirmation), the walkthrough panel title, field and WhatsApp message, the 404 heading, Ctrl K hints, the X-ray intro, the Markdown contact text.
 
 **Left as is, because the brief says never change these:**
-- `/privacy` says "The project and funnel teardown forms…". Suggest changing to "walkthrough" in a later pass.
+- `/privacy` wording was later updated with Sarib's okay (see section 5).
 - `/api/inquiry` emails you with the subject "Funnel teardown request" and a "Program" label. Only you see these.
 
 **Left as proof:** the /build application demo (options start with "A coaching program"), the booking card caption, the three notes, case files and testimonials.
@@ -60,12 +60,16 @@ Start a project form (question, options, confirmation), the walkthrough panel ti
 - Search for "coaching brands", "funnel teardown", "Funnel Rebuild", "Growth Design Partner": only the two never-change files above.
 - Not run: Google's Rich Results Test (run it on the live URL after merging), and a real form submission (it would send you a real email; the handler is unchanged).
 
-## 5. Open decisions
+## 5. Decisions made after review (Sarib asked me to decide)
 
-- **The calculator**: hidden from Working together, still on /build titled "A revenue calculator, built for a coaching program". Remove, keep, or replace with a "What do you need?" picker.
-- Swapping the /build calculator for the AI Chat Initiator needs a new interactive demo; not started.
-- Instagram row: upload the Instagram logo in Keystatic (it shows "IG" until then).
-- Share image still shows "Sarib Khan" above the headline. Keep or remove.
+- **The calculator** stays on /build as proof of one client's tool, titled "A revenue calculator, built for a coaching program". It stays hidden on Working together.
+- **/build ends with a new "Not sure what you need?" section** (`src/components/build/need-picker.tsx`): tick what you need, see whether The Project or Design and Build Partner fits (no prices), then send the list on WhatsApp or open the project form.
+- The application demo is titled "An application step, from a coaching funnel".
+- **Share image** shows the headline only, matching the home page (the name stays in its sidebar).
+- **Privacy** now says "project and walkthrough forms" and "your business".
+- **Instagram row** has an Instagram logo (`public/images/logos/currently/3/logo.svg`).
+- Swapping a demo for the AI Chat Initiator would need a new interactive demo; not done.
+- X-ray answers: padding balanced. Focus rings no longer show after mouse clicks.
 
 ## 6. How to undo
 

@@ -26,7 +26,6 @@ export default function OpengraphImage() {
         <div style={{ position: "absolute", top: 112, left: 400, width: 560, display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 16, color: "#737373", marginBottom: 28 }}>/ Home</div>
           <div style={{ fontSize: 64, lineHeight: 1.04, fontWeight: 700, letterSpacing: -2, color: "#212223", display: "flex", flexDirection: "column" }}>
-            <span>{site.name}</span>
             <span>{site.headline}</span>
           </div>
           <div style={{ fontSize: 24, lineHeight: 1.45, color: "#595959", marginTop: 32 }}>{intro.lead}</div>

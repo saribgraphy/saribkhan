@@ -13,7 +13,7 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
     label: "What the forms collect",
     body: (
       <>
-        The project and funnel teardown forms send what you type (your programme, the areas you want help with, a link and a
+        The project and walkthrough forms send what you type (your business, what you need help with, a link and a
         way to reply) to me by email, through Resend, an email delivery service. The free guide&apos;s waitlist stores your
         email address, and your name if you add it, in a private Google Sheet that only I can open, and emails me a copy. I
         use these details only to reply to you and, for the waitlist, to invite you to the Xtarc community.

@@ -102,6 +102,10 @@ const build = () =>
     ...touchpoints.map((t) => `${t.n}. **${plain(t.name)}**: ${plain(t.body)}`),
     "",
     plain(xrayOutro),
+    "",
+    "## Not sure what you need?",
+    "",
+    `Websites and landing pages, brands, custom tools and dashboards, AI for your team, ads and social content, and video. One or two of these is usually a fixed project; three or more, or ongoing content, suits the monthly partnership. Ways to work together: ${abs("/working-together")}`,
     footer,
   );
 
@@ -214,7 +218,7 @@ const privacy = () =>
     "",
     "## What the forms collect",
     "",
-    "The project and funnel teardown forms send what you type (your programme, the areas you want help with, a link and a way to reply) by email through Resend. The free guide's waitlist stores your email address, and your name if you add it, in a private Google Sheet, and emails a copy. These details are used only to reply to you and, for the waitlist, to invite you to the Xtarc community.",
+    "The project and walkthrough forms send what you type (your business, what you need help with, a link and a way to reply) by email through Resend. The free guide's waitlist stores your email address, and your name if you add it, in a private Google Sheet, and emails a copy. These details are used only to reply to you and, for the waitlist, to invite you to the Xtarc community.",
     "",
     "## What the site stores on your device",
     "",
