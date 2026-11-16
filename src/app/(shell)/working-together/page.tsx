@@ -27,13 +27,16 @@ export default function WorkingTogetherPage() {
 
       <Divider className="my-16" />
 
-      <Section id="math">
-        <SectionLabel>{pricingLabels.math}</SectionLabel>
-        <p className="t-body mb-6">{theMath}</p>
-        <Calculator compact />
-      </Section>
+      {/* Shown only while the CMS field has text: emptying "The math" hides the section and its calculator. */}
+      {theMath ? (
+        <Section id="math" className="mb-16">
+          <SectionLabel>{pricingLabels.math}</SectionLabel>
+          <p className="t-body mb-6">{theMath}</p>
+          <Calculator compact />
+        </Section>
+      ) : null}
 
-      <Section id="teardown" className="mt-16">
+      <Section id="teardown">
         <div className="relative -mx-2 overflow-hidden rounded-[14px] bg-white p-1.5 shadow-[0_0.5px_0.5px_#2122231a,0_12px_24px_-8px_#21222326,0_0_0_0.5px_#2122231f] max-md:mx-0">
           <div className="rounded-[8px] bg-[radial-gradient(90%_120%_at_100%_0%,#f1f1ef,transparent_60%)] px-6 pt-6 pb-6 ring-[0.5px] ring-black/[0.06]">
             <span className="mb-5 flex size-9 items-center justify-center rounded-[9px] bg-ink text-white shadow-[inset_0_1px_0_#ffffff26]">

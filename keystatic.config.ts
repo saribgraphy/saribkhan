@@ -66,7 +66,8 @@ export default config({
       format,
       schema: {
         name: text("Name"),
-        tagline: text("Tagline", { description: "Shown under the name on Home and in the browser tab." }),
+        tagline: text("Tagline", { description: "Short line for the browser tab, link previews and the AI-readable pages, e.g. “Design, Build, Market”." }),
+        headline: text("Headline", { description: "The sentence under the name on Home, and on the share image." }),
         description: text("Search and link preview description", { multiline: true }),
         status: text("Status line", { description: "Sits next to the breathing dot. Keep it open-ended, no dates." }),
         email: text("Email"),
@@ -282,6 +283,7 @@ export default config({
                 { label: "Book", value: "book" },
                 { label: "Pen", value: "pen" },
                 { label: "Sparkle", value: "sparkle" },
+                { label: "Video", value: "video" },
               ],
             }),
             title: text("Title"),

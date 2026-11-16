@@ -6,8 +6,8 @@
 export const labelDefaults = {
   home: {
     currently: "Currently",
-    systems: "Systems I've designed for",
-    expertise: "Areas of expertise",
+    systems: "People I've built for",
+    expertise: "What I help with",
     startHere: "Start here",
   },
   work: {
@@ -23,11 +23,11 @@ export const labelDefaults = {
     gallery: "More from the archive",
   },
   build: {
-    xray: "The Funnel X-ray",
+    xray: "The X-ray",
     make: "Things I make",
     tryIt: "Try it",
-    calculator: "The “one deal” calculator",
-    application: "An application step",
+    calculator: "A revenue calculator, built for a coaching program",
+    application: "An application step, from a coaching funnel",
     booking: "A coach booking card",
   },
   pricing: {

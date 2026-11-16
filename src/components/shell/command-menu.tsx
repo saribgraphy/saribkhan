@@ -28,7 +28,7 @@ type Item = {
   run: () => void;
 };
 
-/** ⌘K / Ctrl K (or "/") opens a jump-anywhere menu. Type "funnel", "price", "skool" or "book". */
+/** ⌘K / Ctrl K (or "/") opens a jump-anywhere menu. Type "work", "AI", "brand" or "book". */
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -78,9 +78,9 @@ export function CommandMenu() {
       items: [
         {
           id: "xray",
-          label: "The Funnel X-ray",
+          label: "The X-ray",
           hint: "What I build",
-          keywords: ["funnel", "touchpoints", "skool", "application", "booking", "pre-call", "onboarding"],
+          keywords: ["funnel", "touchpoints", "brand", "ads", "website", "booking", "onboarding", "content", "software", "ai"],
           icon: <MagnifyingGlass size={14} />,
           run: go(() => router.push("/build#xray")),
         },
@@ -94,9 +94,9 @@ export function CommandMenu() {
         },
         {
           id: "pricing",
-          label: "Prices and engagements",
+          label: "Ways to work together",
           hint: "Working together",
-          keywords: ["price", "cost", "pricing", "rebuild", "partner", "retainer"],
+          keywords: ["price", "cost", "pricing", "project", "partner", "retainer", "hire"],
           icon: <ArrowRight size={14} />,
           run: go(() => router.push("/working-together")),
         },
@@ -151,7 +151,7 @@ export function CommandMenu() {
         },
         {
           id: "teardown",
-          label: "Get a free funnel teardown",
+          label: "Get a free walkthrough",
           keywords: ["free", "audit", "review", "video", "loom"],
           icon: <VideoCamera size={14} />,
           run: go(() => panels.open("teardown")),
@@ -195,14 +195,14 @@ export function CommandMenu() {
                 value={search}
                 onValueChange={setSearch}
                 autoFocus
-                placeholder="Try funnel, price, skool or book"
+                placeholder="Try work, AI, brand or book"
                 className="h-full flex-1 bg-transparent text-[14px] text-ink outline-none placeholder:text-faint"
               />
               <kbd className="t-mono rounded-[4px] bg-white px-1.5 text-[10.5px] leading-[18px] text-muted shadow-card">esc</kbd>
             </div>
             <Command.List className="max-h-[min(380px,60vh)] overflow-y-auto overscroll-contain p-2">
               <Command.Empty className="t-ui px-3 py-6 text-center text-muted">
-                Nothing for that yet. Try &ldquo;funnel&rdquo; or &ldquo;price&rdquo;.
+                Nothing for that yet. Try &ldquo;work&rdquo; or &ldquo;walkthrough&rdquo;.
               </Command.Empty>
               {groups.map((g) => (
                 <Command.Group

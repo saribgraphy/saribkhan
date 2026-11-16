@@ -1,19 +1,13 @@
 import { WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { intro } from "@/content/home";
 import { site, whatsappLink } from "@/content/site";
-import { Specimen } from "@/components/shell/wordmark";
 import { PanelButton } from "@/components/ui/panel-button";
 
 export function Hero() {
   return (
     <div>
       <h1 className="t-display mb-6">
-        <span className="blur-in inline-block">
-          {site.name}
-          <Specimen size="lg" className="ml-2" />
-        </span>
-        <br />
-        <span className="blur-in inline-block [animation-delay:100ms]">{site.tagline}</span>
+        <span className="blur-in inline-block">{site.headline}</span>
       </h1>
 
       <div className="blur-in grid gap-4 [animation-delay:200ms]">

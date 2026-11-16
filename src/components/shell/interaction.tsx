@@ -13,6 +13,9 @@ const MIN_PRESS = 140;
  * - Anything pressable gets `data-pressed` while held (and for a beat after a
  *   quick tap), so every click visibly lands. Small controls shrink, wide
  *   blocks shrink less, inline links dim.
+ * - The page remembers whether the visitor last used a pointer or the Tab key
+ *   (`data-input` on <html>), so focus rings only show for keyboard users,
+ *   not after a click followed by a key press.
  * - Clicking an internal link marks the page as navigating: the current view
  *   softens and a thin bar runs along the top if the next page takes a moment.
  *   The new view then folds in, so there's no jump between the two.
@@ -37,7 +40,13 @@ export function Interaction() {
       else el.removeAttribute("data-pressed");
     };
 
+    const root = document.documentElement;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Tab") root.setAttribute("data-input", "keyboard");
+    };
+
     const onDown = (e: PointerEvent) => {
+      root.setAttribute("data-input", "pointer");
       if (e.button !== 0) return;
       const el = (e.target as Element | null)?.closest<HTMLElement>(PRESSABLE);
       if (!el) return;
@@ -61,12 +70,14 @@ export function Interaction() {
       setNavigating({ from: location.pathname });
     };
 
+    document.addEventListener("keydown", onKey, true);
     document.addEventListener("pointerdown", onDown, true);
     document.addEventListener("pointerup", onUp, true);
     document.addEventListener("pointercancel", onCancel, true);
     document.addEventListener("dragstart", onCancel, true);
     document.addEventListener("click", onClick);
     return () => {
+      document.removeEventListener("keydown", onKey, true);
       document.removeEventListener("pointerdown", onDown, true);
       document.removeEventListener("pointerup", onUp, true);
       document.removeEventListener("pointercancel", onCancel, true);

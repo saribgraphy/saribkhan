@@ -68,7 +68,7 @@ export function XRay() {
               </Accordion.Trigger>
             </Accordion.Header>
             <Accordion.Panel className="acc-panel">
-              <p className="t-ui px-4 pt-0.5 pb-5 pl-[52px] font-normal text-body">
+              <p className="t-ui px-4 py-5 pl-[52px] font-normal text-body">
                 <Copy>{t.body}</Copy>
               </p>
             </Accordion.Panel>
