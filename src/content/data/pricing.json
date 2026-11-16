@@ -1,48 +1,48 @@
 {
-  "heading": "Built for programs that are already working.",
-  "intro": "I don't work with people who are still figuring out their offer. I work with programs that already sell and want to look like the leader in their space. Scope, timeline and price are agreed before anything starts, so there are no surprises halfway through.",
+  "heading": "Built for businesses that already have something good.",
+  "intro": "I work best with businesses that already have something people want, and need it to look, work or reach better. Scope and timeline are agreed before anything starts, so there are no surprises halfway through.",
   "engagements": [
     {
-      "name": "The Funnel Rebuild",
+      "name": "The Project",
       "label": "Fixed project",
-      "line": "Your whole lead journey, redesigned and rebuilt.",
+      "line": "One clear thing, designed and built properly.",
       "includes": [
-        "Landing page and training or VSL page",
-        "Branded application form",
-        "Booking, confirmation and pre-call pages",
-        "Copy for every page, written with you",
-        "Built in Framer or Webflow, handed over so your team can edit it"
+        "A new website, landing page or funnel",
+        "A brand identity or a brand refresh",
+        "A custom tool, dashboard or AI workflow",
+        "Ads, launch videos or a content pack",
+        "Copy written with you, and everything handed over so your team can edit it"
       ],
-      "delivery": "2 to 3 weeks, with a fixed delivery date",
-      "priceLabel": "Starting at",
-      "price": "$3,499",
+      "delivery": "Most projects take 2 to 4 weeks, with a fixed delivery date",
+      "priceLabel": "",
+      "price": "",
       "cta": "Start a project",
       "style": "light"
     },
     {
-      "name": "Growth Design Partner",
+      "name": "Design and Build Partner",
       "label": "Ongoing",
-      "line": "A partner inside your team, without hiring one.",
+      "line": "Your design, build and content person, without hiring one.",
       "includes": [
-        "Unlimited design requests, one at a time",
-        "Funnel, website, community and product design",
-        "Custom tools like dashboards, calculators and coach pages",
-        "Motion and interaction throughout",
+        "Unlimited requests, one at a time",
+        "Brand, website, product and content design",
+        "Custom tools, dashboards and AI workflows",
+        "Ads, reels and motion",
         "Usually 2 to 3 day turnaround per request",
         "I join your Slack or WhatsApp group and work like part of the team"
       ],
-      "priceLabel": "Starting at",
-      "price": "$3,000",
-      "priceUnit": "per month, pause or cancel anytime",
+      "priceLabel": "",
+      "price": "",
+      "priceUnit": "",
       "cta": "Book a call",
       "style": "dark"
     }
   ],
-  "smallLine": "Brand identity, logos and custom coded tools are quoted separately.",
-  "theMath": "If your program costs $5,000, one extra enrolment a month pays for most of this. Better design doesn't need to double your sales to be worth it. It needs to close one more person who was on the fence.",
-  "teardownTitle": "Not ready to commit? Get a free funnel teardown.",
-  "teardownBody": "Send me the link to your funnel and I'll record a short video walking through it as if I were one of your leads. I'll show you exactly where it looks cheaper than your offer and what I'd change first. It takes you thirty seconds to ask, it costs nothing, and you keep the video either way.",
-  "teardownCta": "Get my teardown",
+  "smallLine": "Full software and apps are quoted on their own after a short call.",
+  "theMath": "",
+  "teardownTitle": "Not ready to commit? Get a free walkthrough.",
+  "teardownBody": "Send me your website, your Instagram or one of your ads. I'll record a short video going through it the way a new customer would, and show you the first three things I'd change. It's free, and the video is yours either way.",
+  "teardownCta": "Get my walkthrough",
   "faq": [
     {
       "q": "How does a project actually run?",
@@ -50,11 +50,11 @@
     },
     {
       "q": "Do you write the copy as well?",
-      "a": "Yes. I've spent a lot of time around funnels, setters and sales calls, so I write copy that sounds like you and actually moves people forward. If you already have copy you love, I'll design around it."
+      "a": "Yes. Words and design are done together, because one without the other doesn't work. If you already have copy you love, I'll design around it."
     },
     {
       "q": "Framer, Webflow or custom code?",
-      "a": "Framer for most funnels and websites, because it's fast and your team can edit it without me. Webflow if you're already on it. Custom code with Next.js when you need a real tool, like a dashboard, a booking system or a calculator."
+      "a": "Whatever fits the job. Framer for most websites, because it's fast and your team can edit it without me. Webflow if you're already on it. Custom code with Next.js for software, dashboards, AI tools and anything that needs to do more than look good."
     },
     {
       "q": "Can my team edit things after you're done?",
@@ -62,15 +62,19 @@
     },
     {
       "q": "Do you only work with coaching programs?",
-      "a": "Mostly. Coaching and education businesses are where I've done my best work, because I understand how applications, setters and calls fit together. If your business sells through a similar journey, we'll probably get along."
+      "a": "No. I've worked with coaching programs, AI startups, an edtech company, events and local businesses, and I build tools for my own team too. If you sell something online, I can probably help."
     },
     {
       "q": "You're in Karachi. How does that work with time zones?",
-      "a": "I overlap with UK, Europe and Gulf working hours every day, and I'm reachable on WhatsApp most of the time. A lot of my clients like waking up to progress."
+      "a": "I overlap with UK, Europe and Gulf working hours every day and work with US clients too. I'm reachable on WhatsApp most of the time, and a lot of clients like waking up to progress."
     },
     {
       "q": "What if I already have a designer?",
       "a": "Then I can work alongside them on the parts that need more attention, like the funnel, the forms or a custom tool. Good designers usually like having another good designer around."
+    },
+    {
+      "q": "Is it just you?",
+      "a": "You deal with me from start to finish. For bigger builds I bring in the Xtarc team, and I stay your one point of contact."
     }
   ],
   "labels": {}

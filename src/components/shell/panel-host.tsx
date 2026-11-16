@@ -39,8 +39,8 @@ export function PanelHost() {
       <SidePanel
         open={active === "teardown"}
         onOpenChange={(o) => !o && close()}
-        label="Free funnel teardown"
-        title="Get a free funnel teardown."
+        label="Free walkthrough"
+        title="Get a free walkthrough."
         description="Send the link and where to reach you. The video comes to you, and it's yours to keep either way."
       >
         <TeardownForm />
@@ -154,7 +154,7 @@ function TeardownForm() {
   const [link, setLink] = useState("");
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState<Status>("idle");
-  const message = `Salam Sarib, I'd like a free funnel teardown.\n\nFunnel: ${link}\nReply to: ${contact}`;
+  const message = `Salam Sarib, I'd like a free walkthrough.\n\nLink: ${link}\nReply to: ${contact}`;
 
   if (status === "sent" || status === "fallback")
     return <Done status={status} message={message} sentLine="Got it. I'll walk through it as one of your leads and send the video over." />;
@@ -168,7 +168,7 @@ function TeardownForm() {
         setStatus(await send({ kind: "teardown", link, contact }));
       }}
     >
-      <Field label="Funnel link">
+      <Field label="Link to your website, Instagram or ad">
         <input
           className={inputClass}
           required

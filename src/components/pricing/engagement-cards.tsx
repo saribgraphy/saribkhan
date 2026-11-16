@@ -74,6 +74,7 @@ export function EngagementCards() {
                 {e.priceLabel ? (
                   <span className={cn("t-ui font-medium", dark ? "text-white/70" : "text-muted")}>{e.priceLabel}</span>
                 ) : null}
+                {e.price ? (
                 <span className="flex flex-wrap items-baseline gap-x-2">
                   <span
                     className={cn(
@@ -87,6 +88,7 @@ export function EngagementCards() {
                     <span className={cn("t-ui font-medium", dark ? "text-white/70" : "text-muted")}>{e.priceUnit}</span>
                   ) : null}
                 </span>
+                ) : null}
               </div>
               <PanelButton panel="start" className={cn("btn", dark ? "btn-light" : "btn-primary")}>
                 <span className="btn-label">{e.cta}</span>

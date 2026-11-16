@@ -1,7 +1,7 @@
 import { aboutBody, aboutHeading, afterHours, afterHoursHeading, afterHoursIntro, elsewhere } from "@/content/about";
 import { expertise, intro, startHere, systems } from "@/content/home";
 import { notes, notesHeading } from "@/content/notes";
-import { engagements, faq, pricingHeading, pricingIntro, pricingSmallLine, theMath } from "@/content/pricing";
+import { engagements, faq, pricingHeading, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 import { getProject, openProjects, workHeading, workIntro } from "@/content/projects";
 import { site, socials } from "@/content/site";
 import { buildHeading, buildIntro, buildLabels, capabilities, touchpoints, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
@@ -118,12 +118,15 @@ const pricing = () =>
       "",
       ...(e.includes ?? []).map((i) => `- ${plain(i)}`),
       "",
-      `${plain(e.priceLabel)} ${plain(e.price)}${e.priceUnit ? ` ${plain(e.priceUnit)}` : ""}.${e.delivery ? ` ${plain(e.delivery)}.` : ""}`,
+      e.delivery ? `${plain(e.delivery)}.` : "",
       "",
     ]),
     plain(pricingSmallLine),
     "",
-    plain(theMath),
+    theMath && lines(plain(theMath), ""),
+    `## ${plain(teardown.title)}`,
+    "",
+    plain(teardown.body),
     "",
     "## Questions",
     "",

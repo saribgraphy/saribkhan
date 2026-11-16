@@ -151,7 +151,7 @@ export function CommandMenu() {
         },
         {
           id: "teardown",
-          label: "Get a free funnel teardown",
+          label: "Get a free walkthrough",
           keywords: ["free", "audit", "review", "video", "loom"],
           icon: <VideoCamera size={14} />,
           run: go(() => panels.open("teardown")),
