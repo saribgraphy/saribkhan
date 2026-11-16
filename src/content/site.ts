@@ -13,6 +13,7 @@ function siteUrl() {
 export const site = {
   name: d.name,
   tagline: d.tagline,
+  headline: d.headline ?? d.tagline,
   url: siteUrl(),
   description: d.description,
   email: d.email,

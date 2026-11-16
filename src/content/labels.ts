@@ -6,8 +6,8 @@
 export const labelDefaults = {
   home: {
     currently: "Currently",
-    systems: "Systems I've designed for",
-    expertise: "Areas of expertise",
+    systems: "People I've built for",
+    expertise: "What I help with",
     startHere: "Start here",
   },
   work: {

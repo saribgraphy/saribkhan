@@ -2,16 +2,24 @@ import { site, socials } from "@/content/site";
 
 /** What the studio does, in the words people search with. Feeds knowsAbout and keywords. */
 export const expertiseTerms = [
-  "Funnel design",
-  "Landing page design",
-  "Sales page design",
-  "Coaching brand websites",
-  "Skool community design",
-  "Internal tools for coaches",
+  "Brand identity",
   "Web design",
-  "Next.js development",
+  "Landing page design",
+  "Funnel design",
+  "Custom software",
+  "Internal tools",
+  "AI automation",
   "Claude Code",
+  "Next.js development",
+  "Static ads",
+  "Social media content",
+  "Video editing",
+  "Motion design",
 ];
+
+/** How the person is described to search engines and AI assistants. */
+const JOB_TITLE = "Designer and builder, co-founder of Xtarc";
+const sameAs = [...socials.map((s) => s.href), "https://www.youtube.com/@scalewithsarib"];
 
 /**
  * schema.org JSON-LD for the homepage: the person (Sarib Khan), the studio
@@ -30,7 +38,7 @@ export function homeStructuredData() {
         name: site.name,
         // Other names people search with: the Instagram handle and the studio pairing.
         alternateName: ["Sarib UX", "sarib.ux", "Sarib Khan Xtarc", "Sarib Xtarc Agency", "saribgraphy"],
-        jobTitle: site.tagline,
+        jobTitle: JOB_TITLE,
         description: site.description,
         url,
         email: `mailto:${site.email}`,
@@ -38,7 +46,7 @@ export function homeStructuredData() {
         address: { "@type": "PostalAddress", addressLocality: site.city, addressCountry: "PK" },
         worksFor: { "@id": org },
         knowsAbout: expertiseTerms,
-        sameAs: socials.map((s) => s.href),
+        sameAs,
       },
       {
         "@type": "Organization",
@@ -61,7 +69,7 @@ export function homeStructuredData() {
           areaServed: "Worldwide",
         },
         knowsAbout: expertiseTerms,
-        sameAs: socials.map((s) => s.href),
+        sameAs,
       },
       {
         "@type": "WebSite",

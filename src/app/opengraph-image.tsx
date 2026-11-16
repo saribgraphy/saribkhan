@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { intro } from "@/content/home";
 import { site } from "@/content/site";
 
-export const alt = `${site.name}, ${site.tagline.toLowerCase()}`;
+export const alt = `${site.name} · ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -27,7 +27,7 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 16, color: "#737373", marginBottom: 28 }}>/ Home</div>
           <div style={{ fontSize: 64, lineHeight: 1.04, fontWeight: 700, letterSpacing: -2, color: "#212223", display: "flex", flexDirection: "column" }}>
             <span>{site.name}</span>
-            <span>{site.tagline}</span>
+            <span>{site.headline}</span>
           </div>
           <div style={{ fontSize: 24, lineHeight: 1.45, color: "#595959", marginTop: 32 }}>{intro.lead}</div>
           <div style={{ display: "flex", gap: 16, marginTop: 40 }}>

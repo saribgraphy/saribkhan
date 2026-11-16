@@ -13,7 +13,7 @@ export function Hero() {
           <Specimen size="lg" className="ml-2" />
         </span>
         <br />
-        <span className="blur-in inline-block [animation-delay:100ms]">{site.tagline}</span>
+        <span className="blur-in inline-block [animation-delay:100ms]">{site.headline}</span>
       </h1>
 
       <div className="blur-in grid gap-4 [animation-delay:200ms]">
