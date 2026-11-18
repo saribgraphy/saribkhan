@@ -70,7 +70,7 @@ const types = graph.map((n) => n["@type"]);
 check("json-ld: Person", types.includes("Person"), types.join(","));
 const org = graph.find((n) => n["@type"] === "Organization");
 check("json-ld: Organization with contactPoint", Boolean(org?.contactPoint?.email));
-check("json-ld: Organization with PostalAddress", org?.address?.["@type"] === "PostalAddress");
+check("json-ld: no location or phone number", !/Karachi|Pakistan|"PK"|\+92|923147503578/.test(JSON.stringify(ld)));
 check("json-ld: knowsAbout terms", (graph.find((n) => n["@type"] === "Person")?.knowsAbout ?? []).length > 0);
 check("home title names Xtarc", /<title>[^<]*Xtarc[^<]*<\/title>/.test(home.body));
 

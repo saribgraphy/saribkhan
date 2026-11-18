@@ -19,13 +19,11 @@ export const site = {
   email: d.email,
   whatsapp: { display: d.whatsappDisplay, number: (d.whatsappNumber ?? "").replace(/\D/g, "") },
   status: d.status,
-  timezone: "Asia/Karachi",
-  city: d.city,
   footerLine: d.footerLine,
 };
 
-export const whatsappLink = (text?: string) =>
-  `https://wa.me/${site.whatsapp.number}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+/** Opens WhatsApp through /whatsapp (app/whatsapp/route.ts), so the number never appears on the site. */
+export const whatsappLink = (text?: string) => `/whatsapp${text ? `?text=${encodeURIComponent(text)}` : ""}`;
 
 export const socials = d.socials.filter((s) => s.href) as { label: string; handle: string; href: string }[];
 
@@ -45,7 +43,7 @@ export const nav: NavItem[] = [
     label: "Working together",
     keywords: ["price", "pricing", "cost", "book", "faq", "teardown"],
   },
-  { href: "/about", label: "About", keywords: ["story", "karachi", "desk"] },
+  { href: "/about", label: "About", keywords: ["story", "desk"] },
   { href: "/notes", label: "Notes", keywords: ["essays", "translator", "writing"] },
   { href: "/after-hours", label: "Built after hours", keywords: ["side projects", "apps", "tasbeeh"] },
 ];

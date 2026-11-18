@@ -4,7 +4,7 @@ import { ArrowUpRight } from "@phosphor-icons/react";
 import Link from "next/link";
 import { Lottie } from "@/components/build/lottie";
 import { site, socials } from "@/content/site";
-import { useKarachiTime } from "./hooks";
+import { useLocalTime } from "./hooks";
 
 export function StatusLine({ className }: { className?: string }) {
   return (
@@ -15,14 +15,15 @@ export function StatusLine({ className }: { className?: string }) {
   );
 }
 
-export function KarachiClock({ className }: { className?: string }) {
-  const time = useKarachiTime();
+/** The visitor's local time: a live, human touch that says nothing about where Sarib is. */
+export function LocalClock({ className }: { className?: string }) {
+  const time = useLocalTime();
   return (
     <span className={`t-label inline-flex items-center gap-1.5 text-muted ${className ?? ""}`}>
       <span className="t-mono text-[11.5px] text-ink-2" suppressHydrationWarning>
         {time ?? "--:--"}
       </span>
-      in {site.city}
+      your time
     </span>
   );
 }
@@ -32,7 +33,7 @@ export function RightRail() {
   return (
     <div className="navfade absolute top-[120px] right-0 z-10 hidden flex-col items-end gap-1 min-[1200px]:flex">
       <StatusLine />
-      <KarachiClock />
+      <LocalClock />
       <span className="my-4 h-px w-6 bg-tint-2" />
       <span className="t-label mb-1 text-muted">Follow</span>
       <ul className="flex flex-col items-end gap-1.5">
