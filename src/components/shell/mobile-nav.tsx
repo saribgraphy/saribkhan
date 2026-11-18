@@ -9,7 +9,7 @@ import { afterHours } from "@/content/about";
 import { nav, site, socials, whatsappLink } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { CopyEmail } from "./copy-email";
-import { KarachiClock, StatusLine } from "./right-rail";
+import { LocalClock, StatusLine } from "./right-rail";
 import { isActive, openCommandMenu } from "./sidebar";
 
 /** Below 1200px the rails fold into a floating "/" pill that opens a bottom sheet. */
@@ -82,11 +82,11 @@ export function MobileNav() {
             <p className="text-[11px] leading-[18px] text-body">For new projects</p>
             <CopyEmail />
             <a href={whatsappLink()} target="_blank" rel="noreferrer" className="t-ui inline-flex items-center gap-1.5 text-body">
-              <WhatsappLogo size={14} /> {site.whatsapp.display}
+              <WhatsappLogo size={14} /> WhatsApp
             </a>
             <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
               <StatusLine />
-              <KarachiClock />
+              <LocalClock />
             </div>
             <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
               {socials.map((s) => (

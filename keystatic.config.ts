@@ -71,9 +71,8 @@ export default config({
         description: text("Search and link preview description", { multiline: true }),
         status: text("Status line", { description: "Sits next to the breathing dot. Keep it open-ended, no dates." }),
         email: text("Email"),
-        whatsappDisplay: text("WhatsApp, as shown", { description: "e.g. +92 314 750 3578" }),
+        whatsappDisplay: text("WhatsApp, for your reference", { description: "Not shown on the site. Visitors see a WhatsApp link instead of the number." }),
         whatsappNumber: text("WhatsApp, digits only", { description: "Country code first, no + or spaces." }),
-        city: text("City", { description: "Used for the live clock: “11:32 in Karachi”." }),
         socials: fields.array(
           fields.object({ label: text("Network"), handle: text("Handle"), href: fields.url({ label: "Link" }) }),
           { label: "Follow links", itemLabel: (p) => p.fields.label.value || "Link" },

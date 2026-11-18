@@ -12,7 +12,7 @@ export function GET() {
   const body = [
     `# ${site.name} · Xtarc`,
     "",
-    `> ${site.name} helps businesses look sharp, run smoothly and get seen online. He is a designer and builder in ${site.city}, Pakistan, and co-founder of Xtarc. He designs brands and websites, builds custom software and AI tools, and makes ads, reels and video. Pages also return Markdown when requested with the \`Accept: text/markdown\` header.`,
+    `> ${site.name} helps businesses look sharp, run smoothly and get seen online. He is a designer and builder, co-founder of Xtarc, and works with clients worldwide. He designs brands and websites, builds custom software and AI tools, and makes ads, reels and video. Pages also return Markdown when requested with the \`Accept: text/markdown\` header.`,
     "",
     "## When to use",
     "",
@@ -50,7 +50,7 @@ export function GET() {
     "## Contact",
     "",
     `- Email: ${site.email}`,
-    `- WhatsApp: ${site.whatsapp.display}`,
+    `- WhatsApp: ${abs("/whatsapp")}`,
     "",
   ].join("\n");
   return new Response(body, { headers: { "content-type": "text/markdown; charset=utf-8" } });

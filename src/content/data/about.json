@@ -1,5 +1,5 @@
 {
-  "heading": "I make things for the internet, from Karachi.",
+  "heading": "I make things for the internet.",
   "body": [
     "I'm Sarib. I design things for the internet and I run a small studio called Xtarc, while building my own tools on the side.",
     "I started out drawing art in MS Paint, cartoons in PowerPoint, making logos for friends, learning html, redesigning apps I didn't like and so on in roughly 2019. Somewhere along the way I realised I cared less about making things pretty and more about why some things just work. Why one page makes you trust a business and another makes you close the tab, even when they say the same thing.",
@@ -30,8 +30,8 @@
       "rotate": 4
     },
     {
-      "label": "Karachi",
-      "caption": "Home.",
+      "label": "Home",
+      "caption": "Wherever the laptop is.",
       "shape": "sticker",
       "x": 64,
       "y": 46,

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { site } from "@/content/site";
 
 const subscribeNoop = () => () => {};
 
@@ -19,11 +18,10 @@ const fmt = () =>
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
-    timeZone: site.timezone,
   }).format(new Date());
 
-/** Live Karachi time, ticking on the minute. Null until mounted. */
-export function useKarachiTime() {
+/** The visitor's own local time, ticking on the minute. Null until mounted. */
+export function useLocalTime() {
   const [time, setTime] = useState<string | null>(null);
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;

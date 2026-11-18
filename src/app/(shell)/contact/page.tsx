@@ -5,7 +5,7 @@ import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/
 import { site, socials, whatsappLink } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
-const INTRO = `I'm ${site.name}. I help businesses with design, websites, software, AI and content, working from ${site.city} with clients worldwide. Email or WhatsApp reach me directly, and I reply myself, usually within one working day.`;
+const INTRO = `I'm ${site.name}. I help businesses with design, websites, software, AI and content for clients worldwide. Email or WhatsApp reach me directly, and I reply myself, usually within one working day.`;
 
 export const metadata: Metadata = pageMetadata("Contact", INTRO, "/contact");
 
@@ -33,13 +33,13 @@ export default function ContactPage() {
             <dt className="text-muted">WhatsApp</dt>
             <dd>
               <a className="u-link" href={whatsappLink()} target="_blank" rel="noreferrer">
-                {site.whatsapp.display}
+                Message on WhatsApp
               </a>
             </dd>
           </div>
           <div>
-            <dt className="text-muted">Based in</dt>
-            <dd>{site.city}, Pakistan (Pakistan Standard Time, UTC+5)</dd>
+            <dt className="text-muted">Time zones</dt>
+            <dd>I overlap with UK, Europe and Gulf working hours every day, and work with US clients too.</dd>
           </div>
           {socials.map((s) => (
             <div key={s.label}>

@@ -22,8 +22,8 @@ const footer = lines(
   "",
   "---",
   "",
-  `${site.name} · ${site.tagline} · ${site.city}`,
-  `Email: ${site.email} · WhatsApp: ${site.whatsapp.display}`,
+  `${site.name} · ${site.tagline}`,
+  `Email: ${site.email} · WhatsApp: ${abs("/whatsapp")}`,
   `More pages: ${abs("/llms.txt")} · Sitemap: ${abs("/sitemap.xml")}`,
 );
 
@@ -200,10 +200,10 @@ const contact = () =>
   lines(
     "# Contact",
     "",
-    `${site.name} helps businesses look sharp, run smoothly and get seen online. He works from ${site.city}, Pakistan, with clients worldwide.`,
+    `${site.name} helps businesses look sharp, run smoothly and get seen online. He works with clients worldwide.`,
     "",
     `- Email: ${site.email}`,
-    `- WhatsApp: ${site.whatsapp.display} (https://wa.me/${site.whatsapp.number})`,
+    `- WhatsApp: ${abs("/whatsapp")}`,
     ...socials.map((s) => `- ${s.label}: ${s.href}`),
     "",
     `To start a project, include a link to your website or Instagram, what you sell and what you'd like to change. How projects run: ${abs("/working-together")}`,

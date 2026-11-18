@@ -83,7 +83,7 @@ export function Sidebar() {
           className="t-ui group inline-flex items-center gap-1.5 text-body hover:text-ink"
         >
           <WhatsappLogo size={14} weight="regular" className="text-faint group-hover:text-ink" />
-          <span className="u-link">{site.whatsapp.display}</span>
+          <span className="u-link">WhatsApp</span>
         </a>
       </div>
     </>
