@@ -84,6 +84,21 @@ export function BookingProvider({ city, children }: { city: string; children: Re
   useEffect(() => {
     captureUtms();
     track("page_view_agents", { path: location.pathname });
+    // Scroll depth, once each at 50% and 90%.
+    const sent = new Set<number>();
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (max <= 0) return;
+      const pct = (scrollY / max) * 100;
+      for (const mark of [50, 90]) {
+        if (pct >= mark && !sent.has(mark)) {
+          sent.add(mark);
+          track("scroll_depth", { percent: mark });
+        }
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Preload Cal after first paint, when the browser is idle (2s fallback).

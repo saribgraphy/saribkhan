@@ -1,12 +1,12 @@
 import type { CityKey } from "./cities";
 
 /**
- * A single-stroke skyline along the bottom of the hero, gold at low opacity.
+ * A single-stroke skyline under the hero phone, as one faint ink line.
  * Austin: the Capitol dome and the Frost Bank Tower. Charlotte: the Bank of
  * America Corporate Center's crown. Tampa: the round Rivergate tower and
  * palms. A generic skyline when there's no city.
  */
-const PATHS: Record<CityKey | "us", string> = {
+export const SKYLINES: Record<CityKey | "us", string> = {
   austin:
     "M0 200 H120 V150 H160 V120 H190 V150 H230 V200 H300 V170 H340 V200 H400 V140 H420 V110 Q440 70 460 110 V140 H480 V200 H560 V160 L600 160 L600 200 H660 V90 L690 30 L720 90 V200 H760 V150 H800 V120 H830 V200 H900 V170 H950 V200 H1040 V140 H1080 V200 H1200",
   charlotte:
@@ -19,7 +19,7 @@ const PATHS: Record<CityKey | "us", string> = {
 export function Skyline({ city }: { city: CityKey | null }) {
   return (
     <svg className="ag-skyline" viewBox="0 0 1200 210" preserveAspectRatio="xMidYMax slice" aria-hidden>
-      <path d={PATHS[city ?? "us"]} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" />
+      <path d={SKYLINES[city ?? "us"]} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" />
     </svg>
   );
 }
