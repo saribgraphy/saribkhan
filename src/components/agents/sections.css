@@ -898,16 +898,34 @@
   }
 }
 
-/* ---------- Final call to action: full-bleed city photo ---------- */
+/* ---------- Final call to action: a city-photo card inside the column, centred ---------- */
 .ag-final {
   position: relative;
   overflow: hidden;
+  border-radius: 14px;
   background: #000;
+  box-shadow: var(--shadow-panel);
+  isolation: isolate;
 }
 .ag-final-fade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #000d, #0009 60%, #0006), linear-gradient(#0000 60%, #000a);
+  background:
+    radial-gradient(80% 70% at 50% 50%, #0009, #000c 100%),
+    linear-gradient(#0006, #000a);
+}
+.ag-final-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  padding: 88px 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .ag-final-copy {
+    padding: 104px 44px;
+  }
 }
 
 /* ---------- Eye-button preview overlay ---------- */
@@ -1123,9 +1141,6 @@
   width: max-content;
   animation: ag-marquee 80s linear infinite;
 }
-.ag-insp-strip:hover .ag-insp-track {
-  animation-play-state: paused;
-}
 .ag-insp-row {
   display: flex;
   gap: 16px;
@@ -1160,8 +1175,8 @@
 }
 .ag-insp figcaption {
   color: var(--muted);
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 16px;
 }
 @media (min-width: 768px) {
   .ag-insp-media {

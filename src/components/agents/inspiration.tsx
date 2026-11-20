@@ -46,7 +46,7 @@ function Piece({ item, hidden }: { item: Inspiration; hidden: boolean }) {
 /**
  * An endless, fairly quick strip of real estate UI ideas by other designers,
  * each credited by name (as plain text, so nobody leaves the page). Fixed
- * height, natural widths. Pauses on hover; with reduced motion it becomes a
+ * height, natural widths. Keeps moving on hover; with reduced motion it becomes a
  * plain swipeable row.
  */
 export function InspirationStrip() {
