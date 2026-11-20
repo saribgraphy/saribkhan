@@ -8,7 +8,7 @@ import { track } from "./track";
 const VIDEO = {
   full: "/agents/review/review.mp4",
   loop: "/agents/review/review-loop.mp4",
-  poster: "/agents/review/review-poster.jpg",
+  poster: "/agents/review/review-poster.webp",
   length: "1:04",
 };
 
