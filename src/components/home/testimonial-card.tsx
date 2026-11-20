@@ -9,18 +9,19 @@ import { cn } from "@/lib/utils";
 
 /**
  * One quote at a time, as a single heavy object. With two or more quotes it
- * gets pagination dots and auto-advances every 8s, pausing on hover.
+ * gets pagination dots and auto-advances every 8s, pausing on hover. Pass
+ * `items` to show other quotes (the /agents page does); the home page uses its own.
  */
-export function TestimonialCard() {
+export function TestimonialCard({ items = testimonials }: { items?: typeof testimonials } = {}) {
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
-  const many = testimonials.length > 1;
+  const many = items.length > 1;
 
   useEffect(() => {
     if (!many || paused) return;
-    const id = setInterval(() => setI((n) => (n + 1) % testimonials.length), 8000);
+    const id = setInterval(() => setI((n) => (n + 1) % items.length), 8000);
     return () => clearInterval(id);
-  }, [many, paused]);
+  }, [many, paused, items.length]);
 
   return (
     <figure
@@ -29,7 +30,7 @@ export function TestimonialCard() {
       onMouseLeave={() => setPaused(false)}
     >
       {/* Every quote sits in the same cell and they crossfade, so the card is never blank between them. */}
-      {testimonials.map((t, n) => (
+      {items.map((t, n) => (
         <div
           key={n}
           aria-hidden={n !== i}
@@ -72,7 +73,7 @@ export function TestimonialCard() {
       ))}
       {many ? (
         <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-          {testimonials.map((_, n) => (
+          {items.map((_, n) => (
             <button
               key={n}
               onClick={() => setI(n)}
