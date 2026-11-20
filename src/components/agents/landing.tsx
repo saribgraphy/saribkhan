@@ -21,6 +21,7 @@ import { AGENT_TESTIMONIALS, CITY_PHOTO, CLIENT_FACES, PHOTOS } from "./content"
 import { Dashboard } from "./dashboard";
 import { Greeting } from "./greeting";
 import { HeroPhone } from "./hero-phone";
+import { InspirationStrip } from "./inspiration";
 import { BookingMockup, CallMockup, EmailMockup, PhotoStage, TextMockup } from "./mockups";
 import { PreviewProvider } from "./preview";
 import { Problems } from "./problem";
@@ -304,7 +305,18 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
             </PhotoStage>
           </Column>
 
-          {/* 11. Final call to action */}
+          {/* 11. Ideas: real estate UI by other designers, credited */}
+          <Column className="mt-24">
+            <Heading
+              label="Ideas"
+              sub="Real estate websites, apps, chat and listing designs we love from the wider design community. Bring the ones you like to the call, and we'll design and build yours."
+            >
+              What your website could look like.
+            </Heading>
+          </Column>
+          <InspirationStrip />
+
+          {/* 12. Final call to action */}
           <section id="ag-final" className="ag-final mt-24">
             <Image src={cityPhoto} alt="" fill sizes="100vw" className="object-cover" />
             <div className="ag-final-fade" aria-hidden />
