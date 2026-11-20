@@ -2,7 +2,6 @@
 
 import { CalendarX, ChatCircleDots, CurrencyDollar, EnvelopeSimple, Moon, PhoneX, Plus } from "@phosphor-icons/react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 const PROBLEMS: [React.ComponentType<{ size?: number; weight?: "fill" | "bold" }>, string, string, string][] = [
   [PhoneX, "#e5484d", "Missed calls at showings.", "You can't pick up while you're walking a buyer through a house. The caller rings the next agent."],
@@ -13,14 +12,18 @@ const PROBLEMS: [React.ComponentType<{ size?: number; weight?: "fill" | "bold" }
   [CurrencyDollar, "#d6409f", "Paying for leads you never answer.", "Every unanswered lead is ad money you already spent."],
 ];
 
-/** Where leads slip away: four cards, and "See more" reveals the last two. */
+/**
+ * Where leads slip away. The first two cards show in full, the next card
+ * (phones) or row (wider screens) fades out under "See more", and the button
+ * reveals the rest. The fade and the hidden cards are set in sections.css.
+ */
 export function Problems() {
   const [all, setAll] = useState(false);
   return (
-    <div className="relative">
-      <ul className="grid gap-3 sm:grid-cols-2">
-        {PROBLEMS.map(([Icon, color, title, body], i) => (
-          <li key={title} className={cn("ag-problem", i >= 4 && !all && "hidden", i >= 4 && all && "fold-in")}>
+    <div className="ag-problems" data-open={all ? "" : undefined}>
+      <ul id="ag-problem-list" className="grid gap-3 sm:grid-cols-2">
+        {PROBLEMS.map(([Icon, color, title, body]) => (
+          <li key={title} className="ag-problem">
             <span className="ag-problem-icon" style={{ background: `${color}1a`, color }} aria-hidden>
               <Icon size={20} weight="fill" />
             </span>
@@ -31,7 +34,7 @@ export function Problems() {
       </ul>
       {!all ? (
         <div className="ag-more">
-          <button type="button" className="btn btn-outline" onClick={() => setAll(true)}>
+          <button type="button" className="btn btn-outline" onClick={() => setAll(true)} aria-expanded={all} aria-controls="ag-problem-list">
             <Plus size={13} weight="bold" />
             See more ways leads slip away
           </button>

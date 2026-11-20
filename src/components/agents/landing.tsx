@@ -26,6 +26,7 @@ import { BookingMockup, CallMockup, EmailMockup, PhotoStage, TextMockup } from "
 import { PreviewProvider } from "./preview";
 import { Problems } from "./problem";
 import { StickyCta } from "./sticky-cta";
+import { VslWidget } from "./vsl";
 import { VideoReview } from "./video-review";
 import { WorkCarousel } from "./work";
 import "@/app/globals.css";
@@ -131,6 +132,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
           <Marquee className="ag-announce" items={[...ticker, ...ticker].map((t, i) => <span key={i}>{t}</span>)} />
 
           <StickyCta />
+          <VslWidget />
 
           {/* 1. Hero */}
           <Column className="pt-12 md:pt-20">

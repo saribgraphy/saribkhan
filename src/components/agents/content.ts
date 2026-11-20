@@ -141,3 +141,12 @@ export const INSPIRATION: Inspiration[] = [
   shot("Muhammad Ibrahim", "48921981/file/73ca771c642229d2438143c4ba934b38.jpg"),
   shot("Shakuro", "45867978/file/still-c5e25acb0e6a1805ec2951c79609a012.png", "45867978/file/large-06153bc2332d021b0d553822e0f0d5ec.mp4"),
 ];
+
+/**
+ * The page's video (16:9, 1:21), hosted on Dribbble's CDN. It plays muted as a
+ * small teaser in the bottom-left corner and opens full size with sound.
+ */
+export const VSL = {
+  src: "https://cdn.dribbble.com/userupload/49688969/file/ae530dd51eb869807db9be938eeebb7e.mp4",
+  length: "1:21",
+};
