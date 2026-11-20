@@ -68,7 +68,7 @@ function Fix({ title, line, photo, children }: { title: string; line: string; ph
     <div>
       <h3 className="ag-h3">{title}</h3>
       <p className="ag-sub !mt-2">{line}</p>
-      <PhotoStage src={photo} className="mt-6 -mx-4 max-md:mx-0">
+      <PhotoStage src={photo} className="mt-6">
         {children}
       </PhotoStage>
     </div>
@@ -163,7 +163,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
                 </div>
               </div>
 
-              <PhotoStage src={cityPhoto} className="ag-hero-stage mt-12 -mx-4 max-md:mx-0">
+              <PhotoStage src={cityPhoto} className="ag-hero-stage mt-12">
                 <HeroPhone city={city} />
               </PhotoStage>
             </header>
@@ -182,7 +182,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
 
           {/* 3. The problem */}
           <Column className="mt-16">
-            <PhotoStage src={PHOTOS.phoneNight} className="ag-banner -mx-4 max-md:mx-0">
+            <PhotoStage src={PHOTOS.phoneNight} className="ag-banner">
               <Heading label="The problem" light sub="They message two or three agents at once. Whoever replies first usually gets the showing.">
                 Most buyers go with the first agent who answers.
               </Heading>
@@ -226,9 +226,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
           {/* 5. One screen for every lead */}
           <Column className="mt-24">
             <Heading label="One screen">See every lead, and what happened, in one place.</Heading>
-            <div className="-mx-4 max-md:mx-0">
-              <Dashboard city={city} />
-            </div>
+            <Dashboard city={city} />
             <p className="t-label mt-3">Sample dashboard.</p>
           </Column>
 
@@ -257,9 +255,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
           {/* 7. The video review */}
           <Column className="mt-24">
             <Heading label="Client story">Twenty-five years of websites, and this was the best one.</Heading>
-            <div className="-mx-4 max-md:mx-0">
-              <VideoReview />
-            </div>
+            <VideoReview />
           </Column>
 
           {/* 8. Work */}
@@ -280,7 +276,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
 
           {/* 10. The offer */}
           <Column className="mt-20">
-            <PhotoStage src={PHOTOS.housePool} className="ag-offer -mx-4 max-md:mx-0">
+            <PhotoStage src={PHOTOS.housePool} className="ag-offer">
               <h2 className="ag-h2 !text-white">Here&apos;s the deal.</h2>
               <ul className="mt-7 grid gap-4">
                 {[
