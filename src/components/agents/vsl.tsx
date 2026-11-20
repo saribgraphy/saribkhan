@@ -1,7 +1,7 @@
 "use client";
 
 import { Pause, Play, X } from "@phosphor-icons/react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/components/shell/hooks";
 import { useBooking } from "./booking";
 import { VSL } from "./content";
@@ -40,6 +40,12 @@ export function VslWidget() {
   const [open, setOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
+  // Where the teaser sits after it has been dragged: the left or right edge, and its distance from the bottom.
+  const [place, setPlace] = useState<{ side: "left" | "right"; bottom: number } | null>(null);
+  const pip = useRef<HTMLDivElement>(null);
+  const drag = useRef<{ x: number; y: number; id: number; moved: boolean } | null>(null);
+  const dragged = useRef(false);
+  const flipFrom = useRef<DOMRect | null>(null);
 
   // Load the teaser once the page is idle.
   useEffect(() => {
@@ -87,6 +93,56 @@ export function VslWidget() {
     history.pushState({ agVsl: true }, "");
     requestAnimationFrame(() => closeBtn.current?.focus());
   };
+
+  // Drag the teaser anywhere; on release it glides to the nearer side edge and keeps its height.
+  const onPipDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    dragged.current = false;
+    if (e.button !== 0 || (e.target as HTMLElement).closest(".ag-pip-close")) return;
+    drag.current = { x: e.clientX, y: e.clientY, id: e.pointerId, moved: false };
+  };
+  const onPipMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const d = drag.current;
+    const el = pip.current;
+    if (!d || !el || e.pointerId !== d.id) return;
+    const dx = e.clientX - d.x;
+    const dy = e.clientY - d.y;
+    if (!d.moved) {
+      if (Math.hypot(dx, dy) < 6) return;
+      d.moved = true;
+      try {
+        el.setPointerCapture(d.id);
+      } catch {}
+      el.dataset.dragging = "";
+    }
+    el.style.transform = `translate(${dx}px, ${dy}px)`;
+  };
+  const onPipUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    const d = drag.current;
+    const el = pip.current;
+    drag.current = null;
+    if (!d || !el || !d.moved || e.pointerId !== d.id) return;
+    dragged.current = true;
+    const r = el.getBoundingClientRect();
+    flipFrom.current = r;
+    el.style.transform = "";
+    setPlace({
+      side: r.left + r.width / 2 < window.innerWidth / 2 ? "left" : "right",
+      bottom: Math.max(0, window.innerHeight - r.bottom),
+    });
+  };
+  // Glide from where it was dropped to its new resting place.
+  useLayoutEffect(() => {
+    const el = pip.current;
+    const from = flipFrom.current;
+    if (!el || !from) return;
+    flipFrom.current = null;
+    const to = el.getBoundingClientRect();
+    el.animate([{ transform: `translate(${from.left - to.left}px, ${from.top - to.top}px)` }, { transform: "none" }], {
+      duration: reduced ? 0 : 420,
+      easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+    });
+    delete el.dataset.dragging;
+  }, [place, reduced]);
 
   const toggle = () => {
     const v = film.current;
@@ -138,14 +194,41 @@ export function VslWidget() {
   return (
     <>
       {!hidden ? (
-        <div className="ag-pip" data-show={shown && !open ? "" : undefined}>
-          <button type="button" className="ag-pip-open" onClick={openFilm} aria-label={`Watch the ${VSL.length} video`}>
+        <div
+          ref={pip}
+          className="ag-pip"
+          data-show={shown && !open ? "" : undefined}
+          onPointerDown={onPipDown}
+          onPointerMove={onPipMove}
+          onPointerUp={onPipUp}
+          onPointerCancel={onPipUp}
+          style={
+            place
+              ? {
+                  left: place.side === "left" ? "var(--pip-gap)" : "auto",
+                  right: place.side === "right" ? "var(--pip-gap)" : "auto",
+                  bottom: `max(var(--pip-min), min(${Math.round(place.bottom)}px, calc(100dvh - var(--pip-h) - 72px)))`,
+                }
+              : undefined
+          }
+        >
+          <button
+            type="button"
+            className="ag-pip-open"
+            onClick={() => {
+              // The click that ends a drag doesn't open the film.
+              if (dragged.current) return;
+              openFilm();
+            }}
+            aria-label={`Watch the ${VSL.length} video. Drag to move it.`}
+          >
             <video
               ref={teaser}
               src={armed ? (reduced ? `${VSL.src}#t=2` : VSL.src) : undefined}
               muted
               playsInline
               disablePictureInPicture
+              draggable={false}
               autoPlay={!reduced}
               preload={armed ? (reduced ? "metadata" : "auto") : "none"}
               onLoadedData={() => setShown(true)}

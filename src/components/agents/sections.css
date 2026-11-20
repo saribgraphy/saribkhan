@@ -1244,10 +1244,13 @@
 
 /* ---------- The video: a muted teaser in the corner, full size on a paper overlay ---------- */
 .ag-pip {
+  --pip-gap: 16px;
+  --pip-min: calc(16px + env(safe-area-inset-bottom));
+  --pip-h: 84px;
   position: fixed;
   z-index: 45;
-  left: 16px;
-  bottom: calc(16px + env(safe-area-inset-bottom));
+  left: var(--pip-gap);
+  bottom: var(--pip-min);
   width: 148px;
   aspect-ratio: 16 / 9;
   opacity: 0;
@@ -1257,6 +1260,16 @@
     opacity 0.35s ease,
     transform 0.5s var(--ease-out),
     bottom 0.35s var(--ease-out);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+/* While it follows the finger or pointer, nothing eases. */
+.ag-pip[data-dragging] {
+  transition: none;
+}
+.ag-pip[data-dragging] .ag-pip-open {
+  cursor: grabbing;
 }
 .ag-pip[data-show] {
   opacity: 1;
@@ -1265,7 +1278,7 @@
 }
 /* On phones the booking bar sits at the bottom: the teaser rises above it. */
 .ag-sticky[data-show] ~ .ag-pip {
-  bottom: calc(84px + env(safe-area-inset-bottom));
+  --pip-min: calc(84px + env(safe-area-inset-bottom));
 }
 .ag-pip-open {
   position: relative;
@@ -1277,7 +1290,10 @@
   border-radius: 14px;
   overflow: hidden;
   background: #111;
-  box-shadow: 0 0 0 3px #fff, var(--shadow-panel);
+  box-shadow:
+    0 0 0 3px #fff,
+    0 22px 48px -14px #0000004d,
+    0 8px 20px -8px #00000033;
   cursor: pointer;
 }
 .ag-pip-open video {
@@ -1455,12 +1471,13 @@
 }
 @media (min-width: 768px) {
   .ag-pip {
-    left: 24px;
-    bottom: 24px;
+    --pip-gap: 24px;
+    --pip-min: 24px;
+    --pip-h: 135px;
     width: 240px;
   }
   .ag-sticky[data-show] ~ .ag-pip {
-    bottom: 24px;
+    --pip-min: 24px;
   }
   .ag-pip-play {
     width: 48px;
