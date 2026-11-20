@@ -25,6 +25,7 @@ import { BookingMockup, CallMockup, EmailMockup, PhotoStage, TextMockup } from "
 import { PreviewProvider } from "./preview";
 import { Problems } from "./problem";
 import { StickyCta } from "./sticky-cta";
+import { VideoReview } from "./video-review";
 import { WorkCarousel } from "./work";
 import "@/app/globals.css";
 import "./agents.css";
@@ -252,7 +253,15 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
             </div>
           </Column>
 
-          {/* 7. Work */}
+          {/* 7. The video review */}
+          <Column className="mt-24">
+            <Heading label="Client story">Twenty-five years of websites, and this was the best one.</Heading>
+            <div className="-mx-4 max-md:mx-0">
+              <VideoReview />
+            </div>
+          </Column>
+
+          {/* 8. Work */}
           <Column className="mt-24">
             <Heading label="Work" sub="Tap the eye on any project to look around the live site without leaving this page.">
               Real estate brands that now look as good as the homes they sell.
@@ -260,7 +269,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
             <WorkCarousel />
           </Column>
 
-          {/* 8. What clients say */}
+          {/* 9. What clients say */}
           <Column className="mt-24">
             <Heading label="What agents say">From invisible online to the agent clients pick.</Heading>
             <TestimonialCard items={AGENT_TESTIMONIALS} />
@@ -268,7 +277,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
 
           <Marquee className="ag-features ag-roles mt-20" items={ROLES.map((r) => <span key={r}>{r}</span>)} />
 
-          {/* 9. The offer */}
+          {/* 10. The offer */}
           <Column className="mt-20">
             <PhotoStage src={PHOTOS.housePool} className="ag-offer -mx-4 max-md:mx-0">
               <h2 className="ag-h2 !text-white">Here&apos;s the deal.</h2>
@@ -295,7 +304,7 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
             </PhotoStage>
           </Column>
 
-          {/* 10. Final call to action */}
+          {/* 11. Final call to action */}
           <section id="ag-final" className="ag-final mt-24">
             <Image src={cityPhoto} alt="" fill sizes="100vw" className="object-cover" />
             <div className="ag-final-fade" aria-hidden />

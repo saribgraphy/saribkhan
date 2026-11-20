@@ -962,3 +962,104 @@
     transition: none;
   }
 }
+
+/* ---------- Video review card ---------- */
+.ag-review {
+  display: grid;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #161718;
+  color: #fff;
+  box-shadow: 0 0.5px 3px #21222333, 0 6px 8px #21222333;
+}
+.ag-review-video {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #000;
+}
+.ag-review-video video,
+.ag-review-video img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ag-review-play {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 18px 0 6px;
+  border: 0;
+  border-radius: 999px;
+  background: #fffffff2;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  box-shadow: 0 10px 24px -8px #000a;
+  transition: transform 0.2s var(--ease-out);
+}
+.ag-review-play:hover {
+  transform: translateX(-50%) scale(1.03);
+}
+.ag-review-play > span {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+}
+.ag-review-copy {
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  padding: 28px 24px 30px;
+}
+.ag-stars {
+  display: flex;
+  gap: 3px;
+  color: #fbbf24;
+}
+.ag-review-copy blockquote {
+  margin: 0;
+  font-family: var(--font-quote);
+  font-size: 23px;
+  line-height: 31px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.ag-review-who {
+  color: #ffffffa6;
+  font-size: 15px;
+}
+.ag-review .ag-pill-green {
+  background: #22c55e26;
+  color: #4ade80;
+}
+.ag-review .ag-pill-amber {
+  background: #f59e0b2e;
+  color: #fbbf24;
+}
+.ag-review .ag-pill-blue {
+  background: #0a84ff2e;
+  color: #60a5fa;
+}
+@media (min-width: 640px) {
+  .ag-review {
+    grid-template-columns: 250px 1fr;
+  }
+  .ag-review-video {
+    aspect-ratio: 9 / 16;
+  }
+  .ag-review-copy {
+    padding: 32px 30px;
+  }
+}
