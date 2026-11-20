@@ -27,7 +27,7 @@ export const CITY_PHOTO: Record<CityKey | "us", string> = {
 };
 
 /** Faces for the hero trust row (from xtarc.agency/sarib-khan). */
-export const CLIENT_FACES = ["/agents/faces/client-1.png", "/agents/faces/client-2.png", "/agents/faces/client-3.png", "/agents/faces/client-4.png"];
+export const CLIENT_FACES = ["/agents/faces/client-1.webp", "/agents/faces/client-2.webp", "/agents/faces/client-3.webp", "/agents/faces/client-4.webp"];
 
 /** Reviews from real estate clients, word for word from xtarc.agency/realestate. Same shape as the home page testimonials. */
 export const AGENT_TESTIMONIALS = [
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     name: "Premier Homes in Spain",
     kind: "Estate agency website",
     line: "A family-run agency in Murcia and Alicante, now with a site where buyers search by region, beds and price.",
-    cover: "/agents/work/premier-homes.jpg",
+    cover: "/agents/work/premier-homes.webp",
     url: "https://premierhomesinspain.com/",
   },
   {
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     name: "Campus Gate Residences",
     kind: "Brand and website",
     line: "A student residence in Toronto, launched with a full identity and a site that books tours.",
-    cover: "/agents/work/campus-gate.jpg",
+    cover: "/agents/work/campus-gate.webp",
     url: "https://www.campusgateresidences.ca/",
   },
   {
@@ -85,7 +85,7 @@ export const PROJECTS: Project[] = [
     name: "Taurus Contracting",
     kind: "Brand and website",
     line: "One of Toronto's established commercial builders, with a site that lets the projects speak first.",
-    cover: "/agents/work/taurus.jpg",
+    cover: "/agents/work/taurus.webp",
     url: "https://www.tauruscontracting.ca/",
   },
 ];
