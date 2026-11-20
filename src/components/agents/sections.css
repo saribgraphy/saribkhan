@@ -403,10 +403,16 @@
   font-size: 9px;
   font-weight: 800;
 }
-/* Photo avatars: the image fills whatever circle the avatar class draws. */
-.ag-face {
+/* Photo avatars are rounded squares, not circles: the photos are close-up
+   headshots and a circle crops them further. The image fills the box. */
+.ag .ag-face {
   position: relative;
   overflow: hidden;
+  border-radius: 28%;
+}
+/* The inbox's letter avatars match, so the list reads as one set. */
+.ag .ag-mail-avatar {
+  border-radius: 28%;
 }
 .ag-reply {
   display: flex;
@@ -673,6 +679,8 @@
 }
 .ag-table {
   display: grid;
+  /* minmax(0, …) lets rows shrink below their text, so nothing spills past the card. */
+  grid-template-columns: minmax(0, 1fr);
   border-radius: 12px;
   box-shadow: inset 0 0 0 1px var(--line);
   overflow: hidden;
@@ -696,9 +704,22 @@
 }
 .ag-tr small {
   display: block;
+  overflow: hidden;
   color: var(--muted);
   font-size: 13px;
   white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* The lead column gives way so the status pill always fits on a phone. */
+.ag-tr > :first-child,
+.ag-tr > :first-child > span:last-child {
+  min-width: 0;
+}
+.ag-tr > :first-child {
+  flex: 1;
+}
+.ag-tr > :last-child {
+  flex: none;
 }
 @media (min-width: 640px) {
   .ag-stats {
