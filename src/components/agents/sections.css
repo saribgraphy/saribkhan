@@ -387,21 +387,21 @@
   border-radius: 14px;
   background: #0a84ff0f;
 }
-/* A tiny Zillow mark on the lead's photo. */
+/* A small "property lead" badge on the lead's photo (a house, not a brand logo). */
 .ag-mail-badge {
   position: absolute;
-  right: -3px;
-  bottom: -3px;
+  right: -4px;
+  bottom: -4px;
   display: grid;
   place-items: center;
-  width: 17px;
-  height: 17px;
+  width: 19px;
+  height: 19px;
   border: 2px solid #fff;
   border-radius: 50%;
-  background: #006aff;
+  background: #0a84ff;
   color: #fff;
-  font-size: 9px;
-  font-weight: 800;
+  line-height: 0;
+  box-shadow: 0 1px 3px #0003;
 }
 /* Photo avatars are rounded squares, not circles: the photos are close-up
    headshots and a circle crops them further. The image fills the box. */

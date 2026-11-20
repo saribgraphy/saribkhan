@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarCheck, Check, InstagramLogo, PaperPlaneRight, Star } from "@phosphor-icons/react";
+import { CalendarCheck, Check, House, InstagramLogo, PaperPlaneRight, Star } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -173,7 +173,7 @@ export function EmailMockup({ city }: { city: City }) {
           <span className="relative flex-none">
             <Face src={city.faces.emailer} className="ag-mail-avatar" />
             <span className="ag-mail-badge" aria-hidden>
-              Z
+              <House size={10} weight="fill" />
             </span>
           </span>
           <div className="min-w-0 flex-1">
