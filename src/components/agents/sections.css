@@ -1331,7 +1331,18 @@
   padding: 64px 16px 32px;
   overflow: auto;
   background: var(--paper);
-  animation: ag-fade 0.2s ease;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+.ag-vsl[data-open] {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
 }
 .ag-vsl-close {
   position: fixed;
@@ -1345,13 +1356,53 @@
   width: min(960px, 100%, calc((100dvh - 240px) * 16 / 9));
   min-width: min(100%, 320px);
 }
+/* Our own player: the film, and one big play/pause button. Tap anywhere on it to toggle. */
+.ag-vsl-stage {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow-panel);
+  cursor: pointer;
+}
 .ag-vsl-video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 14px;
   background: #000;
-  box-shadow: var(--shadow-panel);
+}
+.ag-vsl-toggle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border: 0;
+  border-radius: 50%;
+  background: #111111e6;
+  color: #fff;
+  box-shadow: 0 10px 30px -8px #000a;
+  transition:
+    opacity 0.25s ease,
+    transform 0.2s var(--ease-out);
+}
+.ag-vsl-toggle:hover {
+  transform: scale(1.05);
+}
+.ag-vsl-stage:not([data-playing]) .ag-vsl-toggle svg {
+  margin-left: 3px;
+}
+.ag-vsl-stage[data-playing] .ag-vsl-toggle {
+  opacity: 0;
+}
+@media (hover: hover) {
+  .ag-vsl-stage[data-playing]:hover .ag-vsl-toggle {
+    opacity: 1;
+  }
 }
 /* The booking button fills like a fuel gauge over the first 30 seconds of watching. */
 .ag-fuel {
@@ -1396,10 +1447,10 @@
   transform: translateY(0.5px) scale(0.99);
 }
 .ag-vsl-note {
-  margin-top: -8px;
+  margin-top: -10px;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 12.5px;
+  line-height: 18px;
   text-align: center;
 }
 @media (min-width: 768px) {
@@ -1415,6 +1466,11 @@
     width: 48px;
     height: 48px;
     margin: -24px 0 0 -24px;
+  }
+  .ag-vsl-toggle {
+    width: 84px;
+    height: 84px;
+    margin: -42px 0 0 -42px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

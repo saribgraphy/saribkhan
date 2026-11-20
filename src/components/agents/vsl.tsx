@@ -1,6 +1,6 @@
 "use client";
 
-import { Play, X } from "@phosphor-icons/react";
+import { Pause, Play, X } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/components/shell/hooks";
 import { useBooking } from "./booking";
@@ -15,10 +15,15 @@ const TEASER_SECONDS = 12;
 /**
  * The page's video. A small muted teaser plays in the bottom-left corner (it
  * loads after the page is idle, so it never slows the first paint). Tapping it
- * opens the film full size with sound on a plain paper overlay, with the
- * booking button underneath. The button fills like a fuel gauge over the first
- * 30 seconds of watching, then becomes clickable, so visitors see most of the
- * pitch before they book.
+ * opens the film with sound on a plain paper overlay, with the booking button
+ * underneath. The player is our own: no browser controls, no download, just
+ * one big play/pause button. The button below fills like a fuel gauge over the
+ * first 30 seconds of watching, then becomes clickable, so visitors see most of
+ * the pitch before they book.
+ *
+ * The overlay stays mounted (hidden) so the film element already exists when
+ * the teaser is tapped: play() runs inside the tap itself, which browsers treat
+ * as permission to play with sound straight away.
  */
 export function VslWidget() {
   const { open: openBooking, isOpen: bookingOpen } = useBooking();
@@ -33,6 +38,7 @@ export function VslWidget() {
   const [shown, setShown] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
 
   // Load the teaser once the page is idle.
@@ -67,16 +73,27 @@ export function VslWidget() {
     if (!fromHistory && history.state?.agVsl) history.back();
   }, []);
 
-  const openFilm = useCallback(() => {
+  // Called straight from the tap, so the film starts with sound at once.
+  const openFilm = () => {
+    const v = film.current;
+    if (v) {
+      if (v.ended) v.currentTime = 0;
+      v.muted = false;
+      v.play().catch(() => setPlaying(false));
+    }
     track("vsl_open");
     setOpen(true);
     document.documentElement.style.overflow = "hidden";
     history.pushState({ agVsl: true }, "");
-    requestAnimationFrame(() => {
-      closeBtn.current?.focus();
-      film.current?.play().catch(() => {});
-    });
-  }, []);
+    requestAnimationFrame(() => closeBtn.current?.focus());
+  };
+
+  const toggle = () => {
+    const v = film.current;
+    if (!v) return;
+    if (v.paused) v.play().catch(() => {});
+    else v.pause();
+  };
 
   // Esc and the back button close it (unless the calendar is open on top, which closes first).
   useEffect(() => {
@@ -128,15 +145,12 @@ export function VslWidget() {
               src={armed ? (reduced ? `${VSL.src}#t=2` : VSL.src) : undefined}
               muted
               playsInline
+              disablePictureInPicture
               autoPlay={!reduced}
               preload={armed ? (reduced ? "metadata" : "auto") : "none"}
               onLoadedData={() => setShown(true)}
               onTimeUpdate={(e) => {
                 if (e.currentTarget.currentTime >= TEASER_SECONDS) e.currentTarget.currentTime = 0;
-              }}
-              onEnded={(e) => {
-                e.currentTarget.currentTime = 0;
-                e.currentTarget.play().catch(() => {});
               }}
               aria-hidden
             />
@@ -150,53 +164,74 @@ export function VslWidget() {
         </div>
       ) : null}
 
-      {open ? (
-        <div
-          className="ag-vsl"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Video: how it works"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) close();
-          }}
-        >
-          <button ref={closeBtn} type="button" onClick={() => close()} aria-label="Close the video" className="ag-icon-btn ag-vsl-close">
-            <X size={18} />
-          </button>
-          <div className="ag-vsl-body">
+      <div
+        className="ag-vsl"
+        data-open={open ? "" : undefined}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Video: how it works"
+        aria-hidden={!open}
+        inert={!open}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) close();
+        }}
+      >
+        <button ref={closeBtn} type="button" onClick={() => close()} aria-label="Close the video" className="ag-icon-btn ag-vsl-close">
+          <X size={18} />
+        </button>
+        <div className="ag-vsl-body">
+          <div className="ag-vsl-stage" data-playing={playing ? "" : undefined} onClick={toggle}>
             <video
               ref={film}
-              src={VSL.src}
+              src={armed ? VSL.src : undefined}
               className="ag-vsl-video"
-              controls
               playsInline
-              preload="auto"
+              disablePictureInPicture
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              preload={armed ? "metadata" : "none"}
+              onContextMenu={(e) => e.preventDefault()}
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
               onTimeUpdate={onProgress}
               onSeeked={(e) => {
                 last.current = e.currentTarget.currentTime;
               }}
-              onEnded={() => track("vsl_complete")}
+              onEnded={() => {
+                setPlaying(false);
+                track("vsl_complete");
+              }}
             />
             <button
-              ref={cta}
               type="button"
-              className="ag-fuel"
-              data-ready={ready ? "" : undefined}
-              aria-disabled={!ready}
-              onClick={book}
-              style={{ "--fuel": ready ? "100%" : "0%" } as React.CSSProperties}
+              className="ag-vsl-toggle"
+              aria-label={playing ? "Pause the video" : "Play the video"}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggle();
+              }}
             >
-              <span className="ag-fuel-base">Book a free 15-minute call</span>
-              <span className="ag-fuel-fill" aria-hidden>
-                Book a free 15-minute call
-              </span>
+              {playing ? <Pause size={30} weight="fill" /> : <Play size={30} weight="fill" />}
             </button>
-            <p className="ag-vsl-note">
-              {ready ? "15 minutes. No pressure. You'll leave with a clear yes or no." : "The button unlocks while you watch."}
-            </p>
           </div>
+          <button
+            ref={cta}
+            type="button"
+            className="ag-fuel"
+            data-ready={ready ? "" : undefined}
+            aria-disabled={!ready}
+            onClick={book}
+            style={{ "--fuel": ready ? "100%" : "0%" } as React.CSSProperties}
+          >
+            <span className="ag-fuel-base">Book a free 15-minute call</span>
+            <span className="ag-fuel-fill" aria-hidden>
+              Book a free 15-minute call
+            </span>
+          </button>
+          <p className="ag-vsl-note">
+            {ready ? "15 minutes. No pressure. You'll leave with a clear yes or no." : "The button unlocks while you watch."}
+          </p>
         </div>
-      ) : null}
+      </div>
     </>
   );
 }
