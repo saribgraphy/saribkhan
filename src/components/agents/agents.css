@@ -1,20 +1,96 @@
 /* /agents outreach pages, in the site's own style. The site's tokens and
-   utilities come from globals.css; this file only adds what the page needs
-   that the rest of the site doesn't have (tickers, the phone, the sticky bar,
-   the booking overlay). Everything is scoped under .ag. */
+   utilities come from globals.css; this file adds the page's type scale,
+   tickers, photo stages, the hero phone, the sticky bar and the overlays.
+   Everything is scoped under .ag. */
 
-/* The one button: the site's primary button, a touch taller for thumbs. */
-.ag .ag-cta {
-  height: 44px;
-  padding: 0 18px;
-  font-size: 14px;
+/* ---------- Type: big and few ---------- */
+.ag .ag-h1 {
+  color: var(--ink);
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
 }
-
 .ag .ag-h1 > span {
   display: block;
+  color: #21222380;
+}
+.ag-final .ag-h1 {
+  max-width: 13em;
+}
+.ag .ag-lead {
+  margin-top: 20px;
+  color: var(--body);
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+.ag .ag-label {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ag .ag-h2 {
+  color: var(--ink);
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+.ag .ag-h3 {
+  color: var(--ink);
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.ag .ag-sub {
+  margin-top: 12px;
+  color: var(--body);
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+@media (min-width: 768px) {
+  .ag .ag-h1 {
+    font-size: 52px;
+    line-height: 56px;
+  }
+  .ag .ag-h2 {
+    font-size: 38px;
+    line-height: 44px;
+  }
 }
 
-/* Tickers. */
+/* The one button: the site's primary button, bigger for a sales page. */
+.ag .ag-cta {
+  height: 52px;
+  padding: 0 24px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.ag .ag-cta-light {
+  background: linear-gradient(#ffffff, #ececea);
+  box-shadow: 0 1px 2px #0000001a, 0 8px 24px -8px #0006;
+}
+.ag .ag-cta-light > .btn-label,
+.ag .ag-cta-light:hover > .btn-label {
+  color: var(--ink);
+  -webkit-text-fill-color: currentColor;
+  animation: none;
+  background: none;
+}
+
+/* ---------- Tickers ---------- */
 .ag-marquee {
   position: relative;
   z-index: 1;
@@ -42,34 +118,39 @@
   }
 }
 .ag-announce {
-  background: var(--paper-3);
-  border-bottom: 1px solid var(--line);
-  color: var(--ink-2);
+  background: var(--ink);
+  color: #fff;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+/* Pinned to the top on phones (the booking bar lives at the bottom there). */
+@media (max-width: 767px) {
+  .ag-announce {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+  }
 }
 .ag-announce .ag-marquee-track {
-  animation-duration: 36s;
+  animation-duration: 40s;
 }
 .ag-announce li {
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 10px 0;
 }
 .ag-announce li::after {
   content: "";
-  width: 3px;
-  height: 3px;
-  margin: 0 22px;
+  width: 4px;
+  height: 4px;
+  margin: 0 24px;
   border-radius: 50%;
-  background: var(--faint);
-}
-.ag-announce .ph {
-  text-transform: none;
-  letter-spacing: 0;
+  background: #f59e0b;
 }
 .ag-features {
   border-block: 1px solid var(--line);
@@ -78,69 +159,123 @@
 .ag-features li span {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 16px 22px;
-  color: var(--body);
+  gap: 10px;
+  padding: 20px 26px;
+  color: var(--ink-2);
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 13px;
   line-height: 18px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 .ag-features li svg {
+  color: #0a84ff;
+}
+.ag-roles li span {
+  padding-block: 16px;
+  font-size: 15px;
   color: var(--ink);
 }
 
-/* Trust row under the button. */
+/* ---------- Trust row ---------- */
 .ag-trust {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  color: var(--body);
+  font-size: 15px;
+  line-height: 20px;
+}
+.ag-trust b {
+  color: var(--ink);
+  font-weight: 600;
 }
 .ag-faces {
   display: flex;
 }
-.ag-faces i {
-  display: grid;
-  place-items: center;
-  width: 24px;
-  height: 24px;
-  margin-left: -6px;
-  border: 1.5px solid var(--paper);
+.ag-faces > span {
+  width: 36px;
+  height: 36px;
+  margin-left: -10px;
+  border: 2px solid var(--paper);
   border-radius: 50%;
+  overflow: hidden;
   background: var(--paper-3);
   box-shadow: var(--shadow-card);
-  color: var(--muted);
-  font: 500 10px/1 var(--font-sans);
-  font-style: normal;
 }
-.ag-faces i:first-child {
+.ag-faces > span:first-child {
   margin-left: 0;
 }
+.ag-faces img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-/* The hero phone, a light iMessage-style screen inside the site's frame. */
+/* ---------- Photo stages: a photo, a dark fade, and content on top ---------- */
+.ag-stage {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 20px;
+  border-radius: 14px;
+  background: #111;
+  box-shadow: var(--shadow-panel);
+  isolation: isolate;
+}
+.ag-stage-fade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(90% 70% at 50% 40%, #0000 0%, #0006 100%),
+    linear-gradient(#0003, #000a);
+}
+.ag-banner {
+  padding: 120px 24px 32px;
+}
+.ag-banner .ag-stage-fade {
+  background: linear-gradient(#0002 0%, #000c 75%, #000 100%);
+}
+.ag-banner .mb-8 {
+  margin-bottom: 0;
+}
+.ag-hero-stage {
+  padding: 40px 28px 0;
+}
+@media (min-width: 768px) {
+  .ag-stage {
+    padding: 40px 36px;
+  }
+  .ag-banner {
+    padding: 180px 36px 40px;
+  }
+  .ag-hero-stage {
+    padding: 48px 36px 0;
+  }
+}
+
+/* ---------- The hero phone (light iMessage screen) ---------- */
 .ag-phone {
   position: relative;
   z-index: 1;
-  width: min(340px, 100%);
-  height: 540px;
-  margin: 28px auto 0;
+  width: min(350px, 100%);
+  height: 600px;
+  margin: 0 auto -40px;
   padding: 12px 12px 16px;
-  border-radius: 40px;
+  border-radius: 44px 44px 0 0;
   background: #fff;
   box-shadow:
     0 0 0 1px #2122231f,
     0 0 0 7px #f3f3f1,
     0 0 0 8px #2122231a,
-    var(--shadow-panel);
+    0 30px 80px -20px #000c;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 .ag-phone-notch {
-  width: 88px;
-  height: 24px;
+  width: 92px;
+  height: 26px;
   margin: 0 auto 8px;
   border-radius: 20px;
   background: var(--ink);
@@ -155,24 +290,24 @@
 }
 .ag-phone-head strong {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
 }
 .ag-phone-head small {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
 }
 .ag-avatar {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: linear-gradient(#c7cad1, #9da2ad);
+  background: linear-gradient(135deg, #f59e0b, #e1306c);
   color: #fff;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
 }
 .ag-phone-thread {
   flex: 1;
@@ -183,25 +318,35 @@
   overflow: hidden;
   transition: padding-bottom 0.45s var(--ease-out);
 }
-/* When the booked card slides in, the thread makes room for it, like a real chat scrolling up. */
 .ag-phone:has(.ag-booked-toast[data-show]) .ag-phone-thread {
   justify-content: flex-end;
-  padding-bottom: 74px;
+  padding-bottom: 96px;
 }
+.ag-hero-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* iMessage bubbles, shared by the hero phone and the DM mockup. */
 .ag-bubble {
-  max-width: 82%;
-  padding: 8px 12px;
-  border-radius: 17px;
-  font-size: 13.5px;
-  line-height: 1.38;
+  max-width: 84%;
+  padding: 9px 13px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.4;
   letter-spacing: -0.01em;
   animation: ag-pop 0.35s var(--ease-out) both;
 }
 .ag-bubble time {
   display: block;
-  margin-top: 2px;
-  font-size: 10px;
-  opacity: 0.6;
+  margin-top: 3px;
+  font-size: 11px;
+  opacity: 0.65;
 }
 .ag-bubble-buyer {
   align-self: flex-start;
@@ -218,11 +363,11 @@
 .ag-typing {
   display: flex;
   gap: 4px;
-  padding: 12px 13px;
+  padding: 13px 14px;
 }
 .ag-typing i {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #ffffffd9;
   animation: ag-dot 1s infinite ease-in-out;
@@ -255,15 +400,15 @@
   position: absolute;
   left: 14px;
   right: 14px;
-  bottom: 16px;
+  bottom: 56px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 11px 13px;
-  border-radius: 14px;
-  background: var(--paper);
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 16px;
+  background: #fff;
   color: var(--ink);
-  box-shadow: var(--shadow-pop);
+  box-shadow: 0 0 0 1px #16a34a33, 0 16px 32px -12px #16a34a55;
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -276,31 +421,20 @@
 }
 .ag-booked-toast svg {
   flex: none;
-  color: var(--iris);
+  color: #16a34a;
 }
 .ag-booked-toast strong {
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 }
 .ag-booked-toast small {
   display: block;
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--muted);
 }
 
-/* City skyline: a single faint ink line along the bottom of the phone frame. */
-.ag-skyline {
-  position: absolute;
-  inset: auto 0 0;
-  width: 100%;
-  height: 120px;
-  color: var(--ink);
-  opacity: 0.14;
-  pointer-events: none;
-}
-
-/* Sticky call to action: bottom bar on phones, slim top bar on wide screens. */
+/* ---------- Sticky call to action ---------- */
 .ag-sticky {
   position: fixed;
   z-index: 50;
@@ -328,13 +462,17 @@
 }
 .ag-sticky .ag-cta {
   width: 100%;
+  height: 48px;
 }
 
 .ag-foot {
-  padding: 56px 0 calc(96px + env(safe-area-inset-bottom));
+  padding: 28px 20px calc(96px + env(safe-area-inset-bottom));
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
 }
 
-/* Booking overlay: always rendered, revealed on tap. */
+/* ---------- Booking overlay ---------- */
 .ag-overlay {
   position: fixed;
   z-index: 100;
@@ -378,8 +516,8 @@
 .ag-icon-btn {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border: 0;
   border-radius: 8px;
   background: transparent;
@@ -424,8 +562,7 @@
 
 @media (min-width: 768px) {
   .ag-phone {
-    height: 580px;
-    margin-top: 36px;
+    height: 620px;
   }
   .ag-sticky {
     inset: 0 0 auto;
@@ -439,10 +576,11 @@
   }
   .ag-sticky .ag-cta {
     width: auto;
-    height: 36px;
+    height: 40px;
+    font-size: 14px;
   }
   .ag-foot {
-    padding-bottom: 40px;
+    padding-bottom: 32px;
   }
   .ag-overlay {
     padding: 5vh 4vw;

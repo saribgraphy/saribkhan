@@ -4,7 +4,7 @@ import { X } from "@phosphor-icons/react";
 import { createContext, useCallback, useContext, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { captureUtms, firstName, track, utms } from "./track";
 
-/** e.g. "xtarc/agents-intro". Set NEXT_PUBLIC_CAL_LINK in Vercel. */
+/** e.g. "sarib/agents-intro". Set NEXT_PUBLIC_CAL_LINK in Vercel. */
 const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK ?? "";
 const CAL_URL = CAL_LINK ? `https://cal.com/${CAL_LINK}` : "";
 const NS = "agents";

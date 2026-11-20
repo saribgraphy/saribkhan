@@ -31,9 +31,7 @@ export function StickyCta() {
   return (
     <div className="ag-sticky" data-show={show ? "" : undefined} aria-hidden={!show}>
       <div className="ag-sticky-inner">
-        <span className="ag-logo t-ui font-medium text-ink">
-          Sarib Khan <span className="text-faint">·</span> <span className="text-muted">Xtarc</span>
-        </span>
+        <span className="ag-logo text-[16px] font-semibold tracking-[-0.015em] text-ink">Never miss another lead.</span>
         <BookButton position="sticky" className="ag-cta-sticky">
           Book a free call
         </BookButton>

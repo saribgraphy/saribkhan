@@ -42,14 +42,12 @@ function clean(html: string, base: string) {
 export async function GET(_request: Request, { params }: RouteContext<"/api/preview/[slug]">) {
   const { slug } = await params;
   const project = PROJECTS.find((p) => p.slug === slug);
-  if (!project?.preview || project.preview.kind !== "page") {
-    return new Response("Not found", { status: 404 });
-  }
+  if (!project) return new Response("Not found", { status: 404 });
 
-  const url = project.preview.url;
+  const url = project.url;
   let html: string;
   try {
-    const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0 (compatible; XtarcPreview/1.0)" } });
+    const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0 (compatible; SitePreview/1.0)" } });
     if (!res.ok) throw new Error(String(res.status));
     html = await res.text();
   } catch {

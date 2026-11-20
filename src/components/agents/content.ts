@@ -1,120 +1,91 @@
+import type { CityKey } from "./cities";
+
 /**
- * Everything on the /agents pages that Sarib still has to confirm or supply.
- * Fill these in and the page picks them up; anything null shows as a visible
- * [placeholder] instead of made-up content.
+ * Content for the /agents pages. Photos are from Unsplash (free for
+ * commercial use, no attribution required); the IDs are noted so any can be
+ * swapped. Client faces and project screenshots are Sarib's own work.
  */
 
-/** The one video review. Put the files in public/agents/ and set the paths. */
-export const VIDEO = {
-  /** Full review with sound, e.g. "/agents/review.mp4". */
-  src: null as string | null,
-  /** Silent 5-second loop with burned-in captions, e.g. "/agents/review-loop.mp4". */
-  loop: null as string | null,
-  /** A frame of the client mid-sentence, e.g. "/agents/review-poster.jpg". */
-  poster: null as string | null,
-  length: "1:24",
-  quote: null as string | null,
-  name: null as string | null,
-  role: null as string | null,
-  city: null as string | null,
-  /** Only results the client actually says in the video. */
-  chips: [] as string[],
+export const PHOTOS = {
+  houseDusk: "/agents/photos/house-dusk.webp", // unsplash photo-1757524492552-d47a66a2b63e
+  housePool: "/agents/photos/house-pool.webp", // photo-1512917774080-9991f1c4c750
+  houseWhite: "/agents/photos/house-white.webp", // photo-1600596542815-ffad4c1539a9
+  houseClassic: "/agents/photos/house-classic.webp", // photo-1580587771525-78b9dba3b914
+  living: "/agents/photos/living.webp", // photo-1618221195710-dd6b41faaea6
+  living2: "/agents/photos/living-2.webp", // photo-1613545325278-f24b0cae1224
+  sofa: "/agents/photos/sofa.webp", // photo-1567767292278-a4f21aa2d36e
+  phoneNight: "/agents/photos/phone-night.webp", // photo-1423784346385-c1d4dac9893a
+  coupleKeys: "/agents/photos/couple-keys.webp", // photo-1758523671826-d7f8217ffac3
 };
 
-export type Testimonial = { quote: string; name: string; role: string; confirmed: boolean };
+/** City photos for the hero and the final call to action. Austin: photo-1557335200, Charlotte: photo-1562762394, Tampa: photo-1673574672395. */
+export const CITY_PHOTO: Record<CityKey | "us", string> = {
+  austin: "/agents/photos/austin.webp",
+  charlotte: "/agents/photos/charlotte.webp",
+  tampa: "/agents/photos/tampa.webp",
+  us: PHOTOS.houseDusk,
+};
 
-/** Text testimonials. `confirmed: false` shows a visible "confirm" placeholder next to the name. */
-export const TESTIMONIALS: Testimonial[] = [
+/** Faces for the hero trust row (from xtarc.agency/sarib-khan). */
+export const CLIENT_FACES = ["/agents/faces/client-1.png", "/agents/faces/client-2.png", "/agents/faces/client-3.png", "/agents/faces/client-4.png"];
+
+/** Reviews from real estate clients, word for word from xtarc.agency/realestate. Same shape as the home page testimonials. */
+export const AGENT_TESTIMONIALS = [
   {
-    // Word for word from mortime.ai (20 Nov 2026).
     quote:
-      "I was losing leads every weekend. Now my system handles everything while I'm at viewings and my clients even know it's managed by Mortime.",
-    name: "Victoria Edgly",
-    role: "Real estate agent",
-    confirmed: false,
-  },
-  {
-    // From the testimonial on xtarc.agency/realestate, trimmed to its last sentence.
-    quote:
-      "Within two weeks I had a full brand, a website with all my listings, and a chatbot that literally collected two leads while I was at a property showing.",
+      "Before this I had no website. Clients would Google me and find nothing. Within two weeks I had a full brand, a website with all my listings, and a chatbot that literally collected two leads while I was at a property showing.",
     name: "Mohammad Al-Rashid",
-    role: "Real estate agent",
-    confirmed: false,
+    role: "Independent agent",
+    company: "Dubai",
+    logo: null,
+    background: PHOTOS.houseDusk,
+    audio: null,
   },
   {
-    quote: "[Lindy's quote from xtarc.agency/realestate]",
+    quote:
+      "My old website was embarrassing. I avoided sharing it with clients. They redesigned everything and now when I send someone my link, they say it looks like a big agency. That reaction alone changed how I pitch myself.",
     name: "Lindy Okonkwo",
-    role: "Real estate agent",
-    confirmed: false,
+    role: "Property agent",
+    company: "Nairobi",
+    logo: null,
+    background: PHOTOS.living,
+    audio: null,
   },
 ];
 
 export type Project = {
   slug: string;
   name: string;
+  kind: string;
   line: string;
-  /** Cover image in public/, e.g. "/agents/covers/mortime.webp". Null shows a placeholder cover. */
-  cover: string | null;
-  /**
-   * What the eye button opens. "page": a cleaned, script-free copy of a public
-   * page (via /api/preview). "demo": a live demo on Sarib's own domains, with
-   * its scripts. Null: no preview yet.
-   */
-  preview: { kind: "page" | "demo"; url: string } | null;
+  cover: string;
+  /** The live site, shown as a cleaned, script-free copy through /api/preview. Only these URLs can ever be previewed. */
+  url: string;
 };
 
-/** Only these URLs can ever be previewed; /api/preview never accepts a raw URL. */
 export const PROJECTS: Project[] = [
   {
-    slug: "mortime",
-    name: "Mortime",
-    line: "The AI communication system this offer is built on.",
-    cover: null,
-    preview: { kind: "page", url: "https://www.mortime.ai/" },
-  },
-  {
-    slug: "listings",
-    name: "Listings website demo",
-    line: "A branded listings site agents update themselves.",
-    cover: null,
-    preview: null,
-  },
-  {
-    slug: "chat-widget",
-    name: "AI chat widget demo",
-    line: "Answers buyers on the website and hands hot leads over.",
-    cover: null,
-    preview: null,
-  },
-  {
-    slug: "booking-calendar",
-    name: "Booking calendar demo",
-    line: "Buyers pick a showing time without the back and forth.",
-    cover: null,
-    preview: null,
+    slug: "premier-homes",
+    name: "Premier Homes in Spain",
+    kind: "Estate agency website",
+    line: "A family-run agency in Murcia and Alicante, now with a site where buyers search by region, beds and price.",
+    cover: "/agents/work/premier-homes.jpg",
+    url: "https://premierhomesinspain.com/",
   },
   {
     slug: "campus-gate",
     name: "Campus Gate Residences",
-    line: "Brand and website for a student residence launch in Toronto.",
-    cover: null,
-    preview: null,
+    kind: "Brand and website",
+    line: "A student residence in Toronto, launched with a full identity and a site that books tours.",
+    cover: "/agents/work/campus-gate.jpg",
+    url: "https://www.campusgateresidences.ca/",
   },
   {
     slug: "taurus",
     name: "Taurus Contracting",
-    line: "Brand and website for a commercial general contractor in Toronto.",
-    cover: null,
-    preview: null,
-  },
-  {
-    slug: "s-and-r",
-    name: "S&R Construction",
-    line: "No online presence at all. We built them from scratch and got them live.",
-    cover: null,
-    preview: null,
+    kind: "Brand and website",
+    line: "One of Toronto's established commercial builders, with a site that lets the projects speak first.",
+    cover: "/agents/work/taurus.jpg",
+    url: "https://www.tauruscontracting.ca/",
   },
 ];
-
-/** Domains a live demo may come from (Sarib's own). */
-export const DEMO_HOSTS = ["xtarc.agency", "sarib.xtarc.agency", "mortime.ai", "www.mortime.ai"];

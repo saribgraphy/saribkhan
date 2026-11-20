@@ -1,9 +1,11 @@
 "use client";
 
 import { CalendarCheck, CaretLeft } from "@phosphor-icons/react";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/components/shell/hooks";
 import type { City } from "./cities";
+import { PHOTOS } from "./content";
 
 type Msg = { from: "buyer" | "agent"; text: string; time: string };
 
@@ -20,11 +22,11 @@ export function HeroPhone({ city }: { city: City }) {
     { from: "buyer", text: `Hi! Is the ${l.beds}-bed on ${l.street.replace(/^\d+ /, "")} in ${city.neighbourhood} still available?`, time: "11:48 PM" },
     {
       from: "agent",
-      text: `Hi ${city.buyer}! Yes, it is. ${l.price} · ${l.beds} bd · ${l.baths} ba · ${l.sqft} sqft in ${where}. I can show it to you Saturday at 10:00 AM or Sunday at 2:00 PM. Which works better?`,
+      text: `Yes, it is! ${l.price}, ${l.beds} bed, ${l.baths} bath in ${where}. I can show you Saturday at 10:00 AM or Sunday at 2:00 PM.`,
       time: "11:48 PM",
     },
     { from: "buyer", text: "Saturday at 10 works!", time: "11:49 PM" },
-    { from: "agent", text: `You're booked for Sat 10:00 AM at ${l.street}. See you there!`, time: "11:49 PM" },
+    { from: "agent", text: "Booked! See you Saturday at 10:00 AM.", time: "11:49 PM" },
   ];
 
   const root = useRef<HTMLDivElement>(null);
@@ -82,6 +84,11 @@ export function HeroPhone({ city }: { city: City }) {
       <div className="ag-phone-thread">
         {messages.slice(0, count).map((m, i) => (
           <div key={i} className={`ag-bubble ag-bubble-${m.from}`}>
+            {m.from === "agent" && i === 1 ? (
+              <span className="ag-hero-photo">
+                <Image src={PHOTOS.houseDusk} alt="" fill sizes="240px" className="object-cover" />
+              </span>
+            ) : null}
             {m.text}
             <time>{m.from === "agent" && i === 1 ? `${m.time} · replied in 4s` : m.time}</time>
           </div>

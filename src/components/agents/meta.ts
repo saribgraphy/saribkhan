@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { cityFor, type CityKey } from "./cities";
 
-const TITLE = "Never miss another lead | Xtarc";
+const TITLE = "Never miss another lead";
 const DESCRIPTION =
   "An assistant that answers your calls, texts and emails in seconds and books showings into your calendar. Live in 7 days.";
 
@@ -22,7 +22,6 @@ export function agentsMetadata(key: CityKey | null): Metadata {
       title: city.name ? `Never miss another lead in ${city.name}` : "Never miss another lead",
       description: DESCRIPTION,
       url: path,
-      siteName: "Xtarc",
       type: "website",
       locale: "en_US",
     },
