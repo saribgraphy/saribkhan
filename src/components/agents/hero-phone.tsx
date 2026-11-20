@@ -71,8 +71,8 @@ export function HeroPhone({ city }: { city: City }) {
       <div className="ag-phone-notch" aria-hidden />
       <div className="ag-phone-head">
         <CaretLeft size={16} aria-hidden />
-        <span className="ag-avatar" aria-hidden>
-          {city.buyer[0]}
+        <span className="ag-avatar ag-face" aria-hidden>
+          <Image src={city.faces.buyer} alt="" fill sizes="64px" className="object-cover" />
         </span>
         <span>
           <strong>{city.buyer}</strong>

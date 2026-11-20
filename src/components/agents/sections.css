@@ -386,7 +386,27 @@
   border: 0;
   border-radius: 14px;
   background: #0a84ff0f;
-  box-shadow: inset 3px 0 0 #0a84ff;
+}
+/* A tiny Zillow mark on the lead's photo. */
+.ag-mail-badge {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #006aff;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+}
+/* Photo avatars: the image fills whatever circle the avatar class draws. */
+.ag-face {
+  position: relative;
+  overflow: hidden;
 }
 .ag-reply {
   display: flex;
@@ -1039,6 +1059,10 @@
 .ag-review-who {
   color: #ffffffa6;
   font-size: 15px;
+}
+.ag-review-who b {
+  color: #fff;
+  font-weight: 600;
 }
 .ag-review .ag-pill-green {
   background: #22c55e26;

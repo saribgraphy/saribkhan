@@ -8,6 +8,15 @@ import type { City } from "./cities";
 import { PHOTOS } from "./content";
 import { useStory } from "./use-story";
 
+/** A person's photo inside an avatar circle (the circle's size and ring come from its class). */
+export function Face({ src, className }: { src: string; className: string }) {
+  return (
+    <span className={cn(className, "ag-face")}>
+      <Image src={src} alt="" fill sizes="64px" className="object-cover" />
+    </span>
+  );
+}
+
 /** A photo backdrop with a dark fade, behind each illustration. */
 export function PhotoStage({ src, children, className }: { src: string; children: React.ReactNode; className?: string }) {
   return (
@@ -42,7 +51,7 @@ export function CallMockup({ city }: { city: City }) {
   return (
     <div ref={ref} className="ag-call">
       <div className="ag-call-top">
-        <span className={cn("ag-call-avatar", step === 0 && "ag-pulse")}>{city.caller[0]}</span>
+        <Face src={city.faces.caller} className={cn("ag-call-avatar", step === 0 && "ag-pulse")} />
         <div className="min-w-0 flex-1">
           <p className="ag-call-name">{city.caller}</p>
           <p className="ag-call-num">({city.areaCode}) 555-0193</p>
@@ -94,7 +103,7 @@ export function TextMockup({ city }: { city: City }) {
   return (
     <div ref={ref} className="ag-dm">
       <div className="ag-dm-head">
-        <span className="ag-dm-avatar">{city.buyer[0]}</span>
+        <Face src={city.faces.buyer} className="ag-dm-avatar" />
         <div className="min-w-0 flex-1">
           <p className="ag-call-name !text-ink">{city.buyer.toLowerCase()}.homes</p>
           <p className="text-[13px] text-muted">Instagram · Active now</p>
@@ -161,8 +170,11 @@ export function EmailMockup({ city }: { city: City }) {
       </div>
       {step >= 1 ? (
         <div className="ag-mail ag-mail-lead fold-in">
-          <span className="ag-mail-avatar" style={{ background: "#006aff" }}>
-            Z
+          <span className="relative flex-none">
+            <Face src={city.faces.emailer} className="ag-mail-avatar" />
+            <span className="ag-mail-badge" aria-hidden>
+              Z
+            </span>
           </span>
           <div className="min-w-0 flex-1">
             <p className="ag-mail-from">Zillow inquiry · {city.emailer}</p>

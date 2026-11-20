@@ -3,6 +3,7 @@
 import { CalendarCheck, ChatCircleText, PhoneCall, UsersThree } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import type { City } from "./cities";
+import { Face } from "./mockups";
 import { useCountUp } from "./use-story";
 
 type StatProps = { label: string; to: number; suffix?: string; color: string; icon: React.ReactNode; points: number[]; run: boolean };
@@ -116,11 +117,11 @@ export function Dashboard({ city }: { city: City }) {
 
   const a = city.areaCode;
   const leads = [
-    { name: city.buyer, phone: `(${a}) 555-0148`, source: "Text", status: "Showing booked", color: "#0a84ff" },
-    { name: city.caller, phone: `(${a}) 555-0193`, source: "Call", status: "Showing booked", color: "#16a34a" },
-    { name: city.emailer, phone: `(${a}) 555-0127`, source: "Zillow", status: "Replied", color: "#f59e0b" },
-    { name: "Chris", phone: `(${a}) 555-0166`, source: "Instagram", status: "Qualified", color: "#e1306c" },
-    { name: "Taylor", phone: `(${a}) 555-0102`, source: "Realtor.com", status: "Follow-up sent", color: "#8b5cf6" },
+    { name: city.buyer, phone: `(${a}) 555-0148`, source: "Text", status: "Showing booked", face: city.faces.buyer },
+    { name: city.caller, phone: `(${a}) 555-0193`, source: "Call", status: "Showing booked", face: city.faces.caller },
+    { name: city.emailer, phone: `(${a}) 555-0127`, source: "Zillow", status: "Replied", face: city.faces.emailer },
+    { name: "Chris", phone: `(${a}) 555-0166`, source: "Instagram", status: "Qualified", face: city.faces.chris },
+    { name: "Taylor", phone: `(${a}) 555-0102`, source: "Realtor.com", status: "Follow-up sent", face: city.faces.taylor },
   ];
 
   return (
@@ -168,9 +169,7 @@ export function Dashboard({ city }: { city: City }) {
         {leads.map((l) => (
           <div key={l.phone} className="ag-tr" role="row">
             <span role="cell" className="flex items-center gap-3">
-              <span className="ag-mail-avatar" style={{ background: l.color }}>
-                {l.name[0]}
-              </span>
+              <Face src={l.face} className="ag-mail-avatar" />
               <span>
                 <strong>{l.name}</strong>
                 <small>

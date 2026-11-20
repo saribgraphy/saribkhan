@@ -17,7 +17,11 @@ export type City = {
   buyer: string;
   caller: string;
   emailer: string;
+  /** Faces for the people in the mockups (buyer, caller, emailer, and the two extra dashboard leads). */
+  faces: { buyer: string; caller: string; emailer: string; chris: string; taylor: string };
 };
+
+const face = (n: number) => `/agents/faces/people/p${n}.webp`;
 
 const GENERIC: City = {
   key: null,
@@ -29,6 +33,7 @@ const GENERIC: City = {
   buyer: "Jessica",
   caller: "Marcus",
   emailer: "Emily",
+  faces: { buyer: face(3), caller: face(6), emailer: face(5), chris: face(4), taylor: face(7) },
 };
 
 export const CITIES: Record<CityKey, City> = {
@@ -42,6 +47,7 @@ export const CITIES: Record<CityKey, City> = {
     buyer: "Jessica",
     caller: "Marcus",
     emailer: "Emily",
+    faces: { buyer: face(1), caller: face(4), emailer: face(3), chris: face(6), taylor: face(5) },
   },
   charlotte: {
     key: "charlotte",
@@ -53,6 +59,7 @@ export const CITIES: Record<CityKey, City> = {
     buyer: "Ashley",
     caller: "Tyler",
     emailer: "Megan",
+    faces: { buyer: face(5), caller: face(2), emailer: face(7), chris: face(8), taylor: face(3) },
   },
   tampa: {
     key: "tampa",
@@ -64,6 +71,7 @@ export const CITIES: Record<CityKey, City> = {
     buyer: "Brittany",
     caller: "Jordan",
     emailer: "Lauren",
+    faces: { buyer: face(7), caller: face(8), emailer: face(1), chris: face(2), taylor: face(5) },
   },
 };
 

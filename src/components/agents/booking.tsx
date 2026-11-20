@@ -4,12 +4,20 @@ import { X } from "@phosphor-icons/react";
 import { createContext, useCallback, useContext, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { captureUtms, firstName, track, utms } from "./track";
 
-/** e.g. "sarib/agents-intro". Set NEXT_PUBLIC_CAL_LINK in Vercel. */
-const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK ?? "";
-const CAL_URL = CAL_LINK ? `https://cal.com/${CAL_LINK}` : "";
-const NS = "agents";
+/**
+ * Sarib's Cal booking page (from his Cal inline embed). Not a secret, so it
+ * lives here; NEXT_PUBLIC_CAL_LINK can override it without a code change.
+ */
+const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK || "sarib/real-estate-discovery-call";
+const CAL_URL = `https://cal.com/${CAL_LINK}`;
+const NS = "real-estate-discovery-call";
+const CAL_BRAND = "#45b254";
 
-type CalApi = ((...args: unknown[]) => void) & { ns?: Record<string, (...args: unknown[]) => void>; loaded?: boolean };
+type CalApi = ((...args: unknown[]) => void) & {
+  ns?: Record<string, (...args: unknown[]) => void>;
+  loaded?: boolean;
+  config?: { forwardQueryParams?: boolean };
+};
 declare global {
   interface Window {
     Cal?: CalApi;
@@ -103,21 +111,23 @@ export function BookingProvider({ city, children }: { city: string; children: Re
 
   // Preload Cal after first paint, when the browser is idle (2s fallback).
   useEffect(() => {
-    if (!CAL_LINK) return;
     let cancelled = false;
     const start = () => {
       if (cancelled) return;
       loadCal();
       const cal = window.Cal!;
-      cal("init", NS, { origin: "https://cal.com" });
+      cal("init", NS, { origin: "https://app.cal.com" });
+      // As in Sarib's embed: the page's query string (UTMs) is passed on to Cal.
+      cal.config = { ...cal.config, forwardQueryParams: true };
       const api = cal.ns![NS];
       const u = utms();
       const n = firstName();
       api("inline", {
         elementOrSelector: "#ag-cal",
         calLink: CAL_LINK,
-        layout: "month_view",
         config: {
+          layout: "month_view",
+          useSlotsViewOnSmallScreen: "true",
           theme: "light",
           ...(n ? { name: n } : {}),
           "metadata[city]": city,
@@ -126,7 +136,7 @@ export function BookingProvider({ city, children }: { city: string; children: Re
           ...(u.utm_campaign ? { "metadata[utm_campaign]": u.utm_campaign } : {}),
         },
       });
-      api("ui", { theme: "light", hideEventTypeDetails: false, cssVarsPerTheme: { light: { "cal-brand": "#212223" } } });
+      api("ui", { theme: "light", hideEventTypeDetails: false, layout: "month_view", cssVarsPerTheme: { light: { "cal-brand": CAL_BRAND } } });
       api("on", {
         action: "linkReady",
         callback: () => {
@@ -168,14 +178,12 @@ export function BookingProvider({ city, children }: { city: string; children: Re
       history.pushState({ agBooking: true }, "");
       requestAnimationFrame(() => closeBtn.current?.focus());
       // If the calendar still isn't ready 4 seconds after the tap, open Cal in a new tab instead.
-      if (CAL_URL) {
-        window.setTimeout(() => {
-          if (openRef.current && !readyRef.current) {
-            window.open(CAL_URL, "_blank", "noopener");
-            close();
-          }
-        }, 4000);
-      }
+      window.setTimeout(() => {
+        if (openRef.current && !readyRef.current) {
+          window.open(CAL_URL, "_blank", "noopener");
+          close();
+        }
+      }, 4000);
     },
     [close],
   );
@@ -234,18 +242,11 @@ export function BookingProvider({ city, children }: { city: string; children: Re
                 <p className="t-display">You&apos;re booked.</p>
                 <p className="t-lead">You&apos;ll get a calendar invite in a minute.</p>
               </div>
-            ) : CAL_LINK ? (
+            ) : (
               <>
                 {!ready ? <div className="ag-cal-skeleton" aria-hidden /> : null}
                 <div id="ag-cal" className="ag-cal" />
               </>
-            ) : (
-              <div className="ag-booked">
-                <p className="t-display">
-                  <span className="ph">[Cal link goes here]</span>
-                </p>
-                <p className="t-lead">Set NEXT_PUBLIC_CAL_LINK in Vercel and the booking calendar appears here, already loaded.</p>
-              </div>
             )}
           </div>
         </div>

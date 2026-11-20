@@ -60,7 +60,7 @@ export function VideoReview() {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={VIDEO.poster} alt="" />
             )}
-            <button type="button" className="ag-review-play" onClick={play} aria-label="Play the client's video review with sound">
+            <button type="button" className="ag-review-play" onClick={play} aria-label="Play Mark Edgley's video review with sound">
               <span>
                 <Play size={20} weight="fill" />
               </span>
@@ -79,7 +79,9 @@ export function VideoReview() {
           &ldquo;We&apos;ve probably had 10 to 12 websites built over the last 25 years, and by far these guys have been the most
           professional.&rdquo;
         </blockquote>
-        <p className="ag-review-who">A business owner, in his own words</p>
+        <p className="ag-review-who">
+          <b>Mark Edgley</b>, Director, Premier Homes in Spain
+        </p>
         <div className="flex flex-wrap gap-2">
           <span className="ag-pill ag-pill-green">&ldquo;Really delivered&rdquo;</span>
           <span className="ag-pill ag-pill-amber">&ldquo;Five star&rdquo;</span>
