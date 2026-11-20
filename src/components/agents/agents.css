@@ -1,0 +1,473 @@
+/* /agents outreach pages, in the site's own style. The site's tokens and
+   utilities come from globals.css; this file only adds what the page needs
+   that the rest of the site doesn't have (tickers, the phone, the sticky bar,
+   the booking overlay). Everything is scoped under .ag. */
+
+/* The one button: the site's primary button, a touch taller for thumbs. */
+.ag .ag-cta {
+  height: 44px;
+  padding: 0 18px;
+  font-size: 14px;
+}
+
+.ag .ag-h1 > span {
+  display: block;
+}
+
+/* Tickers. */
+.ag-marquee {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ag-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: ag-marquee 45s linear infinite;
+}
+.ag-marquee:hover .ag-marquee-track {
+  animation-play-state: paused;
+}
+.ag-marquee-row {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@keyframes ag-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ag-announce {
+  background: var(--paper-3);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ag-announce .ag-marquee-track {
+  animation-duration: 36s;
+}
+.ag-announce li {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+.ag-announce li::after {
+  content: "";
+  width: 3px;
+  height: 3px;
+  margin: 0 22px;
+  border-radius: 50%;
+  background: var(--faint);
+}
+.ag-announce .ph {
+  text-transform: none;
+  letter-spacing: 0;
+}
+.ag-features {
+  border-block: 1px solid var(--line);
+  background: #fff;
+}
+.ag-features li span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 22px;
+  color: var(--body);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.ag-features li svg {
+  color: var(--ink);
+}
+
+/* Trust row under the button. */
+.ag-trust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ag-faces {
+  display: flex;
+}
+.ag-faces i {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-left: -6px;
+  border: 1.5px solid var(--paper);
+  border-radius: 50%;
+  background: var(--paper-3);
+  box-shadow: var(--shadow-card);
+  color: var(--muted);
+  font: 500 10px/1 var(--font-sans);
+  font-style: normal;
+}
+.ag-faces i:first-child {
+  margin-left: 0;
+}
+
+/* The hero phone, a light iMessage-style screen inside the site's frame. */
+.ag-phone {
+  position: relative;
+  z-index: 1;
+  width: min(340px, 100%);
+  height: 540px;
+  margin: 28px auto 0;
+  padding: 12px 12px 16px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px #2122231f,
+    0 0 0 7px #f3f3f1,
+    0 0 0 8px #2122231a,
+    var(--shadow-panel);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.ag-phone-notch {
+  width: 88px;
+  height: 24px;
+  margin: 0 auto 8px;
+  border-radius: 20px;
+  background: var(--ink);
+}
+.ag-phone-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 6px 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.ag-phone-head strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+.ag-phone-head small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.ag-avatar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(#c7cad1, #9da2ad);
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+}
+.ag-phone-thread {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 14px 2px 0;
+  overflow: hidden;
+  transition: padding-bottom 0.45s var(--ease-out);
+}
+/* When the booked card slides in, the thread makes room for it, like a real chat scrolling up. */
+.ag-phone:has(.ag-booked-toast[data-show]) .ag-phone-thread {
+  justify-content: flex-end;
+  padding-bottom: 74px;
+}
+.ag-bubble {
+  max-width: 82%;
+  padding: 8px 12px;
+  border-radius: 17px;
+  font-size: 13.5px;
+  line-height: 1.38;
+  letter-spacing: -0.01em;
+  animation: ag-pop 0.35s var(--ease-out) both;
+}
+.ag-bubble time {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  opacity: 0.6;
+}
+.ag-bubble-buyer {
+  align-self: flex-start;
+  background: #e9e9eb;
+  color: var(--ink);
+  border-bottom-left-radius: 5px;
+}
+.ag-bubble-agent {
+  align-self: flex-end;
+  background: #0a84ff;
+  color: #fff;
+  border-bottom-right-radius: 5px;
+}
+.ag-typing {
+  display: flex;
+  gap: 4px;
+  padding: 12px 13px;
+}
+.ag-typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffffd9;
+  animation: ag-dot 1s infinite ease-in-out;
+}
+.ag-typing i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.ag-typing i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes ag-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+}
+@keyframes ag-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+.ag-booked-toast {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px;
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow-pop);
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s var(--ease-out);
+}
+.ag-booked-toast[data-show] {
+  opacity: 1;
+  transform: none;
+}
+.ag-booked-toast svg {
+  flex: none;
+  color: var(--iris);
+}
+.ag-booked-toast strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+.ag-booked-toast small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+/* City skyline: a single faint ink line along the bottom of the phone frame. */
+.ag-skyline {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  height: 120px;
+  color: var(--ink);
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+/* Sticky call to action: bottom bar on phones, slim top bar on wide screens. */
+.ag-sticky {
+  position: fixed;
+  z-index: 50;
+  inset: auto 0 0;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: #fdfdfce6;
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  transform: translateY(110%);
+  transition: transform 0.35s var(--ease-out);
+}
+.ag-sticky[data-show] {
+  transform: none;
+}
+.ag-sticky-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: min(var(--column), 100%);
+  margin-inline: auto;
+}
+.ag-sticky .ag-logo {
+  display: none;
+}
+.ag-sticky .ag-cta {
+  width: 100%;
+}
+
+.ag-foot {
+  padding: 56px 0 calc(96px + env(safe-area-inset-bottom));
+}
+
+/* Booking overlay: always rendered, revealed on tap. */
+.ag-overlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #2122232e;
+  backdrop-filter: blur(3px);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+.ag-overlay[data-open] {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
+}
+.ag-overlay-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+  transform: scale(0.98);
+  transition: transform 0.2s var(--ease-out);
+}
+.ag-overlay[data-open] .ag-overlay-panel {
+  transform: none;
+}
+.ag-overlay-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 10px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.ag-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+}
+.ag-icon-btn:hover {
+  background: var(--tint);
+  color: var(--ink);
+}
+.ag-overlay-body {
+  position: relative;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.ag-cal {
+  width: 100%;
+  min-height: 100%;
+}
+.ag-cal-skeleton {
+  position: absolute;
+  inset: 20px;
+  border-radius: 10px;
+  background: linear-gradient(100deg, var(--paper-3) 30%, #ececea 50%, var(--paper-3) 70%) 0 0 / 300% 100%;
+  animation: ag-shimmer 1.4s linear infinite;
+}
+@keyframes ag-shimmer {
+  to {
+    background-position: -300% 0;
+  }
+}
+.ag-booked {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  height: 100%;
+  min-height: 320px;
+  padding: 32px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .ag-phone {
+    height: 580px;
+    margin-top: 36px;
+  }
+  .ag-sticky {
+    inset: 0 0 auto;
+    padding: 8px 24px;
+    border-top: 0;
+    border-bottom: 1px solid var(--line);
+    transform: translateY(-110%);
+  }
+  .ag-sticky .ag-logo {
+    display: block;
+  }
+  .ag-sticky .ag-cta {
+    width: auto;
+    height: 36px;
+  }
+  .ag-foot {
+    padding-bottom: 40px;
+  }
+  .ag-overlay {
+    padding: 5vh 4vw;
+  }
+  .ag-overlay-panel {
+    max-width: 980px;
+    max-height: 740px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-panel);
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-marquee-track,
+  .ag-bubble,
+  .ag-typing i,
+  .ag-cal-skeleton {
+    animation: none;
+  }
+  .ag-booked-toast,
+  .ag-sticky,
+  .ag-overlay,
+  .ag-overlay-panel,
+  .ag-phone-thread {
+    transition: none;
+  }
+}
