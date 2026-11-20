@@ -317,18 +317,20 @@ export function AgentsLanding({ cityKey }: { cityKey: CityKey | null }) {
           <InspirationStrip />
 
           {/* 12. Final call to action */}
-          <section id="ag-final" className="ag-final mt-24">
-            <Image src={cityPhoto} alt="" fill sizes="100vw" className="object-cover" />
-            <div className="ag-final-fade" aria-hidden />
-            <Column className="py-28 md:py-36">
-              <h2 className="ag-h1 !text-white">Your next buyer is going to message someone tonight.</h2>
-              <p className="ag-lead !text-white/85">Make sure you&apos;re the one who answers.</p>
-              <div className="mt-9">
-                <BookButton position="final" className="ag-cta-light" />
+          <Column className="mt-24">
+            <section id="ag-final" className="ag-final">
+              <Image src={cityPhoto} alt="" fill sizes="(max-width: 640px) 100vw, 600px" className="object-cover" />
+              <div className="ag-final-fade" aria-hidden />
+              <div className="ag-final-copy">
+                <h2 className="ag-h1 !text-white">Your next buyer is going to message someone tonight.</h2>
+                <p className="ag-lead !text-white/85">Make sure you&apos;re the one who answers.</p>
+                <div className="mt-9">
+                  <BookButton position="final" className="ag-cta-light" />
+                </div>
+                <p className="mt-4 text-[15px] text-white/70">15 minutes. No pressure. You&apos;ll leave with a clear yes or no.</p>
               </div>
-              <p className="mt-4 text-[15px] text-white/70">15 minutes. No pressure. You&apos;ll leave with a clear yes or no.</p>
-            </Column>
-          </section>
+            </section>
+          </Column>
 
           <footer className="ag-foot">
             © 2026 ·{" "}
