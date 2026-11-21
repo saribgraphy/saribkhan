@@ -33,7 +33,7 @@ import "@/app/globals.css";
 import "./agents.css";
 import "./sections.css";
 
-function Marquee({ items, className }: { items: React.ReactNode[]; className: string }) {
+export function Marquee({ items, className }: { items: React.ReactNode[]; className: string }) {
   // Two copies side by side; the strip slides by exactly one copy and loops.
   const row = (hidden: boolean) => (
     <ul className="ag-marquee-row" aria-hidden={hidden || undefined}>
@@ -53,7 +53,7 @@ function Marquee({ items, className }: { items: React.ReactNode[]; className: st
 }
 
 /** A section heading: a small label, then a big line. */
-function Heading({ label, children, sub, light }: { label: string; children: React.ReactNode; sub?: React.ReactNode; light?: boolean }) {
+export function Heading({ label, children, sub, light }: { label: string; children: React.ReactNode; sub?: React.ReactNode; light?: boolean }) {
   return (
     <div className="mb-8">
       <p className={light ? "ag-label !text-white/70" : "ag-label"}>{label}</p>
@@ -64,7 +64,7 @@ function Heading({ label, children, sub, light }: { label: string; children: Rea
 }
 
 /** One "fix": a big headline and line, then the animated illustration over a photo. */
-function Fix({ title, line, photo, children }: { title: string; line: string; photo: string; children: React.ReactNode }) {
+export function Fix({ title, line, photo, children }: { title: string; line: string; photo: string; children: React.ReactNode }) {
   return (
     <div>
       <h3 className="ag-h3">{title}</h3>
@@ -76,7 +76,7 @@ function Fix({ title, line, photo, children }: { title: string; line: string; ph
   );
 }
 
-const FEATURES: [React.ComponentType<{ size?: number }>, string][] = [
+export const FEATURES: [React.ComponentType<{ size?: number }>, string][] = [
   [PhoneCall, "Call answering"],
   [ChatCircleText, "Text replies"],
   [InstagramLogo, "Instagram & Facebook DMs"],
@@ -89,7 +89,7 @@ const FEATURES: [React.ComponentType<{ size?: number }>, string][] = [
   [Database, "CRM logging"],
 ];
 
-const ROLES = ["Listing agent", "Buyer's agent", "Team lead", "Broker-owner", "Property manager", "Leasing agent", "Luxury agent", "Investor"];
+export const ROLES = ["Listing agent", "Buyer's agent", "Team lead", "Broker-owner", "Property manager", "Leasing agent", "Luxury agent", "Investor"];
 
 const STEPS = [
   ["A 15-minute call.", "We learn how you work, your listings and how you like to talk to clients.", PHOTOS.living2],
@@ -98,7 +98,7 @@ const STEPS = [
 ] as const;
 
 /** The site's quiet scaffolding: dashed column rules and edge strips, as on every other page. */
-function GridRules() {
+export function GridRules() {
   return (
     <div aria-hidden>
       <span className="edge-strip left-0" />
@@ -109,7 +109,7 @@ function GridRules() {
   );
 }
 
-const Column = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+export const Column = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <div className={`relative z-[1] mx-auto w-full max-w-[var(--column)] px-5 md:px-0 ${className}`}>{children}</div>
 );
 
