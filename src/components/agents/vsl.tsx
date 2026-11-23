@@ -318,3 +318,66 @@ export function VslWidget() {
     </>
   );
 }
+
+/**
+ * The film in the page itself (the /agents/watch page): the still frame with a
+ * big play button and the length. A tap plays it with sound; tapping again
+ * pauses. It pauses by itself when the booking calendar opens.
+ */
+export function VslInline({ label }: { label: string }) {
+  const { isOpen: bookingOpen } = useBooking();
+  const film = useRef<HTMLVideoElement>(null);
+  const started = useRef(false);
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    if (bookingOpen) film.current?.pause();
+  }, [bookingOpen]);
+
+  const toggle = () => {
+    const v = film.current;
+    if (!v) return;
+    if (!v.paused) return v.pause();
+    v.muted = false;
+    v.play().catch(() => {});
+    if (!started.current) {
+      started.current = true;
+      track("vsl_play", { position: "page" });
+    }
+  };
+
+  return (
+    <div className="ag-vsl-stage ag-vsl-inline" data-playing={playing ? "" : undefined} onClick={toggle}>
+      <video
+        ref={film}
+        src={VSL.src}
+        poster={VSL.poster}
+        aria-label={label}
+        className="ag-vsl-video"
+        playsInline
+        disablePictureInPicture
+        controlsList="nodownload noplaybackrate noremoteplayback"
+        preload="metadata"
+        onContextMenu={(e) => e.preventDefault()}
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onEnded={() => {
+          setPlaying(false);
+          track("vsl_complete", { position: "page" });
+        }}
+      />
+      <button
+        type="button"
+        className="ag-vsl-toggle"
+        aria-label={playing ? "Pause the video" : "Play the video"}
+        onClick={(e) => {
+          e.stopPropagation();
+          toggle();
+        }}
+      >
+        {playing ? <Pause size={34} weight="fill" /> : <Play size={34} weight="fill" />}
+      </button>
+      {!playing ? <span className="ag-vsl-length">{VSL.length}</span> : null}
+    </div>
+  );
+}

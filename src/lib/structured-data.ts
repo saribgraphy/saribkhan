@@ -1,3 +1,5 @@
+import { VSL } from "@/components/agents/content";
+import { realEstate } from "@/content/real-estate";
 import { site, socials } from "@/content/site";
 
 /** What the studio does, in the words people search with. Feeds knowsAbout and keywords. */
@@ -77,6 +79,64 @@ export function homeStructuredData() {
         publisher: { "@id": org },
         about: { "@id": person },
         keywords: expertiseTerms.join(", "),
+      },
+    ],
+  };
+}
+
+/**
+ * schema.org JSON-LD for /real-estate: the page, the service it offers (provided
+ * by the person on the homepage), its video and the breadcrumb.
+ */
+export function realEstateStructuredData() {
+  const home = new URL("/", site.url).toString();
+  const url = new URL(realEstate.path, site.url).toString();
+  const poster = new URL(VSL.poster, site.url).toString();
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: `${realEstate.title} · ${site.name}`,
+        description: realEstate.description,
+        inLanguage: "en",
+        isPartOf: { "@id": `${home}#website` },
+        about: { "@id": `${url}#service` },
+        primaryImageOfPage: { "@type": "ImageObject", url: poster },
+        video: { "@id": `${url}#video` },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: "AI assistant for real estate agents",
+        serviceType: "AI lead response and showing booking for real estate agents",
+        description: realEstate.description,
+        url,
+        provider: { "@type": "Person", "@id": `${home}#person`, name: site.name, url: home },
+        areaServed: { "@type": "Country", name: "United States" },
+        audience: { "@type": "BusinessAudience", audienceType: "Real estate agents, teams and brokers" },
+      },
+      {
+        "@type": "VideoObject",
+        "@id": `${url}#video`,
+        name: "Every lead gets an answer in seconds",
+        description: realEstate.videoLabel.replace(/^Video: /, ""),
+        thumbnailUrl: [poster],
+        uploadDate: "2026-11-21",
+        duration: "PT1M21S",
+        contentUrl: VSL.src,
+        inLanguage: "en",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: site.name, item: home },
+          { "@type": "ListItem", position: 2, name: "Real estate", item: url },
+        ],
       },
     ],
   };

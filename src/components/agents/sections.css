@@ -1501,3 +1501,98 @@
     animation: none;
   }
 }
+
+/* ---------- /agents/watch: a wider column, everything centred ---------- */
+@media (min-width: 768px) {
+  .ag-wide {
+    --column: min(1040px, calc(100vw - 112px));
+  }
+}
+.ag-center .ag-label,
+.ag-center .ag-h1,
+.ag-center .ag-h2,
+.ag-center .ag-h3,
+.ag-center .ag-sub,
+.ag-center .ag-lead {
+  margin-inline: auto;
+  text-align: center;
+}
+.ag-center .ag-h1 {
+  max-width: 15em;
+}
+.ag-center .ag-h2 {
+  max-width: 17em;
+}
+.ag-center .ag-sub,
+.ag-center .ag-lead {
+  max-width: 36em;
+}
+.ag-center .ag-banner .mb-8 {
+  margin-bottom: 0;
+}
+.ag-center .ag-trust {
+  justify-content: center;
+}
+/* The fixes sit two across on wide screens. */
+.ag-fix-grid {
+  display: grid;
+  gap: 80px;
+}
+@media (min-width: 900px) {
+  .ag-fix-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 72px 32px;
+  }
+}
+/* The offer list inside the closing card: two columns on wide screens, left-aligned rows in a centred block. */
+.ag-final-list {
+  display: grid;
+  gap: 14px 40px;
+  width: min(100%, 760px);
+  margin-top: 34px;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .ag-final-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* All six problems show three across on large screens. */
+@media (min-width: 1024px) {
+  .ag-problems-wide:not([data-open]) .ag-problem:nth-child(n) {
+    display: grid;
+    max-height: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .ag-problems-wide .ag-more {
+    display: none;
+  }
+}
+/* The in-page player: the still frame with a big play button, and the length. */
+.ag-vsl-length {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #000000a6;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+.ag-vsl-inline .ag-vsl-toggle {
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+}
+@media (min-width: 768px) {
+  .ag-vsl-inline .ag-vsl-toggle {
+    width: 96px;
+    height: 96px;
+    margin: -48px 0 0 -48px;
+  }
+}

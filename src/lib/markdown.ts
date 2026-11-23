@@ -3,6 +3,8 @@ import { expertise, intro, startHere, systems } from "@/content/home";
 import { notes, notesHeading } from "@/content/notes";
 import { engagements, faq, pricingHeading, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 import { getProject, openProjects, workHeading, workIntro } from "@/content/projects";
+import { VSL } from "@/components/agents/content";
+import { problemsCopy, realEstate } from "@/content/real-estate";
 import { site, socials } from "@/content/site";
 import { buildHeading, buildIntro, buildLabels, capabilities, touchpoints, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
 
@@ -234,6 +236,43 @@ const privacy = () =>
     footer,
   );
 
+const realEstatePage = () =>
+  lines(
+    `# ${realEstate.headline} ${realEstate.headlineMuted}`,
+    "",
+    `> ${realEstate.description}`,
+    "",
+    realEstate.lead,
+    "",
+    `Video (${VSL.length}): ${VSL.src}`,
+    "",
+    `## ${realEstate.problem.heading}`,
+    "",
+    realEstate.problem.sub,
+    "",
+    ...problemsCopy.map(([title, body]) => `- **${title}** ${body}`),
+    "",
+    `## ${realEstate.fixHeading}`,
+    "",
+    ...realEstate.fixes.map((f) => `- **${f.title}** ${f.line}`),
+    "",
+    "## Client story",
+    "",
+    `> "${realEstate.story.quote}"`,
+    `> ${realEstate.story.who}`,
+    "",
+    `## ${realEstate.offerLabel}`,
+    "",
+    ...realEstate.offer.map((o) => `- ${o}`),
+    "",
+    `## ${realEstate.finalHeading}`,
+    "",
+    `${realEstate.finalLead} Book a free 15-minute call: ${realEstate.bookingUrl}`,
+    "",
+    realEstate.small,
+    footer,
+  );
+
 const privateAudit = () =>
   lines("# Private report", "", "This page is a private audit shared by link with one client. Open it in a browser to read it.", footer);
 
@@ -246,6 +285,7 @@ const PAGES: Record<string, () => string | null> = {
   "/notes": notesIndex,
   "/after-hours": afterHoursPage,
   "/claude-code-guide": guide,
+  "/real-estate": realEstatePage,
   "/contact": contact,
   "/privacy": privacy,
   "/muslim-ceo": privateAudit,

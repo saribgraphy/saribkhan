@@ -149,4 +149,6 @@ export const INSPIRATION: Inspiration[] = [
 export const VSL = {
   src: "https://cdn.dribbble.com/userupload/49688969/file/ae530dd51eb869807db9be938eeebb7e.mp4",
   length: "1:21",
+  /** A frame from 0:26 ("Every lead gets an answer in seconds." and the booked showing). */
+  poster: "/agents/vsl-poster.webp",
 };
