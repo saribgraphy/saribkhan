@@ -20,7 +20,7 @@ const check = (name, ok, detail = "") => {
 };
 const stripTags = (html) => html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
 
-const pages = ["/", "/work", "/build", "/working-together", "/about", "/notes", "/after-hours", "/claude-code-guide", "/real-estate", "/contact", "/privacy"];
+const pages = ["/", "/work", "/build", "/working-together", "/about", "/notes", "/after-hours", "/claude-code-guide", "/claude-video-guide", "/real-estate", "/contact", "/privacy"];
 
 // 1. Markdown content negotiation on every page; HTML unchanged for browsers.
 for (const path of pages) {
