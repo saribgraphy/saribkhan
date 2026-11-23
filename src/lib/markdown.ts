@@ -4,6 +4,7 @@ import { notes, notesHeading } from "@/content/notes";
 import { engagements, faq, pricingHeading, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 import { getProject, openProjects, workHeading, workIntro } from "@/content/projects";
 import { site, socials } from "@/content/site";
+import { videoGuide } from "@/content/video-guide";
 import { buildHeading, buildIntro, buildLabels, capabilities, touchpoints, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
 
 /**
@@ -234,6 +235,19 @@ const privacy = () =>
     footer,
   );
 
+const videoGuidePage = () =>
+  lines(
+    `# ${videoGuide.title}`,
+    "",
+    `> ${videoGuide.description}`,
+    "",
+    ...videoGuide.intro.flatMap((p) => [p, ""]),
+    `Example video (${videoGuide.example.length}): ${videoGuide.example.src}`,
+    "",
+    videoGuide.body.trim(),
+    footer,
+  );
+
 const privateAudit = () =>
   lines("# Private report", "", "This page is a private audit shared by link with one client. Open it in a browser to read it.", footer);
 
@@ -246,6 +260,7 @@ const PAGES: Record<string, () => string | null> = {
   "/notes": notesIndex,
   "/after-hours": afterHoursPage,
   "/claude-code-guide": guide,
+  "/claude-video-guide": videoGuidePage,
   "/contact": contact,
   "/privacy": privacy,
   "/muslim-ceo": privateAudit,

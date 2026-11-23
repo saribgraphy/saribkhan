@@ -1,4 +1,5 @@
 import { site, socials } from "@/content/site";
+import { videoGuide } from "@/content/video-guide";
 
 /** What the studio does, in the words people search with. Feeds knowsAbout and keywords. */
 export const expertiseTerms = [
@@ -77,6 +78,55 @@ export function homeStructuredData() {
         publisher: { "@id": org },
         about: { "@id": person },
         keywords: expertiseTerms.join(", "),
+      },
+    ],
+  };
+}
+
+/**
+ * schema.org JSON-LD for the free video guide: the article (written by the
+ * person on the homepage), its example video and the breadcrumb.
+ */
+export function videoGuideStructuredData() {
+  const home = new URL("/", site.url).toString();
+  const url = new URL(videoGuide.path, site.url).toString();
+  const poster = new URL(videoGuide.example.poster, site.url).toString();
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        headline: videoGuide.metaTitle,
+        description: videoGuide.description,
+        url,
+        mainEntityOfPage: url,
+        inLanguage: "en",
+        datePublished: "2026-11-23",
+        image: new URL("/guides/claude-video/share.jpg", site.url).toString(),
+        author: { "@type": "Person", "@id": `${home}#person`, name: site.name, url: home },
+        publisher: { "@type": "Person", "@id": `${home}#person` },
+        isPartOf: { "@id": `${home}#website` },
+        video: { "@id": `${url}#video` },
+        about: ["Claude Code", "HyperFrames", "Motion design", "Video sales letters", "Product demo videos"],
+      },
+      {
+        "@type": "VideoObject",
+        "@id": `${url}#video`,
+        name: "An 81-second VSL made with Claude",
+        description: videoGuide.example.label,
+        thumbnailUrl: [poster],
+        uploadDate: "2026-11-21",
+        duration: "PT1M21S",
+        contentUrl: videoGuide.example.src,
+        inLanguage: "en",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: site.name, item: home },
+          { "@type": "ListItem", position: 2, name: "Free guide: animated UI videos with Claude", item: url },
+        ],
       },
     ],
   };

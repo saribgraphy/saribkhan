@@ -9,7 +9,7 @@ import { site } from "@/content/site";
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => new URL(path, site.url).toString();
-  const pages = ["/", "/work", "/build", "/working-together", "/about", "/notes", "/after-hours", "/claude-code-guide", "/contact", "/privacy"];
+  const pages = ["/", "/work", "/build", "/working-together", "/about", "/notes", "/after-hours", "/claude-code-guide", "/claude-video-guide", "/contact", "/privacy"];
 
   return [
     ...pages.map((p) => ({ url: url(p), changeFrequency: "monthly" as const, priority: p === "/" ? 1 : 0.8 })),
