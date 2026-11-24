@@ -2,7 +2,7 @@
 
 import { sendGAEvent } from "@next/third-parties/google";
 
-const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 const STORE = "ag-utm";
 
 type Utms = Partial<Record<(typeof UTM_KEYS)[number], string>>;

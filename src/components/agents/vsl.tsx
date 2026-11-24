@@ -3,6 +3,7 @@
 import { Pause, Play, X } from "@phosphor-icons/react";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/components/shell/hooks";
+import { fbq } from "@/lib/meta-pixel";
 import { useBooking } from "./booking";
 import { VSL } from "./content";
 import { track } from "./track";
@@ -328,6 +329,7 @@ export function VslInline({ label }: { label: string }) {
   const { isOpen: bookingOpen } = useBooking();
   const film = useRef<HTMLVideoElement>(null);
   const started = useRef(false);
+  const half = useRef(false);
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
@@ -361,6 +363,14 @@ export function VslInline({ label }: { label: string }) {
         onContextMenu={(e) => e.preventDefault()}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
+        onTimeUpdate={(e) => {
+          const v = e.currentTarget;
+          if (!half.current && v.duration && v.currentTime / v.duration >= 0.5) {
+            half.current = true;
+            track("vsl_50", { position: "page" });
+            fbq("track", "ViewContent", { content_name: "vsl" });
+          }
+        }}
         onEnded={() => {
           setPlaying(false);
           track("vsl_complete", { position: "page" });
