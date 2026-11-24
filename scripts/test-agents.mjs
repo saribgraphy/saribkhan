@@ -3,7 +3,7 @@
  * llms.txt, JSON-LD, canonical URLs, the sitemap and the trust pages.
  *
  *   npm run test:agents                                  (http://localhost:3000)
- *   npm run test:agents -- https://sarib.xtarc.agency
+ *   npm run test:agents -- https://saribkhan.com
  */
 const base = (process.argv[2] ?? "http://localhost:3000").replace(/\/$/, "");
 const MD = { accept: "text/markdown" };

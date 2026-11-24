@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
       {
         source: "/:path((?!keystatic|api/keystatic|_next/).*)",
         has: [{ type: "host", value: "saribkhan.vercel.app" }],
-        destination: "https://sarib.xtarc.agency/:path",
+        destination: "https://saribkhan.com/:path",
         permanent: true,
       },
     ];

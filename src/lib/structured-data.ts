@@ -39,8 +39,19 @@ export function homeStructuredData() {
         "@type": "Person",
         "@id": person,
         name: site.name,
-        // Other names people search with: the Instagram handle and the studio pairing.
-        alternateName: ["Sarib UX", "sarib.ux", "Sarib Khan Xtarc", "Sarib Xtarc Agency", "saribgraphy"],
+        // Other names people search with: the handles and the studio pairings.
+        alternateName: [
+          "Sarib",
+          "Sarib UX",
+          "sarib.ux",
+          "Sarib Khan Xtarc",
+          "Sarib Xtarc",
+          "Sarib Xtarc Agency",
+          "Xtarc Agency Sarib",
+          "Sarib Khan Xtarc Agency",
+          "saribgraphy",
+        ],
+        image: new URL("/audits/sarib.webp", site.url).toString(),
         jobTitle: JOB_TITLE,
         description: site.description,
         url,
@@ -54,7 +65,8 @@ export function homeStructuredData() {
         "@id": org,
         name: "Xtarc",
         alternateName: ["Xtarc Agency", "Sarib Khan Studio"],
-        url,
+        // The studio's own site; this site is its co-founder's.
+        url: "https://xtarc.agency/",
         logo: new URL("/icon.svg", site.url).toString(),
         description: site.description,
         founder: { "@id": person },
@@ -68,13 +80,13 @@ export function homeStructuredData() {
           areaServed: "Worldwide",
         },
         knowsAbout: expertiseTerms,
-        sameAs,
+        sameAs: ["https://xtarc.agency/", ...sameAs],
       },
       {
         "@type": "WebSite",
         "@id": `${url}#website`,
         name: site.name,
-        alternateName: ["Sarib Khan · Xtarc Agency", "sarib.xtarc.agency"],
+        alternateName: ["Sarib Khan · Xtarc Agency", "saribkhan.com", "sarib.xtarc.agency"],
         url,
         inLanguage: "en",
         publisher: { "@id": org },
@@ -189,6 +201,36 @@ export function videoGuideStructuredData() {
         ],
       },
     ],
+  };
+}
+
+/**
+ * schema.org ProfilePage for /about: the page Google can treat as the
+ * reference profile for "Sarib Khan", pointing at the same person as the homepage.
+ */
+export function aboutStructuredData() {
+  const home = new URL("/", site.url).toString();
+  const url = new URL("/about", site.url).toString();
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${url}#profile`,
+    url,
+    name: `About ${site.name}`,
+    inLanguage: "en",
+    isPartOf: { "@id": `${home}#website` },
+    mainEntity: {
+      "@type": "Person",
+      "@id": `${home}#person`,
+      name: site.name,
+      alternateName: ["Sarib", "Sarib Khan Xtarc", "Sarib Xtarc"],
+      jobTitle: JOB_TITLE,
+      description: site.description,
+      url: home,
+      image: new URL("/audits/sarib.webp", site.url).toString(),
+      worksFor: { "@type": "Organization", "@id": `${home}#xtarc`, name: "Xtarc", url: "https://xtarc.agency/" },
+      sameAs,
+    },
   };
 }
 

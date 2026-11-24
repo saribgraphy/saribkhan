@@ -57,7 +57,7 @@ export const viewport: Viewport = {
 };
 
 /**
- * Google Analytics 4 (property "sarib.xtarc.agency"). Runs on the live site only, so previews
+ * Google Analytics 4 (the site's property, first set up as "sarib.xtarc.agency"). Runs on the live site only, so previews
  * and local work never count as visits. The ID is public: it ships in every page anyway.
  */
 const GA_ID = "G-0VWYWVVG9H";
