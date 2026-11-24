@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowUpRight, EnvelopeSimple, Globe, WhatsappLogo } from "@p
 import Link from "next/link";
 
 const CONTACT = [
-  { label: "Website", href: "https://sarib.xtarc.agency/", Icon: Globe },
+  { label: "Website", href: "https://saribkhan.com/", Icon: Globe },
   { label: "Email", href: "mailto:contact.saribkhan@gmail.com", Icon: EnvelopeSimple },
   { label: "WhatsApp", href: "https://wa.me/923147503578", Icon: WhatsappLogo },
 ];

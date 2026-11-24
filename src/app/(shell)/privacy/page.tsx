@@ -81,7 +81,7 @@ export default function PrivacyPage() {
         </div>
       ))}
       <p className="t-label mt-16 text-muted">
-        {site.name}, sarib.xtarc.agency. Last updated 18 November 2026.
+        {site.name}, saribkhan.com. Last updated 18 November 2026.
       </p>
     </>
   );

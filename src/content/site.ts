@@ -6,7 +6,7 @@ const d = data as unknown as SiteData;
 
 /** The canonical domain in production, so link previews always show it; the env var or localhost elsewhere. */
 function siteUrl() {
-  if (process.env.VERCEL_ENV === "production") return "https://sarib.xtarc.agency";
+  if (process.env.VERCEL_ENV === "production") return "https://saribkhan.com";
   return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 }
 

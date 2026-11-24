@@ -5,12 +5,14 @@ import { Collage } from "@/components/about/collage";
 import { Copy } from "@/components/ui/copy";
 import { Breadcrumb, Divider, Section, SectionLabel, Title } from "@/components/ui/view";
 import { aboutBody, aboutHeading, aboutLabels, elsewhere } from "@/content/about";
+import { aboutStructuredData, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = pageMetadata("About", aboutBody[0], "/about");
 
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(aboutStructuredData())} />
       <Breadcrumb trail={[{ label: "About" }]} />
       <Title>{aboutHeading}</Title>
       <div className="grid gap-4">
