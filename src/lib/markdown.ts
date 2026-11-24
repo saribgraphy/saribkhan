@@ -4,7 +4,7 @@ import { notes, notesHeading } from "@/content/notes";
 import { engagements, faq, pricingHeading, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 import { getProject, openProjects, workHeading, workIntro } from "@/content/projects";
 import { VSL } from "@/components/agents/content";
-import { problemsCopy, realEstate } from "@/content/real-estate";
+import { problemsCopy, realEstate, realEstateMore } from "@/content/real-estate";
 import { site, socials } from "@/content/site";
 import { videoGuide } from "@/content/video-guide";
 import { buildHeading, buildIntro, buildLabels, capabilities, touchpoints, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
@@ -247,6 +247,9 @@ const realEstatePage = () =>
     "",
     `Video (${VSL.length}): ${VSL.src}`,
     "",
+    `## ${realEstateMore.definition.heading}`,
+    "",
+    ...realEstateMore.definition.body.flatMap((p) => [p, ""]),
     `## ${realEstate.problem.heading}`,
     "",
     realEstate.problem.sub,
@@ -257,6 +260,26 @@ const realEstatePage = () =>
     "",
     ...realEstate.fixes.map((f) => `- **${f.title}** ${f.line}`),
     "",
+    `## ${realEstateMore.voice.heading}`,
+    "",
+    realEstateMore.voice.sub,
+    "",
+    ...realEstateMore.voice.points.map(([t, b]) => `- **${t}.** ${b}`),
+    "",
+    `## ${realEstateMore.steps.heading}`,
+    "",
+    ...realEstateMore.steps.items.map(([t, b], i) => `${i + 1}. **${t}** ${b}`),
+    "",
+    `## ${realEstateMore.markets.heading}`,
+    "",
+    ...realEstateMore.markets.items.map((x) => `- **${x.country}.** Answers leads from ${x.sources} Messaging rules: ${x.rules}`),
+    "",
+    `## ${realEstateMore.compare.heading}`,
+    "",
+    `| ${realEstateMore.compare.head.join(" | ")} |`,
+    `|${realEstateMore.compare.head.map(() => "---").join("|")}|`,
+    ...realEstateMore.compare.rows.map((r) => `| ${r.join(" | ")} |`),
+    "",
     "## Client story",
     "",
     `> "${realEstate.story.quote}"`,
@@ -266,6 +289,9 @@ const realEstatePage = () =>
     "",
     ...realEstate.offer.map((o) => `- ${o}`),
     "",
+    "## FAQ",
+    "",
+    ...realEstateMore.faq.flatMap((f) => [`### ${f.q}`, "", f.a, ""]),
     `## ${realEstate.finalHeading}`,
     "",
     `${realEstate.finalLead} Book a free 15-minute call: ${realEstate.bookingUrl}`,
