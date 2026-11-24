@@ -53,9 +53,21 @@ export function Marquee({ items, className }: { items: React.ReactNode[]; classN
 }
 
 /** A section heading: a small label, then a big line. */
-export function Heading({ label, children, sub, light }: { label: string; children: React.ReactNode; sub?: React.ReactNode; light?: boolean }) {
+export function Heading({
+  label,
+  children,
+  sub,
+  light,
+  className = "mb-8",
+}: {
+  label: string;
+  children: React.ReactNode;
+  sub?: React.ReactNode;
+  light?: boolean;
+  className?: string;
+}) {
   return (
-    <div className="mb-8">
+    <div className={className}>
       <p className={light ? "ag-label !text-white/70" : "ag-label"}>{label}</p>
       <h2 className={light ? "ag-h2 !text-white" : "ag-h2"}>{children}</h2>
       {sub ? <p className={light ? "ag-sub !text-white/80" : "ag-sub"}>{sub}</p> : null}

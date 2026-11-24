@@ -21,6 +21,17 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
     ),
   },
   {
+    label: "Booking a call",
+    body: (
+      <>
+        The booking calendar on the real estate pages is provided by Cal.com. When you book, Cal.com receives your name,
+        email, any answers you give and the time you choose, along with which page and ad campaign you came from (the
+        UTM tags in the link), and sends the booking to me. I use it only to hold the call and follow up with you about
+        it. Cal.com&apos;s own privacy policy covers how it stores your booking.
+      </>
+    ),
+  },
+  {
     label: "What the site stores on your device",
     body: (
       <>
@@ -37,7 +48,8 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
         browser) for security and reliability. Google Analytics counts visits: which pages are viewed, how people arrive,
         and their rough location and device. It doesn&apos;t receive what you type into the forms, and Google Analytics
         doesn&apos;t store IP addresses. You can block it with any content blocker or Google&apos;s opt-out add-on. Emails are delivered by Resend; waitlist entries live in Google Sheets. The
-        guide&apos;s video only loads from YouTube&apos;s privacy-enhanced domain (youtube-nocookie.com) after you press play.
+        guide&apos;s video only loads from YouTube&apos;s privacy-enhanced domain (youtube-nocookie.com) after you press play,
+        and the video on the real estate pages is served from Dribbble&apos;s file storage.
         Links to Instagram, LinkedIn, WhatsApp and other sites follow those sites&apos; own policies.
       </>
     ),
@@ -81,7 +93,7 @@ export default function PrivacyPage() {
         </div>
       ))}
       <p className="t-label mt-16 text-muted">
-        {site.name}, saribkhan.com. Last updated 18 November 2026.
+        {site.name}, saribkhan.com. Last updated 24 November 2026.
       </p>
     </>
   );

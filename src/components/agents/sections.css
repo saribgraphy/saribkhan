@@ -1596,3 +1596,305 @@
     margin: -48px 0 0 -48px;
   }
 }
+
+/* ---------- /real-estate: SaaS-scale type, more air, aligned grids ---------- */
+.ag-wide .ag-h1 {
+  font-size: 44px;
+  line-height: 48px;
+  letter-spacing: -0.035em;
+}
+.ag-wide .ag-h2 {
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: -0.03em;
+}
+.ag-wide .ag-h3 {
+  font-size: 24px;
+  line-height: 30px;
+}
+.ag-wide .ag-lead {
+  margin-top: 24px;
+  font-size: 19px;
+  line-height: 30px;
+}
+.ag-wide .ag-sub {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+.ag-wide .ag-label {
+  margin-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .ag-wide .ag-h1 {
+    font-size: 68px;
+    line-height: 72px;
+  }
+  .ag-wide .ag-h2 {
+    font-size: 50px;
+    line-height: 56px;
+  }
+  .ag-wide .ag-h3 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .ag-wide .ag-lead {
+    font-size: 21px;
+    line-height: 33px;
+  }
+  .ag-wide .ag-sub {
+    font-size: 19px;
+    line-height: 30px;
+  }
+}
+.ag-wide .ag-final .ag-h1 {
+  max-width: 14em;
+}
+
+/* The four fixes: title, line and demo share rows across both columns, so the cards line up. */
+.ag-wide .ag-fix-grid {
+  gap: 72px;
+}
+.ag-wide .ag-fix-grid > div {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+.ag-wide .ag-fix-grid .ag-stage {
+  display: grid;
+  align-items: center;
+  margin-top: 28px;
+}
+@media (min-width: 900px) {
+  .ag-wide .ag-fix-grid {
+    gap: 88px 32px;
+  }
+  .ag-wide .ag-fix-grid > div {
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+}
+
+/* Plain-words paragraphs */
+.ag-prose {
+  display: grid;
+  gap: 18px;
+  max-width: 40em;
+  margin-inline: auto;
+}
+.ag-prose p {
+  color: var(--body);
+  font-size: 19px;
+  line-height: 31px;
+}
+
+/* Card grids (voice agent, markets) */
+.ag-cards {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .ag-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .ag-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.ag-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 26px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+.ag-card h3 {
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.ag-card p {
+  color: var(--body);
+  font-size: 16px;
+  line-height: 25px;
+}
+.ag-card p b {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.ag-card-tick {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  background: #16a34a1a;
+  color: #15803d;
+}
+
+/* How it works: three photo cards in a row */
+.ag-steps-row {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .ag-steps-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.ag-step-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+.ag-step-card-img {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+.ag-step-card-img b {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fffffff0;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+}
+.ag-step-card h3 {
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.ag-step-card p {
+  color: var(--body);
+  font-size: 16px;
+  line-height: 25px;
+}
+
+/* Comparison table */
+.ag-compare {
+  overflow-x: auto;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+.ag-compare table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.ag-compare th,
+.ag-compare td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15.5px;
+  line-height: 22px;
+  vertical-align: top;
+}
+.ag-compare tr:last-child th,
+.ag-compare tr:last-child td {
+  border-bottom: 0;
+}
+.ag-compare thead th {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ag-compare thead th:nth-child(2) {
+  color: #15803d;
+}
+.ag-compare tbody th {
+  color: var(--ink);
+  font-weight: 600;
+}
+.ag-compare td {
+  color: var(--body);
+}
+.ag-compare td:first-of-type {
+  color: var(--ink);
+  font-weight: 500;
+  background: #16a34a0a;
+}
+
+/* FAQ */
+.ag-faq {
+  display: grid;
+  gap: 12px;
+  max-width: 820px;
+  margin-inline: auto;
+}
+.ag-faq details {
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+.ag-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  cursor: pointer;
+  list-style: none;
+}
+.ag-faq summary::-webkit-details-marker {
+  display: none;
+}
+.ag-faq summary h3 {
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.ag-faq summary svg {
+  flex: none;
+  color: var(--muted);
+  transition: transform 0.25s var(--ease-out);
+}
+.ag-faq details[open] summary svg {
+  transform: rotate(180deg);
+}
+.ag-faq details p {
+  padding: 0 24px 22px;
+  color: var(--body);
+  font-size: 16.5px;
+  line-height: 26px;
+}
+
+/* /real-estate footer small print */
+.ag-foot-legal {
+  display: grid;
+  gap: 18px;
+}
+.ag-legal {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+  margin-inline: auto;
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 18px;
+}

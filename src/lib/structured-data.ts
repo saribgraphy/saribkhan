@@ -1,5 +1,5 @@
 import { VSL } from "@/components/agents/content";
-import { realEstate } from "@/content/real-estate";
+import { realEstate, realEstateMore } from "@/content/real-estate";
 import { site, socials } from "@/content/site";
 import { videoGuide } from "@/content/video-guide";
 
@@ -124,12 +124,17 @@ export function realEstateStructuredData() {
       {
         "@type": "Service",
         "@id": `${url}#service`,
-        name: "AI assistant for real estate agents",
-        serviceType: "AI lead response and showing booking for real estate agents",
+        name: "AI assistant and voice agent for real estate agents",
+        alternateName: ["AI assistant for realtors", "AI voice agent for real estate", "AI receptionist for real estate agents"],
+        serviceType: "AI lead response, voice agent and showing booking for real estate agents",
         description: realEstate.description,
         url,
         provider: { "@type": "Person", "@id": `${home}#person`, name: site.name, url: home },
-        areaServed: { "@type": "Country", name: "United States" },
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "Canada" },
+          { "@type": "Country", name: "Australia" },
+        ],
         audience: { "@type": "BusinessAudience", audienceType: "Real estate agents, teams and brokers" },
       },
       {
@@ -142,6 +147,15 @@ export function realEstateStructuredData() {
         duration: "PT1M21S",
         contentUrl: VSL.src,
         inLanguage: "en",
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: realEstateMore.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
       },
       {
         "@type": "BreadcrumbList",
