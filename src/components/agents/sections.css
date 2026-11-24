@@ -1883,3 +1883,18 @@
   font-size: 16.5px;
   line-height: 26px;
 }
+
+/* /real-estate footer small print */
+.ag-foot-legal {
+  display: grid;
+  gap: 18px;
+}
+.ag-legal {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+  margin-inline: auto;
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 18px;
+}

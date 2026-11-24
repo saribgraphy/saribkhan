@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { TestimonialCard } from "@/components/home/testimonial-card";
 import { Interaction } from "@/components/shell/interaction";
-import { realEstate as c, realEstateMore as m } from "@/content/real-estate";
+import { realEstate as c, realEstateLegal, realEstateMore as m } from "@/content/real-estate";
 import { site } from "@/content/site";
 import { BookButton, BookingProvider } from "./booking";
 import { cityFor } from "./cities";
@@ -324,15 +324,26 @@ export function RealEstateLanding() {
             </section>
           </Column>
 
-          <footer className="ag-foot">
-            © 2026 ·{" "}
-            <Link className="u-link-plain" href="/">
-              {site.name}
-            </Link>{" "}
-            ·{" "}
-            <a className="u-link-plain" href={`mailto:${site.email}`}>
-              {site.email}
-            </a>
+          <footer className="ag-foot ag-foot-legal">
+            <p>
+              © 2026 ·{" "}
+              <Link className="u-link-plain" href="/">
+                {site.name}
+              </Link>{" "}
+              ·{" "}
+              <Link className="u-link-plain" href="/privacy">
+                Privacy policy
+              </Link>{" "}
+              ·{" "}
+              <a className="u-link-plain" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+            </p>
+            <div className="ag-legal">
+              {realEstateLegal.map((t) => (
+                <p key={t}>{t}</p>
+              ))}
+            </div>
           </footer>
           <Interaction />
         </PreviewProvider>

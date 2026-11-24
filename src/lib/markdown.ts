@@ -4,7 +4,7 @@ import { notes, notesHeading } from "@/content/notes";
 import { engagements, faq, pricingHeading, pricingIntro, pricingSmallLine, teardown, theMath } from "@/content/pricing";
 import { getProject, openProjects, workHeading, workIntro } from "@/content/projects";
 import { VSL } from "@/components/agents/content";
-import { problemsCopy, realEstate, realEstateMore } from "@/content/real-estate";
+import { problemsCopy, realEstate, realEstateLegal, realEstateMore } from "@/content/real-estate";
 import { site, socials } from "@/content/site";
 import { videoGuide } from "@/content/video-guide";
 import { buildHeading, buildIntro, buildLabels, capabilities, touchpoints, xrayLeadIn, xrayOutro } from "@/content/touchpoints";
@@ -223,13 +223,17 @@ const privacy = () =>
     "",
     "The project and walkthrough forms send what you type (your business, what you need help with, a link and a way to reply) by email through Resend. The free guide's waitlist stores your email address, and your name if you add it, in a private Google Sheet, and emails a copy. These details are used only to reply to you and, for the waitlist, to invite you to the Xtarc community.",
     "",
+    "## Booking a call",
+    "",
+    "The booking calendar on the real estate pages is provided by Cal.com. When you book, Cal.com receives your name, email, any answers you give and the time you choose, along with which page and ad campaign you came from (UTM tags), and sends the booking to me. I use it only to hold the call and follow up about it.",
+    "",
     "## What the site stores on your device",
     "",
     "Whether you prefer the Work page as a grid or a list, kept in local storage. Google Analytics sets its own _ga cookies to count visits.",
     "",
     "## Third parties",
     "",
-    "Hosting: Vercel (standard server logs for security and reliability). Visit statistics: Google Analytics (pages viewed, referrer, rough location and device; no form contents). Email delivery: Resend. Waitlist: Google Sheets. The guide's video loads from youtube-nocookie.com only after you press play.",
+    "Hosting: Vercel (standard server logs for security and reliability). Visit statistics: Google Analytics (pages viewed, referrer, rough location and device; no form contents). Email delivery: Resend. Waitlist: Google Sheets. The guide's video loads from youtube-nocookie.com only after you press play; the video on the real estate pages is served from Dribbble's file storage.",
     "",
     "## Your choices",
     "",
@@ -297,6 +301,10 @@ const realEstatePage = () =>
     `${realEstate.finalLead} Book a free 15-minute call: ${realEstate.bookingUrl}`,
     "",
     realEstate.small,
+    "",
+    "---",
+    "",
+    ...realEstateLegal.map((t) => `_${t}_`),
     footer,
   );
 

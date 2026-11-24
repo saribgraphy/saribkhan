@@ -187,3 +187,11 @@ export const realEstateMore = {
     },
   ],
 };
+
+/** Small print for /real-estate's footer (and its Markdown version). Needed for ads on Meta and the portals it names. */
+export const realEstateLegal = [
+  "Names, phone numbers, listings, faces and conversations in the demos and the video are samples, not real clients.",
+  "Results depend on your lead volume, your market and how you work. We don't promise a number of leads, showings or sales.",
+  "This site is not part of Facebook, Instagram or Meta Platforms, Inc., and isn't endorsed by Meta in any way. Facebook and Instagram are trademarks of Meta Platforms, Inc.",
+  "Zillow, Realtor.com, Homes.com, REALTOR.ca, Kijiji, realestate.com.au, Domain and GoHighLevel are trademarks of their owners; we're not affiliated with or endorsed by them. REALTOR® is a trademark controlled by the National Association of REALTORS® and the Canadian Real Estate Association.",
+];
