@@ -1,3 +1,6 @@
+/** The "saribkhan.com" dataset in the Sarib Khan business portfolio. Public: it ships in every page anyway. */
+export const META_PIXEL_ID = "29235247792804520";
+
 /** Calls the Meta Pixel if it's on the page. A no-op locally and on previews, where it isn't loaded. */
 export function fbq(...args: unknown[]) {
   if (typeof window === "undefined") return;

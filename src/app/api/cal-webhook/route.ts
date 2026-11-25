@@ -1,13 +1,13 @@
 import { createHash, createHmac, timingSafeEqual } from "node:crypto";
+import { META_PIXEL_ID } from "@/lib/meta-pixel";
 
 /**
  * Cal.com's BOOKING_CREATED webhook. Checks Cal's signature, then sends the
  * booking to Meta's Conversions API as a Schedule event. Its event_id is the
  * booking uid, the same ID the browser pixel uses, so Meta counts it once.
  *
- * Env: CAL_WEBHOOK_SECRET (Cal webhook secret), META_PIXEL_ID (dataset ID),
- * META_CAPI_TOKEN (Conversions API access token) and, only while testing,
- * META_TEST_EVENT_CODE. Until the first three are set it answers 503 and sends nothing.
+ * Env: CAL_WEBHOOK_SECRET (Cal webhook secret), META_CAPI_TOKEN (Conversions API access token) and, only while testing,
+ * META_TEST_EVENT_CODE. Until both are set it answers 503 and sends nothing.
  */
 
 const sha = (s: string) => createHash("sha256").update(s.trim().toLowerCase()).digest("hex");
@@ -33,7 +33,7 @@ function verified(raw: string, signature: string | null, secret: string) {
 
 export async function POST(request: Request) {
   const secret = process.env.CAL_WEBHOOK_SECRET;
-  const pixel = process.env.META_PIXEL_ID;
+  const pixel = process.env.META_PIXEL_ID ?? META_PIXEL_ID;
   const token = process.env.META_CAPI_TOKEN;
   if (!secret || !pixel || !token) return Response.json({ ok: false, error: "not configured" }, { status: 503 });
 
