@@ -4,7 +4,7 @@ import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 const INTRO =
-  "This site collects what you choose to send through its forms, plus visit statistics from Google Analytics. There are no advertising trackers, and your details are never sold or shared for marketing.";
+  "This site collects what you choose to send through its forms, plus visit statistics from Google Analytics. It also uses the Meta Pixel to measure my ads on Facebook and Instagram. Your details are never sold.";
 
 export const metadata: Metadata = pageMetadata("Privacy", INTRO, "/privacy");
 
@@ -26,8 +26,22 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
       <>
         The booking calendar on the real estate pages is provided by Cal.com. When you book, Cal.com receives your name,
         email, any answers you give and the time you choose, along with which page and ad campaign you came from (the
-        UTM tags in the link), and sends the booking to me. I use it only to hold the call and follow up with you about
+        UTM tags in the link) and the Meta cookies described below, and sends the booking to me. I use it only to hold the call and follow up with you about
         it. Cal.com&apos;s own privacy policy covers how it stores your booking.
+      </>
+    ),
+  },
+  {
+    label: "Advertising (Meta Pixel)",
+    body: (
+      <>
+        I advertise on Facebook and Instagram, so the site uses the Meta Pixel. It tells Meta (the company behind
+        Facebook and Instagram) which pages you view and whether you watch half of the real estate video, open the
+        booking calendar or book a call. Meta matches this to Facebook and Instagram accounts with its own cookies, so
+        I can see which ads work and show ads to people who have already visited. When you book a call, the site also
+        sends Meta the booking with your name and email address, scrambled (hashed) first so they aren&apos;t sent as
+        plain text. You can turn off ads based on your activity in your Facebook or Instagram ad settings, or block the
+        pixel with any content blocker.
       </>
     ),
   },
@@ -36,7 +50,8 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
     body: (
       <>
         Whether you prefer the Work page as a grid or a list, kept in your browser&apos;s local storage; it never leaves your
-        device. Google Analytics also sets its own cookies (named _ga) to count visits, as described below.
+        device. Google Analytics also sets its own cookies (named _ga) to count visits, and the Meta Pixel sets _fbp and _fbc to
+        measure ads, as described above and below.
       </>
     ),
   },
@@ -47,7 +62,7 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
         The site is hosted on Vercel, which handles every request and keeps standard server logs (such as IP address and
         browser) for security and reliability. Google Analytics counts visits: which pages are viewed, how people arrive,
         and their rough location and device. It doesn&apos;t receive what you type into the forms, and Google Analytics
-        doesn&apos;t store IP addresses. You can block it with any content blocker or Google&apos;s opt-out add-on. Emails are delivered by Resend; waitlist entries live in Google Sheets. The
+        doesn&apos;t store IP addresses. You can block it with any content blocker or Google&apos;s opt-out add-on. Meta receives the visits and bookings described under Advertising, and its own privacy policy covers how it uses them. Emails are delivered by Resend; waitlist entries live in Google Sheets. The
         guide&apos;s video only loads from YouTube&apos;s privacy-enhanced domain (youtube-nocookie.com) after you press play,
         and the video on the real estate pages is served from Dribbble&apos;s file storage.
         Links to Instagram, LinkedIn, WhatsApp and other sites follow those sites&apos; own policies.
@@ -93,7 +108,7 @@ export default function PrivacyPage() {
         </div>
       ))}
       <p className="t-label mt-16 text-muted">
-        {site.name}, saribkhan.com. Last updated 24 November 2026.
+        {site.name}, saribkhan.com. Last updated 25 November 2026.
       </p>
     </>
   );

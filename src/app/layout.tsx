@@ -2,8 +2,10 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Instrument_Sans, Instrument_Serif, Inter } from "next/font/google";
 import { Suspense } from "react";
+import { MetaPixel } from "@/components/shell/meta-pixel";
 import { ScrollReset } from "@/components/shell/scroll-reset";
 import { site } from "@/content/site";
+import { META_PIXEL_ID } from "@/lib/meta-pixel";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,6 +49,9 @@ export const metadata: Metadata = {
     locale: "en_GB",
   },
   twitter: { card: "summary_large_image" },
+  ...(process.env.NEXT_PUBLIC_FB_DOMAIN_VERIFICATION
+    ? { other: { "facebook-domain-verification": process.env.NEXT_PUBLIC_FB_DOMAIN_VERIFICATION } }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -63,6 +68,9 @@ export const viewport: Viewport = {
 const GA_ID = "G-0VWYWVVG9H";
 const gaId = process.env.VERCEL_ENV === "production" ? (process.env.NEXT_PUBLIC_GA_ID ?? GA_ID) : undefined;
 
+/** The Meta Pixel ("saribkhan.com" dataset), live site only, like GA. */
+const pixelId = process.env.VERCEL_ENV === "production" ? (process.env.NEXT_PUBLIC_META_PIXEL_ID ?? META_PIXEL_ID) : undefined;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${instrument.variable} ${instrumentSans.variable} ${geistMono.variable}`}>
@@ -71,6 +79,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Suspense fallback={null}>
           <ScrollReset />
         </Suspense>
+        {pixelId ? (
+          <Suspense fallback={null}>
+            <MetaPixel id={pixelId} />
+          </Suspense>
+        ) : null}
       </body>
       {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
     </html>

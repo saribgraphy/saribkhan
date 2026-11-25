@@ -2,6 +2,7 @@
 
 import { X } from "@phosphor-icons/react";
 import { createContext, useCallback, useContext, useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { fbq, metaCookies } from "@/lib/meta-pixel";
 import { captureUtms, firstName, track, utms } from "./track";
 
 /**
@@ -122,6 +123,8 @@ export function BookingProvider({ city, children }: { city: string; children: Re
       const api = cal.ns![NS];
       const u = utms();
       const n = firstName();
+      // Everything Cal sends back with the booking, for the Conversions API (/api/cal-webhook).
+      const meta: Record<string, string> = { city, page: location.origin + location.pathname, ua: navigator.userAgent.slice(0, 250), ...u, ...metaCookies() };
       api("inline", {
         elementOrSelector: "#ag-cal",
         calLink: CAL_LINK,
@@ -130,10 +133,7 @@ export function BookingProvider({ city, children }: { city: string; children: Re
           useSlotsViewOnSmallScreen: "true",
           theme: "light",
           ...(n ? { name: n } : {}),
-          "metadata[city]": city,
-          ...(u.utm_source ? { "metadata[utm_source]": u.utm_source } : {}),
-          ...(u.utm_medium ? { "metadata[utm_medium]": u.utm_medium } : {}),
-          ...(u.utm_campaign ? { "metadata[utm_campaign]": u.utm_campaign } : {}),
+          ...Object.fromEntries(Object.entries(meta).map(([k, v]) => [`metadata[${k}]`, v])),
         },
       });
       api("ui", { theme: "light", hideEventTypeDetails: false, layout: "month_view", cssVarsPerTheme: { light: { "cal-brand": CAL_BRAND } } });
@@ -144,9 +144,16 @@ export function BookingProvider({ city, children }: { city: string; children: Re
           setReady(true);
         },
       });
-      const onBooked = () => {
+      let sentUid = "";
+      const onBooked = (e: unknown) => {
         setBooked(true);
+        const uid = (e as { detail?: { data?: { uid?: string } } })?.detail?.data?.uid ?? "";
+        // Both Cal events can fire for one booking: count it once.
+        if (uid && uid === sentUid) return;
+        sentUid = uid || "sent";
         track("booking_complete");
+        // Same event ID as the server's Conversions API event, so Meta counts the booking once.
+        fbq("track", "Schedule", { content_name: city }, uid ? { eventID: uid } : undefined);
       };
       api("on", { action: "bookingSuccessfulV2", callback: onBooked });
       api("on", { action: "bookingSuccessful", callback: onBooked });
@@ -159,6 +166,7 @@ export function BookingProvider({ city, children }: { city: string; children: Re
     };
   }, [city]);
 
+  const contactSent = useRef(false);
   const close = useCallback((fromHistory = false) => {
     openRef.current = false;
     setOpen(false);
@@ -170,6 +178,11 @@ export function BookingProvider({ city, children }: { city: string; children: Re
   const open = useCallback(
     (position: string) => {
       track("cta_click", { position });
+      track("book_call_click", { position });
+      if (!contactSent.current) {
+        contactSent.current = true;
+        fbq("track", "Contact", { content_name: position });
+      }
       openRef.current = true;
       lastFocus.current = document.activeElement as HTMLElement | null;
       setOpen(true);
